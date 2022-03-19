@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <g id="Add_Interface_App_Gui_Software_Buttons" data-name="Add Interface App Gui Software Buttons" transform="translate(-5.5 -5.5)">
+    <path id="Path_2010" data-name="Path 2010" d="M25.5,5.5a20,20,0,1,0,20,20A20.023,20.023,0,0,0,25.5,5.5Zm0,39.245A19.245,19.245,0,1,1,44.745,25.5,19.267,19.267,0,0,1,25.5,44.745Z" transform="translate(0 0)" fill="#686868"/>
+    <path id="Path_2011" data-name="Path 2011" d="M40.028,27.575H28.33v-11.7a.377.377,0,1,0-.755,0v11.7h-11.7a.377.377,0,1,0,0,.755h11.7v11.7a.377.377,0,0,0,.755,0V28.33h11.7a.377.377,0,0,0,0-.755Z" transform="translate(-2.453 -2.453)" fill="#686868"/>
+  </g>
+</svg>
