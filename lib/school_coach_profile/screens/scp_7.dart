@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/posts_screen.dart';
+import 'package:recruiter_flutter/school_coach_profile/screens/scp_15_1.dart';
 import 'package:recruiter_flutter/school_coach_profile/widgets/drawer_widget.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
@@ -66,7 +67,7 @@ onWillPop: () async {
   return isFirstRouteInCurrentTab;
 },
       child: Scaffold(
-       // drawer: drawerWidget(context),
+     //   drawer: drawerWidget(context),
       //  key: _drawerKey,
       //     appBar: AppBar(
       //       backgroundColor: Colors.black,
@@ -96,7 +97,7 @@ onWillPop: () async {
       //     ),
           body: Stack(
             children: [
-             // pages.elementAt(_navSelectedIndex),
+            //  pages.elementAt(_navSelectedIndex),
               _buildOffstageNavigator(0),
               _buildOffstageNavigator(1),
               _buildOffstageNavigator(2),
@@ -159,14 +160,13 @@ onWillPop: () async {
   // List<Widget> pages = <Widget>[
   //   PostsScreen(),
   //   SecondScreen(),
-  //   // Container(
-  //   //   color: Colors.pink,
-  //   // ),
-  //   //
-  //   // Container(
-  //   //   color: Colors.purple,
-  //   // ),
-  //   // Container(),
+  //   Container(
+  //     color: Colors.pink,
+  //   ),
+  //   SCP15_1(),
+  //   Container(
+  //     color: Colors.purple,
+  //   ),
   // ];
 
   Map<String, WidgetBuilder> _routeBuilders(BuildContext context, int index) {
@@ -178,9 +178,7 @@ onWillPop: () async {
           Container(
             color: Colors.pink,
           ),
-          Container(
-            color: Colors.orange,
-          ),
+          SCP15_1(),
           Container(
             color: Colors.purple,
           ),

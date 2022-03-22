@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-class ControlsOverlay extends StatelessWidget {
+class ControlsOverlay extends StatefulWidget {
   const ControlsOverlay({Key? key, required this.controller})
       : super(key: key);
 
@@ -30,13 +30,18 @@ class ControlsOverlay extends StatelessWidget {
   final VideoPlayerController controller;
 
   @override
+  State<ControlsOverlay> createState() => _ControlsOverlayState();
+}
+
+class _ControlsOverlayState extends State<ControlsOverlay> {
+  @override
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
         AnimatedSwitcher(
           duration: const Duration(milliseconds: 50),
           reverseDuration: const Duration(milliseconds: 200),
-          child: controller.value.isPlaying
+          child: widget.controller.value.isPlaying
               ? const SizedBox.shrink()
               : Center(
             child: Container(
@@ -59,7 +64,9 @@ class ControlsOverlay extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            controller.value.isPlaying ? controller.pause() : controller.play();
+            setState(() {
+              widget.controller.value.isPlaying ? widget.controller.pause() : widget.controller.play();
+            });
           },
         ),
       ],
