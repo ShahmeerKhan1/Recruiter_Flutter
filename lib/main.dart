@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:recruiter_flutter/school_coach_profile/screens/SCP21_1.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp_1.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
@@ -16,13 +18,27 @@ class MyApp extends StatelessWidget {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: AppColor.bgColor,
-        primarySwatch: Colors.yellow,
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+
+          primary:  Colors.black,
+          secondary: Colors.black,
+
+          // or from RGB
+          //
+          // primary: const Color(0xFF343A40),
+          // secondary: const Color(0xFFFFC107),
+
+        ),
+       // primarySwatch: Colors.black,
+     //   colorScheme: ColorScheme.light(primary: const Color(0xFF111111)),
+      //  buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.primary),
       ),
-      home: SCP1(),
+     home: SCP1(),
+     // home: SCP21_1(),
     );
   }
 }

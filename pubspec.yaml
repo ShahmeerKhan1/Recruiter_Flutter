@@ -36,7 +36,11 @@ dependencies:
   flutter_staggered_grid_view:
   video_player:
   image_picker:
-
+  dotted_border:
+  get:
+  month_picker_dialog:
+  intl:
+  auto_size_text:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

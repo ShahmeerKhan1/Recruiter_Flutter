@@ -1,24 +1,18 @@
-import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/school_coach_profile/screens/profile.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/custom_app_bar.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
-class SCP21_1 extends StatefulWidget {
-  const SCP21_1({Key? key}) : super(key: key);
+import 'scp29.dart';
+
+class SCP28_1 extends StatefulWidget {
+  const SCP28_1({Key? key}) : super(key: key);
 
   @override
-  _SCP21_1State createState() => _SCP21_1State();
+  _SCP28_1State createState() => _SCP28_1State();
 }
 
-class _SCP21_1State extends State<SCP21_1> {
-
+class _SCP28_1State extends State<SCP28_1> {
   bool mute = false;
   bool block = false;
-
- // File? f;
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +21,12 @@ class _SCP21_1State extends State<SCP21_1> {
       AppBar(
         backgroundColor: Colors.black,
         iconTheme: IconThemeData(color: Colors.white),
-        title: Text('John Doe', style: TextStyle(color: Colors.white)),
+        title: Text('Martin Mangram', style: TextStyle(color: Colors.white)),
         centerTitle: true,
         actions: [
           InkWell(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => Profile()));
+            //  Navigator.push(context, MaterialPageRoute(builder: (_) => SCP29()));
             },
             child: Padding(
               padding: const EdgeInsets.only(right: 12.0),
@@ -47,14 +41,14 @@ class _SCP21_1State extends State<SCP21_1> {
             ),
             preferredSize: Size.fromHeight(4.0)),
       ),
-     // customAppBar('John Doe', Icons.info_outline),
+      // customAppBar('John Doe', Icons.info_outline),
       body: Column(
         children: [
           Container(
             height: MediaQuery.of(context).size.height * 0.3,
             width: MediaQuery.of(context).size.width,
             alignment: Alignment.center,
-          //  color: Colors.blue,
+            //  color: Colors.blue,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -64,21 +58,21 @@ class _SCP21_1State extends State<SCP21_1> {
                 ),
                 SizedBox(height: 16),
                 Text(
-                  'John Doe',
+                  'Martin Mangram',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 16.0,
                       fontWeight: FontWeight.w500),
                 ),
                 SizedBox(height: 2),
-                Text('@jdoe', style: TextStyle(color: Color(0xFF686868), fontSize: 14.0),)
+                Text('@martin', style: TextStyle(color: Color(0xFF686868), fontSize: 14.0),)
               ],
             ),
           ),
           Container(
             height: MediaQuery.of(context).size.height * 0.15,
             width: MediaQuery.of(context).size.width,
-          //  color: Colors.orange,
+            //  color: Colors.orange,
             padding: EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
               children: [
@@ -126,7 +120,7 @@ class _SCP21_1State extends State<SCP21_1> {
           Container(
             height: MediaQuery.of(context).size.height * 0.26,
             width: MediaQuery.of(context).size.width,
-           // color: Colors.green,
+            // color: Colors.green,
             alignment: Alignment.center,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

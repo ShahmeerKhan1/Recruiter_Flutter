@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/bookmarks.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/events.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/profile.dart';
+import 'package:recruiter_flutter/school_coach_profile/screens/scp26_1.dart';
+import 'package:recruiter_flutter/school_coach_profile/screens/scp31_1.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/settings.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
@@ -10,7 +12,8 @@ Widget drawerWidget(BuildContext context) {
     width: MediaQuery.of(context).size.width * 0.70,
     // color: Colors.purple,
     child: Drawer(
-      backgroundColor: Color(0xFF2A2A2A),
+     // backgroundColor: Color(0xFF2A2A2A),
+      backgroundColor: Color(0xFF111111),
       child: Column(
         children: [
           Expanded(
@@ -19,7 +22,7 @@ Widget drawerWidget(BuildContext context) {
                 _drawerHeader(context),
                 ListTile(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => Profile()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => SCP26_1()));
                  //   Navigator.pushReplacementNamed(context, Routes.profile);
                   },
                   leading: Image.asset('assets/small_profile.png'),
@@ -29,10 +32,10 @@ Widget drawerWidget(BuildContext context) {
                   ),
                 ),
                 ListTile(
-                  // onTap: () {
-                  //   Navigator.push(context, MaterialPageRoute(builder: (_) => Events()));
-                  // //  Navigator.pushReplacementNamed(context, Routes.events);
-                  // },
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => SCP31_1()));
+                  //  Navigator.pushReplacementNamed(context, Routes.events);
+                  },
                   leading: Image.asset('assets/events.png'),
                   title: Text(
                     "Events",
@@ -40,10 +43,10 @@ Widget drawerWidget(BuildContext context) {
                   ),
                 ),
                 ListTile(
-                 //  onTap: () {
-                 //    Navigator.push(context, MaterialPageRoute(builder: (_) => Bookmarks()));
-                 // //   Navigator.pushReplacementNamed(context, Routes.bookmarks);
-                 //  },
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => Bookmarks()));
+                 //   Navigator.pushReplacementNamed(context, Routes.bookmarks);
+                  },
                   leading: Image.asset('assets/bookmarks.png'),
                   title: Text(
                     "Bookmarks",
