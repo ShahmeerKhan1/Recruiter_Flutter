@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_6_4.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp_7.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_radio_buttons.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
-class SCP6_3 extends StatefulWidget {
-  const SCP6_3({Key? key}) : super(key: key);
+class CTP6_3 extends StatefulWidget {
+  const CTP6_3({Key? key}) : super(key: key);
 
   @override
-  _SCP6_3State createState() => _SCP6_3State();
+  _CTP6_3State createState() => _CTP6_3State();
 }
 
-class _SCP6_3State extends State<SCP6_3> {
+class _CTP6_3State extends State<CTP6_3> {
 
   List<Gender> genders = List<Gender>.empty(growable: true);
 
@@ -166,7 +167,7 @@ class _SCP6_3State extends State<SCP6_3> {
                                     fontSize: 16.0),
                               ),
                               onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (_) => SCP7()));
+                                Navigator.push(context, MaterialPageRoute(builder: (_) => CTP6_4()));
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: AppColor.goldenColor,

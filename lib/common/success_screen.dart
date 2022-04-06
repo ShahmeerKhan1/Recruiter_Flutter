@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
-import 'scp_6.dart';
+import 'welcome_screen.dart';
 
-class SCP5 extends StatefulWidget {
-  const SCP5({Key? key}) : super(key: key);
+class SuccessScreen extends StatefulWidget {
+  const SuccessScreen({Key? key}) : super(key: key);
 
   @override
-  _SCP5State createState() => _SCP5State();
+  _SuccessScreenState createState() => _SuccessScreenState();
 }
 
-class _SCP5State extends State<SCP5> {
+class _SuccessScreenState extends State<SuccessScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +53,7 @@ class _SCP5State extends State<SCP5> {
                       fontSize: 16.0),
                 ),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => SCP6()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => WelcomeScreen()));
                 },
                 style: ElevatedButton.styleFrom(
                   primary: AppColor.goldenColor,

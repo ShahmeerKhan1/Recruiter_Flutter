@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/comment_widget.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/custom_app_bar.dart';
 import 'package:recruiter_flutter/util/colors.dart';
+import 'package:recruiter_flutter/widgets/comment_widget.dart';
+import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 import 'package:video_player/video_player.dart';
 
 import 'textfield_focused_border.dart';

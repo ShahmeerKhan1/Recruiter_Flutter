@@ -2,11 +2,10 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp42_1.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/custom_app_bar.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/drawer_widget.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/textfield_focused_border.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/textfield_input_border.dart';
 import 'package:recruiter_flutter/util/colors.dart';
+import 'package:recruiter_flutter/widgets/drawer_widget.dart';
+import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
+import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
 class SCP41_1 extends StatefulWidget {
   const SCP41_1({Key? key}) : super(key: key);

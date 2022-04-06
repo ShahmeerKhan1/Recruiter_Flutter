@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/school_coach_profile/model/stats_model.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/custom_app_bar.dart';
+import 'package:recruiter_flutter/model/stats_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
+import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 
 import 'scp30_1.dart';
 

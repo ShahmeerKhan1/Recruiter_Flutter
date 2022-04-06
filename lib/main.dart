@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:recruiter_flutter/school_coach_profile/screens/SCP21_1.dart';
-import 'package:recruiter_flutter/school_coach_profile/screens/scp_1.dart';
+import 'package:recruiter_flutter/common/start_screen.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
 void main() {
@@ -37,8 +36,9 @@ class MyApp extends StatelessWidget {
      //   colorScheme: ColorScheme.light(primary: const Color(0xFF111111)),
       //  buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.primary),
       ),
-     home: SCP1(),
-     // home: SCP21_1(),
+    // home: SCP1(),
+     // home: CTP1(),
+      home: StartScreen()
     );
   }
 }

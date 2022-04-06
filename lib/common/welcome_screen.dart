@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:recruiter_flutter/common/choose_profile.dart';
+import 'package:recruiter_flutter/common/login_screen.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
-import 'scp_6_1.dart';
-
-class SCP6 extends StatelessWidget {
-  const SCP6({Key? key}) : super(key: key);
+class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class SCP6 extends StatelessWidget {
                       fontSize: 16.0),
                 ),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => SCP6_1()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => ChooseProfile()));
                 },
                 style: ElevatedButton.styleFrom(
                   primary: AppColor.goldenColor,

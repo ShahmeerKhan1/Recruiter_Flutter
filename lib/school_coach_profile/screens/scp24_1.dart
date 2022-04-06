@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/school_coach_profile/model/followers_model.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/textfield_focused_border.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/textfield_input_border.dart';
+import 'package:recruiter_flutter/model/followers_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
+import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
+import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
 class SCP24_1 extends StatefulWidget {
   const SCP24_1({Key? key}) : super(key: key);

@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:month_picker_dialog/month_picker_dialog.dart';
-import 'package:recruiter_flutter/school_coach_profile/model/calendar_model.dart';
+import 'package:recruiter_flutter/model/calendar_model.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp36_1.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/custom_app_bar.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/textfield_focused_border.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/textfield_input_border.dart';
 import 'package:recruiter_flutter/util/colors.dart';
+import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
+import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
+import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
 class SCP35_1 extends StatefulWidget {
   final DateTime initialDate = DateTime.now();

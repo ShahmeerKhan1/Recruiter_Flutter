@@ -4,17 +4,15 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:recruiter_flutter/school_coach_profile/model/image_picker_model.dart';
-import 'package:recruiter_flutter/school_coach_profile/model/post_tab_model.dart';
-import 'package:recruiter_flutter/school_coach_profile/model/reply_post_model.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/custom_app_bar.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/custom_highlight_widget.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/custom_post_widget.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/drawer_widget.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/textfield_focused_border.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/textfield_input_border.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/video_controller.dart';
+import 'package:recruiter_flutter/model/post_tab_model.dart';
+import 'package:recruiter_flutter/model/reply_post_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
+import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
+import 'package:recruiter_flutter/widgets/custom_highlight_widget.dart';
+import 'package:recruiter_flutter/widgets/custom_post_widget.dart';
+import 'package:recruiter_flutter/widgets/drawer_widget.dart';
+import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
+import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 import 'package:video_player/video_player.dart';
 
 class PostsScreen extends StatefulWidget {

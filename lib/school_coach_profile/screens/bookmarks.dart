@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/custom_app_bar.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/textfield_focused_border.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/textfield_input_border.dart';
 import 'package:recruiter_flutter/util/colors.dart';
+import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
+import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
+import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
 class Bookmarks extends StatefulWidget {
   const Bookmarks({Key? key}) : super(key: key);

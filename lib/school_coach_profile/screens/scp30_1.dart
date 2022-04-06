@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/custom_app_bar.dart';
+import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 
 class SCP30_1 extends StatefulWidget {
   const SCP30_1({Key? key}) : super(key: key);

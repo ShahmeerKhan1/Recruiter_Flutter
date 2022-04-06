@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/school_coach_profile/model/notifications_model.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/custom_app_bar.dart';
+import 'package:recruiter_flutter/model/notifications_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
+import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 
 class SCP42_1 extends StatelessWidget {
   SCP42_1({Key? key}) : super(key: key);

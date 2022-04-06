@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/custom_app_bar.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/textfield_focused_border.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/textfield_input_border.dart';
 import 'package:recruiter_flutter/util/colors.dart';
+import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
+import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
+import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
 class SCP34_1 extends StatelessWidget {
   SCP34_1({Key? key}) : super(key: key);

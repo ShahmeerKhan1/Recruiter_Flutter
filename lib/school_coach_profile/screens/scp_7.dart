@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/posts_screen.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp_15_1.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/drawer_widget.dart';
 import 'package:recruiter_flutter/util/colors.dart';
+import 'package:recruiter_flutter/widgets/drawer_widget.dart';
 
 class SCP7 extends StatefulWidget {
   const SCP7({Key? key}) : super(key: key);

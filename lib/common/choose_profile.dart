@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/custom_radio_buttons.dart';
+import 'package:get/get.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_6_2.dart';
+import 'package:recruiter_flutter/school_coach_profile/screens/scp_6_2.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'scp_6_2.dart';
+import 'package:recruiter_flutter/widgets/custom_radio_buttons.dart';
 
-class SCP6_1 extends StatefulWidget {
-  const SCP6_1({Key? key}) : super(key: key);
+class ChooseProfile extends StatefulWidget {
+  const ChooseProfile({Key? key}) : super(key: key);
 
   @override
-  _SCP6_1State createState() => _SCP6_1State();
+  _ChooseProfileState createState() => _ChooseProfileState();
 }
 
-class _SCP6_1State extends State<SCP6_1> {
+class _ChooseProfileState extends State<ChooseProfile> {
 
   List<Gender> genders = List<Gender>.empty(growable: true);
+  int selectedIndex = -1;
 
   @override
   void initState() {
     super.initState();
     genders.add(new Gender("High School\nAthlete", 'assets/football.png', false));
-    genders.add(new Gender("Collegiate\nCoach", 'assets/football.png', false));
+    genders.add(new Gender("Collegiate\nCoach", 'assets/jockey.png', false));
     genders.add(new Gender("High School\nCoach", 'assets/jockey.png', false));
     genders.add(new Gender("Collegiate\nTransfer", 'assets/judo.png', false));
   }
@@ -87,6 +90,7 @@ class _SCP6_1State extends State<SCP6_1> {
                         setState(() {
                           genders.forEach((gender) => gender.isSelected = false);
                           genders[index].isSelected = true;
+                          selectedIndex=index;
                         });
                       },
                       child: CustomRadio(genders[index]).typeWidget(),
@@ -106,7 +110,8 @@ class _SCP6_1State extends State<SCP6_1> {
                       fontSize: 16.0),
                 ),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => SCP6_2()));
+                  choosePath();
+                //  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP6_2()));
                 },
                 style: ElevatedButton.styleFrom(
                   primary: AppColor.goldenColor,
@@ -117,5 +122,28 @@ class _SCP6_1State extends State<SCP6_1> {
         ),
       ),
     );
+  }
+
+  choosePath(){
+    switch(selectedIndex){
+      case -1:
+        Get.snackbar("Note", "please select profile type",snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: AppColor.goldenColor,);
+        break;
+      case 0:
+        print('index 0');
+        break;
+      case 1:
+        Navigator.push(context, MaterialPageRoute(builder: (_) => SCP6_2()));
+        print('index 1');
+        break;
+      case 2:
+        print("index 2");
+        break;
+      case 3:
+        print("index 3");
+        Navigator.push(context, MaterialPageRoute(builder: (_) => CTP6_2()));
+        break;
+    }
   }
 }

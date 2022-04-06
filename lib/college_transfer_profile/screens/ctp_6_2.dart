@@ -6,18 +6,17 @@ import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_radio_buttons.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
+import 'ctp_6_3.dart';
 
-import 'scp_6_3.dart';
-import 'scp_7.dart';
 
-class SCP6_2 extends StatefulWidget {
-  const SCP6_2({Key? key}) : super(key: key);
+class CTP6_2 extends StatefulWidget {
+  const CTP6_2({Key? key}) : super(key: key);
 
   @override
-  _SCP6_2State createState() => _SCP6_2State();
+  _CTP6_2State createState() => _CTP6_2State();
 }
 
-class _SCP6_2State extends State<SCP6_2> {
+class _CTP6_2State extends State<CTP6_2> {
 
   List<Gender> genders = List<Gender>.empty(growable: true);
 
@@ -458,7 +457,7 @@ class _SCP6_2State extends State<SCP6_2> {
                           fontSize: 16.0),
                     ),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => SCP6_3()));
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => CTP6_3()));
                     },
                     style: ElevatedButton.styleFrom(
                       primary: AppColor.goldenColor,

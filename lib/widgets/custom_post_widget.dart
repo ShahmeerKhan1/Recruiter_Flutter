@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/school_coach_profile/model/post_tab_model.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/posts_screen.dart';
 import 'package:recruiter_flutter/util/colors.dart';
+
+import '../model/post_tab_model.dart';
 
 Widget postsTab() {
 

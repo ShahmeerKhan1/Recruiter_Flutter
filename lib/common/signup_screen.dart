@@ -1,20 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/textfield_focused_border.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/textfield_input_border.dart';
+import 'package:recruiter_flutter/common/login_screen.dart';
 import 'package:recruiter_flutter/util/colors.dart';
+import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
+import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
+import 'success_screen.dart';
 
-import 'scp_2.dart';
-import 'scp_5.dart';
-
-class SCP3 extends StatefulWidget {
-  const SCP3({Key? key}) : super(key: key);
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({Key? key}) : super(key: key);
 
   @override
-  _SCP3State createState() => _SCP3State();
+  _SignupScreenState createState() => _SignupScreenState();
 }
 
-class _SCP3State extends State<SCP3> {
+class _SignupScreenState extends State<SignupScreen> {
   TextEditingController firstName = TextEditingController();
   TextEditingController lastName = TextEditingController();
   TextEditingController email = TextEditingController();
@@ -218,7 +217,7 @@ class _SCP3State extends State<SCP3> {
                           fontSize: 16.0),
                     ),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => SCP5()));
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => SuccessScreen()));
                     },
                     style: ElevatedButton.styleFrom(
                       primary: AppColor.goldenColor,
@@ -237,7 +236,7 @@ class _SCP3State extends State<SCP3> {
                   SizedBox(width: 4),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => SCP2()));
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => LoginScreen()));
                     },
                     child: Ink(
                       //  color: Colors.white70,

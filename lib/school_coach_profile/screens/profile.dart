@@ -3,14 +3,12 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:recruiter_flutter/school_coach_profile/controller/controller.dart';
-import 'package:recruiter_flutter/school_coach_profile/controller/game_controller.dart';
+import 'package:recruiter_flutter/controller/controller.dart';
+import 'package:recruiter_flutter/controller/game_controller.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp_23_3.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/custom_highlight_widget.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/custom_post_widget.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/drawer_widget.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/global.dart';
 import 'package:recruiter_flutter/util/colors.dart';
+import 'package:recruiter_flutter/widgets/custom_post_widget.dart';
+import 'package:recruiter_flutter/widgets/drawer_widget.dart';
 
 import 'scp23_5.dart';
 

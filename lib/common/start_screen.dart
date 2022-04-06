@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
-import 'scp_2.dart';
-import 'scp_3.dart';
+import 'login_screen.dart';
+import 'signup_screen.dart';
 
-class SCP1 extends StatelessWidget {
-  const SCP1({Key? key}) : super(key: key);
+class StartScreen extends StatelessWidget {
+  const StartScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class SCP1 extends StatelessWidget {
                           fontSize: 16.0),
                     ),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => SCP2()));
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => LoginScreen()));
                     },
                     style: ElevatedButton.styleFrom(
                       primary: AppColor.goldenColor,
@@ -54,7 +54,7 @@ class SCP1 extends StatelessWidget {
                 SizedBox(height: 2),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => SCP3()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => SignupScreen()));
                   },
                   child: Ink(
                   //  color: Colors.white70,

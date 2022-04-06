@@ -1,18 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/textfield_focused_border.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/textfield_input_border.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'scp_5.dart';
+import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
+import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
+import 'success_screen.dart';
 
-class SCP4 extends StatefulWidget {
-  const SCP4({Key? key}) : super(key: key);
+class VerifyEmailScreen extends StatefulWidget {
+  const VerifyEmailScreen({Key? key}) : super(key: key);
 
   @override
-  _SCP4State createState() => _SCP4State();
+  _VerifyEmailScreenState createState() => _VerifyEmailScreenState();
 }
 
-class _SCP4State extends State<SCP4> {
+class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
 
   TextEditingController code = TextEditingController();
 
@@ -110,7 +110,7 @@ class _SCP4State extends State<SCP4> {
                         fontSize: 16.0),
                   ),
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => SCP5()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => SuccessScreen()));
                   },
                   style: ElevatedButton.styleFrom(
                     primary: AppColor.goldenColor,

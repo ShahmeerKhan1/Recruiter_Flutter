@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/profile.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/custom_app_bar.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
 class SCP21_1 extends StatefulWidget {

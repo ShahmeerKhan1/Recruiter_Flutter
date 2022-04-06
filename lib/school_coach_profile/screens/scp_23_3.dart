@@ -6,13 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pattern_formatter/pattern_formatter.dart';
-import 'package:recruiter_flutter/school_coach_profile/controller/controller.dart';
-import 'package:recruiter_flutter/school_coach_profile/controller/game_controller.dart';
-import 'package:recruiter_flutter/school_coach_profile/model/game_model.dart';
+import 'package:recruiter_flutter/controller/controller.dart';
+import 'package:recruiter_flutter/controller/game_controller.dart';
+import 'package:recruiter_flutter/model/game_model.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/profile.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/global.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/textfield_focused_border.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/textfield_input_border.dart';
+import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
+import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
 class SCP23_3 extends StatefulWidget {
   const SCP23_3({Key? key}) : super(key: key);

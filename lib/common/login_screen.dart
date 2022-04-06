@@ -1,20 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/school_coach_profile/screens/scp_5.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/textfield_focused_border.dart';
-import 'package:recruiter_flutter/school_coach_profile/widgets/textfield_input_border.dart';
+import 'package:recruiter_flutter/common/success_screen.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'scp_3.dart';
-import 'scp_4.dart';
+import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
+import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
+import 'signup_screen.dart';
+import 'verify_email_screen.dart';
 
-class SCP2 extends StatefulWidget {
-  const SCP2({Key? key}) : super(key: key);
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
-  State<SCP2> createState() => _SCP2State();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _SCP2State extends State<SCP2> {
+class _LoginScreenState extends State<LoginScreen> {
 
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
@@ -85,7 +85,7 @@ class _SCP2State extends State<SCP2> {
                     SizedBox(width: 4),
                     InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (_) => SCP4()));
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => VerifyEmailScreen()));
                       },
                       child: Ink(
                         //  color: Colors.white70,
@@ -113,7 +113,7 @@ class _SCP2State extends State<SCP2> {
                           fontSize: 16.0),
                     ),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => SCP5()));
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => SuccessScreen()));
                     },
                     style: ElevatedButton.styleFrom(
                       primary: AppColor.goldenColor,
@@ -136,7 +136,7 @@ class _SCP2State extends State<SCP2> {
                 SizedBox(width: 4),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => SCP3()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => SignupScreen()));
                   },
                   child: Ink(
                     //  color: Colors.white70,
