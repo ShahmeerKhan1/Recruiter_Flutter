@@ -1,199 +1,28 @@
 import 'dart:io';
-import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:recruiter_flutter/model/post_tab_model.dart';
 import 'package:recruiter_flutter/model/reply_post_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
-import 'package:recruiter_flutter/widgets/custom_highlight_widget.dart';
-import 'package:recruiter_flutter/widgets/custom_post_widget.dart';
-import 'package:recruiter_flutter/widgets/drawer_widget.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
-import 'package:video_player/video_player.dart';
 
-class PostsScreen extends StatefulWidget {
-  const PostsScreen({Key? key}) : super(key: key);
-
-  @override
-  State<PostsScreen> createState() => _PostsScreenState();
-}
-
-class _PostsScreenState extends State<PostsScreen> with SingleTickerProviderStateMixin {
-  late TabController _controller;
-
-  int _selectedIndex = 0; //  Tab Bar Index
-
-  List<Widget> list = [
-    Tab(text: 'Posts'),
-    Tab(
-      text: 'Highlights',
-    ),
-  ];
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    // Create TabController for getting the index of current tab
-    _controller = TabController(length: list.length, vsync: this); // Tab Bar
-
-    _controller.addListener(() {
-      // Tab Bar
-      setState(() {
-        _selectedIndex = _controller.index;
-      });
-      print("Selected Index: " + _controller.index.toString());
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      drawer: drawerWidget(context),
-      appBar: AppBar(
-          backgroundColor: Colors.black,
-          iconTheme: IconThemeData(color: Colors.white),
-          title: Image.asset('assets/logo.png', width: 135),
-          centerTitle: true,
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(right: 12.0),
-              child: Icon(Icons.notifications, color: Colors.white),
-            )
-          ],
-          bottom: TabBar(
-            labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-            labelColor: Colors.white,
-            unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
-            indicatorColor: Colors.white,
-            onTap: (index) {
-              print('Tab $index is tapped');
-              // Should not used it as it only called when tab options are clicked,
-              // not when user swapped
-            },
-            controller: _controller,
-            tabs: list,
-          )
-      ),
-      //  appBar: PreferredSize(
-      //    preferredSize: Size.fromHeight(kToolbarHeight),
-      //    child: Container(
-      //      child: Column(
-      //        children: [
-      //          TabBar(
-      //            labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-      //            labelColor: Colors.white,
-      //            unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
-      //            indicatorColor: Colors.white,
-      //            onTap: (index) {
-      //              print('Tab $index is tapped');
-      //              // Should not used it as it only called when tab options are clicked,
-      //              // not when user swapped
-      //            },
-      //            controller: _controller,
-      //            tabs: list,
-      //          ),
-      //        ],
-      //      ),
-      //    ),
-      //  ),
-      body: TabBarView(
-        controller: _controller,
-        physics: NeverScrollableScrollPhysics(),
-        children: [
-          postsTab(), // custom Post Widget
-          CustomHighlightWidget(), // custom hightlight widget
-          // Container(
-          //   color: Colors.green,
-          // )
-        ],
-      ),
-      // AppBar(
-      //   backgroundColor: Colors.black,
-      //   iconTheme: IconThemeData(color: Colors.white),
-      //   title: Image.asset('assets/logo.png', width: 135),
-      //   centerTitle: true,
-      //   actions: [
-      //     Padding(
-      //       padding: const EdgeInsets.only(right: 12.0),
-      //       child: Icon(Icons.notifications, color: Colors.white),
-      //     )
-      //   ],
-      //   bottom: TabBar(
-      //     labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-      //     labelColor: Colors.white,
-      //     unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
-      //     indicatorColor: Colors.white,
-      //     onTap: (index) {
-      //       print('Tab $index is tapped');
-      //       // Should not used it as it only called when tab options are clicked,
-      //       // not when user swapped
-      //     },
-      //     controller: _controller,
-      //     tabs: list,
-      //   ),
-      // backgroundColor: Colors.black,
-      // automaticallyImplyLeading: false,
-      // flexibleSpace: Column(
-      //   children: [
-      //     TabBar(
-      //       labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-      //       labelColor: Colors.white,
-      //       unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
-      //       indicatorColor: Colors.white,
-      //       onTap: (index) {
-      //         print('Tab $index is tapped');
-      //         // Should not used it as it only called when tab options are clicked,
-      //         // not when user swapped
-      //       },
-      //       controller: _controller,
-      //       tabs: list,
-      //     ),
-      //   ],
-      // ),
-      // backgroundColor: Colors.black,
-      // iconTheme: IconThemeData(color: Colors.white),
-      // title: Image.asset('assets/logo.png',width: 135),
-      // centerTitle: true,
-      // actions: [
-      //   Padding(
-      //     padding: const EdgeInsets.only(right: 12.0),
-      //     child: Icon(Icons.notifications, color: Colors.white),
-      //   )
-      // ],
-      // bottom: TabBar(
-      //   labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-      //   labelColor: Colors.white,
-      //   unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
-      //   indicatorColor: Colors.white,
-      //   onTap: (index) {
-      //     print('Tab $index is tapped');
-      //     // Should not used it as it only called when tab options are clicked,
-      //     // not when user swapped
-      //   },
-      //   controller: _controller,
-      //   tabs: list,
-    );
-  }
-}
-
-class PostDetail extends StatefulWidget {
+class CTP9_1 extends StatefulWidget {
   final PostTabModel data;
 
-  PostDetail({Key? key, required this.data});
+  CTP9_1({Key? key, required this.data});
 
   @override
-  State<PostDetail> createState() => _PostDetailState();
+  _CTP9_1State createState() => _CTP9_1State();
 }
 
-class _PostDetailState extends State<PostDetail> {
+class _CTP9_1State extends State<CTP9_1> {
+
   TextEditingController comment = TextEditingController();
   bool isButtonEnabled = false;
+  bool _hearReact = false;
   final _formKey = GlobalKey<FormState>();
 
   ReplyPostModel model = ReplyPostModel(
@@ -201,7 +30,7 @@ class _PostDetailState extends State<PostDetail> {
       userName: 'John Doe ',
       time: '1m',
       desc:
-          "Congratulations after all the hard work!\nYou really deserve this.",
+      "Congratulations after all the hard work!\nYou really deserve this.",
       like: '1.1k',
       comment: '1.1k',
       reply: 'Reply');
@@ -212,7 +41,7 @@ class _PostDetailState extends State<PostDetail> {
         userName: 'John Doe ',
         time: '1m',
         desc:
-            "Congratulations after all the hard work!\nYou really deserve this.",
+        "Congratulations after all the hard work!\nYou really deserve this.",
         like: '1.1k',
         comment: '1.1k',
         reply: 'Reply')
@@ -364,121 +193,141 @@ class _PostDetailState extends State<PostDetail> {
                   ),
                   child: Column(
                     children: [
-                      Row(
-                        children: [
-                          CircleAvatar(
-                            backgroundImage: AssetImage(widget.data.profileImg),
-                            radius: 28,
-                          ),
-                          SizedBox(width: 6),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                //  color: Colors.blue,
-                                width: MediaQuery.of(context).size.width * 0.7,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      widget.data.userName,
-                                      style: TextStyle(color: Colors.white),
+                      Expanded(
+                        child: Row(
+                          children: [
+                            CircleAvatar(
+                              backgroundImage: AssetImage(widget.data.profileImg),
+                              radius: 28,
+                            ),
+                            SizedBox(width: 6),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    //  color: Colors.blue,
+                                    width: MediaQuery.of(context).size.width * 0.7,
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          widget.data.userName,
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                        Text(
+                                          ' - ',
+                                          style: TextStyle(color: Colors.grey),
+                                        ),
+                                        Text(
+                                          widget.data.time,
+                                          style: TextStyle(color: Colors.grey),
+                                        ),
+                                        Spacer(),
+                                        Icon(Icons.more_horiz, color: Colors.white),
+                                        //     IconButton(
+                                        //         onPressed: () {},
+                                        //         icon: Icon(Icons.more_horiz))
+                                      ],
                                     ),
-                                    Text(
-                                      ' - ',
-                                      style: TextStyle(color: Colors.grey),
+                                  ),
+                                  //  SizedBox(height: 4),
+                                  Expanded(
+                                    child: Text(
+                                      widget.data.desc,
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 12),
                                     ),
-                                    Text(
-                                      widget.data.time,
-                                      style: TextStyle(color: Colors.grey),
-                                    ),
-                                    Spacer(),
-                                    Icon(Icons.more_horiz, color: Colors.white),
-                                    //     IconButton(
-                                    //         onPressed: () {},
-                                    //         icon: Icon(Icons.more_horiz))
-                                  ],
-                                ),
+                                  )
+                                ],
                               ),
-                              //  SizedBox(height: 4),
-                              Text(
-                                widget.data.desc,
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 12),
-                              )
-                            ],
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
                       SizedBox(height: 10),
-                      Column(
-                        children: [
-                          Row(
-                            children: [
-                              Expanded(
-                                flex: 1,
-                                child: Container(
-                                    height: 110,
-                                    //  color: Colors.blue,
-                                    child: Image.asset(
-                                      widget.data.img1,
-                                      fit: BoxFit.fill,
-                                    )),
-                              ),
-                              SizedBox(width: 8),
-                              Expanded(
-                                flex: 1,
-                                child: Container(
-                                    height: 110,
-                                    //  color: Colors.green,
-                                    child: Image.asset(
-                                      widget.data.img2,
-                                      fit: BoxFit.fill,
-                                    )),
-                              )
-                            ],
-                          ),
-                          SizedBox(height: 8),
-                          Row(
-                            children: [
-                              Expanded(
-                                flex: 1,
-                                child: Container(
-                                    height: 110,
-                                    //  color: Colors.blue,
-                                    child: Image.asset(
-                                      widget.data.img3,
-                                      fit: BoxFit.fill,
-                                    )),
-                              ),
-                              SizedBox(width: 8),
-                              Expanded(
-                                flex: 1,
-                                child: Container(
-                                    height: 110,
-                                    //  color: Colors.green,
-                                    child: Image.asset(
-                                      widget.data.img4,
-                                      fit: BoxFit.fill,
-                                    )),
-                              )
-                            ],
-                          ),
-                        ],
+                      Expanded(
+                        flex: 4,
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Expanded(child: widget.data.img != null ?
+                            Image.file(widget.data.img!, fit: BoxFit.fill) : Container())
+                            // Row(
+                            //   children: [
+                            //     Expanded(
+                            //       flex: 1,
+                            //       child: Container(
+                            //           height: 110,
+                            //           //  color: Colors.blue,
+                            //           child: Image.asset(
+                            //             widget.data.img1,
+                            //             fit: BoxFit.fill,
+                            //           )),
+                            //     ),
+                            //     SizedBox(width: 8),
+                            //     Expanded(
+                            //       flex: 1,
+                            //       child: Container(
+                            //           height: 110,
+                            //           //  color: Colors.green,
+                            //           child: Image.asset(
+                            //             widget.data.img2,
+                            //             fit: BoxFit.fill,
+                            //           )),
+                            //     )
+                            //   ],
+                            // ),
+                            // SizedBox(height: 8),
+                            // Row(
+                            //   children: [
+                            //     Expanded(
+                            //       flex: 1,
+                            //       child: Container(
+                            //           height: 110,
+                            //           //  color: Colors.blue,
+                            //           child: Image.asset(
+                            //             widget.data.img3,
+                            //             fit: BoxFit.fill,
+                            //           )),
+                            //     ),
+                            //     SizedBox(width: 8),
+                            //     Expanded(
+                            //       flex: 1,
+                            //       child: Container(
+                            //           height: 110,
+                            //           //  color: Colors.green,
+                            //           child: Image.asset(
+                            //             widget.data.img4,
+                            //             fit: BoxFit.fill,
+                            //           )),
+                            //     )
+                            //   ],
+                            // ),
+                          ],
+                        ),
                       ),
                       SizedBox(height: 16),
                       Row(
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.favorite,
-                                  color: AppColor.greyBorderColor, size: 20),
+                              InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    _hearReact = !_hearReact;
+                                  });
+                                  print('toggle');
+                                },
+                                child: Icon(Icons.favorite,
+                                    color: _hearReact ? Colors.red : AppColor.greyBorderColor, size: 20),
+                              ),
                               SizedBox(width: 2),
                               Text(
                                 widget.data.like,
                                 style:
-                                    TextStyle(color: AppColor.greyBorderColor),
+                                TextStyle(color: AppColor.greyBorderColor),
                               )
                             ],
                           ),
@@ -577,7 +426,7 @@ class _PostDetailState extends State<PostDetail> {
                                             ? AppColor.goldenColor
                                             : Colors.grey,
                                         borderRadius:
-                                            BorderRadius.circular(6.0),
+                                        BorderRadius.circular(6.0),
                                       ),
                                     ),
                                   ),
@@ -615,22 +464,22 @@ class _PostDetailState extends State<PostDetail> {
                     //  gridImgView(),
                     imageFile != null
                         ? Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: 300,
-                            //  height: 200,
-                            //         color: Colors.blue,
-                            decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(12)),
-                            ),
-                            child: Image.file(
-                              imageFile!,
-                              fit: BoxFit.fill,
-                            ),
-                          )
+                      width: MediaQuery.of(context).size.width,
+                      height: 300,
+                      //  height: 200,
+                      //         color: Colors.blue,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.circular(12)),
+                      ),
+                      child: Image.file(
+                        imageFile!,
+                        fit: BoxFit.fill,
+                      ),
+                    )
                         : Container(
-                            //   child: Icon(Icons.camera, color: Colors.white),
-                            ),
+                      //   child: Icon(Icons.camera, color: Colors.white),
+                    ),
                     // ElevatedButton.icon(
                     //     onPressed: () {
                     //       _onAddImageClick();
@@ -686,24 +535,24 @@ class _PostDetailState extends State<PostDetail> {
                               children: [
                                 CircleAvatar(
                                   backgroundImage:
-                                      AssetImage(_list[index].profileImg),
+                                  AssetImage(_list[index].profileImg),
                                   radius: 18,
                                 ),
                                 SizedBox(width: 6),
                                 Column(
                                   crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                  CrossAxisAlignment.start,
                                   children: [
                                     Container(
                                       //  color: Colors.blue,
                                       width:
-                                          MediaQuery.of(context).size.width *
-                                              0.7,
+                                      MediaQuery.of(context).size.width *
+                                          0.7,
                                       child: Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        MainAxisAlignment.center,
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.center,
+                                        CrossAxisAlignment.center,
                                         children: [
                                           Text(
                                             _list[index].userName,
@@ -713,12 +562,12 @@ class _PostDetailState extends State<PostDetail> {
                                           Text(
                                             '- ',
                                             style:
-                                                TextStyle(color: Colors.grey),
+                                            TextStyle(color: Colors.grey),
                                           ),
                                           Text(
                                             _list[index].time,
                                             style:
-                                                TextStyle(color: Colors.grey),
+                                            TextStyle(color: Colors.grey),
                                           ),
                                           Spacer(),
                                           Icon(Icons.more_horiz,

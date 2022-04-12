@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_6_7.dart';
 import 'package:recruiter_flutter/common/start_screen.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
     // home: SCP1(),
      // home: CTP1(),
       home: StartScreen()
+    //  home: CTP6_7(),
     );
   }
 }

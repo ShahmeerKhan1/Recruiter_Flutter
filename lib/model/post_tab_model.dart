@@ -1,5 +1,7 @@
+import 'dart:io';
+
 class PostTabModel {
-  final String profileImg,
+    String profileImg,
       userName,
       time,
       desc,
@@ -10,6 +12,8 @@ class PostTabModel {
       like,
       comment,
       star;
+
+    File? img;
 
   PostTabModel(
       {required this.profileImg,
@@ -22,5 +26,7 @@ class PostTabModel {
       required this.img4,
       required this.like,
       required this.comment,
-      required this.star});
+      required this.star,
+          this.img
+      });
 }

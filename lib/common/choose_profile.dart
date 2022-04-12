@@ -127,8 +127,8 @@ class _ChooseProfileState extends State<ChooseProfile> {
   choosePath(){
     switch(selectedIndex){
       case -1:
-        Get.snackbar("Note", "please select profile type",snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: AppColor.goldenColor,);
+        Get.snackbar("Note", "Please select Profile Type",snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: AppColor.goldenColor,colorText: Colors.white);
         break;
       case 0:
         print('index 0');
