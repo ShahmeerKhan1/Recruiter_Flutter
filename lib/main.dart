@@ -39,8 +39,8 @@ class MyApp extends StatelessWidget {
       ),
     // home: SCP1(),
      // home: CTP1(),
-      home: StartScreen()
-    //  home: CTP6_7(),
+    //  home: StartScreen()
+      home: CTP6_7(),
     );
   }
 }

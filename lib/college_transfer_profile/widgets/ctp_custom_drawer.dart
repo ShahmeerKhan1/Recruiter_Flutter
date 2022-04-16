@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_22_1.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
 Widget customDrawer(BuildContext context) {
@@ -17,7 +18,7 @@ Widget customDrawer(BuildContext context) {
                 _drawerHeader(context),
                 ListTile(
                   onTap: () {
-                   // Navigator.push(context, MaterialPageRoute(builder: (_) => SCP26_1()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => CTP22_1()));
                     //   Navigator.pushReplacementNamed(context, Routes.profile);
                   },
                   leading: Image.asset('assets/small_profile.png'),

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/cto_7.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7_1.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 

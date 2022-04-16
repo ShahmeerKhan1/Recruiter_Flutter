@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/cto_7.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7_1.dart';
 import 'package:recruiter_flutter/controller/new_post_controller.dart';
 import 'package:recruiter_flutter/model/post_tab_model.dart';

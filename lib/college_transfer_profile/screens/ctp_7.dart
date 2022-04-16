@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_15_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7_2.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7_4.dart';
@@ -108,9 +109,7 @@ class _CTP_7State extends State<CTP_7> with SingleTickerProviderStateMixin {
           //   color: Colors.black.withOpacity(0.5),
           //     child: showBottomSheet()),
           //  SCP15_1(),
-          Container(
-            color: Colors.purple,
-          ),
+          CTP15_1()
         ].elementAt(index);
       },
     };

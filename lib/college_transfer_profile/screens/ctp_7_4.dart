@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/cto_7.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_highlights_tab.dart';
 import 'package:recruiter_flutter/controller/new_highlight_controller.dart';
