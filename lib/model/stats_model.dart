@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class StatsModel {
   String date, team, location, status, ratio, rating;
+  File? image;
+  IconData? dlt;
   Color color;
 
   StatsModel(
@@ -11,5 +15,5 @@ class StatsModel {
       required this.status,
       required this.ratio,
       required this.rating,
-      required this.color});
+      required this.color, this.dlt, this.image});
 }

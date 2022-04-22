@@ -1,6 +1,8 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_26_1.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_31.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp29.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -263,38 +265,48 @@ class _CTP22_1State extends State<CTP22_1> with SingleTickerProviderStateMixin {
                                       !editProfile
                                           ? Row(
                                               children: [
-                                                Row(
-                                                  children: [
-                                                    Text('800',
+                                                InkWell(
+                                                  onTap: () {
+                                                    Navigator.push(context, MaterialPageRoute(builder: (_) => CTP26_1()));
+                                                  },
+                                                  child: Row(
+                                                    children: [
+                                                      Text('800',
+                                                          style: TextStyle(
+                                                              fontSize: 16.0,
+                                                              color:
+                                                                  Colors.white)),
+                                                      SizedBox(width: 4),
+                                                      Text(
+                                                        'Followers',
                                                         style: TextStyle(
-                                                            fontSize: 16.0,
                                                             color:
-                                                                Colors.white)),
-                                                    SizedBox(width: 4),
-                                                    Text(
-                                                      'Followers',
-                                                      style: TextStyle(
-                                                          color:
-                                                              Color(0xFF686868),
-                                                          fontSize: 12.0),
-                                                    ),
-                                                  ],
+                                                                Color(0xFF686868),
+                                                            fontSize: 12.0),
+                                                      ),
+                                                    ],
+                                                  ),
                                                 ),
                                                 SizedBox(width: 16),
-                                                Row(
-                                                  children: [
-                                                    Text('600',
-                                                        style: TextStyle(
-                                                            fontSize: 16.0,
-                                                            color:
-                                                                Colors.white)),
-                                                    SizedBox(width: 4),
-                                                    Text('Following',
-                                                        style: TextStyle(
-                                                            color: Color(
-                                                                0xFF686868),
-                                                            fontSize: 12.0)),
-                                                  ],
+                                                InkWell(
+                                                  onTap: () {
+                                                    Navigator.push(context, MaterialPageRoute(builder: (_) => CTP26_1()));
+                                                  },
+                                                  child: Row(
+                                                    children: [
+                                                      Text('600',
+                                                          style: TextStyle(
+                                                              fontSize: 16.0,
+                                                              color:
+                                                                  Colors.white)),
+                                                      SizedBox(width: 4),
+                                                      Text('Following',
+                                                          style: TextStyle(
+                                                              color: Color(
+                                                                  0xFF686868),
+                                                              fontSize: 12.0)),
+                                                    ],
+                                                  ),
                                                 ),
                                               ],
                                             )
@@ -669,9 +681,9 @@ class _CTP22_1State extends State<CTP22_1> with SingleTickerProviderStateMixin {
                           Spacer(),
                           InkWell(
                             onTap: () {
-                              print('sad');
+                              print('tapped');
                               Navigator.push(context,
-                                  MaterialPageRoute(builder: (_) => SCP29()));
+                                  MaterialPageRoute(builder: (_) => CTP31()));
                             },
                             child: Container(
                               height: 74,
