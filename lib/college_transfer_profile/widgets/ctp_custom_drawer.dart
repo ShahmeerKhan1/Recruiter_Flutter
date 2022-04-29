@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_22_1.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_34_1.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_45_1.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_46_1.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_48_1.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
-Widget customDrawer(BuildContext context) {
+Widget customDrawer(BuildContext context) {       // CTP Drawer
   return Container(
     width: MediaQuery.of(context).size.width * 0.70,
     // color: Colors.purple,
@@ -29,7 +33,7 @@ Widget customDrawer(BuildContext context) {
                 ),
                 ListTile(
                   onTap: () {
-                 //   Navigator.push(context, MaterialPageRoute(builder: (_) => SCP31_1()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => CTP34_1()));
                     //  Navigator.pushReplacementNamed(context, Routes.events);
                   },
                   leading: Image.asset('assets/events.png'),
@@ -40,7 +44,7 @@ Widget customDrawer(BuildContext context) {
                 ),
                 ListTile(
                   onTap: () {
-                    //  Navigator.push(context, MaterialPageRoute(builder: (_) => Bookmarks()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => CTP46_1()));
                     //   Navigator.pushReplacementNamed(context, Routes.bookmarks);
                   },
                   leading: Image.asset('assets/nli.png'),
@@ -51,7 +55,7 @@ Widget customDrawer(BuildContext context) {
                 ),
                 ListTile(
                   onTap: () {
-                    //  Navigator.push(context, MaterialPageRoute(builder: (_) => Bookmarks()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => CTP45_1()));
                     //   Navigator.pushReplacementNamed(context, Routes.bookmarks);
                   },
                   leading: Image.asset('assets/bookmarks.png'),
@@ -62,7 +66,7 @@ Widget customDrawer(BuildContext context) {
                 ),
                 ListTile(
                   onTap: () {
-                    //  Navigator.push(context, MaterialPageRoute(builder: (_) => Bookmarks()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => CTP48_1()));
                     //   Navigator.pushReplacementNamed(context, Routes.bookmarks);
                   },
                   leading: Image.asset('assets/transfer.png'),

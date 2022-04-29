@@ -29,7 +29,7 @@ class _SCP32_1State extends State<SCP32_1> {
           children: [
             Column(
               children: [
-                Image.asset(widget.data.img),
+                Image.asset(widget.data.img!),
                 Padding(
                   padding: const EdgeInsets.only(
                       top: 8.0, right: 8.0, left: 8.0, bottom: 8.0),

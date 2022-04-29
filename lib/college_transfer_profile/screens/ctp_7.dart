@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_15_1.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_39_1.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_42_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7_2.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7_4.dart';
@@ -21,7 +23,8 @@ class _CTP_7State extends State<CTP_7> with SingleTickerProviderStateMixin {
     GlobalKey<NavigatorState>(),
     GlobalKey<NavigatorState>(),
     GlobalKey<NavigatorState>(),
-    GlobalKey<NavigatorState>()
+    GlobalKey<NavigatorState>(),
+    GlobalKey<NavigatorState>(),
   ];
 
   @override
@@ -40,6 +43,7 @@ class _CTP_7State extends State<CTP_7> with SingleTickerProviderStateMixin {
             _buildOffstageNavigator(1),
             _buildOffstageNavigator(2),
             _buildOffstageNavigator(3),
+            _buildOffstageNavigator(4),
           ],
         ),
         bottomNavigationBar: Container(
@@ -96,20 +100,10 @@ class _CTP_7State extends State<CTP_7> with SingleTickerProviderStateMixin {
       '/': (context) {
         return [
           CTP_7_1(),
-          // showBottomSheet(),
-          //  SecondScreen(),
-          // modelBottomSet(),
-          Container(color: Colors.blue),
+          CTP39_1(),
           CustomOverlay(),
-          // Container(
-          //   color: Colors.pink,
-          // ),
-
-          // Container(
-          //   color: Colors.black.withOpacity(0.5),
-          //     child: showBottomSheet()),
-          //  SCP15_1(),
-          CTP15_1()
+          CTP15_1(),
+          CTP_42_1(),
         ].elementAt(index);
       },
     };

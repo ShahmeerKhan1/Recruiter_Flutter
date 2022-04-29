@@ -60,7 +60,8 @@ class _CTP26_1State extends State<CTP26_1> with SingleTickerProviderStateMixin {
             },
             controller: _controller,
             tabs: list,
-          )),
+          )
+      ),
       body: TabBarView(
         controller: _controller,
         physics: NeverScrollableScrollPhysics(),

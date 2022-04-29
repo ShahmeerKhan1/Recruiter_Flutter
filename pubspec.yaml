@@ -41,6 +41,8 @@ dependencies:
   month_picker_dialog:
   intl:
   auto_size_text:
+  datetime_picker_formfield:
+  flutter_rating_bar:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
