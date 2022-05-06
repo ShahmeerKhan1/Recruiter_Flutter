@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_6_2.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp6_2.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp_6_2.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_radio_buttons.dart';
@@ -134,10 +135,11 @@ class _ChooseProfileState extends State<ChooseProfile> {
         print('index 0');
         break;
       case 1:
-        Navigator.push(context, MaterialPageRoute(builder: (_) => SCP6_2()));
+        Navigator.push(context, MaterialPageRoute(builder: (_) => CCP6_2()));
         print('index 1');
         break;
       case 2:
+        Navigator.push(context, MaterialPageRoute(builder: (_) => SCP6_2()));
         print("index 2");
         break;
       case 3:

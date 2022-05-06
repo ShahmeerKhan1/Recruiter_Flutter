@@ -48,46 +48,103 @@ class _CTP_7_1State extends State<CTP_7_1> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      drawer: customDrawer(context),
-      appBar: AppBar(
+    return SafeArea(
+      child: DefaultTabController(
+        length: 2,
+        child: Scaffold(
           backgroundColor: Colors.black,
-          iconTheme: IconThemeData(color: Colors.white),
-          title: Image.asset('assets/logo.png', width: 135),
-          centerTitle: true,
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(right: 12.0),
-              child: Icon(Icons.notifications, color: Colors.white),
-            )
-          ],
-          bottom: TabBar(
-            labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-            labelColor: Colors.white,
-            unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
-            indicatorColor: Colors.white,
-            onTap: (index) {
-              print('Tab $index is tapped');
-              // Should not used it as it only called when tab options are clicked,
-              // not when user swapped
-            },
+          drawer: customDrawer(context),
+          appBar: AppBar(
+              actions: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 10.0),
+                  child: InkWell(
+                      onTap: () {
+                        print('noti');
+                      },child: Icon(Icons.notifications, color: Colors.white)),
+                )
+              ],
+            flexibleSpace:
+                TabBar(
+                  labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                  labelColor: Colors.white,
+                  unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
+                  indicatorColor: Colors.white,
+                  onTap: (index) {
+                    print('Tab $index is tapped');
+                    // Should not used it as it only called when tab options are clicked,
+                    // not when user swapped
+                  },
+                  controller: _controller,
+                  tabs: list,
+                )
+            ),
+        //  ),
+        //   PreferredSize(
+        //     preferredSize: Size.fromHeight(kToolbarHeight),
+        //     child: Container(
+        //      // color: Colors.green,
+        //       child: SafeArea(
+        //         child: Column(
+        //           children: <Widget>[
+        //             Expanded(child: Container()),
+        //       TabBar(
+        //               labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+        //               labelColor: Colors.white,
+        //               unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
+        //               indicatorColor: Colors.white,
+        //               onTap: (index) {
+        //                 print('Tab $index is tapped');
+        //                 // Should not used it as it only called when tab options are clicked,
+        //                 // not when user swapped
+        //               },
+        //               controller: _controller,
+        //               tabs: list,
+        //             )
+        //           ],
+        //         ),
+        //       ),
+        //     ),
+        //   ),
+          // appBar: AppBar(
+          //     backgroundColor: Colors.black,
+          //     iconTheme: IconThemeData(color: Colors.white),
+          //     title: Image.asset('assets/logo.png', width: 135),
+          //     centerTitle: true,
+          //     actions: [
+          //       Padding(
+          //         padding: const EdgeInsets.only(right: 12.0),
+          //         child: Icon(Icons.notifications, color: Colors.white),
+          //       )
+          //     ],
+          //     bottom: TabBar(
+          //       labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+          //       labelColor: Colors.white,
+          //       unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
+          //       indicatorColor: Colors.white,
+          //       onTap: (index) {
+          //         print('Tab $index is tapped');
+          //         // Should not used it as it only called when tab options are clicked,
+          //         // not when user swapped
+          //       },
+          //       controller: _controller,
+          //       tabs: list,
+          //     )
+          // ),
+          body: TabBarView(
             controller: _controller,
-            tabs: list,
-          )
-      ),
-      body: TabBarView(
-        controller: _controller,
-        physics: NeverScrollableScrollPhysics(),
-        children: [
-          ctpPostsTab(), // custom Post Widget
-          CTP_Highlights_Tab()
-         // CustomHighlightWidget(), // custom hightlight widget
-         // HighlightsTab()
-          // Container(
-          //   color: Colors.green,
-          // )
-        ],
+            physics: NeverScrollableScrollPhysics(),
+            children: [
+              ctpPostsTab(), // custom Post Widget
+              CTP_Highlights_Tab()
+             // CustomHighlightWidget(), // custom hightlight widget
+             // HighlightsTab()
+              // Container(
+              //   color: Colors.green,
+              // )
+            ],
+          ),
+        ),
       ),
     );
   }

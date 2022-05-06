@@ -1,21 +1,18 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_15_1.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_39_1.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_42_1.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7_1.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7_2.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7_4.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_15.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_7_1.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_7_2.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_7_4.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
-class CTP_7 extends StatefulWidget {
-  const CTP_7({Key? key}) : super(key: key);
+class CCP_7 extends StatefulWidget {
+  const CCP_7({Key? key}) : super(key: key);
 
   @override
-  _CTP_7State createState() => _CTP_7State();
+  _CCP_7State createState() => _CCP_7State();
 }
 
-class _CTP_7State extends State<CTP_7> with SingleTickerProviderStateMixin {
+class _CCP_7State extends State<CCP_7> with SingleTickerProviderStateMixin {
   int _navSelectedIndex = 0; // bottom Nav Index
   int _currentIndex = 0; // bottom Nav
 
@@ -48,7 +45,7 @@ class _CTP_7State extends State<CTP_7> with SingleTickerProviderStateMixin {
         ),
         bottomNavigationBar: Container(
           height: 70,
-         // padding: EdgeInsets.all(0.0),
+          // padding: EdgeInsets.all(0.0),
           width: MediaQuery
               .of(context)
               .size
@@ -56,16 +53,11 @@ class _CTP_7State extends State<CTP_7> with SingleTickerProviderStateMixin {
           color: Colors.white,
           child: BottomNavigationBar(
             backgroundColor: Colors.black,
-            selectedItemColor: Colors.white,
-            selectedLabelStyle: TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0),
+            selectedItemColor: AppColor.goldenColor,
             unselectedItemColor: AppColor.greyBorderColor,
-            //   selectedLabelStyle: TextStyle(color: AppColors.purpleColor, fontWeight: FontWeight.w500),
-            unselectedLabelStyle: TextStyle(fontSize: 15.0),
             type: BottomNavigationBarType.fixed,
             // backgroundColor: AppColors.bgColor,
             elevation: 0,
-            selectedIconTheme: IconThemeData(opacity: 0.0, size: 0),
-            unselectedIconTheme: IconThemeData(opacity: 0.0, size: 0),
             // onTap: onTabTapped,
             onTap: (index) {
               setState(() {
@@ -75,23 +67,30 @@ class _CTP_7State extends State<CTP_7> with SingleTickerProviderStateMixin {
             },
             currentIndex: _navSelectedIndex,
             items: [
-              BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Home'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.home_filled),
+                  label: ''
+              ),
               BottomNavigationBarItem(
                   icon: Icon(Icons.work),
                   //  icon: SvgPicture.asset('assets/bottom_nav_office.svg'),
-                  label: 'Recruiting'),
+                  label: ''
+              ),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.add_circle_outline),
+                  icon: Icon(Icons.add_circle_outline, size: 38),
                   //  icon: SvgPicture.asset('assets/bottom_nav_add.svg'),
-                  label: 'Create'),
+                  label: ''
+              ),
               BottomNavigationBarItem(
                   icon: Icon(Icons.email),
                   //  icon: SvgPicture.asset('assets/bottom_nav_mail.svg'),
-                  label: 'Messages'),
+                  label: ''
+              ),
               BottomNavigationBarItem(
                   icon: Icon(Icons.search),
                   // icon: SvgPicture.asset('assets/bottom_nav_search.svg'),
-                  label: 'Search')
+                  label: ''
+              )
             ],
           ),
         ),
@@ -103,11 +102,15 @@ class _CTP_7State extends State<CTP_7> with SingleTickerProviderStateMixin {
     return {
       '/': (context) {
         return [
-          CTP_7_1(),
-          CTP39_1(),
+          CCP_7_1(),
+         // CTP39_1(),
+          Container(),
           CustomOverlay(),
-          CTP15_1(),
-          CTP_42_1(),
+          CCP_15(),
+          Container(),
+          Container(),
+         // CTP15_1(),
+         // CTP_42_1(),
         ].elementAt(index);
       },
     };
@@ -136,49 +139,50 @@ class CustomOverlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Align(
-          alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 36.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                InkWell(
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => CTP7_4()));
-                  },
-                  child: Container(
-                    height: 40,
-                    width: 100,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFBABABA),
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    ),
-                    child: Text('Highlight', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0)),
+      body: Align(
+        alignment: Alignment.bottomCenter,
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 36.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_7_4()));
+                },
+                child: Container(
+                  height: 40,
+                  width: 100,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFBABABA),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   ),
+                  child: Text('Highlight', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0)),
                 ),
-                SizedBox(height: 10),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => CTP7_2()));
-                  },
-                  child: Container(
-                    height: 40,
-                    width: 100,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFBABABA),
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    ),
-                    child: Text('Post', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0)),
+              ),
+              SizedBox(height: 10),
+              InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_7_2()));
+                },
+                child: Container(
+                  height: 40,
+                  width: 100,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFBABABA),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   ),
-                )
-              ],
-            ),
+                  child: Text('Post', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0)),
+                ),
+              )
+            ],
           ),
         ),
+      ),
     );
   }
 }
+
