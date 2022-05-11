@@ -4,6 +4,7 @@ import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_34_1.dart
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_45_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_46_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_48_1.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_22.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
 Widget customDrawer(BuildContext context) {       // CTP Drawer
@@ -22,7 +23,7 @@ Widget customDrawer(BuildContext context) {       // CTP Drawer
                 _drawerHeader(context),
                 ListTile(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => CTP22_1()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_22()));
                     //   Navigator.pushReplacementNamed(context, Routes.profile);
                   },
                   leading: Image.asset('assets/small_profile.png'),

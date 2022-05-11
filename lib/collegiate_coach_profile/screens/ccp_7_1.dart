@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_highlights_tab.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_posts_tab.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_8.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_post_tab.dart';
 import 'package:recruiter_flutter/controller/new_highlight_controller.dart';
 import 'package:recruiter_flutter/controller/new_post_controller.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -131,13 +133,8 @@ class _CCP_7_1State extends State<CCP_7_1> with SingleTickerProviderStateMixin {
         controller: _controller,
         physics: NeverScrollableScrollPhysics(),
         children: [
-          ctpPostsTab(), // custom Post Widget
-          CTP_Highlights_Tab()
-          // CustomHighlightWidget(), // custom hightlight widget
-          // HighlightsTab()
-          // Container(
-          //   color: Colors.green,
-          // )
+          CCP_Posts_Tab(),
+          CCP_Highlights_Tab(),
         ],
       ),
     );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_16.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_17.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_20.dart';
 import 'package:recruiter_flutter/model/messages_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
@@ -76,8 +78,8 @@ class _CCP_15State extends State<CCP_15> with SingleTickerProviderStateMixin {
         floatingActionButton: FloatingActionButton(
           backgroundColor: AppColor.goldenColor,
           onPressed: () {
-            print('ctp_17_1');
-          //  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP17_1()));
+            print('ccp_17');
+            Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_17()));
           },
           child: Icon(Icons.message, color: Colors.white),
         ),
@@ -287,7 +289,7 @@ class _InboxState extends State<Inbox> {
                   return InkWell(
                     onTap: () {
                       print('click');
-                    //  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP20_1(data: _list[index].name)));
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_20(data: _list[index].name)));
 
                       //   if(_list.any((element) => element.isSelected)){
                       //  setState(() {
