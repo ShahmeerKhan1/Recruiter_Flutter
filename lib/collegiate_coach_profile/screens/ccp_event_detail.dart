@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_37_1.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_34.dart';
 import 'package:recruiter_flutter/model/events_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 
-class CTPEventDetail extends StatefulWidget {
+class CCPEventDetail extends StatefulWidget {
   final EventsModel data;
 
-  CTPEventDetail({Key? key, required this.data}) : super(key: key);
+  CCPEventDetail({Key? key, required this.data}) : super(key: key);
 
   @override
-  _CTPEventDetailState createState() => _CTPEventDetailState();
+  _CCPEventDetailState createState() => _CCPEventDetailState();
 }
 
-class _CTPEventDetailState extends State<CTPEventDetail> {
+class _CCPEventDetailState extends State<CCPEventDetail> {
 
   bool _rsvp = false;
   bool going = false;
@@ -151,7 +150,7 @@ class _CTPEventDetailState extends State<CTPEventDetail> {
                           fontSize: 16.0)),
                   SizedBox(height: 8),
                   Text(
-                     widget.data.desc,
+                    widget.data.desc,
                     style: TextStyle(color: Colors.white),
                   )
                 ],

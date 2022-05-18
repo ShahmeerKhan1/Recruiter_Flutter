@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_28.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_29.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_8.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_post_tab.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -368,7 +369,7 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
                           InkWell(
                             onTap: () {
                               print('tap');
-                            //  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP31()));
+                              Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_29(schoolName: selectSchool.toString())));
                             },
                             child: Container(
                               height: 74,
