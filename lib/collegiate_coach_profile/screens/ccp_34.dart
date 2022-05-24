@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
@@ -12,7 +13,7 @@ class CCP_34 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar('Invite Others', Icons.notifications),
+      appBar: ccpAppBar('Invite Others', Icons.notifications, context),
       body: SingleChildScrollView(
         child: Column(
           children: [

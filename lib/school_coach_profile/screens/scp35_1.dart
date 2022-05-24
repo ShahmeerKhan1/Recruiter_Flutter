@@ -81,7 +81,7 @@ class _SCP35_1State extends State<SCP35_1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar('Calendar', Icons.notifications),
+      appBar: scpAppBar('Calendar', Icons.notifications, context),
       body: Column(
         children: [
           InkWell(

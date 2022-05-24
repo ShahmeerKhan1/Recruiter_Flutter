@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_34_1.dart';
+import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 
 class CTP33_1 extends StatefulWidget {
@@ -35,7 +36,7 @@ class _CTP33_1State extends State<CTP33_1> {
     double _width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: customAppBar('Evaluate', Icons.notifications),
+      appBar: ctpAppBar('Evaluate', Icons.notifications, context),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),

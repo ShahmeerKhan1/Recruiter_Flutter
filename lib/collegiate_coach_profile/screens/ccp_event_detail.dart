@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_34.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/model/events_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
@@ -23,7 +24,7 @@ class _CCPEventDetailState extends State<CCPEventDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar('Events', Icons.notifications),
+      appBar: ccpAppBar('Events', Icons.notifications, context),
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(16.0),

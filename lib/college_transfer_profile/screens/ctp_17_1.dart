@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_19_1.dart';
+import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/model/new_message_model.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp_18_1.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -115,7 +116,7 @@ class _CTP17_1State extends State<CTP17_1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar('New Message', Icons.notifications),
+      appBar: ctpAppBar('New Message', Icons.notifications, context),
       body: SingleChildScrollView(
         child: Column(
           children: [

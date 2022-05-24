@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp36_2.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_offer_detail.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_drawer.dart';
 import 'package:recruiter_flutter/controller/new_offer.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
@@ -47,7 +48,7 @@ class _CCP36State extends State<CCP36_1> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: customDrawer(context),
+      drawer: ccp_drawer(context),
       appBar: AppBar(
           backgroundColor: Colors.black,
           iconTheme: IconThemeData(color: Colors.white),

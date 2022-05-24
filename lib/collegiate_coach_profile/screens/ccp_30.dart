@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_31.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 
 class CCP_30 extends StatefulWidget {
@@ -34,7 +35,7 @@ class _CCP_30State extends State<CCP_30> {
     double _width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: customAppBar('Evaluate', Icons.notifications),
+      appBar: ccpAppBar('Evaluate', Icons.notifications, context),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),

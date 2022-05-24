@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_36.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/controller/new_offer.dart';
 import 'package:recruiter_flutter/model/offer_sent_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -63,7 +64,7 @@ class _CCP36_2State extends State<CCP36_2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar('New Offer', Icons.notifications),
+      appBar: ccpAppBar('New Offer', Icons.notifications, context),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

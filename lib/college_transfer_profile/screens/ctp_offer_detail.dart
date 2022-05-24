@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/model/offers_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
@@ -21,7 +22,7 @@ class _CTP_Offer_DetailState extends State<CTP_Offer_Detail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar('Offer Details', Icons.notifications),
+      appBar: ctpAppBar('Offer Details', Icons.notifications, context),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.height,

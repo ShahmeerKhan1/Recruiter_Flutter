@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
@@ -13,7 +14,7 @@ class CTP45_1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar('Bookmarks', Icons.notifications),
+      appBar: ctpAppBar('Bookmarks', Icons.notifications, context),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 
 class CTP47_1 extends StatelessWidget {
@@ -7,7 +8,7 @@ class CTP47_1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar('NLI Signing', Icons.notifications),
+      appBar: ctpAppBar('NLI Signing', Icons.notifications, context),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,

@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7_1.dart';
+import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_highlights_tab.dart';
 import 'package:recruiter_flutter/controller/new_highlight_controller.dart';
 import 'package:recruiter_flutter/model/highlight_tab_model.dart';
@@ -113,7 +114,7 @@ class _CTP7_4State extends State<CTP7_4> {
     double _width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: customAppBar('New Highlights', Icons.notifications),
+      appBar: ctpAppBar('New Highlights', Icons.notifications, context),
       //  resizeToAvoidBottomInset: false,
       floatingActionButton: _VideoController == null
           ? null

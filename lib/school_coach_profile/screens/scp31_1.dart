@@ -77,7 +77,7 @@ class SCP31_1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar('Events', Icons.notifications),
+      appBar: scpAppBar('Events', Icons.notifications, context),
       drawer: drawerWidget(context),
       body: SingleChildScrollView(
         child: Column(

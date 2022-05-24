@@ -275,7 +275,7 @@ class _HighlightDetailState extends State<HighlightDetail> {
 
     return Scaffold(
       key: _scaffoldKey,
-      appBar: customAppBar('Video', Icons.notifications),
+      appBar: scpAppBar('Video', Icons.notifications, context),
       body: SingleChildScrollView(
         child: Column(
           children: [

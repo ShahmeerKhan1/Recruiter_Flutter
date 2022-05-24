@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_15.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_36.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_41.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_7_1.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_7_2.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_7_4.dart';
@@ -108,7 +109,7 @@ class _CCP_7State extends State<CCP_7> with SingleTickerProviderStateMixin {
           CCP36_1(),
           CustomOverlay(),
           CCP_15(),
-          Container(),
+          CCP_41(),
           Container(),
          // CTP15_1(),
          // CTP_42_1(),

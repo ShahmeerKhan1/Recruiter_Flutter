@@ -5,6 +5,7 @@ import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_28.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_29.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_8.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_post_tab.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_drawer.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
 class CCP_26 extends StatefulWidget {
@@ -82,7 +83,7 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
             ),
             preferredSize: Size.fromHeight(4.0)),
       ),
-      drawer: customDrawer(context),
+      drawer: ccp_drawer(context),
       body: SingleChildScrollView(
         child: Stack(
           children: <Widget>[

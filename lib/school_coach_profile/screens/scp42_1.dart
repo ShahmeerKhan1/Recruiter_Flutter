@@ -31,7 +31,7 @@ class SCP42_1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar('Notifications', Icons.notifications),
+      appBar: scpAppBar('Notifications', Icons.notifications, context),
       body: SingleChildScrollView(
         child: Column(
           children: [

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_7.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/controller/new_highlight_controller.dart';
 import 'package:recruiter_flutter/model/highlight_tab_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -110,7 +111,7 @@ class _CCP_7_4State extends State<CCP_7_4> {
     double _width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: customAppBar('New Highlights', Icons.notifications),
+      appBar: ccpAppBar('New Highlights', Icons.notifications, context),
       //  resizeToAvoidBottomInset: false,
       floatingActionButton: _VideoController == null
           ? null

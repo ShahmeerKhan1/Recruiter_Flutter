@@ -3,8 +3,10 @@ import 'package:get/get.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_highlights_tab.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_posts_tab.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_42.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_8.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_post_tab.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_drawer.dart';
 import 'package:recruiter_flutter/controller/new_highlight_controller.dart';
 import 'package:recruiter_flutter/controller/new_post_controller.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -18,15 +20,11 @@ class CCP_7_1 extends StatefulWidget {
 }
 
 class _CCP_7_1State extends State<CCP_7_1> with SingleTickerProviderStateMixin {
-
   late TabController _controller;
 
-  int _selectedIndex = 0;   //  Tab Bar Index
+  int _selectedIndex = 0; //  Tab Bar Index
 
-  List<Widget> list = [
-    Tab(text: 'Posts'),
-    Tab(text: 'Highlights')
-  ];
+  List<Widget> list = [Tab(text: 'Posts'), Tab(text: 'Highlights')];
 
   @override
   void initState() {
@@ -51,7 +49,7 @@ class _CCP_7_1State extends State<CCP_7_1> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      drawer: customDrawer(context),
+      drawer: ccp_drawer(context),
       // appBar: AppBar(
       //     actions: [
       //       Padding(
@@ -110,9 +108,15 @@ class _CCP_7_1State extends State<CCP_7_1> with SingleTickerProviderStateMixin {
           title: Image.asset('assets/logo.png', width: 135),
           centerTitle: true,
           actions: [
-            Padding(
-              padding: const EdgeInsets.only(right: 12.0),
-              child: Icon(Icons.notifications, color: Colors.white),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => CCP_42()));
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(right: 12.0),
+                child: Icon(Icons.notifications, color: Colors.white),
+              ),
             )
           ],
           bottom: TabBar(
@@ -127,8 +131,7 @@ class _CCP_7_1State extends State<CCP_7_1> with SingleTickerProviderStateMixin {
             },
             controller: _controller,
             tabs: list,
-          )
-      ),
+          )),
       body: TabBarView(
         controller: _controller,
         physics: NeverScrollableScrollPhysics(),

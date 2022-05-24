@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/model/post_tab_model.dart';
 import 'package:recruiter_flutter/model/reply_post_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -175,7 +176,7 @@ class _CTP9_1State extends State<CTP9_1> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      appBar: customAppBar('Post', Icons.notifications),
+      appBar: ctpAppBar('Post', Icons.notifications, context),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(16.0),

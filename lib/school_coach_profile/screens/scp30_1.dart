@@ -21,7 +21,7 @@ class _SCP30_1State extends State<SCP30_1> {
     double _width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: customAppBar('Evaluate', Icons.notifications),
+      appBar: scpAppBar('Evaluate', Icons.notifications, context),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),

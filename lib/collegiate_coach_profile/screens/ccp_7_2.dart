@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_7.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/controller/new_post_controller.dart';
 import 'package:recruiter_flutter/model/post_tab_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -80,7 +81,7 @@ class _CCP_7_2State extends State<CCP_7_2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar('New Post', Icons.notifications),
+      appBar: ccpAppBar('New Post', Icons.notifications, context),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

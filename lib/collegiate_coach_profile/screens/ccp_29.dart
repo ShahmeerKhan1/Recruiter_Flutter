@@ -1,6 +1,7 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_30.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 
@@ -41,7 +42,7 @@ class _CCP_29State extends State<CCP_29> {
         .width;
 
     return Scaffold(
-      appBar: customAppBar('Athelete Profile', Icons.notifications),
+      appBar: ccpAppBar('Athelete Profile', Icons.notifications, context),
       backgroundColor: Colors.black,
       body: NestedScrollView(
         scrollDirection: Axis.vertical,

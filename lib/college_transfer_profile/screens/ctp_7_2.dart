@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7_1.dart';
+import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/controller/new_post_controller.dart';
 import 'package:recruiter_flutter/model/post_tab_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -80,7 +81,7 @@ class _CTP7_2State extends State<CTP7_2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar('New Post', Icons.notifications),
+      appBar: ctpAppBar('New Post', Icons.notifications, context),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

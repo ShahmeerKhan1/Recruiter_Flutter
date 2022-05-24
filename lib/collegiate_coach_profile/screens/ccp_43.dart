@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
-class Bookmarks extends StatefulWidget {
-  const Bookmarks({Key? key}) : super(key: key);
+class CCP_43 extends StatefulWidget {
+  const CCP_43({Key? key}) : super(key: key);
 
   @override
-  _BookmarksState createState() => _BookmarksState();
+  _CCP_43State createState() => _CCP_43State();
 }
 
-class _BookmarksState extends State<Bookmarks> {
+class _CCP_43State extends State<CCP_43> {
 
   TextEditingController _filter = TextEditingController();
   TextEditingController _search = TextEditingController();
@@ -19,7 +20,7 @@ class _BookmarksState extends State<Bookmarks> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: scpAppBar('Bookmarks', Icons.notifications, context),
+      appBar: ccpAppBar('Bookmarks', Icons.notifications, context),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -53,14 +54,14 @@ class _BookmarksState extends State<Bookmarks> {
                         controller: _filter,
                         style: TextStyle(color: Colors.white),
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 4.0),
+                          contentPadding: EdgeInsets.only(left: 8.0),
                           filled: true,
                           fillColor: Color(0xFF111111),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           labelText: "Filter",
                           labelStyle: TextStyle(color: Color(0xFF686868)),
                           suffixIcon:
-                          Icon(Icons.filter, color: Color(0xFF686868)),
+                          Image.asset('assets/filter.png' , color: Color(0xFF686868)),
                           //  prefixIcon: Icon(Icons.people),
                           border: myinputborder(),
                           enabledBorder: myinputborder(),
@@ -71,7 +72,7 @@ class _BookmarksState extends State<Bookmarks> {
               ),
             ),
             Container(
-              height: MediaQuery.of(context).size.height * 0.46,
+              height: MediaQuery.of(context).size.height * 0.40,
               width: MediaQuery.of(context).size.width,
               margin: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16.0),
               padding: EdgeInsets.all(10.0),
@@ -132,57 +133,50 @@ class _BookmarksState extends State<Bookmarks> {
                   SizedBox(height: 10),
                   Column(
                     children: [
-                      Row(
-                        children: [
-                          Expanded(
-                            flex: 1,
-                            child: Container(
-                                height: 110,
-                                //  color: Colors.blue,
-                                child: Image.asset(
-                                  'assets/posts_img_one.png',
-                                  fit: BoxFit.fill,
-                                )),
-                          ),
-                          SizedBox(width: 8),
-                          Expanded(
-                            flex: 1,
-                            child: Container(
-                                height: 110,
-                                //  color: Colors.green,
-                                child: Image.asset(
-                                  'assets/posts_img_two.png',
-                                  fit: BoxFit.fill,
-                                )),
-                          )
-                        ],
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        child: Image.asset(
+                          'assets/posts_img_four.png',
+                          fit: BoxFit.fill,
+                        ),
                       ),
-                      SizedBox(height: 8),
-                      Row(
-                        children: [
-                          Expanded(
-                            flex: 1,
-                            child: Container(
-                                height: 110,
-                                //  color: Colors.blue,
-                                child: Image.asset(
-                                  'assets/posts_img_three.png',
-                                  fit: BoxFit.fill,
-                                )),
-                          ),
-                          SizedBox(width: 8),
-                          Expanded(
-                            flex: 1,
-                            child: Container(
-                                height: 110,
-                                //  color: Colors.green,
-                                child: Image.asset(
-                                  'assets/posts_img_four.png',
-                                  fit: BoxFit.fill,
-                                )),
-                          )
-                        ],
-                      ),
+                      // SizedBox(width: 8),
+                      // Expanded(
+                      //   flex: 1,
+                      //   child: Container(
+                      //       height: 110,
+                      //       //  color: Colors.green,
+                      //       child: Image.asset(
+                      //         'assets/posts_img_two.png',
+                      //         fit: BoxFit.fill,
+                      //       )),
+                      // ),
+                      // SizedBox(height: 8),
+                      // Row(
+                      //   children: [
+                      //     Expanded(
+                      //       flex: 1,
+                      //       child: Container(
+                      //           height: 110,
+                      //           //  color: Colors.blue,
+                      //           child: Image.asset(
+                      //             'assets/posts_img_three.png',
+                      //             fit: BoxFit.fill,
+                      //           )),
+                      //     ),
+                      //     SizedBox(width: 8),
+                      //     Expanded(
+                      //       flex: 1,
+                      //       child: Container(
+                      //           height: 110,
+                      //           //  color: Colors.green,
+                      //           child: Image.asset(
+                      //             'assets/posts_img_four.png',
+                      //             fit: BoxFit.fill,
+                      //           )),
+                      //     )
+                      //   ],
+                      // ),
                     ],
                   ),
                   SizedBox(height: 16),

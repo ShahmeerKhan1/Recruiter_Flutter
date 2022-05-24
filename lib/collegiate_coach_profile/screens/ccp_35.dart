@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:month_picker_dialog/month_picker_dialog.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/model/calendar_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
@@ -78,7 +79,7 @@ class _CCP_35State extends State<CCP_35> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar('Calendar', Icons.notifications),
+      appBar: ccpAppBar('Calendar', Icons.notifications, context),
       body: Column(
         children: [
           InkWell(

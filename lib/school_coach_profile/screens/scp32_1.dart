@@ -22,7 +22,7 @@ class _SCP32_1State extends State<SCP32_1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar('Events', Icons.notifications),
+      appBar: scpAppBar('Events', Icons.notifications, context),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

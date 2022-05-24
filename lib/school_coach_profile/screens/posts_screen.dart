@@ -346,7 +346,7 @@ class _PostDetailState extends State<PostDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      appBar: customAppBar('Post', Icons.notifications),
+      appBar: scpAppBar('Post', Icons.notifications, context),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(16.0),

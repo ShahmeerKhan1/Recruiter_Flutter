@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_44_1.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_42.dart';
 
-AppBar scpAppBar(String title, IconData icon, BuildContext context) {
+AppBar ctpAppBar(String title, IconData icon, BuildContext context) {
   return AppBar(
     backgroundColor: Colors.black,
     iconTheme: IconThemeData(color: Colors.white),
@@ -10,7 +11,7 @@ AppBar scpAppBar(String title, IconData icon, BuildContext context) {
     actions: [
       InkWell(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_42()));
+          Navigator.push(context, MaterialPageRoute(builder: (_) => CTP_44_1()));
         },
         child: Padding(
           padding: const EdgeInsets.only(right: 12.0),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/model/offer_sent_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
@@ -20,7 +21,7 @@ class _CCP_Offer_DetailState extends State<CCP_Offer_Detail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar('Offer Details', Icons.notifications),
+      appBar: ccpAppBar('Offer Details', Icons.notifications, context),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.height,

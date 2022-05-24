@@ -1,28 +1,27 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
-import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_drawer.dart';
 import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
-class CTP48_1 extends StatefulWidget {
-  const CTP48_1({Key? key}) : super(key: key);
+class CCP_44 extends StatefulWidget {
+  const CCP_44({Key? key}) : super(key: key);
 
   @override
-  _CTP48_1State createState() => _CTP48_1State();
+  _CCP_44State createState() => _CCP_44State();
 }
 
-class _CTP48_1State extends State<CTP48_1> {
+class _CCP_44State extends State<CCP_44> {
   TextEditingController search = TextEditingController();
   TextEditingController filter = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ctpAppBar('Transfer Portal', Icons.notifications, context),
-      drawer: customDrawer(context),
+      appBar: ccpAppBar('Transfer Portal', Icons.notifications, context),
+      drawer: ccp_drawer(context),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -63,7 +62,7 @@ class _CTP48_1State extends State<CTP48_1> {
                         labelText: "Search",
                         labelStyle: TextStyle(color: Color(0xFF686868)),
                         suffixIcon:
-                            Icon(Icons.search, color: Color(0xFF686868)),
+                        Icon(Icons.search, color: Color(0xFF686868)),
                         //  prefixIcon: Icon(Icons.people),
                         border: myinputborder(),
                         enabledBorder: myinputborder(),
@@ -88,7 +87,7 @@ class _CTP48_1State extends State<CTP48_1> {
                       height: MediaQuery.of(context).size.height * 0.14,
                       width: MediaQuery.of(context).size.width,
                       margin:
-                          EdgeInsets.only(left: 8.0, right: 8.0, bottom: 12.0),
+                      EdgeInsets.only(left: 8.0, right: 8.0, bottom: 12.0),
                       padding: EdgeInsets.only(
                           left: 8.0, right: 8.0, top: 8.0, bottom: 8.0),
                       decoration: BoxDecoration(
@@ -184,7 +183,7 @@ class _CTP48_1State extends State<CTP48_1> {
                                 decoration: BoxDecoration(
                                   color: Color(0xFFBABABA),
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(8.0)),
+                                  BorderRadius.all(Radius.circular(8.0)),
                                 ),
                                 child: Text(
                                   'RB',
@@ -199,7 +198,7 @@ class _CTP48_1State extends State<CTP48_1> {
                                 decoration: BoxDecoration(
                                   color: Colors.black,
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(6.0)),
+                                  BorderRadius.all(Radius.circular(6.0)),
                                 ),
                                 child: Row(
                                   children: [
@@ -215,7 +214,7 @@ class _CTP48_1State extends State<CTP48_1> {
                                         color: Colors.grey, size: 20),
                                     Expanded(
                                       child: Image.asset('assets/iowa_small.png',
-                                          width: 40,
+                                        width: 40,
                                         fit: BoxFit.fill,
                                       ),
                                     )

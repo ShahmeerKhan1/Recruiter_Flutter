@@ -12,7 +12,7 @@ class SCP34_1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar('Invite Others', Icons.notifications),
+      appBar: scpAppBar('Invite Others', Icons.notifications, context),
       body: SingleChildScrollView(
         child: Column(
           children: [

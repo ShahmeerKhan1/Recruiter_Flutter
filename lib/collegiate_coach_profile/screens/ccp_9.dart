@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/model/post_tab_model.dart';
 import 'package:recruiter_flutter/model/reply_post_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -175,7 +176,7 @@ class _CCP_9State extends State<CCP_9> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      appBar: customAppBar('Post', Icons.notifications),
+      appBar: ccpAppBar('Post', Icons.notifications, context),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(16.0),

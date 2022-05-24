@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_42.dart';
 
-AppBar scpAppBar(String title, IconData icon, BuildContext context) {
+AppBar ccpAppBar(String title, IconData icon, BuildContext context) {
   return AppBar(
     backgroundColor: Colors.black,
     iconTheme: IconThemeData(color: Colors.white),

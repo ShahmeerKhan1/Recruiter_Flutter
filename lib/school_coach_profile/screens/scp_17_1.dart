@@ -114,7 +114,7 @@ class _SCP17_1State extends State<SCP17_1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar('New Message', Icons.notifications),
+      appBar: scpAppBar('New Message', Icons.notifications, context),
       body: SingleChildScrollView(
         child: Column(
           children: [

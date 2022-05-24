@@ -4,6 +4,7 @@ import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_dr
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_23.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_24.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_post_tab.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_drawer.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
@@ -83,7 +84,7 @@ class _CCP_22State extends State<CCP_22> with SingleTickerProviderStateMixin {
             ),
             preferredSize: Size.fromHeight(4.0)),
       ),
-      drawer: customDrawer(context),
+      drawer: ccp_drawer(context),
       body: SingleChildScrollView(
         child: Stack(
           children: <Widget>[

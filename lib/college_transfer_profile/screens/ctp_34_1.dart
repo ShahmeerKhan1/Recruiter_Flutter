@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_35_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_38_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_event_detail.dart';
+import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
 import 'package:recruiter_flutter/controller/new_event.dart';
 import 'package:recruiter_flutter/model/events_model.dart';
@@ -35,7 +36,7 @@ class _CTP34_1State extends State<CTP34_1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar('Events', Icons.notifications),
+      appBar: ctpAppBar('Events', Icons.notifications, context),
       drawer: customDrawer(context),
       body: SingleChildScrollView(
         child: Column(

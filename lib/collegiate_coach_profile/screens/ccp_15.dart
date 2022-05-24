@@ -3,6 +3,7 @@ import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_dr
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_16.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_17.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_20.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_drawer.dart';
 import 'package:recruiter_flutter/model/messages_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
@@ -74,7 +75,7 @@ class _CCP_15State extends State<CCP_15> with SingleTickerProviderStateMixin {
               controller: _controller,
               tabs: list,
             )),
-        drawer: customDrawer(context),
+        drawer: ccp_drawer(context),
         floatingActionButton: FloatingActionButton(
           backgroundColor: AppColor.goldenColor,
           onPressed: () {

@@ -44,7 +44,7 @@ class _SCP29State extends State<SCP29> with SingleTickerProviderStateMixin {
     double _width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: customAppBar('Athelete Profile', Icons.notifications),
+      appBar: scpAppBar('Athelete Profile', Icons.notifications, context),
       backgroundColor: Colors.black,
       body: NestedScrollView(
         scrollDirection: Axis.vertical,

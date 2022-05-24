@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/controller/new_highlight_controller.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/comment_widget.dart';
@@ -313,7 +314,7 @@ class _HighlightDetailState extends State<HighlightDetail> {
 
     return Scaffold(
       key: _scaffoldKey,
-      appBar: customAppBar('Video', Icons.notifications),
+      appBar: ctpAppBar('Video', Icons.notifications, context),
       body: SingleChildScrollView(
         child: Column(
           children: [

@@ -6,6 +6,8 @@ import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_event_det
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_35.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_event_detail.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_drawer.dart';
 import 'package:recruiter_flutter/controller/new_event.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
@@ -34,8 +36,8 @@ class _CCP_31State extends State<CCP_31> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar('Events', Icons.notifications),
-      drawer: customDrawer(context),
+      appBar: ccpAppBar('Events', Icons.notifications, context),
+      drawer: ccp_drawer(context),
       body: SingleChildScrollView(
         child: Column(
           children: [
