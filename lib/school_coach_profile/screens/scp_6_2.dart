@@ -1,6 +1,7 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:pattern_formatter/pattern_formatter.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_radio_buttons.dart';
@@ -54,6 +55,23 @@ class _SCP6_2State extends State<SCP6_2> {
     super.initState();
     genders.add(new Gender("Male", 'assets/male.png', false));
     genders.add(new Gender("Female", 'assets/female.png', false));
+  }
+
+  Future<Null> _selectDate(BuildContext context) async {
+    DateFormat formatter = DateFormat('dd/MM/yyyy');//specifies day/month/year format
+
+    DateTime selectedDate = DateTime.now();
+
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        firstDate: DateTime(1901, 1),
+        lastDate: DateTime(2100));
+    if (picked != null && picked != selectedDate)
+      setState(() {
+        selectedDate = picked;
+        date.value = TextEditingValue(text: formatter.format(picked));//Use formatter to format selected date and assign to text field
+      });
   }
 
   @override
@@ -179,10 +197,14 @@ class _SCP6_2State extends State<SCP6_2> {
                     SizedBox(height: 6),
                     TextField(
                         keyboardType: TextInputType.number,
-   // textAlign: TextAlign.center,
+                        // textAlign: TextAlign.center,
+                        readOnly: true,
                         inputFormatters: [
                           DateInputFormatter(),
                         ],
+                        onTap: () {
+                          _selectDate(context);
+                        },
                         controller: date,
                         style: TextStyle(
                             color: Colors.white
