@@ -5,6 +5,7 @@ import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_39_1.dart
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_42_1.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
+import 'sap_15.dart';
 import 'sap_7_1.dart';
 import 'sap_7_2.dart';
 import 'sap_7_4.dart';
@@ -111,7 +112,7 @@ class _SAP_7State extends State<SAP_7> with SingleTickerProviderStateMixin {
           SAP_7_1(),
           CTP39_1(),
           CustomOverlay(),
-          CTP15_1(),
+          SAP_15(),
           CTP_42_1(),
         ].elementAt(index);
       },

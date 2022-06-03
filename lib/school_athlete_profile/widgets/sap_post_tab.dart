@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:recruiter_flutter/controller/new_post_controller.dart';
+import 'package:recruiter_flutter/school_athlete_profile/screens/sap_9.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
 Widget sapPostTab() {
@@ -16,10 +17,10 @@ Widget sapPostTab() {
                   return InkWell(
                     onTap: () {
                       print('card tapped');
-                      // Navigator.push(
-                      //   context, MaterialPageRoute(builder: (context) => CTP9_1(data: _const.postLists[index]),
-                      //   ),
-                      // );
+                       Navigator.push(
+                         context, MaterialPageRoute(builder: (context) => SAP_9(data: _const.postLists[index]),
+                         ),
+                       );
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 16.0),
