@@ -7,16 +7,18 @@ import 'package:recruiter_flutter/model/events_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 
-class CTPEventDetail extends StatefulWidget {
+import 'sap_37.dart';
+
+class SAPEventDetail extends StatefulWidget {
   final EventsModel data;
 
-  CTPEventDetail({Key? key, required this.data}) : super(key: key);
+  SAPEventDetail({Key? key, required this.data}) : super(key: key);
 
   @override
-  _CTPEventDetailState createState() => _CTPEventDetailState();
+  _SAPEventDetailState createState() => _SAPEventDetailState();
 }
 
-class _CTPEventDetailState extends State<CTPEventDetail> {
+class _SAPEventDetailState extends State<SAPEventDetail> {
 
   bool _rsvp = false;
   bool going = false;
@@ -200,7 +202,7 @@ class _CTPEventDetailState extends State<CTPEventDetail> {
                   // SizedBox(width: 8),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => CTP37_1()));
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_37()));
                     },
                     child: Container(
                       width: 78,

@@ -1,30 +1,23 @@
-import 'dart:io';
 
-import 'package:dotted_border/dotted_border.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:intl/intl.dart';
-import 'package:pattern_formatter/pattern_formatter.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_33_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
-import 'package:recruiter_flutter/model/stats_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
 import '../../widgets/athlete_post_class.dart';
 import '../../widgets/athlete_stats_class.dart';
+import 'sap_33.dart';
 
-class CTP31 extends StatefulWidget {
-  const CTP31({Key? key}) : super(key: key);
+class SAP_31 extends StatefulWidget {
+  const SAP_31({Key? key}) : super(key: key);
 
   @override
-  _CTP31State createState() => _CTP31State();
+  _SAP_31State createState() => _SAP_31State();
 }
 
-class _CTP31State extends State<CTP31> with SingleTickerProviderStateMixin {
+class _SAP_31State extends State<SAP_31> with SingleTickerProviderStateMixin {
   late TabController _controller;
   int _selectedIndex = 0;
   bool _editProfile = false;
@@ -286,7 +279,7 @@ class _CTP31State extends State<CTP31> with SingleTickerProviderStateMixin {
                               children: [
                                 InkWell(
                                 onTap: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP33_1()));
+                                  Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_33()));
                                 },
                                   child: Container(
                                     height: 32,

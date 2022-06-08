@@ -12,6 +12,9 @@ import 'package:recruiter_flutter/widgets/drawer_widget.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
+import 'sap_26.dart';
+import 'sap_31.dart';
+
 class SAP_22 extends StatefulWidget {
   const SAP_22({Key? key}) : super(key: key);
 
@@ -267,7 +270,7 @@ class _SAP_22State extends State<SAP_22> with SingleTickerProviderStateMixin {
                                               children: [
                                                 InkWell(
                                                   onTap: () {
-                                             //       Navigator.push(context, MaterialPageRoute(builder: (_) => CTP26_1()));
+                                                    Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_26()));
                                                   },
                                                   child: Row(
                                                     children: [
@@ -290,7 +293,7 @@ class _SAP_22State extends State<SAP_22> with SingleTickerProviderStateMixin {
                                                 SizedBox(width: 16),
                                                 InkWell(
                                                   onTap: () {
-                                             //       Navigator.push(context, MaterialPageRoute(builder: (_) => CTP26_1()));
+                                                    Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_26()));
                                                   },
                                                   child: Row(
                                                     children: [
@@ -682,8 +685,7 @@ class _SAP_22State extends State<SAP_22> with SingleTickerProviderStateMixin {
                           InkWell(
                             onTap: () {
                               print('tapped');
-                         //     Navigator.push(context,
-                            //      MaterialPageRoute(builder: (_) => CTP31()));
+                              Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_31()));
                             },
                             child: Container(
                               height: 74,
