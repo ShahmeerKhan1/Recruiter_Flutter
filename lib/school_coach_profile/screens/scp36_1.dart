@@ -18,9 +18,9 @@ class _SCP36_1State extends State<SCP36_1> with SingleTickerProviderStateMixin {
   int _selectedIndex = 0; //  Tab Bar Index
 
   List<Widget> list = [
-    Tab(text: 'Prospects'),
-    Tab(text: 'Team'),
-    Tab(text: 'Offered'),
+    const Tab(text: 'Prospects'),
+    const Tab(text: 'Team'),
+    const Tab(text: 'Offered'),
   ];
 
   @override
@@ -44,17 +44,17 @@ class _SCP36_1State extends State<SCP36_1> with SingleTickerProviderStateMixin {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.black,
-          iconTheme: IconThemeData(color: Colors.white),
-          title: Text('Recruiting', style: TextStyle(color: Colors.white)),
+          iconTheme: const IconThemeData(color: Colors.white),
+          title: const Text('Recruiting', style: TextStyle(color: Colors.white)),
           centerTitle: true,
-          actions: [
+          actions: const [
             Padding(
-              padding: const EdgeInsets.only(right: 12.0),
+              padding: EdgeInsets.only(right: 12.0),
               child: Icon(Icons.notifications, color: Colors.white),
             )
           ],
           bottom: TabBar(
-            labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+            labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
             labelColor: Colors.white,
             unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
             indicatorColor: Colors.white,
@@ -69,7 +69,7 @@ class _SCP36_1State extends State<SCP36_1> with SingleTickerProviderStateMixin {
       ),
       body: TabBarView(
         controller: _controller,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         children: [
           Prospects(),
         Team(),
@@ -88,9 +88,9 @@ class _SCP36_1State extends State<SCP36_1> with SingleTickerProviderStateMixin {
 class Prospects extends StatelessWidget {
   Prospects({Key? key}) : super(key: key);
 
-  TextEditingController _filter = TextEditingController();
-  TextEditingController _new = TextEditingController();
-  TextEditingController _search = TextEditingController();
+  final TextEditingController _filter = TextEditingController();
+  final TextEditingController _new = TextEditingController();
+  final TextEditingController _search = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -107,57 +107,57 @@ class Prospects extends StatelessWidget {
                     flex: 1,
                     child: TextField(
                         controller: _filter,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 2.0),
+                          contentPadding: const EdgeInsets.only(left: 2.0),
                           filled: true,
-                          fillColor: Color(0xFF111111),
+                          fillColor: const Color(0xFF111111),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           labelText: "Filter",
-                          labelStyle: TextStyle(color: Color(0xFF686868)),
+                          labelStyle: const TextStyle(color: Color(0xFF686868)),
                           suffixIcon:
-                          Icon(Icons.art_track, color: Color(0xFF686868)),
+                          const Icon(Icons.art_track, color: Color(0xFF686868)),
                           //  prefixIcon: Icon(Icons.people),
                           border: myinputborder(),
                           enabledBorder: myinputborder(),
                           focusedBorder: myfocusborder(),
                         )),
                   ),
-                  SizedBox(width: 4),
+                  const SizedBox(width: 4),
                   Expanded(
                     flex: 1,
                     child: TextField(
                         controller: _new,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 4.0),
+                          contentPadding: const EdgeInsets.only(left: 4.0),
                           filled: true,
-                          fillColor: Color(0xFF111111),
+                          fillColor: const Color(0xFF111111),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           labelText: "New",
-                          labelStyle: TextStyle(color: Color(0xFF686868)),
-                          suffixIcon: Icon(Icons.add, color: Color(0xFF686868)),
+                          labelStyle: const TextStyle(color: Color(0xFF686868)),
+                          suffixIcon: const Icon(Icons.add, color: Color(0xFF686868)),
                           //  prefixIcon: Icon(Icons.people),
                           border: myinputborder(),
                           enabledBorder: myinputborder(),
                           focusedBorder: myfocusborder(),
                         )),
                   ),
-                  SizedBox(width: 4),
+                  const SizedBox(width: 4),
                   Expanded(
                     flex: 2,
                     child: TextField(
                         controller: _search,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 12.0),
+                          contentPadding: const EdgeInsets.only(left: 12.0),
                           filled: true,
-                          fillColor: Color(0xFF111111),
+                          fillColor: const Color(0xFF111111),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           labelText: "Search",
-                          labelStyle: TextStyle(color: Color(0xFF686868)),
+                          labelStyle: const TextStyle(color: Color(0xFF686868)),
                           suffixIcon:
-                          Icon(Icons.search, color: Color(0xFF686868)),
+                          const Icon(Icons.search, color: Color(0xFF686868)),
                           //  prefixIcon: Icon(Icons.people),
                           border: myinputborder(),
                           enabledBorder: myinputborder(),
@@ -167,7 +167,7 @@ class Prospects extends StatelessWidget {
                 ],
               ),
             ),
-            Divider(height: 0, color: Colors.white),
+            const Divider(height: 0, color: Colors.white),
             Column(
               children: [
                 Padding(
@@ -176,8 +176,8 @@ class Prospects extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     // mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
+                      const Padding(
+                        padding: EdgeInsets.only(
                             left: 6.0, right: 16.0, bottom: 12.0),
                         child: Text(
                           '2023',
@@ -190,7 +190,7 @@ class Prospects extends StatelessWidget {
                       ListView.builder(
                           itemCount: 3,
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemBuilder: (BuildContext context, index) {
                             return InkWell(
                                 onTap: () {
@@ -204,7 +204,7 @@ class Prospects extends StatelessWidget {
                 ),
               ],
             ),
-            Divider(color: Colors.white),
+            const Divider(color: Colors.white),
             Column(
               children: [
                 Padding(
@@ -213,8 +213,8 @@ class Prospects extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     // mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
+                      const Padding(
+                        padding: EdgeInsets.only(
                             left: 6.0, right: 16.0, bottom: 12.0),
                         child: Text(
                           '2022',
@@ -227,7 +227,7 @@ class Prospects extends StatelessWidget {
                       ListView.builder(
                           itemCount: 2,
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemBuilder: (BuildContext context, index) {
                             return InkWell(
                                 onTap: () {
@@ -244,18 +244,18 @@ class Prospects extends StatelessWidget {
             Container(
               width: double.infinity,
               height: 44,
-              margin: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16, top: 16),
+              margin: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16, top: 16),
               child: ElevatedButton(
-                child: Text(
+                child: const Text(
                   'Share List',
                   style: TextStyle(color: Colors.black, fontSize: 16.0),
                 ),
                 onPressed: () {
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => SCP41_1()));
+                      context, MaterialPageRoute(builder: (_) => const SCP41_1()));
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Color(0xFFBABABA),
+                  primary: const Color(0xFFBABABA),
                 ),
               ),
             ),
@@ -269,8 +269,8 @@ class Prospects extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height * 0.12,
       width: MediaQuery.of(context).size.width,
-      margin: EdgeInsets.only(bottom: 12),
-      decoration: BoxDecoration(
+      margin: const EdgeInsets.only(bottom: 12),
+      decoration: const BoxDecoration(
         color: Color(0xFF111111),
         borderRadius: BorderRadius.all(Radius.circular(16.0)),
       ),
@@ -280,16 +280,16 @@ class Prospects extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           // mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircleAvatar(backgroundImage: AssetImage('assets/drawer_img.png')),
-            SizedBox(width: 8),
+            const CircleAvatar(backgroundImage: AssetImage('assets/drawer_img.png')),
+            const SizedBox(width: 8),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 Text('John Doe',
                     style: TextStyle(color: Colors.white, fontSize: 16.0)),
                 Padding(
-                  padding: const EdgeInsets.only(top: 4.0, bottom: 4.0),
+                  padding: EdgeInsets.only(top: 4.0, bottom: 4.0),
                   child: Text(
                     'Bufford High School',
                     style: TextStyle(
@@ -303,18 +303,18 @@ class Prospects extends StatelessWidget {
                 ),
               ],
             ),
-            Spacer(),
+            const Spacer(),
             Padding(
               padding: const EdgeInsets.only(right: 8.0),
               child: Container(
                 height: 30,
                 width: 44,
                 alignment: Alignment.center,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFFBABABA),
                   borderRadius: BorderRadius.all(Radius.circular(8.0)),
                 ),
-                child: Text(
+                child: const Text(
                   'RB',
                   style: TextStyle(color: Colors.black),
                 ),
@@ -330,9 +330,9 @@ class Prospects extends StatelessWidget {
 class Team extends StatelessWidget {
   Team({Key? key}) : super(key: key);
 
-  TextEditingController _filter = TextEditingController();
-  TextEditingController _new = TextEditingController();
-  TextEditingController _search = TextEditingController();
+  final TextEditingController _filter = TextEditingController();
+  final TextEditingController _new = TextEditingController();
+  final TextEditingController _search = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -349,57 +349,57 @@ class Team extends StatelessWidget {
                     flex: 1,
                     child: TextField(
                         controller: _filter,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 2.0),
+                          contentPadding: const EdgeInsets.only(left: 2.0),
                           filled: true,
-                          fillColor: Color(0xFF111111),
+                          fillColor: const Color(0xFF111111),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           labelText: "Filter",
-                          labelStyle: TextStyle(color: Color(0xFF686868)),
+                          labelStyle: const TextStyle(color: Color(0xFF686868)),
                           suffixIcon:
-                          Icon(Icons.art_track, color: Color(0xFF686868)),
+                          const Icon(Icons.art_track, color: Color(0xFF686868)),
                           //  prefixIcon: Icon(Icons.people),
                           border: myinputborder(),
                           enabledBorder: myinputborder(),
                           focusedBorder: myfocusborder(),
                         )),
                   ),
-                  SizedBox(width: 4),
+                  const SizedBox(width: 4),
                   Expanded(
                     flex: 1,
                     child: TextField(
                         controller: _new,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 4.0),
+                          contentPadding: const EdgeInsets.only(left: 4.0),
                           filled: true,
-                          fillColor: Color(0xFF111111),
+                          fillColor: const Color(0xFF111111),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           labelText: "New",
-                          labelStyle: TextStyle(color: Color(0xFF686868)),
-                          suffixIcon: Icon(Icons.add, color: Color(0xFF686868)),
+                          labelStyle: const TextStyle(color: Color(0xFF686868)),
+                          suffixIcon: const Icon(Icons.add, color: Color(0xFF686868)),
                           //  prefixIcon: Icon(Icons.people),
                           border: myinputborder(),
                           enabledBorder: myinputborder(),
                           focusedBorder: myfocusborder(),
                         )),
                   ),
-                  SizedBox(width: 4),
+                  const SizedBox(width: 4),
                   Expanded(
                     flex: 2,
                     child: TextField(
                         controller: _search,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 12.0),
+                          contentPadding: const EdgeInsets.only(left: 12.0),
                           filled: true,
-                          fillColor: Color(0xFF111111),
+                          fillColor: const Color(0xFF111111),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           labelText: "Search",
-                          labelStyle: TextStyle(color: Color(0xFF686868)),
+                          labelStyle: const TextStyle(color: Color(0xFF686868)),
                           suffixIcon:
-                          Icon(Icons.search, color: Color(0xFF686868)),
+                          const Icon(Icons.search, color: Color(0xFF686868)),
                           //  prefixIcon: Icon(Icons.people),
                           border: myinputborder(),
                           enabledBorder: myinputborder(),
@@ -409,7 +409,7 @@ class Team extends StatelessWidget {
                 ],
               ),
             ),
-            Divider(height: 0, color: Colors.white),
+            const Divider(height: 0, color: Colors.white),
             Column(
               children: [
                 Padding(
@@ -418,8 +418,8 @@ class Team extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     // mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
+                      const Padding(
+                        padding: EdgeInsets.only(
                             left: 6.0, right: 16.0, bottom: 12.0),
                         child: Text(
                           '2023',
@@ -432,7 +432,7 @@ class Team extends StatelessWidget {
                       ListView.builder(
                           itemCount: 3,
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemBuilder: (BuildContext context, index) {
                             return InkWell(
                                 onTap: () {
@@ -446,7 +446,7 @@ class Team extends StatelessWidget {
                 ),
               ],
             ),
-            Divider(color: Colors.white),
+            const Divider(color: Colors.white),
             Column(
               children: [
                 Padding(
@@ -455,8 +455,8 @@ class Team extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     // mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
+                      const Padding(
+                        padding: EdgeInsets.only(
                             left: 6.0, right: 16.0, bottom: 12.0),
                         child: Text(
                           '2022',
@@ -469,7 +469,7 @@ class Team extends StatelessWidget {
                       ListView.builder(
                           itemCount: 2,
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemBuilder: (BuildContext context, index) {
                             return InkWell(
                                 onTap: () {
@@ -511,8 +511,8 @@ class Team extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height * 0.12,
       width: MediaQuery.of(context).size.width,
-      margin: EdgeInsets.only(bottom: 12),
-      decoration: BoxDecoration(
+      margin: const EdgeInsets.only(bottom: 12),
+      decoration: const BoxDecoration(
         color: Color(0xFF111111),
         borderRadius: BorderRadius.all(Radius.circular(16.0)),
       ),
@@ -522,16 +522,16 @@ class Team extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           // mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircleAvatar(backgroundImage: AssetImage('assets/drawer_img.png')),
-            SizedBox(width: 8),
+            const CircleAvatar(backgroundImage: AssetImage('assets/drawer_img.png')),
+            const SizedBox(width: 8),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 Text('John Doe',
                     style: TextStyle(color: Colors.white, fontSize: 16.0)),
                 Padding(
-                  padding: const EdgeInsets.only(top: 4.0, bottom: 4.0),
+                  padding: EdgeInsets.only(top: 4.0, bottom: 4.0),
                   child: Text(
                     'Bufford High School',
                     style: TextStyle(
@@ -545,18 +545,18 @@ class Team extends StatelessWidget {
                 ),
               ],
             ),
-            Spacer(),
+            const Spacer(),
             Padding(
               padding: const EdgeInsets.only(right: 8.0),
               child: Container(
                 height: 30,
                 width: 44,
                 alignment: Alignment.center,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFFBABABA),
                   borderRadius: BorderRadius.all(Radius.circular(8.0)),
                 ),
-                child: Text(
+                child: const Text(
                   'RB',
                   style: TextStyle(color: Colors.black),
                 ),
@@ -572,9 +572,9 @@ class Team extends StatelessWidget {
 class Offered extends StatelessWidget {
   Offered({Key? key}) : super(key: key);
 
-  TextEditingController _filter = TextEditingController();
-  TextEditingController _new = TextEditingController();
-  TextEditingController _search = TextEditingController();
+  final TextEditingController _filter = TextEditingController();
+  final TextEditingController _new = TextEditingController();
+  final TextEditingController _search = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -591,57 +591,57 @@ class Offered extends StatelessWidget {
                     flex: 1,
                     child: TextField(
                         controller: _filter,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 2.0),
+                          contentPadding: const EdgeInsets.only(left: 2.0),
                           filled: true,
-                          fillColor: Color(0xFF111111),
+                          fillColor: const Color(0xFF111111),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           labelText: "Filter",
-                          labelStyle: TextStyle(color: Color(0xFF686868)),
+                          labelStyle: const TextStyle(color: Color(0xFF686868)),
                           suffixIcon:
-                          Icon(Icons.art_track, color: Color(0xFF686868)),
+                          const Icon(Icons.art_track, color: Color(0xFF686868)),
                           //  prefixIcon: Icon(Icons.people),
                           border: myinputborder(),
                           enabledBorder: myinputborder(),
                           focusedBorder: myfocusborder(),
                         )),
                   ),
-                  SizedBox(width: 4),
+                  const SizedBox(width: 4),
                   Expanded(
                     flex: 1,
                     child: TextField(
                         controller: _new,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 4.0),
+                          contentPadding: const EdgeInsets.only(left: 4.0),
                           filled: true,
-                          fillColor: Color(0xFF111111),
+                          fillColor: const Color(0xFF111111),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           labelText: "New",
-                          labelStyle: TextStyle(color: Color(0xFF686868)),
-                          suffixIcon: Icon(Icons.add, color: Color(0xFF686868)),
+                          labelStyle: const TextStyle(color: Color(0xFF686868)),
+                          suffixIcon: const Icon(Icons.add, color: Color(0xFF686868)),
                           //  prefixIcon: Icon(Icons.people),
                           border: myinputborder(),
                           enabledBorder: myinputborder(),
                           focusedBorder: myfocusborder(),
                         )),
                   ),
-                  SizedBox(width: 4),
+                  const SizedBox(width: 4),
                   Expanded(
                     flex: 2,
                     child: TextField(
                         controller: _search,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 12.0),
+                          contentPadding: const EdgeInsets.only(left: 12.0),
                           filled: true,
-                          fillColor: Color(0xFF111111),
+                          fillColor: const Color(0xFF111111),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           labelText: "Search",
-                          labelStyle: TextStyle(color: Color(0xFF686868)),
+                          labelStyle: const TextStyle(color: Color(0xFF686868)),
                           suffixIcon:
-                          Icon(Icons.search, color: Color(0xFF686868)),
+                          const Icon(Icons.search, color: Color(0xFF686868)),
                           //  prefixIcon: Icon(Icons.people),
                           border: myinputborder(),
                           enabledBorder: myinputborder(),
@@ -651,7 +651,7 @@ class Offered extends StatelessWidget {
                 ],
               ),
             ),
-            Divider(height: 0, color: Colors.white),
+            const Divider(height: 0, color: Colors.white),
             Column(
               children: [
                 Padding(
@@ -660,8 +660,8 @@ class Offered extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     // mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
+                      const Padding(
+                        padding: EdgeInsets.only(
                             left: 6.0, right: 16.0, bottom: 12.0),
                         child: Text(
                           '2023',
@@ -674,7 +674,7 @@ class Offered extends StatelessWidget {
                       ListView.builder(
                           itemCount: 3,
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemBuilder: (BuildContext context, index) {
                             return InkWell(
                                 onTap: () {
@@ -688,7 +688,7 @@ class Offered extends StatelessWidget {
                 ),
               ],
             ),
-            Divider(color: Colors.white),
+            const Divider(color: Colors.white),
             Column(
               children: [
                 Padding(
@@ -697,8 +697,8 @@ class Offered extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     // mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
+                      const Padding(
+                        padding: EdgeInsets.only(
                             left: 6.0, right: 16.0, bottom: 12.0),
                         child: Text(
                           '2022',
@@ -711,7 +711,7 @@ class Offered extends StatelessWidget {
                       ListView.builder(
                           itemCount: 2,
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemBuilder: (BuildContext context, index) {
                             return InkWell(
                                 onTap: () {
@@ -753,8 +753,8 @@ class Offered extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height * 0.12,
       width: MediaQuery.of(context).size.width,
-      margin: EdgeInsets.only(bottom: 12),
-      decoration: BoxDecoration(
+      margin: const EdgeInsets.only(bottom: 12),
+      decoration: const BoxDecoration(
         color: Color(0xFF111111),
         borderRadius: BorderRadius.all(Radius.circular(16.0)),
       ),
@@ -764,16 +764,16 @@ class Offered extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           // mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircleAvatar(backgroundImage: AssetImage('assets/drawer_img.png')),
-            SizedBox(width: 8),
+            const CircleAvatar(backgroundImage: AssetImage('assets/drawer_img.png')),
+            const SizedBox(width: 8),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 Text('John Doe',
                     style: TextStyle(color: Colors.white, fontSize: 16.0)),
                 Padding(
-                  padding: const EdgeInsets.only(top: 4.0, bottom: 4.0),
+                  padding: EdgeInsets.only(top: 4.0, bottom: 4.0),
                   child: Text(
                     'Bufford High School',
                     style: TextStyle(
@@ -787,18 +787,18 @@ class Offered extends StatelessWidget {
                 ),
               ],
             ),
-            Spacer(),
+            const Spacer(),
             Padding(
               padding: const EdgeInsets.only(right: 8.0),
               child: Container(
                 height: 30,
                 width: 44,
                 alignment: Alignment.center,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFFBABABA),
                   borderRadius: BorderRadius.all(Radius.circular(8.0)),
                 ),
-                child: Text(
+                child: const Text(
                   'RB',
                   style: TextStyle(color: Colors.black),
                 ),

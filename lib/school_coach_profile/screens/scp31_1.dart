@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/model/events_model.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp35_1.dart';
@@ -15,7 +14,7 @@ class SCP31_1 extends StatelessWidget {
 
   TextEditingController search = TextEditingController();
 
-  List<EventsModel> _list = [
+  final List<EventsModel> _list = [
     EventsModel(
         img: 'assets/events_img1.png',
         date: 'Fri, Oct 2nd',
@@ -93,16 +92,16 @@ class SCP31_1 extends StatelessWidget {
                     child: Container(
                       width: 125,
                       height: 40,
-                      padding: EdgeInsets.only(left: 4, right: 4),
+                      padding: const EdgeInsets.only(left: 4, right: 4),
                       decoration: BoxDecoration(
-                        color: Color(0xFF111111),
-                        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                        color: const Color(0xFF111111),
+                        borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                         border: Border.all(
-                          color: Color(0xFF686868)
+                          color: const Color(0xFF686868)
                         )
                       ),
                       child: Row(
-                        children: [
+                        children: const [
                           Text('Calendar', style: TextStyle(color: Color(0xFF686868), fontWeight: FontWeight.w500)),
                           Spacer(),
                           Icon(Icons.calendar_today_outlined, color: Color(0xFF686868)),
@@ -128,45 +127,45 @@ class SCP31_1 extends StatelessWidget {
                       //     )),
                     ),
                   ),
-                  SizedBox(width: 2),
-                  Container(
+                  const SizedBox(width: 2),
+                  SizedBox(
                     width: 100,
                     height: 42,
                     child: TextField(
                         controller: search,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
                           // contentPadding: EdgeInsets.only(left: 16.0),
-                          contentPadding: EdgeInsets.only(left: 4.0),
+                          contentPadding: const EdgeInsets.only(left: 4.0),
                           filled: true,
-                          fillColor: Color(0xFF111111),
+                          fillColor: const Color(0xFF111111),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           labelText: "Create",
-                          labelStyle: TextStyle(color: Color(0xFF686868)),
-                          suffixIcon: Icon(Icons.add, color: Color(0xFF686868)),
+                          labelStyle: const TextStyle(color: Color(0xFF686868)),
+                          suffixIcon: const Icon(Icons.add, color: Color(0xFF686868)),
                           //  prefixIcon: Icon(Icons.people),
                           border: myinputborder(),
                           enabledBorder: myinputborder(),
                           focusedBorder: myfocusborder(),
                         )),
                   ),
-                  Spacer(),
-                  Container(
+                  const Spacer(),
+                  SizedBox(
                     height: 42,
                     width: 100,
                     child: TextField(
                         controller: search,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
                           // contentPadding: EdgeInsets.only(left: 16.0),
-                          contentPadding: EdgeInsets.only(left: 4.0),
+                          contentPadding: const EdgeInsets.only(left: 4.0),
                           filled: true,
-                          fillColor: Color(0xFF111111),
+                          fillColor: const Color(0xFF111111),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           labelText: "Filter",
-                          labelStyle: TextStyle(color: Color(0xFF686868)),
+                          labelStyle: const TextStyle(color: Color(0xFF686868)),
                           suffixIcon:
-                              Icon(Icons.filter, color: Color(0xFF686868)),
+                              const Icon(Icons.filter, color: Color(0xFF686868)),
                           //  prefixIcon: Icon(Icons.people),
                           border: myinputborder(),
                           enabledBorder: myinputborder(),
@@ -187,7 +186,7 @@ class SCP31_1 extends StatelessWidget {
                     itemCount: _list.length,
                       shrinkWrap: true,
                       primary: false,
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       itemBuilder: (BuildContext context, index) {
                       return InkWell(
                         onTap: () {
@@ -196,8 +195,8 @@ class SCP31_1 extends StatelessWidget {
                         child: Container(
                           height: MediaQuery.of(context).size.height * 0.31,
                           width: MediaQuery.of(context).size.width,
-                          margin: EdgeInsets.only(bottom: 12),
-                          decoration: BoxDecoration(
+                          margin: const EdgeInsets.only(bottom: 12),
+                          decoration: const BoxDecoration(
                             color: Color(0xFF111111),
                             borderRadius: BorderRadius.all(Radius.circular(12.0)),
                           ),
@@ -225,35 +224,35 @@ class SCP31_1 extends StatelessWidget {
                                               color: AppColor.yellowColor,
                                               fontWeight: FontWeight.w500),
                                         ),
-                                        SizedBox(height: 2),
+                                        const SizedBox(height: 2),
                                         Text(
                                           _list[index].match,
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontWeight: FontWeight.w500,
                                               fontSize: 16.0,
                                               color: Colors.white),
                                         ),
-                                        SizedBox(height: 2),
+                                        const SizedBox(height: 2),
                                         Text(
                                           _list[index].location,
                                           style: TextStyle(color: AppColor.greyBorderColor),
                                         )
                                       ],
                                     ),
-                                    Spacer(),
+                                    const Spacer(),
                                     Column(
                                       children: [
                                         Text(_list[index].rate,
                                             style: TextStyle(
                                                 color: AppColor.greyBorderColor, fontSize: 16.0, fontWeight: FontWeight.w500)),
-                                        SizedBox(height: 4),
+                                        const SizedBox(height: 4),
                                         Container(
                                           width: 46,
                                           height: 24,
                                           alignment: Alignment.center,
                                           // padding: EdgeInsets.all(6.0),
                                           decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(
+                                              borderRadius: const BorderRadius.all(
                                                   Radius.circular(6.0)),
                                               color: Colors.black,
                                               border: Border.all(

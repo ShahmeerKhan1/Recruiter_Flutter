@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/common/choose_profile.dart';
-import 'package:recruiter_flutter/common/login_screen.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -16,25 +15,25 @@ class WelcomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset('assets/logo.png'),
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.15,
               width: MediaQuery.of(context).size.width,
              // color: Colors.blue,
             ),
-            Text(
+            const Text(
               'Welcome To Recruitr\nYou Are 3 Steps\nAway From Using Our\nAwesome App',
               style: TextStyle(color: Colors.white, fontSize: 26.0),
             ),
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.15,
               width: MediaQuery.of(context).size.width,
             //  color: Colors.blue,
             ),
-            Container(
+            SizedBox(
               width: 150,
               height: 45,
               child: ElevatedButton(
-                child: Text(
+                child: const Text(
                   "Let's Go",
                   style: TextStyle(
                       color: Colors.white,
@@ -42,7 +41,7 @@ class WelcomeScreen extends StatelessWidget {
                       fontSize: 16.0),
                 ),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => ChooseProfile()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const ChooseProfile()));
                 },
                 style: ElevatedButton.styleFrom(
                   primary: AppColor.goldenColor,

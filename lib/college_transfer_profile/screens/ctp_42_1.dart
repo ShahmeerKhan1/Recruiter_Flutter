@@ -15,14 +15,14 @@ class CTP_42_1 extends StatefulWidget {
 class _CTP_42_1State extends State<CTP_42_1> with SingleTickerProviderStateMixin {
 
   late TabController _controller;
-  TextEditingController _search = TextEditingController();
+  final TextEditingController _search = TextEditingController();
 
   int _selectedIndex = 0; //  Tab Bar Index
 
   List<Widget> list = [
-    Tab(text: 'All'),
-    Tab(text: 'Accounts'),
-    Tab(text: 'Posts'),
+    const Tab(text: 'All'),
+    const Tab(text: 'Accounts'),
+    const Tab(text: 'Posts'),
   ];
 
   @override
@@ -51,7 +51,7 @@ class _CTP_42_1State extends State<CTP_42_1> with SingleTickerProviderStateMixin
             child: InkWell(
                 onTap: () {Navigator.push(context, MaterialPageRoute(builder: (_) => CTP_44_1()));
                 },
-                child: Icon(Icons.notifications)),
+                child: const Icon(Icons.notifications)),
           ),
         ],
       ),
@@ -63,15 +63,15 @@ class _CTP_42_1State extends State<CTP_42_1> with SingleTickerProviderStateMixin
               padding: const EdgeInsets.only(left: 16.0, right: 16.0),
               child: TextField(
                   controller: _search,
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
                   decoration: InputDecoration(
-                    contentPadding: EdgeInsets.only(left: 12.0),
+                    contentPadding: const EdgeInsets.only(left: 12.0),
                     filled: true,
-                    fillColor: Color(0xFF111111),
+                    fillColor: const Color(0xFF111111),
                     floatingLabelBehavior: FloatingLabelBehavior.never,
                     labelText: "Search",
-                    labelStyle: TextStyle(color: Color(0xFF686868)),
-                    suffixIcon: Icon(Icons.search, color: Color(0xFF686868)),
+                    labelStyle: const TextStyle(color: Color(0xFF686868)),
+                    suffixIcon: const Icon(Icons.search, color: Color(0xFF686868)),
                     //  prefixIcon: Icon(Icons.people),
                     border: myinputborder(),
                     enabledBorder: myinputborder(),
@@ -79,11 +79,11 @@ class _CTP_42_1State extends State<CTP_42_1> with SingleTickerProviderStateMixin
                   )),
             ),
             Container(
-              margin: EdgeInsets.only(top: 10.0),
+              margin: const EdgeInsets.only(top: 10.0),
               child: TabBar(
                 //  isScrollable: true,
                 labelStyle:
-                TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                const TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
                 labelColor: Colors.white,
                 unselectedLabelStyle:
                 TextStyle(color: AppColor.greyBorderColor),
@@ -97,15 +97,15 @@ class _CTP_42_1State extends State<CTP_42_1> with SingleTickerProviderStateMixin
                 tabs: list,
               ),
             ),
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height,
               width: double.maxFinite,
               //  color: Colors.blue,
               child: TabBarView(
                 controller: _controller,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 children: [
-                  All(),
+                  const All(),
                   Container(),
                   Container(),
                   //  CustomHighlightWidget(), // custom hightlight widget
@@ -130,7 +130,7 @@ class All extends StatefulWidget {
 }
 
 class _AllState extends State<All> {
-  List<AllModel> _list = [
+  final List<AllModel> _list = [
     AllModel('assets/coach.png', 'Coach John Doe', '@jdoe', coach: 'coach'),
     AllModel('assets/drawer_img.png', 'Martin Mangram',
         'After a great conversation with coach Ark Carter, I am extremely blessed to receive an offer from the University of Arkansas ',
@@ -158,11 +158,11 @@ class _AllState extends State<All> {
         children: [
           Expanded(
             child: Container(
-              margin: EdgeInsets.only(bottom: 40),
+              margin: const EdgeInsets.only(bottom: 40),
               child: ListView.builder(
                   itemCount: _list.length,
                   shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (BuildContext context, index) {
                     return Column(
                       children: [
@@ -171,12 +171,12 @@ class _AllState extends State<All> {
                             Container(
                               height: MediaQuery.of(context).size.height * 0.1,
                               //    color: Colors.blue,
-                              padding: EdgeInsets.only(left: 8.0, right: 8.0),
+                              padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                               child: Row(
                                 children: [
                                   Image.asset(_list[index].img,
                                       width: 40, height: 40, fit: BoxFit.cover),
-                                  SizedBox(width: 6),
+                                  const SizedBox(width: 6),
                                   Expanded(
                                     flex: 6,
                                     child: Column(
@@ -195,25 +195,25 @@ class _AllState extends State<All> {
                                           )
                                               : Text(
                                             _list[index].title,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 color: Colors.white,
                                                 fontWeight:
                                                 FontWeight.w500),
                                           ),
-                                          SizedBox(width: 4),
+                                          const SizedBox(width: 4),
                                           _list[index].time != null
                                               ? Text(
-                                            '${_list[index].time!}',
+                                            _list[index].time!,
                                             style: TextStyle(
                                                 color:
                                                 AppColor.textGreyColor, fontSize: 12),
                                           )
-                                              : Text('')
+                                              : const Text('')
                                         ]),
-                                        SizedBox(height: 4),
+                                        const SizedBox(height: 4),
                                         Text(_list[index].desc,
                                             overflow: TextOverflow.visible,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 12.0))
                                       ],

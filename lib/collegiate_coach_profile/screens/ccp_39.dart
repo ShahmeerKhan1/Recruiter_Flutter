@@ -1,18 +1,16 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_38.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/controller/nli_controller.dart';
 import 'package:recruiter_flutter/model/nli_model.dart';
-import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
 class CCP_39 extends StatefulWidget {
 
-  CCP_39({Key? key}) : super(key: key);
+  const CCP_39({Key? key}) : super(key: key);
 
   @override
   State<CCP_39> createState() => _CCP_39State();
@@ -20,7 +18,7 @@ class CCP_39 extends StatefulWidget {
 
 class _CCP_39State extends State<CCP_39> {
 
-  TextEditingController _link = TextEditingController();
+  final TextEditingController _link = TextEditingController();
 
   bool isButtonEnabled = false;
 
@@ -43,9 +41,9 @@ class _CCP_39State extends State<CCP_39> {
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.height,
-        margin: EdgeInsets.all(16.0),
-        padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 10.0, bottom: 0.0),
-        decoration: BoxDecoration(
+        margin: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 10.0, bottom: 0.0),
+        decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(16.0)),
           color: Color(0xFF111111),
         ),
@@ -54,29 +52,29 @@ class _CCP_39State extends State<CCP_39> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
+                const Padding(
                   padding:
-                  const EdgeInsets.only(left: 6.0, bottom: 6),
+                  EdgeInsets.only(left: 6.0, bottom: 6),
                   child: Text('Select The Athelete',
                       style: TextStyle(
                           color: Colors.white, fontSize: 16)),
                 ),
-                Container(
+                SizedBox(
                   height: 60,
                   child: Form(
                     key: _atheleteFormKey,
                     child: DropdownButtonFormField2(
-                      buttonPadding: EdgeInsets.all(0.0),
+                      buttonPadding: const EdgeInsets.all(0.0),
                       //  alignment: Alignment.center,
                       //  buttonWidth: 50,
                       decoration: InputDecoration(
                         filled: true,
-                        contentPadding: EdgeInsets.only(left: 10.0, right: 10.0),
-                        fillColor: Color(0xFF111111),
+                        contentPadding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                        fillColor: const Color(0xFF111111),
                         floatingLabelBehavior:
                         FloatingLabelBehavior.never,
                         labelStyle:
-                        TextStyle(color: Color(0xFFBABABA)),
+                        const TextStyle(color: Color(0xFFBABABA)),
                         enabledBorder: myinputborder(),
                         focusedBorder: myfocusborder(),
                       ),
@@ -111,6 +109,7 @@ class _CCP_39State extends State<CCP_39> {
                         if (value == null) {
                           return 'Select Team';
                         }
+                        return null;
                       },
                       onChanged: (value) {
                         setState(() {
@@ -130,33 +129,33 @@ class _CCP_39State extends State<CCP_39> {
                 ),
               ],
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
+                const Padding(
                   padding:
-                  const EdgeInsets.only(left: 6.0, bottom: 6),
+                  EdgeInsets.only(left: 6.0, bottom: 6),
                   child: Text('Choose High School',
                       style: TextStyle(
                           color: Colors.white, fontSize: 16)),
                 ),
-                Container(
+                SizedBox(
                   height: 60,
                   child: Form(
                     key: _schoolFormKey,
                     child: DropdownButtonFormField2(
-                      buttonPadding: EdgeInsets.all(0.0),
+                      buttonPadding: const EdgeInsets.all(0.0),
                       //  alignment: Alignment.center,
                       //  buttonWidth: 50,
                       decoration: InputDecoration(
                         filled: true,
-                        contentPadding: EdgeInsets.only(left: 10.0, right: 10.0),
-                        fillColor: Color(0xFF111111),
+                        contentPadding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                        fillColor: const Color(0xFF111111),
                         floatingLabelBehavior:
                         FloatingLabelBehavior.never,
                         labelStyle:
-                        TextStyle(color: Color(0xFFBABABA)),
+                        const TextStyle(color: Color(0xFFBABABA)),
                         enabledBorder: myinputborder(),
                         focusedBorder: myfocusborder(),
                       ),
@@ -191,6 +190,7 @@ class _CCP_39State extends State<CCP_39> {
                         if (value == null) {
                           return 'Select School';
                         }
+                        return null;
                       },
                       onChanged: (value) {
                         setState(() {
@@ -210,29 +210,29 @@ class _CCP_39State extends State<CCP_39> {
                 ),
               ],
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
+                const Padding(
                   padding:
-                  const EdgeInsets.only(left: 6.0, bottom: 6),
+                  EdgeInsets.only(left: 6.0, bottom: 6),
                   child: Text('Paste Docusign Link',
                       style: TextStyle(
                           color: Colors.white, fontSize: 16)),
                 ),
                 TextField(
                     controller: _link,
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     decoration: InputDecoration(
-                      contentPadding: EdgeInsets.only(left: 12.0),
+                      contentPadding: const EdgeInsets.only(left: 12.0),
                       filled: true,
-                      fillColor: Color(0xFF111111),
+                      fillColor: const Color(0xFF111111),
                       floatingLabelBehavior: FloatingLabelBehavior.never,
                       labelText: "Link",
-                      labelStyle: TextStyle(color: Color(0xFFBABABA)),
+                      labelStyle: const TextStyle(color: Color(0xFFBABABA)),
                       suffixIcon:
-                      Icon(Icons.paste, color: Color(0xFF686868), size: 20.0,),
+                      const Icon(Icons.paste, color: Color(0xFF686868), size: 20.0,),
                       //  prefixIcon: Icon(Icons.people),
                       border: myinputborder(),
                       enabledBorder: myinputborder(),
@@ -240,7 +240,7 @@ class _CCP_39State extends State<CCP_39> {
                     )),
               ],
             ),
-            Spacer(),
+            const Spacer(),
             Row(
               children: [
                 Expanded(
@@ -257,7 +257,7 @@ class _CCP_39State extends State<CCP_39> {
                               sentBy: selectedAthlete!=null?selectedAthlete!:' '
                             )
                         );
-                        Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_38()));
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => const CCP_38()));
                         //  }
                       },
                       child: Container(
@@ -265,19 +265,19 @@ class _CCP_39State extends State<CCP_39> {
                         // width: _width,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
+                            borderRadius: const BorderRadius.all(
                                 Radius.circular(10)),
                             border: Border.all(
-                                color: Color(0xFFFFEE00),
+                                color: const Color(0xFFFFEE00),
                                 width: 1.5)),
-                        child: Text('Send',
+                        child: const Text('Send',
                             style: TextStyle(
                                 color: Color(0xFFFFEE00),
                                 fontWeight: FontWeight.w500,
                                 fontSize: 14.0)),
                       )),
                 ),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 Expanded(
                   flex: 1,
                   child: InkWell(
@@ -287,12 +287,12 @@ class _CCP_39State extends State<CCP_39> {
                         // width: _width,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
+                            borderRadius: const BorderRadius.all(
                                 Radius.circular(10)),
                             border: Border.all(
-                                color: Color(0xFFFFEE00),
+                                color: const Color(0xFFFFEE00),
                                 width: 1.5)),
-                        child: Text('Download',
+                        child: const Text('Download',
                             style: TextStyle(
                                 color: Color(0xFFFFEE00),
                                 fontWeight: FontWeight.w500,

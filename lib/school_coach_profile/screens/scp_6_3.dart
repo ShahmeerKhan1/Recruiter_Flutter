@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp_7.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_radio_buttons.dart';
@@ -20,12 +19,12 @@ class _SCP6_3State extends State<SCP6_3> {
   @override
   void initState() {
     super.initState();
-    genders.add(new Gender("Volley", 'assets/volley.png', false));
-    genders.add(new Gender("Lacrosse", 'assets/lacrosse.png', false));
-    genders.add(new Gender("Soccer", 'assets/soccer.png', false));
-    genders.add(new Gender("Baseball", 'assets/baseball.png', false));
-    genders.add(new Gender("Volley", 'assets/volley.png', false));
-    genders.add(new Gender("Lacrosse", 'assets/lacrosse.png', false));
+    genders.add(Gender("Volley", 'assets/volley.png', false));
+    genders.add(Gender("Lacrosse", 'assets/lacrosse.png', false));
+    genders.add(Gender("Soccer", 'assets/soccer.png', false));
+    genders.add(Gender("Baseball", 'assets/baseball.png', false));
+    genders.add(Gender("Volley", 'assets/volley.png', false));
+    genders.add(Gender("Lacrosse", 'assets/lacrosse.png', false));
   }
 
   TextEditingController search = TextEditingController();
@@ -44,7 +43,7 @@ class _SCP6_3State extends State<SCP6_3> {
                   Container(
                     height: MediaQuery.of(context).size.height * 0.22,
                     width: double.infinity,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                    //       color: Colors.blue,
                       image: DecorationImage(
                           image: AssetImage("assets/three.png"),
@@ -61,14 +60,14 @@ class _SCP6_3State extends State<SCP6_3> {
                               onPressed: () {
                                 Navigator.pop(context);
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_back_ios,
                                 color: Colors.white,
                               )),
-                          Spacer(),
+                          const Spacer(),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
+                            children: const [
                               Text(
                                 'Athetic',
                                 style: TextStyle(
@@ -82,15 +81,15 @@ class _SCP6_3State extends State<SCP6_3> {
                               ),
                             ],
                           ),
-                          Spacer()
+                          const Spacer()
                         ],
                       ),
                     ),
                   ),
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
+              const Padding(
+                padding: EdgeInsets.symmetric(
                     horizontal: 20.0, vertical: 12.0),
                 child: Text(
                   'Sport',
@@ -105,9 +104,9 @@ class _SCP6_3State extends State<SCP6_3> {
                   alignment: Alignment.topCenter,
                   // color: Colors.green,
                   child: GridView.builder(
-                    padding: EdgeInsets.all(0.0),
-                    physics: NeverScrollableScrollPhysics(),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    padding: const EdgeInsets.all(0.0),
+                    physics: const NeverScrollableScrollPhysics(),
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
                           mainAxisExtent: 150,
                           crossAxisSpacing: 0,
@@ -120,7 +119,9 @@ class _SCP6_3State extends State<SCP6_3> {
                           //  splashColor: Colors.pinkAccent,
                           onTap: () {
                             setState(() {
-                              genders.forEach((gender) => gender.isSelected = false);
+                              for (var gender in genders) {
+                                gender.isSelected = false;
+                              }
                               genders[index].isSelected = true;
                             });
                           },
@@ -137,28 +138,28 @@ class _SCP6_3State extends State<SCP6_3> {
                         children: [
                           TextField(
                               controller: search,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: Colors.white
                               ),
                               decoration: InputDecoration(
-                                contentPadding: EdgeInsets.only(left: 16.0),
+                                contentPadding: const EdgeInsets.only(left: 16.0),
                                 filled: true,
-                                fillColor: Color(0xFF111111),
+                                fillColor: const Color(0xFF111111),
                                 floatingLabelBehavior: FloatingLabelBehavior.never,
                                 labelText: "Search for Sport",
-                                labelStyle: TextStyle(color: Color(0xFFBABABA)),
+                                labelStyle: const TextStyle(color: Color(0xFFBABABA)),
                                 suffixIcon: Icon(Icons.search, color: AppColor.greyBorderColor),
                                 //  prefixIcon: Icon(Icons.people),
                                 border: myinputborder(),
                                 enabledBorder: myinputborder(),
                                 focusedBorder: myfocusborder(),
                               )),
-                          SizedBox(height: 10),
-                          Container(
+                          const SizedBox(height: 10),
+                          SizedBox(
                             width: 150,
                             height: 45,
                             child: ElevatedButton(
-                              child: Text(
+                              child: const Text(
                                 'Finish',
                                 style: TextStyle(
                                     color: Colors.white,
@@ -166,7 +167,7 @@ class _SCP6_3State extends State<SCP6_3> {
                                     fontSize: 16.0),
                               ),
                               onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (_) => SCP7()));
+                                Navigator.push(context, MaterialPageRoute(builder: (_) => const SCP7()));
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: AppColor.goldenColor,

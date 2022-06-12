@@ -6,7 +6,7 @@ import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 class SCP42_1 extends StatelessWidget {
   SCP42_1({Key? key}) : super(key: key);
 
-  List<NotificationsModel> _list = [
+  final List<NotificationsModel> _list = [
     NotificationsModel(
         'assets/drawer_img.png', 'Martin Mangram liked your post', '1m ago'),
     NotificationsModel(
@@ -41,7 +41,7 @@ class SCP42_1 extends StatelessWidget {
                   itemCount: _list.length,
                   shrinkWrap: true,
                   primary: false,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (BuildContext context, index) {
                     return Column(
                       children: [
@@ -49,7 +49,7 @@ class SCP42_1 extends StatelessWidget {
                           height: MediaQuery.of(context).size.height * 0.1,
                           width: MediaQuery.of(context).size.width,
                   // color: Colors.blue,
-                   padding: EdgeInsets.only(left: 16.0, right: 16.0),
+                   padding: const EdgeInsets.only(left: 16.0, right: 16.0),
                    //   color: Colors.blue,
                           alignment: Alignment.center,
                           child: Column(
@@ -60,7 +60,7 @@ class SCP42_1 extends StatelessWidget {
                                // crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
                                   Image.asset(_list[index].img, width: 40, height: 40),
-                                  SizedBox(width: 8),
+                                  const SizedBox(width: 8),
                                   Expanded(
                                     child: Row(
                                       crossAxisAlignment: CrossAxisAlignment.end,
@@ -70,7 +70,7 @@ class SCP42_1 extends StatelessWidget {
                                           child: Text(
                                             _list[index].txt,
                                             overflow: TextOverflow.visible,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 color: Colors.white, fontWeight: FontWeight.w500),
                                           ),
                                         ),
@@ -83,7 +83,7 @@ class SCP42_1 extends StatelessWidget {
                                                 color: AppColor.yellowColor,
                                                 fontWeight: FontWeight.w500),
                                           ),
-                                        ) : Text(''),
+                                        ) : const Text(''),
                                       ],
                                     ),
                                   ),
@@ -97,7 +97,7 @@ class SCP42_1 extends StatelessWidget {
                             ],
                           ),
                         ),
-                        Divider(color: Colors.white, height: 0)
+                        const Divider(color: Colors.white, height: 0)
                       ],
                     );
                   }),

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
@@ -21,13 +20,13 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.bgColor,
-        title: Text(
+        title: const Text(
           'Verify Email Address',
           style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios,
             color: Colors.white,
           ),
@@ -40,7 +39,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
               color: AppColor.goldenColor,
               height: 4.0,
             ),
-            preferredSize: Size.fromHeight(4.0)),
+            preferredSize: const Size.fromHeight(4.0)),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -49,12 +48,12 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 'Please enter the code you\nreceived to verify\nyour email address',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white, fontSize: 18.0),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Text(
                 'send to johndoe@email.com',
                 style: TextStyle(
@@ -62,26 +61,26 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                     fontWeight: FontWeight.w500,
                     fontSize: 16.0),
               ),
-              SizedBox(height: 42),
+              const SizedBox(height: 42),
               TextField(
                   controller: code,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white
                   ),
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: Color(0xFF111111),
+                    fillColor: const Color(0xFF111111),
                     floatingLabelBehavior: FloatingLabelBehavior.never,
                     // prefixIcon: Icon(Icons.lock),
                     labelText: "Enter Code Here",
-                    labelStyle: TextStyle(color: Color(0xFFBABABA)),
+                    labelStyle: const TextStyle(color: Color(0xFFBABABA)),
                     enabledBorder: myinputborder(),
                     focusedBorder: myfocusborder(),
                   )
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Text("Didn't get it?", style: TextStyle(color: AppColor.goldenColor),),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               InkWell(
                 onTap: () {
 
@@ -97,12 +96,12 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                       )),
                 ),
               ),
-              SizedBox(height: 42),
-              Container(
+              const SizedBox(height: 42),
+              SizedBox(
                 width: 225,
                 height: 45,
                 child: ElevatedButton(
-                  child: Text(
+                  child: const Text(
                     'Verify Email Address',
                     style: TextStyle(
                         color: Colors.white,
@@ -110,7 +109,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                         fontSize: 16.0),
                   ),
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => SuccessScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => const SuccessScreen()));
                   },
                   style: ElevatedButton.styleFrom(
                     primary: AppColor.goldenColor,

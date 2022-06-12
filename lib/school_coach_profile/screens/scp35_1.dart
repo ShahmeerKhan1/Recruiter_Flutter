@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:month_picker_dialog/month_picker_dialog.dart';
 import 'package:recruiter_flutter/model/calendar_model.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp36_1.dart';
@@ -45,14 +43,14 @@ class _SCP35_1State extends State<SCP35_1> {
     'Dec'
   ];
 
-  List<CalendarModel> _list = [
+  final List<CalendarModel> _list = [
     CalendarModel(
         img: 'assets/events_img1.png',
         date: 'Fri, Oct 2nd',
         match: 'Private Football Camp',
         location: 'Ohio Stadium',
         schedule: 'Going',
-      color: Color(0xFF239B36)
+      color: const Color(0xFF239B36)
     ),
     CalendarModel(
         img: 'assets/events_img2.png',
@@ -60,7 +58,7 @@ class _SCP35_1State extends State<SCP35_1> {
         match: 'Ohio State \nUniversity Football Camp',
         location: 'Ohio Stadium',
         schedule: 'May Be',
-      color: Color(0xFFB9B200)
+      color: const Color(0xFFB9B200)
     ),
     CalendarModel(
         img: 'assets/events_img1.png',
@@ -68,14 +66,14 @@ class _SCP35_1State extends State<SCP35_1> {
         match: 'Private Football Camp',
         location: 'Ohio Stadium',
         schedule: 'Going',
-        color: Color(0xFF239B36)),
+        color: const Color(0xFF239B36)),
     CalendarModel(
         img: 'assets/events_img1.png',
         date: 'Fri, Oct 2nd',
         match: 'Private Football Camp',
         location: 'Ohio Stadium',
         schedule: 'Not Going',
-        color: Color(0xFF239B36)),
+        color: const Color(0xFF239B36)),
   ];
 
   @override
@@ -104,7 +102,7 @@ class _SCP35_1State extends State<SCP35_1> {
               height: MediaQuery.of(context).size.height * 0.08,
               width: MediaQuery.of(context).size.width,
               alignment: Alignment.center,
-              color: Color(0xFF111111),
+              color: const Color(0xFF111111),
               child: Column(
                 //  crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -114,23 +112,23 @@ class _SCP35_1State extends State<SCP35_1> {
                     //  crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Icon(Icons.arrow_back_ios, color: AppColor.textGreyColor),
-                      SizedBox(width: 12),
+                      const SizedBox(width: 12),
                       Text(
                         months[selectedDate!.month - 1],
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white70,
                             fontWeight: FontWeight.w500,
                             fontSize: 18.0),
                       ),
-                      SizedBox(width: 8),
+                      const SizedBox(width: 8),
                       Text(
                         '${selectedDate?.year}',
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white70,
                             fontWeight: FontWeight.w500,
                             fontSize: 18.0),
                       ),
-                      SizedBox(width: 12),
+                      const SizedBox(width: 12),
                       Icon(Icons.arrow_forward_ios,
                           color: AppColor.textGreyColor)
                     ],
@@ -143,7 +141,7 @@ class _SCP35_1State extends State<SCP35_1> {
             height: MediaQuery.of(context).size.height * 0.08,
             width: MediaQuery.of(context).size.width,
             alignment: Alignment.center,
-            color: Color(0xFF111111),
+            color: const Color(0xFF111111),
             // color: Colors.blue,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -153,37 +151,37 @@ class _SCP35_1State extends State<SCP35_1> {
                     flex: 2,
                     child: TextField(
                         controller: search,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 16.0),
+                          contentPadding: const EdgeInsets.only(left: 16.0),
                           filled: true,
-                          fillColor: Color(0xFF111111),
+                          fillColor: const Color(0xFF111111),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           labelText: "Search for Events",
-                          labelStyle: TextStyle(color: Color(0xFF686868)),
+                          labelStyle: const TextStyle(color: Color(0xFF686868)),
                           suffixIcon:
-                              Icon(Icons.search, color: Color(0xFF686868)),
+                              const Icon(Icons.search, color: Color(0xFF686868)),
                           //  prefixIcon: Icon(Icons.people),
                           border: myinputborder(),
                           enabledBorder: myinputborder(),
                           focusedBorder: myfocusborder(),
                         )),
                   ),
-                  SizedBox(width: 8),
+                  const SizedBox(width: 8),
                   Expanded(
                     flex: 1,
                     child: TextField(
                         controller: filter,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 16.0),
+                          contentPadding: const EdgeInsets.only(left: 16.0),
                           filled: true,
-                          fillColor: Color(0xFF111111),
+                          fillColor: const Color(0xFF111111),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           labelText: "Filter",
-                          labelStyle: TextStyle(color: Color(0xFF686868)),
+                          labelStyle: const TextStyle(color: Color(0xFF686868)),
                           suffixIcon:
-                              Icon(Icons.filter, color: Color(0xFF686868)),
+                              const Icon(Icons.filter, color: Color(0xFF686868)),
                           //  prefixIcon: Icon(Icons.people),
                           border: myinputborder(),
                           enabledBorder: myinputborder(),
@@ -202,15 +200,15 @@ class _SCP35_1State extends State<SCP35_1> {
                 itemBuilder: (BuildContext context, index) {
                   return InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => SCP36_1()));
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => const SCP36_1()));
                     },
                     child: Container(
                       height: MediaQuery.of(context).size.height * 0.18,
                       width: MediaQuery.of(context).size.width,
-                      padding: EdgeInsets.only(left: 6.0, right: 6.0, top: 6.0),
-                      margin: EdgeInsets.only(
+                      padding: const EdgeInsets.only(left: 6.0, right: 6.0, top: 6.0),
+                      margin: const EdgeInsets.only(
                           left: 16.0, right: 16.0, top: 16.0, bottom: 6.0),
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Color(0xFF111111),
                         borderRadius: BorderRadius.all(Radius.circular(6.0)),
                       ),
@@ -218,12 +216,12 @@ class _SCP35_1State extends State<SCP35_1> {
                         children: [
                           Row(
                             children: [
-                              Container(
+                              SizedBox(
                                   height: 180,
                                   width: 140,
                                   child: Image.asset(_list[index].img,
                                       fit: BoxFit.cover)),
-                              SizedBox(width: 6),
+                              const SizedBox(width: 6),
                               Padding(
                                 padding: const EdgeInsets.only(top: 8.0),
                                 child: Column(
@@ -236,21 +234,21 @@ class _SCP35_1State extends State<SCP35_1> {
                                           fontWeight: FontWeight.w500,
                                           fontSize: 16.0),
                                     ),
-                                    SizedBox(height: 4),
-                                    Container(
+                                    const SizedBox(height: 4),
+                                    SizedBox(
                                       width: 160,
                                       // color: Colors.blue,
                                       // height: MediaQuery.of(context).size.height,
                                       child: Text(
                                         _list[index].match,
                                         maxLines: 2,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontWeight: FontWeight.w500,
                                             fontSize: 16.0,
                                             color: Colors.white),
                                       ),
                                     ),
-                                    SizedBox(height: 4),
+                                    const SizedBox(height: 4),
                                     Text(
                                       _list[index].location,
                                       style: TextStyle(
@@ -273,16 +271,16 @@ class _SCP35_1State extends State<SCP35_1> {
                             child: Container(
                               height: 36,
                               width: 82,
-                              margin: EdgeInsets.only(right: 2.0, bottom: 6.0),
+                              margin: const EdgeInsets.only(right: 2.0, bottom: 6.0),
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
                                 color: _list[index].color,
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(8)),
+                                    const BorderRadius.all(Radius.circular(8)),
                               ),
                               child: Text(
                                 _list[index].schedule,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w500),
                               ),

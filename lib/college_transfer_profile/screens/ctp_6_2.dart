@@ -1,5 +1,4 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pattern_formatter/pattern_formatter.dart';
@@ -52,11 +51,11 @@ class _CTP6_2State extends State<CTP6_2> {
   @override
   void initState() {
     super.initState();
-    genders.add(new Gender("Male", 'assets/male.png', false));
-    genders.add(new Gender("Female", 'assets/female.png', false));
+    genders.add(Gender("Male", 'assets/male.png', false));
+    genders.add(Gender("Female", 'assets/female.png', false));
   }
 
-  Future<Null> _selectDate(BuildContext context) async {
+  Future<void> _selectDate(BuildContext context) async {
     DateFormat formatter = DateFormat('dd/MM/yyyy');//specifies day/month/year format
 
     DateTime selectedDate = DateTime.now();
@@ -66,11 +65,12 @@ class _CTP6_2State extends State<CTP6_2> {
         initialDate: selectedDate,
         firstDate: DateTime(1901, 1),
         lastDate: DateTime(2100));
-    if (picked != null && picked != selectedDate)
+    if (picked != null && picked != selectedDate) {
       setState(() {
         selectedDate = picked;
         date.value = TextEditingValue(text: formatter.format(picked));//Use formatter to format selected date and assign to text field
       });
+    }
   }
 
   @override
@@ -78,7 +78,7 @@ class _CTP6_2State extends State<CTP6_2> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(
             children: [
               Stack(
@@ -86,7 +86,7 @@ class _CTP6_2State extends State<CTP6_2> {
                   Container(
                     height: MediaQuery.of(context).size.height * 0.24,
                     width: double.infinity,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       //    color: Colors.blue,
                       image: DecorationImage(
                           image: AssetImage("assets/two.png"),
@@ -103,14 +103,14 @@ class _CTP6_2State extends State<CTP6_2> {
                               onPressed: () {
                                 Navigator.pop(context);
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.arrow_back_ios,
                                 color: Colors.white,
                               )),
-                          Spacer(),
+                          const Spacer(),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
+                            children: const [
                               Text(
                                 'General',
                                 style:
@@ -124,7 +124,7 @@ class _CTP6_2State extends State<CTP6_2> {
                               ),
                             ],
                           ),
-                          Spacer()
+                          const Spacer()
                         ],
                       ),
                     ),
@@ -138,8 +138,8 @@ class _CTP6_2State extends State<CTP6_2> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
+                      const Padding(
+                        padding: EdgeInsets.symmetric(
                             horizontal: 4.0, vertical: 8.0),
                         child: Text(
                           'Gender',
@@ -151,7 +151,7 @@ class _CTP6_2State extends State<CTP6_2> {
                       ),
                       Expanded(
                         child: GridView.builder(
-                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 1,
                               mainAxisExtent: 165,
                               mainAxisSpacing: 10),
@@ -163,8 +163,9 @@ class _CTP6_2State extends State<CTP6_2> {
                               child: InkWell(
                                 onTap: () {
                                   setState(() {
-                                    genders.forEach(
-                                        (gender) => gender.isSelected = false);
+                                    for (var gender in genders) {
+                                      gender.isSelected = false;
+                                    }
                                     genders[index].isSelected = true;
                                   });
                                 },
@@ -176,15 +177,15 @@ class _CTP6_2State extends State<CTP6_2> {
                       ),
                     ],
                   )),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.40,
                 width: MediaQuery.of(context).size.width,
               //  color: Colors.blue,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 4.0),
                       child: Text(
                         'Birth Date',
                         style: TextStyle(
@@ -193,7 +194,7 @@ class _CTP6_2State extends State<CTP6_2> {
                             fontSize: 16.0),
                       ),
                     ),
-                    SizedBox(height: 6),
+                    const SizedBox(height: 6),
                     TextField(
                         keyboardType: TextInputType.number,
                         // textAlign: TextAlign.center,
@@ -205,23 +206,23 @@ class _CTP6_2State extends State<CTP6_2> {
                           _selectDate(context);
                         },
                         controller: date,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white
                         ),
                         decoration: InputDecoration(
                           filled: true,
-                          fillColor: Color(0xFF111111),
+                          fillColor: const Color(0xFF111111),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           // prefixIcon: Icon(Icons.lock),
                           labelText: "MM/DD/YYYY",
-                          labelStyle: TextStyle(color: Color(0xFFBABABA)),
+                          labelStyle: const TextStyle(color: Color(0xFFBABABA)),
                           enabledBorder: myinputborder(),
                           focusedBorder: myfocusborder(),
                         )
                     ),
-                    SizedBox(height: 16),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    const SizedBox(height: 16),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 4.0),
                       child: Text(
                         'Choose Your High School',
                         style: TextStyle(
@@ -230,7 +231,7 @@ class _CTP6_2State extends State<CTP6_2> {
                             fontSize: 16.0),
                       ),
                     ),
-                    SizedBox(height: 6),
+                    const SizedBox(height: 6),
                     Form(
                       key: _schoolFormKey,
                       child: Container(
@@ -239,14 +240,14 @@ class _CTP6_2State extends State<CTP6_2> {
                        // margin: EdgeInsets.all(0.0),
                        // height: 65,
                         child: DropdownButtonFormField2(
-                          buttonPadding: EdgeInsets.all(0.0),
+                          buttonPadding: const EdgeInsets.all(0.0),
                         //  alignment: Alignment.center,
                         //  buttonWidth: 50,
                           decoration: InputDecoration(
                             filled: true,
-                            fillColor: Color(0xFF111111),
+                            fillColor: const Color(0xFF111111),
                             floatingLabelBehavior: FloatingLabelBehavior.never,
-                            labelStyle: TextStyle(color: Color(0xFFBABABA)),
+                            labelStyle: const TextStyle(color: Color(0xFFBABABA)),
                             enabledBorder: myinputborder(),
                             focusedBorder: myfocusborder(),
                           ),
@@ -282,6 +283,7 @@ class _CTP6_2State extends State<CTP6_2> {
                             if (value == null) {
                               return 'Please select Type';
                             }
+                            return null;
                           },
                           onChanged: (value) {
                             //Do something when changing the item if you want.
@@ -298,9 +300,9 @@ class _CTP6_2State extends State<CTP6_2> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SizedBox(height: 16),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                              const SizedBox(height: 16),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 4.0),
                                 child: Text(
                                   'State',
                                   style: TextStyle(
@@ -309,7 +311,7 @@ class _CTP6_2State extends State<CTP6_2> {
                                       fontSize: 16.0),
                                 ),
                               ),
-                              SizedBox(height: 6),
+                              const SizedBox(height: 6),
                               Form(
                                 key: _stateFormKey,
                                 child: Container(
@@ -318,14 +320,14 @@ class _CTP6_2State extends State<CTP6_2> {
                                   // margin: EdgeInsets.all(0.0),
                                   // height: 65,
                                   child: DropdownButtonFormField2(
-                                    buttonPadding: EdgeInsets.all(0.0),
+                                    buttonPadding: const EdgeInsets.all(0.0),
                                     alignment: Alignment.center,
                                     //  buttonWidth: 50,
                                     decoration: InputDecoration(
                                       filled: true,
-                                      fillColor: Color(0xFF111111),
+                                      fillColor: const Color(0xFF111111),
                                       floatingLabelBehavior: FloatingLabelBehavior.never,
-                                      labelStyle: TextStyle(color: Color(0xFFBABABA)),
+                                      labelStyle: const TextStyle(color: Color(0xFFBABABA)),
                                       enabledBorder: myinputborder(),
                                       focusedBorder: myfocusborder(),
                                     ),
@@ -361,6 +363,7 @@ class _CTP6_2State extends State<CTP6_2> {
                                       if (value == null) {
                                         return 'Please select State';
                                       }
+                                      return null;
                                     },
                                     onChanged: (value) {
                                       //Do something when changing the item if you want.
@@ -371,18 +374,18 @@ class _CTP6_2State extends State<CTP6_2> {
                                   ),
                                 ),
                               ),
-                              SizedBox(height: 6),
+                              const SizedBox(height: 6),
                             ],
                           ),
                         ),
-                        SizedBox(width: 12),
+                        const SizedBox(width: 12),
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SizedBox(height: 16),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                              const SizedBox(height: 16),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 4.0),
                                 child: Text(
                                   'City',
                                   style: TextStyle(
@@ -391,7 +394,7 @@ class _CTP6_2State extends State<CTP6_2> {
                                       fontSize: 16.0),
                                 ),
                               ),
-                              SizedBox(height: 6),
+                              const SizedBox(height: 6),
                               Form(
                                 key: _cityFormKey,
                                 child: Container(
@@ -400,14 +403,14 @@ class _CTP6_2State extends State<CTP6_2> {
                                   // margin: EdgeInsets.all(0.0),
                                   // height: 65,
                                   child: DropdownButtonFormField2(
-                                    buttonPadding: EdgeInsets.all(0.0),
+                                    buttonPadding: const EdgeInsets.all(0.0),
                                     alignment: Alignment.center,
                                     //  buttonWidth: 50,
                                     decoration: InputDecoration(
                                       filled: true,
-                                      fillColor: Color(0xFF111111),
+                                      fillColor: const Color(0xFF111111),
                                       floatingLabelBehavior: FloatingLabelBehavior.never,
-                                      labelStyle: TextStyle(color: Color(0xFFBABABA)),
+                                      labelStyle: const TextStyle(color: Color(0xFFBABABA)),
                                       enabledBorder: myinputborder(),
                                       focusedBorder: myfocusborder(),
                                     ),
@@ -443,6 +446,7 @@ class _CTP6_2State extends State<CTP6_2> {
                                       if (value == null) {
                                         return 'Please select City';
                                       }
+                                      return null;
                                     },
                                     onChanged: (value) {
                                       //Do something when changing the item if you want.
@@ -453,7 +457,7 @@ class _CTP6_2State extends State<CTP6_2> {
                                   ),
                                 ),
                               ),
-                              SizedBox(height: 6),
+                              const SizedBox(height: 6),
                             ],
                           ),
                         ),
@@ -462,16 +466,16 @@ class _CTP6_2State extends State<CTP6_2> {
                   ],
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Container(
             //    height: MediaQuery.of(context).size.height * 0.10,
              //   width: MediaQuery.of(context).size.width,
               //  color: Colors.pink,
-                child:  Container(
+                child:  SizedBox(
                   width: 150,
                   height: 45,
                   child: ElevatedButton(
-                    child: Text(
+                    child: const Text(
                       "Next",
                       style: TextStyle(
                           color: Colors.white,
@@ -479,7 +483,7 @@ class _CTP6_2State extends State<CTP6_2> {
                           fontSize: 16.0),
                     ),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => CTP6_3()));
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => const CTP6_3()));
                     },
                     style: ElevatedButton.styleFrom(
                       primary: AppColor.goldenColor,

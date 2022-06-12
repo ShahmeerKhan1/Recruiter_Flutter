@@ -92,30 +92,30 @@ class _CTP19_1State extends State<CTP19_1> {
       key: _scaffoldKey,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        iconTheme: IconThemeData(color: Colors.white),
-        title: Text('New Message',
+        iconTheme: const IconThemeData(color: Colors.white),
+        title: const Text('New Message',
             style: TextStyle(color: Colors.white)),
         centerTitle: true,
-        actions: [
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 12.0),
+            padding: EdgeInsets.only(right: 12.0),
             child: Icon(Icons.notifications, color: Colors.white)
 
           ),
         ],
         bottom: PreferredSize(
             child: Container(
-              color: Color(0xFF474747),
+              color: const Color(0xFF474747),
               height: 4.0,
             ),
-            preferredSize: Size.fromHeight(4.0)),
+            preferredSize: const Size.fromHeight(4.0)),
       ),
       body: Stack(
         alignment: Alignment.center,
         children: <Widget>[
           Column(
             children: [
-              Container(
+              SizedBox(
                 height: 46,
                 width: double.infinity,
                 //   color: Colors.blue,
@@ -124,14 +124,14 @@ class _CTP19_1State extends State<CTP19_1> {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         'To: ',
                         style: TextStyle(
                             color: Color(0xFF686868), fontSize: 16.0),
                       ),
                       Text(
                         widget.data,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w500,
                             fontSize: 16.0),
@@ -140,7 +140,7 @@ class _CTP19_1State extends State<CTP19_1> {
                   ),
                 ),
               ),
-              Divider(height: 0, color: Color(0xFF474747), thickness: 2),
+              const Divider(height: 0, color: Color(0xFF474747), thickness: 2),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 58.0),
@@ -148,14 +148,14 @@ class _CTP19_1State extends State<CTP19_1> {
                     itemCount: messages.length,
                     shrinkWrap: true,
                     primary: false,
-                    padding: EdgeInsets.only(top: 16, bottom: 10),
+                    padding: const EdgeInsets.only(top: 16, bottom: 10),
                     // physics: NeverScrollableScrollPhysics(),
                     itemBuilder: (BuildContext context, index) {
                       return Container(
                         padding: messages[index].messageType == "receiver"
-                            ? EdgeInsets.only(
+                            ? const EdgeInsets.only(
                             left: 16, right: 42, top: 10, bottom: 10)
-                            : EdgeInsets.only(
+                            : const EdgeInsets.only(
                             left: 90, right: 16, top: 10, bottom: 10),
                         child: Align(
                           alignment: (messages[index].messageType == "receiver"
@@ -164,14 +164,14 @@ class _CTP19_1State extends State<CTP19_1> {
                           child: messages[index].messageType == "receiver"
                               ? Row(
                             children: [
-                              CircleAvatar(
+                              const CircleAvatar(
                                   backgroundImage:
                                   AssetImage('assets/drawer_img.png'),
                                   radius: 18),
-                              SizedBox(width: 10),
+                              const SizedBox(width: 10),
                               Expanded(
                                 child: Container(
-                                  padding: EdgeInsets.all(16),
+                                  padding: const EdgeInsets.all(16),
                                   decoration: BoxDecoration(
                                     borderRadius:
                                     BorderRadius.circular(12),
@@ -182,7 +182,7 @@ class _CTP19_1State extends State<CTP19_1> {
                                   ),
                                   child: Text(
                                       messages[index].messageContent,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.w500)),
                                 ),
@@ -193,7 +193,7 @@ class _CTP19_1State extends State<CTP19_1> {
                             children: [
                               Expanded(
                                 child: Container(
-                                  padding: EdgeInsets.all(16),
+                                  padding: const EdgeInsets.all(16),
                                   decoration: BoxDecoration(
                                     borderRadius:
                                     BorderRadius.circular(12),
@@ -204,7 +204,7 @@ class _CTP19_1State extends State<CTP19_1> {
                                   ),
                                   child: Text(
                                       messages[index].messageContent,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.w500)),
                                 ),
@@ -223,7 +223,7 @@ class _CTP19_1State extends State<CTP19_1> {
             alignment: Alignment.bottomLeft,
             child: Container(
               padding:
-              EdgeInsets.only(left: 10, bottom: 10, top: 10, right: 10),
+              const EdgeInsets.only(left: 10, bottom: 10, top: 10, right: 10),
               // height: 60,
               // width: double.infinity,
               // color: Colors.white,
@@ -246,15 +246,15 @@ class _CTP19_1State extends State<CTP19_1> {
                           onChanged: (val) {
                             isTextFieldEmpty();
                           },
-                          style: TextStyle(color: Colors.white),
+                          style: const TextStyle(color: Colors.white),
                           decoration: InputDecoration(
-                            contentPadding: EdgeInsets.only(left: 16.0),
+                            contentPadding: const EdgeInsets.only(left: 16.0),
                             filled: true,
-                            fillColor: Color(0xFF111111),
+                            fillColor: const Color(0xFF111111),
                             floatingLabelBehavior: FloatingLabelBehavior.never,
                             labelText: "Start Typing....",
                             labelStyle:
-                            TextStyle(color: Colors.white, fontSize: 14.0),
+                            const TextStyle(color: Colors.white, fontSize: 14.0),
                             suffixIcon: Padding(
                               padding: const EdgeInsets.only(right: 16.0),
                               child: Row(
@@ -263,14 +263,14 @@ class _CTP19_1State extends State<CTP19_1> {
                                 children: [
                                   Icon(Icons.attach_file,
                                       color: AppColor.greyBorderColor),
-                                  SizedBox(width: 6),
+                                  const SizedBox(width: 6),
                                   InkWell(
                                       onTap: () {
                                         if (search.text == "") {
                                           print('please enter text');
                                           _scaffoldKey.currentState!
-                                              .showSnackBar(new SnackBar(
-                                              content: new Text(
+                                              .showSnackBar(const SnackBar(
+                                              content: Text(
                                                   'Please enter message...')));
                                         } else {
                                           _onSubmit();

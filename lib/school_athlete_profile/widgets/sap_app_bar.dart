@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:recruiter_flutter/school_athlete_profile/screens/sap_44.dart';
 
 AppBar sapAppBar(String title, IconData icon, BuildContext context) {
   return AppBar(
     backgroundColor: Colors.black,
-    iconTheme: IconThemeData(color: Colors.white),
-    title: Text(title, style: TextStyle(color: Colors.white)),
+    iconTheme: const IconThemeData(color: Colors.white),
+    title: Text(title, style: const TextStyle(color: Colors.white)),
     centerTitle: true,
     actions: [
       InkWell(
         onTap: () {
-         // Navigator.push(context, MaterialPageRoute(builder: (_) => CTP_44_1()));
+          Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_44()));
         },
         child: Padding(
           padding: const EdgeInsets.only(right: 12.0),
@@ -19,9 +20,9 @@ AppBar sapAppBar(String title, IconData icon, BuildContext context) {
     ],
     bottom: PreferredSize(
         child: Container(
-          color: Color(0xFF474747),
+          color: const Color(0xFF474747),
           height: 4.0,
         ),
-        preferredSize: Size.fromHeight(4.0)),
+        preferredSize: const Size.fromHeight(4.0)),
   );
 }

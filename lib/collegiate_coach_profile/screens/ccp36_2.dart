@@ -9,8 +9,6 @@ import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_36.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/controller/new_offer.dart';
 import 'package:recruiter_flutter/model/offer_sent_model.dart';
-import 'package:recruiter_flutter/util/colors.dart';
-import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
@@ -74,8 +72,8 @@ class _CCP36_2State extends State<CCP36_2> {
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
                 alignment: Alignment.topLeft,
-                padding: EdgeInsets.all(12.0),
-                decoration: BoxDecoration(
+                padding: const EdgeInsets.all(12.0),
+                decoration: const BoxDecoration(
                     color: Color(0xFF111111),
                     borderRadius: BorderRadius.all(Radius.circular(10))),
                 child: Column(
@@ -83,29 +81,29 @@ class _CCP36_2State extends State<CCP36_2> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
+                        const Padding(
                           padding:
-                          const EdgeInsets.only(left: 6.0, bottom: 6),
+                          EdgeInsets.only(left: 6.0, bottom: 6),
                           child: Text('Select The Athelete',
                               style: TextStyle(
                                   color: Colors.white, fontSize: 16)),
                         ),
-                        Container(
+                        SizedBox(
                           height: 60,
                           child: Form(
                             key: _atheleteFormKey,
                             child: DropdownButtonFormField2(
-                              buttonPadding: EdgeInsets.all(0.0),
+                              buttonPadding: const EdgeInsets.all(0.0),
                               //  alignment: Alignment.center,
                               //  buttonWidth: 50,
                               decoration: InputDecoration(
                                 filled: true,
-                                contentPadding: EdgeInsets.only(left: 10.0, right: 10.0),
-                                fillColor: Color(0xFF111111),
+                                contentPadding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                                fillColor: const Color(0xFF111111),
                                 floatingLabelBehavior:
                                 FloatingLabelBehavior.never,
                                 labelStyle:
-                                TextStyle(color: Color(0xFFBABABA)),
+                                const TextStyle(color: Color(0xFFBABABA)),
                                 enabledBorder: myinputborder(),
                                 focusedBorder: myfocusborder(),
                               ),
@@ -140,6 +138,7 @@ class _CCP36_2State extends State<CCP36_2> {
                                 if (value == null) {
                                   return 'Select Team';
                                 }
+                                return null;
                               },
                               onChanged: (value) {
                                 setState(() {
@@ -159,33 +158,33 @@ class _CCP36_2State extends State<CCP36_2> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 12),
+                    const SizedBox(height: 12),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
+                        const Padding(
                           padding:
-                          const EdgeInsets.only(left: 6.0, bottom: 6),
+                          EdgeInsets.only(left: 6.0, bottom: 6),
                           child: Text('Choose High School',
                               style: TextStyle(
                                   color: Colors.white, fontSize: 16)),
                         ),
-                        Container(
+                        SizedBox(
                           height: 60,
                           child: Form(
                             key: _schoolFormKey,
                             child: DropdownButtonFormField2(
-                              buttonPadding: EdgeInsets.all(0.0),
+                              buttonPadding: const EdgeInsets.all(0.0),
                               //  alignment: Alignment.center,
                               //  buttonWidth: 50,
                               decoration: InputDecoration(
                                 filled: true,
-                                contentPadding: EdgeInsets.only(left: 10.0, right: 10.0),
-                                fillColor: Color(0xFF111111),
+                                contentPadding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                                fillColor: const Color(0xFF111111),
                                 floatingLabelBehavior:
                                 FloatingLabelBehavior.never,
                                 labelStyle:
-                                TextStyle(color: Color(0xFFBABABA)),
+                                const TextStyle(color: Color(0xFFBABABA)),
                                 enabledBorder: myinputborder(),
                                 focusedBorder: myfocusborder(),
                               ),
@@ -220,6 +219,7 @@ class _CCP36_2State extends State<CCP36_2> {
                                 if (value == null) {
                                   return 'Select School';
                                 }
+                                return null;
                               },
                               onChanged: (value) {
                                 setState(() {
@@ -239,13 +239,13 @@ class _CCP36_2State extends State<CCP36_2> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 12),
+                    const SizedBox(height: 12),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
+                        const Padding(
                           padding:
-                          const EdgeInsets.only(left: 6.0, bottom: 6),
+                          EdgeInsets.only(left: 6.0, bottom: 6),
                           child: Text('Upload File ',
                               style: TextStyle(
                                   color: Colors.white, fontSize: 16)),
@@ -257,8 +257,8 @@ class _CCP36_2State extends State<CCP36_2> {
                           //  height: 200,
                           decoration: BoxDecoration(
                             // color: Colors.blue,
-                            borderRadius: BorderRadius.all(Radius.circular(16.0)),
-                            border: Border.all(color: Color(0xFF474747)),
+                            borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+                            border: Border.all(color: const Color(0xFF474747)),
                           ),
                           child: Image.file(
                             imageFile!,
@@ -268,18 +268,18 @@ class _CCP36_2State extends State<CCP36_2> {
                             : Container(
                           height: MediaQuery.of(context).size.height * 0.2,
                           width: MediaQuery.of(context).size.height,
-                          padding: EdgeInsets.all(16.0),
+                          padding: const EdgeInsets.all(16.0),
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
-                            color: Color(0xFF111111),
-                            borderRadius: BorderRadius.all(Radius.circular(16.0)),
-                            border: Border.all(color: Color(0xFF474747)),
+                            color: const Color(0xFF111111),
+                            borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+                            border: Border.all(color: const Color(0xFF474747)),
                           ),
                           child: DottedBorder(
                               borderType: BorderType.RRect,
-                              radius: Radius.circular(12),
-                              padding: EdgeInsets.only(left: 12.0, right: 12.0),
-                              dashPattern: [16, 16],
+                              radius: const Radius.circular(12),
+                              padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+                              dashPattern: const [16, 16],
                               color: Colors.grey,
                               strokeWidth: 2,
                               child: Column(
@@ -289,14 +289,14 @@ class _CCP36_2State extends State<CCP36_2> {
                                     onTap: () {
                                       _onAddImageClick();
                                     },
-                                    child: Icon(
+                                    child: const Icon(
                                       Icons.add,
                                       color: Color(0xFF919191),
                                       size: 40,
                                     ),
                                   ),
-                                  SizedBox(height: 8),
-                                  Text(
+                                  const SizedBox(height: 8),
+                                  const Text(
                                     'Upload Cover Photo\nFrom Device',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
@@ -307,33 +307,33 @@ class _CCP36_2State extends State<CCP36_2> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 12),
+                    const SizedBox(height: 12),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
+                        const Padding(
                           padding:
-                          const EdgeInsets.only(left: 6.0, bottom: 6),
+                          EdgeInsets.only(left: 6.0, bottom: 6),
                           child: Text('Offer Status',
                               style: TextStyle(
                                   color: Colors.white, fontSize: 16)),
                         ),
-                        Container(
+                        SizedBox(
                           height: 60,
                           child: Form(
                             key: _officalOfferFormKey,
                             child: DropdownButtonFormField2(
-                              buttonPadding: EdgeInsets.all(0.0),
+                              buttonPadding: const EdgeInsets.all(0.0),
                               //  alignment: Alignment.center,
                               //  buttonWidth: 50,
                               decoration: InputDecoration(
                                 filled: true,
-                                contentPadding: EdgeInsets.only(left: 10.0, right: 10.0),
-                                fillColor: Color(0xFF111111),
+                                contentPadding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                                fillColor: const Color(0xFF111111),
                                 floatingLabelBehavior:
                                 FloatingLabelBehavior.never,
                                 labelStyle:
-                                TextStyle(color: Color(0xFFBABABA)),
+                                const TextStyle(color: Color(0xFFBABABA)),
                                 enabledBorder: myinputborder(),
                                 focusedBorder: myfocusborder(),
                               ),
@@ -368,6 +368,7 @@ class _CCP36_2State extends State<CCP36_2> {
                                 if (value == null) {
                                   return 'Select Offer';
                                 }
+                                return null;
                               },
                               onChanged: (value) {
                                 setState(() {
@@ -387,7 +388,7 @@ class _CCP36_2State extends State<CCP36_2> {
                         ),
                       ],
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Row(
                       children: [
                         Expanded(
@@ -405,7 +406,7 @@ class _CCP36_2State extends State<CCP36_2> {
                                         offerType: selectedOffer!=null?selectedOffer!:' '
                                     )
                                 );
-                                Navigator.push(context, MaterialPageRoute(builder: (_) => CCP36_1()));
+                                Navigator.push(context, MaterialPageRoute(builder: (_) => const CCP36_1()));
                                 //  }
                               },
                               child: Container(
@@ -413,19 +414,19 @@ class _CCP36_2State extends State<CCP36_2> {
                                 // width: _width,
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.all(
+                                    borderRadius: const BorderRadius.all(
                                         Radius.circular(10)),
                                     border: Border.all(
-                                        color: Color(0xFFFFEE00),
+                                        color: const Color(0xFFFFEE00),
                                         width: 1.5)),
-                                child: Text('Send',
+                                child: const Text('Send',
                                     style: TextStyle(
                                         color: Color(0xFFFFEE00),
                                         fontWeight: FontWeight.w500,
                                         fontSize: 14.0)),
                               )),
                         ),
-                        SizedBox(width: 16),
+                        const SizedBox(width: 16),
                         Expanded(
                           flex: 1,
                           child: InkWell(
@@ -435,12 +436,12 @@ class _CCP36_2State extends State<CCP36_2> {
                                 // width: _width,
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.all(
+                                    borderRadius: const BorderRadius.all(
                                         Radius.circular(10)),
                                     border: Border.all(
-                                        color: Color(0xFFFFEE00),
+                                        color: const Color(0xFFFFEE00),
                                         width: 1.5)),
-                                child: Text('Download',
+                                child: const Text('Download',
                                     style: TextStyle(
                                         color: Color(0xFFFFEE00),
                                         fontWeight: FontWeight.w500,

@@ -1,19 +1,13 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_35_1.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_38_1.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_event_detail.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
 import 'package:recruiter_flutter/controller/new_event.dart';
-import 'package:recruiter_flutter/model/events_model.dart';
-import 'package:recruiter_flutter/school_athlete_profile/screens/sap_28.dart';
 import 'package:recruiter_flutter/school_athlete_profile/screens/sap_38.dart';
 import 'package:recruiter_flutter/school_athlete_profile/screens/sap_event_detail.dart';
+import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_app_bar.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
@@ -21,7 +15,7 @@ import 'sap_35.dart';
 
 class SAP_34 extends StatefulWidget {
 
-  SAP_34({Key? key}) : super(key: key);
+  const SAP_34({Key? key}) : super(key: key);
 
   @override
   State<SAP_34> createState() => _SAP_34State();
@@ -41,7 +35,7 @@ class _SAP_34State extends State<SAP_34> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ctpAppBar('Events', Icons.notifications, context),
+      appBar: sapAppBar('Events', Icons.notifications, context),
       drawer: customDrawer(context),
       body: SingleChildScrollView(
         child: Column(
@@ -57,16 +51,16 @@ class _SAP_34State extends State<SAP_34> {
                     child: Container(
                       width: 125,
                       height: 40,
-                      padding: EdgeInsets.only(left: 4, right: 4),
+                      padding: const EdgeInsets.only(left: 4, right: 4),
                       decoration: BoxDecoration(
-                          color: Color(0xFF111111),
-                          borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                          color: const Color(0xFF111111),
+                          borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                           border: Border.all(
-                              color: Color(0xFF686868)
+                              color: const Color(0xFF686868)
                           )
                       ),
                       child: Row(
-                        children: [
+                        children: const [
                           Text('Calendar', style: TextStyle(color: Color(0xFF686868), fontWeight: FontWeight.w500)),
                           Spacer(),
                           Icon(Icons.calendar_today_outlined, color: Color(0xFF686868)),
@@ -74,24 +68,24 @@ class _SAP_34State extends State<SAP_34> {
                       ),
                     ),
                   ),
-                  SizedBox(width: 6),
+                  const SizedBox(width: 6),
                   InkWell(
                     onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_35()));
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => const SAP_35()));
                     },
                     child: Container(
                       width: 85,
                       height: 40,
-                      padding: EdgeInsets.only(left: 4, right: 4),
+                      padding: const EdgeInsets.only(left: 4, right: 4),
                       decoration: BoxDecoration(
-                          color: Color(0xFF111111),
-                          borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                          color: const Color(0xFF111111),
+                          borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                           border: Border.all(
-                              color: Color(0xFF686868)
+                              color: const Color(0xFF686868)
                           )
                       ),
                       child: Row(
-                        children: [
+                        children: const [
                           Text('Create', style: TextStyle(color: Color(0xFF686868), fontWeight: FontWeight.w500)),
                           Spacer(),
                           Icon(Icons.add, color: Color(0xFF686868)),
@@ -99,23 +93,23 @@ class _SAP_34State extends State<SAP_34> {
                       ),
                     ),
                   ),
-                  Spacer(),
-                  Container(
+                  const Spacer(),
+                  SizedBox(
                     height: 42,
                     width: 100,
                     child: TextField(
                         controller: search,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
                           // contentPadding: EdgeInsets.only(left: 16.0),
-                          contentPadding: EdgeInsets.only(left: 4.0),
+                          contentPadding: const EdgeInsets.only(left: 4.0),
                           filled: true,
-                          fillColor: Color(0xFF111111),
+                          fillColor: const Color(0xFF111111),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           labelText: "Filter",
-                          labelStyle: TextStyle(color: Color(0xFF686868)),
+                          labelStyle: const TextStyle(color: Color(0xFF686868)),
                           suffixIcon:
-                          Icon(Icons.filter, color: Color(0xFF686868)),
+                          const Icon(Icons.filter, color: Color(0xFF686868)),
                           //  prefixIcon: Icon(Icons.people),
                           border: myinputborder(),
                           enabledBorder: myinputborder(),
@@ -139,7 +133,7 @@ class _SAP_34State extends State<SAP_34> {
                             itemCount: _event.eventLists.length,
                             shrinkWrap: true,
                             primary: false,
-                            physics: NeverScrollableScrollPhysics(),
+                            physics: const NeverScrollableScrollPhysics(),
                             itemBuilder: (BuildContext context, index) {
                               return InkWell(
                                 onTap: () {
@@ -148,8 +142,8 @@ class _SAP_34State extends State<SAP_34> {
                                 child: Container(
                                   height: MediaQuery.of(context).size.height * 0.31,
                                   width: MediaQuery.of(context).size.width,
-                                  margin: EdgeInsets.only(bottom: 12),
-                                  decoration: BoxDecoration(
+                                  margin: const EdgeInsets.only(bottom: 12),
+                                  decoration: const BoxDecoration(
                                     color: Color(0xFF111111),
                                     borderRadius: BorderRadius.all(Radius.circular(12.0)),
                                   ),
@@ -171,8 +165,8 @@ class _SAP_34State extends State<SAP_34> {
                                           decoration: BoxDecoration(
                                             // color: Colors.blue,
                                             borderRadius:
-                                            BorderRadius.all(Radius.circular(16.0)),
-                                            border: Border.all(color: Color(0xFF474747)),
+                                            const BorderRadius.all(Radius.circular(16.0)),
+                                            border: Border.all(color: const Color(0xFF474747)),
                                           ),
                                           child: Image.file(
                                             _event.eventLists[index].imgFile!,
@@ -195,35 +189,35 @@ class _SAP_34State extends State<SAP_34> {
                                                       color: AppColor.yellowColor,
                                                       fontWeight: FontWeight.w500),
                                                 ),
-                                                SizedBox(height: 2),
+                                                const SizedBox(height: 2),
                                                 Text(
                                                   _event.eventLists[index].match,
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                       fontWeight: FontWeight.w500,
                                                       fontSize: 16.0,
                                                       color: Colors.white),
                                                 ),
-                                                SizedBox(height: 2),
+                                                const SizedBox(height: 2),
                                                 Text(
                                                   _event.eventLists[index].location,
                                                   style: TextStyle(color: AppColor.greyBorderColor),
                                                 )
                                               ],
                                             ),
-                                            Spacer(),
+                                            const Spacer(),
                                             Column(
                                               children: [
                                                 Text(_event.eventLists[index].rate,
                                                     style: TextStyle(
                                                         color: AppColor.greyBorderColor, fontSize: 16.0, fontWeight: FontWeight.w500)),
-                                                SizedBox(height: 4),
+                                                const SizedBox(height: 4),
                                                 Container(
                                                   width: 46,
                                                   height: 24,
                                                   alignment: Alignment.center,
                                                   // padding: EdgeInsets.all(6.0),
                                                   decoration: BoxDecoration(
-                                                      borderRadius: BorderRadius.all(
+                                                      borderRadius: const BorderRadius.all(
                                                           Radius.circular(6.0)),
                                                       color: Colors.black,
                                                       border: Border.all(
@@ -244,7 +238,7 @@ class _SAP_34State extends State<SAP_34> {
                       }
                       else {
                       //  print('Please create event');
-                        return Center(child: Text('Please create event', style: TextStyle(color: Colors.black)),);
+                        return const Center(child: Text('Please create event', style: TextStyle(color: Colors.black)),);
                       }
                     },
                   ),

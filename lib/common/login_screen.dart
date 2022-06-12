@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/common/success_screen.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -35,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * 0.50,
-           padding: EdgeInsets.symmetric(horizontal: 16),
+           padding: const EdgeInsets.symmetric(horizontal: 16),
           //  color: Colors.orange,
           //  alignment: Alignment.center,
             child: Column(
@@ -44,15 +43,15 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 TextField(
                     controller: email,
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.white
                     ),
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Color(0xFF111111),
+                      fillColor: const Color(0xFF111111),
                       floatingLabelBehavior: FloatingLabelBehavior.never,
                       labelText: "Username",
-                      labelStyle: TextStyle(color: Color(0xFFBABABA)),
+                      labelStyle: const TextStyle(color: Color(0xFFBABABA)),
                     //  prefixIcon: Icon(Icons.people),
                       border: myinputborder(),
                       enabledBorder: myinputborder(),
@@ -62,30 +61,30 @@ class _LoginScreenState extends State<LoginScreen> {
                 Container(height:12),
                 TextField(
                     controller: password,
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.white
                     ),
                     obscureText: true,
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Color(0xFF111111),
+                      fillColor: const Color(0xFF111111),
                       floatingLabelBehavior: FloatingLabelBehavior.never,
                      // prefixIcon: Icon(Icons.lock),
                       labelText: "Password",
-                      labelStyle: TextStyle(color: Color(0xFFBABABA)),
+                      labelStyle: const TextStyle(color: Color(0xFFBABABA)),
                       enabledBorder: myinputborder(),
                       focusedBorder: myfocusborder(),
                     )
                 ),
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text('Forgot Password?', style: TextStyle(fontSize: 14.0, color: AppColor.goldenColor),),
-                    SizedBox(width: 4),
+                    const SizedBox(width: 4),
                     InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (_) => VerifyEmailScreen()));
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => const VerifyEmailScreen()));
                       },
                       child: Ink(
                         //  color: Colors.white70,
@@ -100,12 +99,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     )
                   ],
                 ),
-                SizedBox(height: 26),
-                Container(
+                const SizedBox(height: 26),
+                SizedBox(
                   width: 185,
                   height: 45,
                   child: ElevatedButton(
-                    child: Text(
+                    child: const Text(
                       'Sign In',
                       style: TextStyle(
                           color: Colors.white,
@@ -113,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           fontSize: 16.0),
                     ),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => SuccessScreen()));
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => const SuccessScreen()));
                     },
                     style: ElevatedButton.styleFrom(
                       primary: AppColor.goldenColor,
@@ -128,15 +127,15 @@ class _LoginScreenState extends State<LoginScreen> {
             height: MediaQuery.of(context).size.height * 0.20,
           //  color: Colors.green,
             alignment: Alignment.bottomCenter,
-            padding: EdgeInsets.symmetric(vertical: 20),
+            padding: const EdgeInsets.symmetric(vertical: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('New To Recruitr?', style: TextStyle(fontSize: 14.0, color: AppColor.goldenColor),),
-                SizedBox(width: 4),
+                const SizedBox(width: 4),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => SignupScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => const SignupScreen()));
                   },
                   child: Ink(
                     //  color: Colors.white70,

@@ -16,9 +16,9 @@ class CCP_7 extends StatefulWidget {
 
 class _CCP_7State extends State<CCP_7> with SingleTickerProviderStateMixin {
   int _navSelectedIndex = 0; // bottom Nav Index
-  int _currentIndex = 0; // bottom Nav
+  final int _currentIndex = 0; // bottom Nav
 
-  List<GlobalKey<NavigatorState>> _navigatorKeys = [
+  final List<GlobalKey<NavigatorState>> _navigatorKeys = [
     GlobalKey<NavigatorState>(),
     GlobalKey<NavigatorState>(),
     GlobalKey<NavigatorState>(),
@@ -68,7 +68,7 @@ class _CCP_7State extends State<CCP_7> with SingleTickerProviderStateMixin {
               });
             },
             currentIndex: _navSelectedIndex,
-            items: [
+            items: const [
               BottomNavigationBarItem(
                   icon: Icon(Icons.home_filled),
                   label: ''
@@ -104,12 +104,12 @@ class _CCP_7State extends State<CCP_7> with SingleTickerProviderStateMixin {
     return {
       '/': (context) {
         return [
-          CCP_7_1(),
+          const CCP_7_1(),
          // CTP39_1(),
-          CCP36_1(),
-          CustomOverlay(),
-          CCP_15(),
-          CCP_41(),
+          const CCP36_1(),
+          const CustomOverlay(),
+          const CCP_15(),
+          const CCP_41(),
           Container(),
          // CTP15_1(),
          // CTP_42_1(),
@@ -151,33 +151,33 @@ class CustomOverlay extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_7_4()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const CCP_7_4()));
                 },
                 child: Container(
                   height: 40,
                   width: 100,
                   alignment: Alignment.center,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Color(0xFFBABABA),
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   ),
-                  child: Text('Highlight', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0)),
+                  child: const Text('Highlight', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0)),
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_7_2()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const CCP_7_2()));
                 },
                 child: Container(
                   height: 40,
                   width: 100,
                   alignment: Alignment.center,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Color(0xFFBABABA),
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   ),
-                  child: Text('Post', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0)),
+                  child: const Text('Post', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0)),
                 ),
               )
             ],

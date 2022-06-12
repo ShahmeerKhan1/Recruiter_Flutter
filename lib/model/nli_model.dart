@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 class NLIModel {
   String img, date, location, sentBy;

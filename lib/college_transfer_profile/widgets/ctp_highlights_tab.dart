@@ -1,13 +1,11 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/controller/new_highlight_controller.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/comment_widget.dart';
-import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 import 'package:recruiter_flutter/widgets/video_controller.dart';
 import 'package:video_player/video_player.dart';
 
@@ -106,10 +104,10 @@ class _CTP_Highlights_TabState extends State<CTP_Highlights_Tab> {
                     child: Container(
                       height: MediaQuery.of(context).size.height * 0.45,
                       width: MediaQuery.of(context).size.width,
-                      padding: EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(10.0),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12.0),
-                        color: Color(0xFF111111),
+                        color: const Color(0xFF111111),
                       ),
                       child: Column(
                         children: [
@@ -120,12 +118,12 @@ class _CTP_Highlights_TabState extends State<CTP_Highlights_Tab> {
                                 AssetImage(_cont.highlightList[index].profileImg),
                                 radius: 28,
                               ),
-                              SizedBox(width: 6),
+                              const SizedBox(width: 6),
                               Expanded(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Container(
+                                    SizedBox(
                                       //  color: Colors.blue,
                                       width: MediaQuery.of(context).size.width * 0.7,
                                       child: Row(
@@ -134,18 +132,18 @@ class _CTP_Highlights_TabState extends State<CTP_Highlights_Tab> {
                                         children: [
                                           Text(
                                             _cont.highlightList[index].userName,
-                                            style: TextStyle(color: Colors.white),
+                                            style: const TextStyle(color: Colors.white),
                                           ),
-                                          Text(
+                                          const Text(
                                             '- ',
                                             style: TextStyle(color: Colors.grey),
                                           ),
                                           Text(
                                             _cont.highlightList[index].time,
-                                            style: TextStyle(color: Colors.grey),
+                                            style: const TextStyle(color: Colors.grey),
                                           ),
-                                          Spacer(),
-                                          Icon(Icons.more_horiz, color: Colors.white),
+                                          const Spacer(),
+                                          const Icon(Icons.more_horiz, color: Colors.white),
                                           //     IconButton(
                                           //         onPressed: () {},
                                           //         icon: Icon(Icons.more_horiz))
@@ -155,7 +153,7 @@ class _CTP_Highlights_TabState extends State<CTP_Highlights_Tab> {
                                     //  SizedBox(height: 4),
                                     Text(
                                       _cont.highlightList[index].title,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.white, fontSize: 12),
                                     )
                                   ],
@@ -163,9 +161,9 @@ class _CTP_Highlights_TabState extends State<CTP_Highlights_Tab> {
                               )
                             ],
                           ),
-                          SizedBox(height: 16),
+                          const SizedBox(height: 16),
                           Expanded(
-                            child: Container(
+                            child: SizedBox(
                               width: MediaQuery.of(context).size.width,
                               // alignment: Alignment.center,
                               child: Stack(
@@ -186,7 +184,7 @@ class _CTP_Highlights_TabState extends State<CTP_Highlights_Tab> {
                                       } else {
                                         // If the VideoPlayerController is still initializing, show a
                                         // loading spinner.
-                                        return Center(child: CircularProgressIndicator());
+                                        return const Center(child: CircularProgressIndicator());
                                       }
                                     },
                                   ),
@@ -200,26 +198,26 @@ class _CTP_Highlights_TabState extends State<CTP_Highlights_Tab> {
                                             // crossAxisAlignment: CrossAxisAlignment.center,
                                             // mainAxisAlignment: MainAxisAlignment.start,
                                           children: [
-                                            Container(
+                                            SizedBox(
                                               width: 100,
                                             //  color: Colors.blue,
                                               child: Text(_cont.highlightList[index].desc,
                                                  // maxLines: 2,
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                       color: Color(0xFFE8F667),
                                                       fontSize: 18.0)),
                                             ),
-                                            SizedBox(width: 16),
+                                            const SizedBox(width: 16),
                                             Container(
                                               height: 55,
                                               width: 55,
                                               alignment: Alignment.center,
-                                              decoration: new BoxDecoration(
+                                              decoration: const BoxDecoration(
                                                 color: Color(0xFF707070),
                                                 shape: BoxShape.circle,
                                               ),
                                               // color: Colors.black26,
-                                              child: Icon(
+                                              child: const Icon(
                                                 Icons.play_arrow,
                                                 color: Colors.white,
                                                 size: 50.0,
@@ -235,14 +233,14 @@ class _CTP_Highlights_TabState extends State<CTP_Highlights_Tab> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 16),
+                          const SizedBox(height: 16),
                           Row(
                             children: [
                               Row(
                                 children: [
                                   Icon(Icons.favorite,
                                       color: AppColor.greyBorderColor, size: 20),
-                                  SizedBox(width: 2),
+                                  const SizedBox(width: 2),
                                   Text(
                                     '1.1k',
                                     style:
@@ -250,30 +248,30 @@ class _CTP_Highlights_TabState extends State<CTP_Highlights_Tab> {
                                   )
                                 ],
                               ),
-                              SizedBox(width: 26),
+                              const SizedBox(width: 26),
                               Row(
                                 children: [
                                   Icon(Icons.comment,
                                       color: AppColor.greyBorderColor, size: 20),
-                                  SizedBox(width: 2),
+                                  const SizedBox(width: 2),
                                   Text('1.1k',
                                       style: TextStyle(
                                           color: AppColor.greyBorderColor))
                                 ],
                               ),
-                              SizedBox(width: 26),
+                              const SizedBox(width: 26),
                               Row(
                                 children: [
                                   Icon(Icons.star,
                                       color: AppColor.greyBorderColor, size: 20),
-                                  SizedBox(width: 2),
+                                  const SizedBox(width: 2),
                                   Text('1.1k',
                                       style: TextStyle(
                                           color: AppColor.greyBorderColor))
                                 ],
                               ),
                               // SizedBox(width: 16),
-                              Spacer(),
+                              const Spacer(),
                               Icon(Icons.share,
                                   color: AppColor.greyBorderColor, size: 20),
                             ],
@@ -283,7 +281,7 @@ class _CTP_Highlights_TabState extends State<CTP_Highlights_Tab> {
                     ),
                   ),
                 );
-              }) : Center(child: Text('Please Add Highlights' ,style: TextStyle(color: Colors.white),));
+              }) : const Center(child: Text('Please Add Highlights' ,style: TextStyle(color: Colors.white),));
         }
       ),
     );
@@ -318,7 +316,7 @@ class _HighlightDetailState extends State<HighlightDetail> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
+            SizedBox(
               height: _height * 0.27,
               width: _width,
               child: widget.videoPlayerController!.value.isInitialized
@@ -336,71 +334,71 @@ class _HighlightDetailState extends State<HighlightDetail> {
                   ],
                 ),
               )
-                  : Center(child: CircularProgressIndicator()),
+                  : const Center(child: CircularProgressIndicator()),
             ),
-            Divider(color: Colors.grey, height: 0),
+            const Divider(color: Colors.grey, height: 0),
             Container(
               height: MediaQuery.of(context).size.height * 0.12,
               width: _width,
               //   color: Colors.blue,
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                   top: 16.0, left: 16.0, right: 16.0, bottom: 8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     '2019/2020 Season Highlights',
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w500,
                         fontSize: 16.0),
                   ),
-                  SizedBox(height: 2),
+                  const SizedBox(height: 2),
                   Row(
                     children: [
                       Text('8.4K views',
                           style: TextStyle(color: AppColor.greyBorderColor)),
-                      SizedBox(width: 8),
+                      const SizedBox(width: 8),
                       Text('7 days ago',
                           style: TextStyle(color: AppColor.greyBorderColor)),
                     ],
                   ),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
                   Row(
                     children: [
                       Row(
                         children: [
                           Icon(Icons.favorite,
                               color: AppColor.greyBorderColor, size: 20),
-                          SizedBox(width: 2),
+                          const SizedBox(width: 2),
                           Text(
                             '1.3k',
                             style: TextStyle(color: AppColor.greyBorderColor),
                           )
                         ],
                       ),
-                      SizedBox(width: 26),
+                      const SizedBox(width: 26),
                       Row(
                         children: [
                           Icon(Icons.comment,
                               color: AppColor.greyBorderColor, size: 20),
-                          SizedBox(width: 2),
+                          const SizedBox(width: 2),
                           Text('1.1k',
                               style: TextStyle(color: AppColor.greyBorderColor))
                         ],
                       ),
-                      SizedBox(width: 26),
+                      const SizedBox(width: 26),
                       Row(
                         children: [
                           Icon(Icons.star,
                               color: AppColor.greyBorderColor, size: 20),
-                          SizedBox(width: 2),
+                          const SizedBox(width: 2),
                           Text('1.1k',
                               style: TextStyle(color: AppColor.greyBorderColor))
                         ],
                       ),
                       // SizedBox(width: 16),
-                      Spacer(),
+                      const Spacer(),
                       Icon(Icons.share,
                           color: AppColor.greyBorderColor, size: 20),
                     ],
@@ -408,25 +406,25 @@ class _HighlightDetailState extends State<HighlightDetail> {
                 ],
               ),
             ),
-            Divider(color: Colors.grey, height: 0),
+            const Divider(color: Colors.grey, height: 0),
             Container(
               height: _height * 0.1,
               width: _width,
               // color: Colors.blue,
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     backgroundImage: AssetImage('assets/drawer_img.png'),
                     radius: 24,
                   ),
-                  SizedBox(width: 12),
+                  const SizedBox(width: 12),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('Martin Mangram',
+                      const Text('Martin Mangram',
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w500)),
@@ -434,7 +432,7 @@ class _HighlightDetailState extends State<HighlightDetail> {
                           style: TextStyle(color: AppColor.greyBorderColor))
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Material(
                     color: Colors.transparent,
                     child: InkWell(
@@ -457,7 +455,7 @@ class _HighlightDetailState extends State<HighlightDetail> {
                                   ? AppColor.greyBorderColor
                                   : Colors.white,
                               width: 1.0),
-                          borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                          borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                         ),
                         child: Text('Follow',
                             style: TextStyle(
@@ -471,22 +469,22 @@ class _HighlightDetailState extends State<HighlightDetail> {
                 ],
               ),
             ),
-            Divider(color: Colors.grey, height: 0),
+            const Divider(color: Colors.grey, height: 0),
             Container(
               height: _height * 0.03,
               width: _width,
               // color: Colors.blue,
               //  alignment: Alignment.topLeft,
-              padding: EdgeInsets.only(top: 6, left: 20.0, right: 20.0),
+              padding: const EdgeInsets.only(top: 6, left: 20.0, right: 20.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text('Comments', style: TextStyle(color: Colors.white)),
-                  SizedBox(width: 6),
+                  const Text('Comments', style: TextStyle(color: Colors.white)),
+                  const SizedBox(width: 6),
                   Text('(12)',
                       style: TextStyle(color: AppColor.greyBorderColor)),
-                  Spacer(),
+                  const Spacer(),
                   InkWell(
                       onTap: () {
                         setState(() {
@@ -495,8 +493,8 @@ class _HighlightDetailState extends State<HighlightDetail> {
                         });
                       },
                       child: hideShowWidget
-                          ? Icon(Icons.arrow_drop_down, color: Colors.white)
-                          : Icon(Icons.arrow_drop_up, color: Colors.white))
+                          ? const Icon(Icons.arrow_drop_down, color: Colors.white)
+                          : const Icon(Icons.arrow_drop_up, color: Colors.white))
                 ],
               ),
             ),
@@ -509,24 +507,24 @@ class _HighlightDetailState extends State<HighlightDetail> {
                   child: Container(
                     height: MediaQuery.of(context).size.height * 0.07,
                     width: MediaQuery.of(context).size.width,
-                    padding: EdgeInsets.only(left: 12.0),
+                    padding: const EdgeInsets.only(left: 12.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12.0),
-                      color: Color(0xFF111111),
+                      color: const Color(0xFF111111),
                     ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           backgroundImage:
                           AssetImage('assets/drawer_img.png'),
                           radius: 18,
                         ),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
+                          children: const [
                             Text(
                               'Awesome video!\nBest of luck in the playoffs.',
                               style: TextStyle(
@@ -544,15 +542,15 @@ class _HighlightDetailState extends State<HighlightDetail> {
                       top: 8.0, bottom: 8.0, left: 20.0, right: 20.0),
                   child: Row(
                     children: [
-                      Text('Up Next',
+                      const Text('Up Next',
                           style: TextStyle(color: Colors.white)),
-                      Spacer(),
-                      Text('Autoplay',
+                      const Spacer(),
+                      const Text('Autoplay',
                           style: TextStyle(color: Colors.white)),
                       Padding(
                         padding: const EdgeInsets.only(
                             right: 16.0, left: 32.0),
-                        child: Container(
+                        child: SizedBox(
                           height: 12,
                           width: 18,
                           // color: Colors.blue,
@@ -578,7 +576,7 @@ class _HighlightDetailState extends State<HighlightDetail> {
                     itemCount: 3,
                     primary: false,
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (BuildContext context, index) {
                       return InkWell(
                         // onTap: () {
@@ -597,11 +595,11 @@ class _HighlightDetailState extends State<HighlightDetail> {
                                 // height: MediaQuery.of(context).size.height * 0.45,
                                 // width: MediaQuery.of(context).size.width,
                                 alignment: Alignment.center,
-                                padding: EdgeInsets.all(10.0),
+                                padding: const EdgeInsets.all(10.0),
                                 decoration: BoxDecoration(
                                   borderRadius:
                                   BorderRadius.circular(12.0),
-                                  color: Color(0xFF111111),
+                                  color: const Color(0xFF111111),
                                 ),
                                 child: Stack(
                                   children: [
@@ -618,26 +616,26 @@ class _HighlightDetailState extends State<HighlightDetail> {
                                             //   crossAxisAlignment: CrossAxisAlignment.center,
                                             //   mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
-                                              Text(
+                                              const Text(
                                                   '2019/2020\nHighlights',
                                                   style: TextStyle(
                                                       color: Color(
                                                           0xFFE8F667),
                                                       fontSize: 18.0)),
-                                              SizedBox(width: 16),
+                                              const SizedBox(width: 16),
                                               Container(
                                                 height: 55,
                                                 width: 55,
                                                 alignment:
                                                 Alignment.center,
                                                 decoration:
-                                                new BoxDecoration(
+                                                const BoxDecoration(
                                                   color:
                                                   Color(0xFF707070),
                                                   shape: BoxShape.circle,
                                                 ),
                                                 // color: Colors.black26,
-                                                child: Icon(
+                                                child: const Icon(
                                                   Icons.play_arrow,
                                                   color: Colors.white,
                                                   size: 50.0,
@@ -659,7 +657,7 @@ class _HighlightDetailState extends State<HighlightDetail> {
                     }),
               ],
             )
-                : CommentWidget(), // custom Comment Widget
+                : const CommentWidget(), // custom Comment Widget
           ],
         ),
       ),

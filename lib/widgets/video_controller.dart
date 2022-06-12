@@ -48,12 +48,12 @@ class _ControlsOverlayState extends State<ControlsOverlay> {
               height: 55,
               width: 55,
               alignment: Alignment.center,
-              decoration: new BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color(0xFF707070),
                 shape: BoxShape.circle,
               ),
               // color: Colors.black26,
-              child: Icon(
+              child: const Icon(
                 Icons.play_arrow,
                 color: Colors.white,
                 size: 50.0,

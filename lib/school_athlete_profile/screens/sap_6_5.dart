@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_6_6.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
 import 'sap_6_6.dart';
@@ -18,44 +17,45 @@ class SAP6_5 extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
                 'Check And Like Posts\n& Highlights From Other\nAtheletes You Follow',
                 style: TextStyle(color: Colors.white, fontSize: 26.0)),
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.12,
               width: MediaQuery.of(context).size.width,
             //  color: Colors.blue,
             ),
             Stack(
-                overflow: Overflow.visible,
+               // overflow: Overflow.visible,
+                clipBehavior: Clip.none,
                 children: [
               Container(
                 height: MediaQuery.of(context).size.height * 0.45,
                 width: MediaQuery.of(context).size.width,
-                padding: EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12.0),
-                  color: Color(0xFF111111),
+                  color: const Color(0xFF111111),
                 ),
                 child: Column(
                   children: [
                     Row(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           backgroundImage: AssetImage('assets/drawer_img.png'),
                           radius: 28,
                         ),
-                        SizedBox(width: 6),
+                        const SizedBox(width: 6),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
+                            SizedBox(
                               //  color: Colors.blue,
                               width: MediaQuery.of(context).size.width * 0.7,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
+                                children: const [
                                   Text(
                                     'John Doe ',
                                     style: TextStyle(
@@ -79,7 +79,7 @@ class SAP6_5 extends StatelessWidget {
                               ),
                             ),
                             //  SizedBox(height: 4),
-                            Text(
+                            const Text(
                               'Watch my latest video!\nThanks to @sportsvideo for the awesome\nedit!',
                               style:
                                   TextStyle(color: Colors.white, fontSize: 12),
@@ -88,7 +88,7 @@ class SAP6_5 extends StatelessWidget {
                         )
                       ],
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     Expanded(
                       child: Container(
                         // alignment: Alignment.center,
@@ -105,21 +105,21 @@ class SAP6_5 extends StatelessWidget {
                                     //   crossAxisAlignment: CrossAxisAlignment.center,
                                     //   mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text('2019/2020\nHighlights',
+                                      const Text('2019/2020\nHighlights',
                                           style: TextStyle(
                                               color: Color(0xFFE8F667),
                                               fontSize: 18.0)),
-                                      SizedBox(width: 16),
+                                      const SizedBox(width: 16),
                                       Container(
                                         height: 55,
                                         width: 55,
                                         alignment: Alignment.center,
-                                        decoration: new BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           color: Color(0xFF707070),
                                           shape: BoxShape.circle,
                                         ),
                                         // color: Colors.black26,
-                                        child: Icon(
+                                        child: const Icon(
                                           Icons.play_arrow,
                                           color: Colors.white,
                                           size: 50.0,
@@ -135,44 +135,44 @@ class SAP6_5 extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     Row(
                       children: [
                         Row(
                           children: [
                             Icon(Icons.favorite,
                                 color: AppColor.greyBorderColor, size: 20),
-                            SizedBox(width: 2),
+                            const SizedBox(width: 2),
                             Text(
                               '1.1k',
                               style: TextStyle(color: AppColor.greyBorderColor),
                             )
                           ],
                         ),
-                        SizedBox(width: 26),
+                        const SizedBox(width: 26),
                         Row(
                           children: [
                             Icon(Icons.comment,
                                 color: AppColor.greyBorderColor, size: 20),
-                            SizedBox(width: 2),
+                            const SizedBox(width: 2),
                             Text('1.1k',
                                 style:
                                     TextStyle(color: AppColor.greyBorderColor))
                           ],
                         ),
-                        SizedBox(width: 26),
+                        const SizedBox(width: 26),
                         Row(
                           children: [
                             Icon(Icons.star,
                                 color: AppColor.greyBorderColor, size: 20),
-                            SizedBox(width: 2),
+                            const SizedBox(width: 2),
                             Text('1.1k',
                                 style:
                                     TextStyle(color: AppColor.greyBorderColor))
                           ],
                         ),
                         // SizedBox(width: 16),
-                        Spacer(),
+                        const Spacer(),
                         Icon(Icons.share,
                             color: AppColor.greyBorderColor, size: 20),
                       ],
@@ -186,12 +186,12 @@ class SAP6_5 extends StatelessWidget {
                     child: Container(
                       height: MediaQuery.of(context).size.height * 0.08,
                       width: MediaQuery.of(context).size.width * 0.70,
-                      padding: EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(10.0),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12.0),
-                            color: Color(0xFF111111),
+                            color: const Color(0xFF111111),
                          // color: Colors.blue,
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                             color: Colors.black54,
                             blurRadius: 10.0,
@@ -202,11 +202,11 @@ class SAP6_5 extends StatelessWidget {
                       ),
                       child: Row(
                         children: [
-                          CircleAvatar(
+                          const CircleAvatar(
                             backgroundImage: AssetImage('assets/drawer_img.png'),
                             radius: 18,
                           ),
-                          SizedBox(width: 6),
+                          const SizedBox(width: 6),
                           Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -215,7 +215,7 @@ class SAP6_5 extends StatelessWidget {
                                 Row(
                                 //  mainAxisAlignment: MainAxisAlignment.center,
                                  // crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
+                                  children: const [
                                     Text(
                                       'John Doe ',
                                       style: TextStyle(
@@ -238,7 +238,7 @@ class SAP6_5 extends StatelessWidget {
                                   ],
                                 ),
                                 //  SizedBox(height: 4),
-                                Text(
+                                const Text(
                                   'We made it to the playoffs!!',
                                   style:
                                   TextStyle(color: Colors.white, fontSize: 12),
@@ -251,12 +251,12 @@ class SAP6_5 extends StatelessWidget {
                     ),
                   ),
             ]),
-            SizedBox(height: 26),
-            Container(
+            const SizedBox(height: 26),
+            SizedBox(
               width: 125,
               height: 40,
               child: ElevatedButton(
-                child: Text(
+                child: const Text(
                   "Next",
                   style: TextStyle(
                       color: Colors.white,
@@ -264,19 +264,19 @@ class SAP6_5 extends StatelessWidget {
                       fontSize: 16.0),
                 ),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => SAP6_6()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const SAP6_6()));
                 },
                 style: ElevatedButton.styleFrom(
                   primary: AppColor.goldenColor,
                 ),
               ),
             ),
-            SizedBox(height: 10),
-            Container(
+            const SizedBox(height: 10),
+            SizedBox(
               width: 100,
               height: 40,
               child: ElevatedButton(
-                child: Text(
+                child: const Text(
                   "Skip",
                   style: TextStyle(
                       color: Colors.white,
@@ -287,7 +287,7 @@ class SAP6_5 extends StatelessWidget {
                   //  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP6_1()));
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Color(0xFF2A2A2A),
+                  primary: const Color(0xFF2A2A2A),
                 ),
               ),
             ),

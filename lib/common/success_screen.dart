@@ -22,30 +22,30 @@ class _SuccessScreenState extends State<SuccessScreen> {
             Container(
               width: 125.0,
               height: 125.0,
-              decoration: new BoxDecoration(
+              decoration: BoxDecoration(
                 color: AppColor.goldenColor,
                 shape: BoxShape.circle,
               ),
-              child: Icon(Icons.check, color: Colors.white, size: 60),
+              child: const Icon(Icons.check, color: Colors.white, size: 60),
             ),
-            SizedBox(height: 26),
-            Text(
+            const SizedBox(height: 26),
+            const Text(
               'Successful',
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 24.0,
                   fontWeight: FontWeight.w500),
             ),
-            SizedBox(height: 6),
+            const SizedBox(height: 6),
             Text('Your Email Was\nSuccessfully Verified',
               textAlign: TextAlign.center,
               style: TextStyle(color: AppColor.goldenColor),),
-            SizedBox(height: 26),
-            Container(
+            const SizedBox(height: 26),
+            SizedBox(
               width: 150,
               height: 45,
               child: ElevatedButton(
-                child: Text(
+                child: const Text(
                   'Next',
                   style: TextStyle(
                       color: Colors.white,
@@ -53,7 +53,7 @@ class _SuccessScreenState extends State<SuccessScreen> {
                       fontSize: 16.0),
                 ),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => WelcomeScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const WelcomeScreen()));
                 },
                 style: ElevatedButton.styleFrom(
                   primary: AppColor.goldenColor,

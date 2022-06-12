@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp36_2.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_offer_detail.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_drawer.dart';
@@ -23,8 +22,8 @@ class _CCP36State extends State<CCP36_1> with SingleTickerProviderStateMixin {
   int _selectedIndex = 0; //  Tab Bar Index
 
   List<Widget> list = [
-    Tab(text: 'Offer Sent'),
-    Tab(text: 'Committed'),
+    const Tab(text: 'Offer Sent'),
+    const Tab(text: 'Committed'),
   ];
 
   @override
@@ -51,17 +50,17 @@ class _CCP36State extends State<CCP36_1> with SingleTickerProviderStateMixin {
       drawer: ccp_drawer(context),
       appBar: AppBar(
           backgroundColor: Colors.black,
-          iconTheme: IconThemeData(color: Colors.white),
-          title: Text('Recruiting', style: TextStyle(color: Colors.white)),
+          iconTheme: const IconThemeData(color: Colors.white),
+          title: const Text('Recruiting', style: TextStyle(color: Colors.white)),
           centerTitle: true,
-          actions: [
+          actions: const [
             Padding(
-              padding: const EdgeInsets.only(right: 12.0),
+              padding: EdgeInsets.only(right: 12.0),
               child: Icon(Icons.notifications, color: Colors.white),
             )
           ],
           bottom: TabBar(
-            labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+            labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
             labelColor: Colors.white,
             unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
             indicatorColor: Colors.white,
@@ -76,7 +75,7 @@ class _CCP36State extends State<CCP36_1> with SingleTickerProviderStateMixin {
       ),
       body: TabBarView(
         controller: _controller,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         children: [
           OfferSent(),
           Committed()
@@ -94,8 +93,8 @@ class _CCP36State extends State<CCP36_1> with SingleTickerProviderStateMixin {
 class OfferSent extends StatelessWidget {
   OfferSent({Key? key}) : super(key: key);
 
-  TextEditingController _new = TextEditingController();
-  TextEditingController _search = TextEditingController();
+  final TextEditingController _new = TextEditingController();
+  final TextEditingController _search = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -112,19 +111,19 @@ class OfferSent extends StatelessWidget {
                     flex: 1,
                     child: InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (_) => CCP36_2()));
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => const CCP36_2()));
                       },
                       child: Container(
                         height: 46,
-                        padding: EdgeInsets.only(left: 8.0, right: 8.0),
+                        padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                         decoration: BoxDecoration(
-                            color: Color(0xFF111111),
-                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                            color: const Color(0xFF111111),
+                          borderRadius: const BorderRadius.all(Radius.circular(10.0)),
                           border: Border.all(color: AppColor.borderColor, width: 2)
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+                          children: const [
                             Text('New', style: TextStyle(color: Color(0xFF686868)),),
                             Icon(Icons.add, color: Color(0xFF686868))
                           ],
@@ -148,21 +147,21 @@ class OfferSent extends StatelessWidget {
                     //       focusedBorder: myfocusborder(),
                     //     )),
                   ),
-                  SizedBox(width: 6),
+                  const SizedBox(width: 6),
                   Expanded(
                     flex: 2,
                     child: TextField(
                         controller: _search,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 12.0),
+                          contentPadding: const EdgeInsets.only(left: 12.0),
                           filled: true,
-                          fillColor: Color(0xFF111111),
+                          fillColor: const Color(0xFF111111),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           labelText: "Search",
-                          labelStyle: TextStyle(color: Color(0xFF686868)),
+                          labelStyle: const TextStyle(color: Color(0xFF686868)),
                           suffixIcon:
-                          Icon(Icons.search, color: Color(0xFF686868)),
+                          const Icon(Icons.search, color: Color(0xFF686868)),
                           //  prefixIcon: Icon(Icons.people),
                           border: myinputborder(),
                           enabledBorder: myinputborder(),
@@ -180,7 +179,7 @@ class OfferSent extends StatelessWidget {
                     return ListView.builder(
                       //  primary: false,
                         itemCount: _const.offerList.length,
-                        physics: NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         primary: false,
                         itemBuilder: (BuildContext context, index) {
@@ -191,21 +190,21 @@ class OfferSent extends StatelessWidget {
                             child: Container(
                               height: MediaQuery.of(context).size.height * 0.18,
                               width: MediaQuery.of(context).size.width,
-                              padding: EdgeInsets.only(left: 6.0, right: 6.0, top: 6.0),
-                              margin: EdgeInsets.only(top: 16.0, bottom: 6.0),
-                              decoration: BoxDecoration(
+                              padding: const EdgeInsets.only(left: 6.0, right: 6.0, top: 6.0),
+                              margin: const EdgeInsets.only(top: 16.0, bottom: 6.0),
+                              decoration: const BoxDecoration(
                                 color: Color(0xFF111111),
                                 borderRadius: BorderRadius.all(Radius.circular(6.0)),
                               ),
                               child: Row(
                                 children: [
-                                  Container(
+                                  SizedBox(
                                       height: 180,
                                       width: 140,
                                       child: _const.offerList[index].img != null ?
                                       Image.file(_const.offerList[index].img!,
                                           fit: BoxFit.cover): Container(),),
-                                  SizedBox(width: 6),
+                                  const SizedBox(width: 6),
                                   Padding(
                                     padding: const EdgeInsets.only(top: 8.0),
                                     child: Column(
@@ -213,33 +212,33 @@ class OfferSent extends StatelessWidget {
                                       children: [
                                         Text(
                                           _const.offerList[index].uniName,
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.w500,
                                               fontSize: 14.0),
                                         ),
-                                        SizedBox(height: 4),
-                                        Container(
+                                        const SizedBox(height: 4),
+                                        SizedBox(
                                           width: 160,
                                           // color: Colors.blue,
                                           // height: MediaQuery.of(context).size.height,
                                           child: Text(
                                             'to: ${_const.offerList[index].athleteName}',
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontWeight: FontWeight.w500,
                                                 fontSize: 14.0,
                                                 color: Color(0xFFFFEE00)),
                                           ),
                                         ),
-                                        SizedBox(height: 4),
+                                        const SizedBox(height: 4),
                                         Text(
                                           _const.offerList[index].date,
                                           style: TextStyle(
                                               color: AppColor.greyBorderColor),
                                         ),
-                                        Spacer(),
-                                        Padding(
-                                          padding: const EdgeInsets.only(bottom: 6.0),
+                                        const Spacer(),
+                                        const Padding(
+                                          padding: EdgeInsets.only(bottom: 6.0),
                                           child: Text(
                                             'Full\nScholarship',
                                             style: TextStyle(
@@ -268,14 +267,14 @@ class OfferSent extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
+                          const Text(
                               "You Didn't Send\nAny Offers Yet", style: TextStyle(color: Colors.white, fontSize: 22.0)),
-                          SizedBox(height: 16),
+                          const SizedBox(height: 16),
                           InkWell(
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (_) => CCP36_2()));
+                              Navigator.push(context, MaterialPageRoute(builder: (_) => const CCP36_2()));
                             },
-                              child: Text('Create Your First Offer', style: TextStyle(color: Color(0xFFFFEE00),
+                              child: const Text('Create Your First Offer', style: TextStyle(color: Color(0xFFFFEE00),
                                   fontSize: 22.0, decoration: TextDecoration.underline, fontWeight: FontWeight.w500)))
                         ],
                       ),),
@@ -294,8 +293,8 @@ class OfferSent extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height * 0.12,
       width: MediaQuery.of(context).size.width,
-      margin: EdgeInsets.only(bottom: 12),
-      decoration: BoxDecoration(
+      margin: const EdgeInsets.only(bottom: 12),
+      decoration: const BoxDecoration(
         color: Color(0xFF111111),
         borderRadius: BorderRadius.all(Radius.circular(16.0)),
       ),
@@ -305,16 +304,16 @@ class OfferSent extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           // mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircleAvatar(backgroundImage: AssetImage('assets/drawer_img.png')),
-            SizedBox(width: 8),
+            const CircleAvatar(backgroundImage: AssetImage('assets/drawer_img.png')),
+            const SizedBox(width: 8),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 Text('John Doe',
                     style: TextStyle(color: Colors.white, fontSize: 16.0)),
                 Padding(
-                  padding: const EdgeInsets.only(top: 4.0, bottom: 4.0),
+                  padding: EdgeInsets.only(top: 4.0, bottom: 4.0),
                   child: Text(
                     'Bufford High School',
                     style: TextStyle(
@@ -328,18 +327,18 @@ class OfferSent extends StatelessWidget {
                 ),
               ],
             ),
-            Spacer(),
+            const Spacer(),
             Padding(
               padding: const EdgeInsets.only(right: 8.0),
               child: Container(
                 height: 30,
                 width: 44,
                 alignment: Alignment.center,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFFBABABA),
                   borderRadius: BorderRadius.all(Radius.circular(8.0)),
                 ),
-                child: Text(
+                child: const Text(
                   'RB',
                   style: TextStyle(color: Colors.black),
                 ),
@@ -356,8 +355,8 @@ class Committed extends StatelessWidget {
   Committed({Key? key}) : super(key: key);
 
  // TextEditingController _filter = TextEditingController();
-  TextEditingController _new = TextEditingController();
-  TextEditingController _search = TextEditingController();
+  final TextEditingController _new = TextEditingController();
+  final TextEditingController _search = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -395,36 +394,36 @@ class Committed extends StatelessWidget {
                     flex: 1,
                     child: TextField(
                         controller: _new,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 8.0),
+                          contentPadding: const EdgeInsets.only(left: 8.0),
                           filled: true,
-                          fillColor: Color(0xFF111111),
+                          fillColor: const Color(0xFF111111),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           labelText: "New",
-                          labelStyle: TextStyle(color: Color(0xFF686868)),
-                          suffixIcon: Icon(Icons.add, color: Color(0xFF686868)),
+                          labelStyle: const TextStyle(color: Color(0xFF686868)),
+                          suffixIcon: const Icon(Icons.add, color: Color(0xFF686868)),
                           //  prefixIcon: Icon(Icons.people),
                           border: myinputborder(),
                           enabledBorder: myinputborder(),
                           focusedBorder: myfocusborder(),
                         )),
                   ),
-                  SizedBox(width: 4),
+                  const SizedBox(width: 4),
                   Expanded(
                     flex: 2,
                     child: TextField(
                         controller: _search,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 12.0),
+                          contentPadding: const EdgeInsets.only(left: 12.0),
                           filled: true,
-                          fillColor: Color(0xFF111111),
+                          fillColor: const Color(0xFF111111),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           labelText: "Search",
-                          labelStyle: TextStyle(color: Color(0xFF686868)),
+                          labelStyle: const TextStyle(color: Color(0xFF686868)),
                           suffixIcon:
-                          Icon(Icons.search, color: Color(0xFF686868)),
+                          const Icon(Icons.search, color: Color(0xFF686868)),
                           //  prefixIcon: Icon(Icons.people),
                           border: myinputborder(),
                           enabledBorder: myinputborder(),
@@ -457,7 +456,7 @@ class Committed extends StatelessWidget {
                       ListView.builder(
                           itemCount: 5,
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemBuilder: (BuildContext context, index) {
                             return InkWell(
                                 onTap: () {
@@ -536,8 +535,8 @@ class Committed extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height * 0.12,
       width: MediaQuery.of(context).size.width,
-      margin: EdgeInsets.only(bottom: 12),
-      decoration: BoxDecoration(
+      margin: const EdgeInsets.only(bottom: 12),
+      decoration: const BoxDecoration(
         color: Color(0xFF111111),
         borderRadius: BorderRadius.all(Radius.circular(16.0)),
       ),
@@ -548,15 +547,15 @@ class Committed extends StatelessWidget {
           // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset('assets/drawer_img.png'),
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 Text('John Doe',
                     style: TextStyle(color: Colors.white, fontSize: 16.0)),
                 Padding(
-                  padding: const EdgeInsets.only(top: 4.0, bottom: 4.0),
+                  padding: EdgeInsets.only(top: 4.0, bottom: 4.0),
                   child: Text(
                     '8/8/2020',
                     style: TextStyle(
@@ -570,15 +569,15 @@ class Committed extends StatelessWidget {
                 ),
               ],
             ),
-            Spacer(),
+            const Spacer(),
             Padding(
               padding: const EdgeInsets.only(right: 8.0, bottom: 8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.more_horiz, color: Color(0xFFBABABA),),
-                  Spacer(),
+                  const Icon(Icons.more_horiz, color: Color(0xFFBABABA),),
+                  const Spacer(),
                   // Container(
                   //   height: 30,
                   //   width: 44,
@@ -597,11 +596,11 @@ class Committed extends StatelessWidget {
                     height: 30,
                     width: 78,
                     alignment: Alignment.center,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color(0xFF239B36),
                       borderRadius: BorderRadius.all(Radius.circular(8.0)),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Committed',
                       style: TextStyle(color: Colors.white),
                     ),

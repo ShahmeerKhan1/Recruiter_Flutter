@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/model/events_model.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp34_1.dart';
@@ -9,7 +8,7 @@ import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 class SCP32_1 extends StatefulWidget {
   final EventsModel data;
 
-  SCP32_1({Key? key, required this.data}) : super(key: key);
+  const SCP32_1({Key? key, required this.data}) : super(key: key);
 
   @override
   _SCP32_1State createState() => _SCP32_1State();
@@ -45,22 +44,22 @@ class _SCP32_1State extends State<SCP32_1> {
                                 color: AppColor.yellowColor,
                                 fontWeight: FontWeight.w500),
                           ),
-                          SizedBox(height: 2),
+                          const SizedBox(height: 2),
                           Text(
                             widget.data.match,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 16.0,
                                 color: Colors.white),
                           ),
-                          SizedBox(height: 2),
+                          const SizedBox(height: 2),
                           Text(
                             widget.data.location,
                             style: TextStyle(color: AppColor.greyBorderColor),
                           )
                         ],
                       ),
-                      Spacer(),
+                      const Spacer(),
                       Column(
                         children: [
                           Text(widget.data.rate,
@@ -81,7 +80,7 @@ class _SCP32_1State extends State<SCP32_1> {
                       Row(
                         children: [
                           Image.asset('assets/pin.png'),
-                          SizedBox(width: 6),
+                          const SizedBox(width: 6),
                           Text(
                             '411 Woody Hayes Dr. Columbus, OH 43210',
                             style: TextStyle(
@@ -90,11 +89,11 @@ class _SCP32_1State extends State<SCP32_1> {
                           )
                         ],
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Row(
                         children: [
                           Image.asset('assets/dollar.png'),
-                          SizedBox(width: 6),
+                          const SizedBox(width: 6),
                           Text(
                             'Free Event',
                             style: TextStyle(
@@ -103,11 +102,11 @@ class _SCP32_1State extends State<SCP32_1> {
                           )
                         ],
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Row(
                         children: [
                           Image.asset('assets/time.png'),
-                          SizedBox(width: 6),
+                          const SizedBox(width: 6),
                           Text(
                             '9:00 am to 11:00 am',
                             style: TextStyle(
@@ -124,7 +123,7 @@ class _SCP32_1State extends State<SCP32_1> {
                       const EdgeInsets.only(left: 8.0, right: 8.0, top: 16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: const [
                       Text('Description',
                           style: TextStyle(
                               color: Colors.white,
@@ -138,7 +137,7 @@ class _SCP32_1State extends State<SCP32_1> {
                     ],
                   ),
                 ),
-                SizedBox(height: 26),
+                const SizedBox(height: 26),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
@@ -155,10 +154,10 @@ class _SCP32_1State extends State<SCP32_1> {
                           height: 34,
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
-                              color: _rsvp == false ?  Colors.black : Color(0xFF2C4471),
-                              borderRadius: BorderRadius.all(Radius.circular(6)),
+                              color: _rsvp == false ?  Colors.black : const Color(0xFF2C4471),
+                              borderRadius: const BorderRadius.all(Radius.circular(6)),
                               border: Border.all(
-                                  color: _rsvp == false ? AppColor.textGreyColor : Color(0xFF2C4471), width: 2)),
+                                  color: _rsvp == false ? AppColor.textGreyColor : const Color(0xFF2C4471), width: 2)),
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -169,7 +168,7 @@ class _SCP32_1State extends State<SCP32_1> {
                                     color: _rsvp == false ? AppColor.textGreyColor : Colors.white,
                                     fontWeight: FontWeight.w500),
                               ),
-                              SizedBox(width: 2),
+                              const SizedBox(width: 2),
                               Icon(Icons.calendar_today_outlined,
                                   color: _rsvp == false ? AppColor.textGreyColor : Colors.white, size: 16)
                             ],
@@ -187,7 +186,7 @@ class _SCP32_1State extends State<SCP32_1> {
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color: Colors.black,
-                              borderRadius: BorderRadius.all(Radius.circular(6)),
+                              borderRadius: const BorderRadius.all(Radius.circular(6)),
                               border: Border.all(
                                   color: AppColor.textGreyColor, width: 2)),
                           child: Row(
@@ -200,7 +199,7 @@ class _SCP32_1State extends State<SCP32_1> {
                                     color: AppColor.textGreyColor,
                                     fontWeight: FontWeight.w500),
                               ),
-                              SizedBox(width: 2),
+                              const SizedBox(width: 2),
                               Icon(Icons.add,
                                   color: AppColor.textGreyColor, size: 18)
                             ],
@@ -213,7 +212,7 @@ class _SCP32_1State extends State<SCP32_1> {
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                             color: Colors.black,
-                            borderRadius: BorderRadius.all(Radius.circular(6)),
+                            borderRadius: const BorderRadius.all(Radius.circular(6)),
                             border: Border.all(
                                 color: AppColor.textGreyColor, width: 2)),
                         child: Row(
@@ -226,7 +225,7 @@ class _SCP32_1State extends State<SCP32_1> {
                                   color: AppColor.textGreyColor,
                                   fontWeight: FontWeight.w500),
                             ),
-                            SizedBox(width: 2),
+                            const SizedBox(width: 2),
                             Icon(Icons.share,
                                 color: AppColor.textGreyColor, size: 16)
                           ],
@@ -238,7 +237,7 @@ class _SCP32_1State extends State<SCP32_1> {
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                             color: Colors.black,
-                            borderRadius: BorderRadius.all(Radius.circular(6)),
+                            borderRadius: const BorderRadius.all(Radius.circular(6)),
                             border: Border.all(
                                 color: AppColor.textGreyColor, width: 2)),
                         child: Row(
@@ -251,7 +250,7 @@ class _SCP32_1State extends State<SCP32_1> {
                                   color: AppColor.textGreyColor,
                                   fontWeight: FontWeight.w500),
                             ),
-                            SizedBox(width: 2),
+                            const SizedBox(width: 2),
                             Icon(Icons.delete,
                                 color: AppColor.textGreyColor, size: 18)
                           ],
@@ -274,13 +273,13 @@ class _SCP32_1State extends State<SCP32_1> {
                           width: 106,
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
-                            color: Color(0xFF010C21),
+                            color: const Color(0xFF010C21),
                             border: Border.all(
-                              color: Color(0xFF239B36),
+                              color: const Color(0xFF239B36),
                             ),
-                            borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                            borderRadius: const BorderRadius.all(Radius.circular(6.0)),
                           ),
-                          child: Text(
+                          child: const Text(
                             'Going',
                             style: TextStyle(
                                 color: Color(0xFF239B36),
@@ -294,13 +293,13 @@ class _SCP32_1State extends State<SCP32_1> {
                         width: 106,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: Color(0xFF010C21),
+                          color: const Color(0xFF010C21),
                           border: Border.all(
-                            color: Color(0xFF989203),
+                            color: const Color(0xFF989203),
                           ),
-                          borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                          borderRadius: const BorderRadius.all(Radius.circular(6.0)),
                         ),
-                        child: Text(
+                        child: const Text(
                           'May Be',
                           style: TextStyle(
                               color: Color(0xFF989203),
@@ -313,13 +312,13 @@ class _SCP32_1State extends State<SCP32_1> {
                         width: 106,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: Color(0xFF010C21),
+                          color: const Color(0xFF010C21),
                           border: Border.all(
-                            color: Color(0xFF8C0900),
+                            color: const Color(0xFF8C0900),
                           ),
-                          borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                          borderRadius: const BorderRadius.all(Radius.circular(6.0)),
                         ),
-                        child: Text(
+                        child: const Text(
                           'Not Going',
                           style: TextStyle(
                               color: Color(0xFF8C0900),

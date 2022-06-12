@@ -106,16 +106,16 @@ class _SCP23_3State extends State<SCP23_3> {
 
     return Scaffold(
       appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.white),
-          title: Text('Add New Game', style: TextStyle(color: Colors.white)),
+          iconTheme: const IconThemeData(color: Colors.white),
+          title: const Text('Add New Game', style: TextStyle(color: Colors.white)),
           centerTitle: true,
           backgroundColor: Colors.black,
           bottom: PreferredSize(
               child: Container(
-                color: Color(0xFF474747),
+                color: const Color(0xFF474747),
                 height: 4.0,
               ),
-              preferredSize: Size.fromHeight(4.0))),
+              preferredSize: const Size.fromHeight(4.0))),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -128,8 +128,8 @@ class _SCP23_3State extends State<SCP23_3> {
                       //  height: 200,
                       decoration: BoxDecoration(
                         // color: Colors.blue,
-                        borderRadius: BorderRadius.all(Radius.circular(16.0)),
-                        border: Border.all(color: Color(0xFF474747)),
+                        borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+                        border: Border.all(color: const Color(0xFF474747)),
                       ),
                       child: Image.file(
                         imageFile!,
@@ -139,18 +139,18 @@ class _SCP23_3State extends State<SCP23_3> {
                   : Container(
                       height: _height * 0.2,
                       width: _width,
-                      padding: EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.all(16.0),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        color: Color(0xFF111111),
-                        borderRadius: BorderRadius.all(Radius.circular(16.0)),
-                        border: Border.all(color: Color(0xFF474747)),
+                        color: const Color(0xFF111111),
+                        borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+                        border: Border.all(color: const Color(0xFF474747)),
                       ),
                       child: DottedBorder(
                           borderType: BorderType.RRect,
-                          radius: Radius.circular(12),
-                          padding: EdgeInsets.only(left: 12.0, right: 12.0),
-                          dashPattern: [16, 16],
+                          radius: const Radius.circular(12),
+                          padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+                          dashPattern: const [16, 16],
                           color: Colors.grey,
                           strokeWidth: 2,
                           child: Column(
@@ -160,14 +160,14 @@ class _SCP23_3State extends State<SCP23_3> {
                                 onTap: () {
                                   _onAddImageClick();
                                 },
-                                child: Icon(
+                                child: const Icon(
                                   Icons.add,
                                   color: Color(0xFF919191),
                                   size: 40,
                                 ),
                               ),
-                              SizedBox(height: 8),
-                              Text(
+                              const SizedBox(height: 8),
+                              const Text(
                                 'Upload Cover Photo\nFrom Device',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
@@ -176,19 +176,19 @@ class _SCP23_3State extends State<SCP23_3> {
                             ],
                           )),
                     ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 6.0),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 6.0),
                     child: Text('Title',
                         style: TextStyle(color: Colors.white, fontSize: 16)),
                   ),
-                  SizedBox(height: 6),
+                  const SizedBox(height: 6),
                   TextField(
                       controller: controller.textController,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       keyboardType: TextInputType.multiline,
                       maxLines: null,
                       onSubmitted: null,
@@ -203,32 +203,32 @@ class _SCP23_3State extends State<SCP23_3> {
                       },
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: Color(0xFF111111),
+                        fillColor: const Color(0xFF111111),
                         // contentPadding: EdgeInsets.all(0.0),
                         // contentPadding: EdgeInsets.only(left: 16),
                         floatingLabelBehavior: FloatingLabelBehavior.never,
                         // prefixIcon: Icon(Icons.lock),
                         //  labelText: "Reply To Post...",
                         labelStyle:
-                            TextStyle(color: Color(0xFFBABABA), fontSize: 12),
+                            const TextStyle(color: Color(0xFFBABABA), fontSize: 12),
                         enabledBorder: myinputborder(),
                         focusedBorder: myfocusborder(),
                       )),
                 ],
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 6.0),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 6.0),
                     child: Text('Description (Optional)',
                         style: TextStyle(color: Colors.white, fontSize: 16)),
                   ),
-                  SizedBox(height: 6),
+                  const SizedBox(height: 6),
                   TextField(
                       controller: description,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       keyboardType: TextInputType.multiline,
                       maxLines: 6,
                       textCapitalization: TextCapitalization.sentences,
@@ -242,38 +242,38 @@ class _SCP23_3State extends State<SCP23_3> {
                       },
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: Color(0xFF111111),
+                        fillColor: const Color(0xFF111111),
                         // contentPadding: EdgeInsets.all(0.0),
                         // contentPadding: EdgeInsets.only(left: 16),
                         floatingLabelBehavior: FloatingLabelBehavior.never,
                         // prefixIcon: Icon(Icons.lock),
                         //  labelText: "Reply To Post...",
                         labelStyle:
-                            TextStyle(color: Color(0xFFBABABA), fontSize: 12),
+                            const TextStyle(color: Color(0xFFBABABA), fontSize: 12),
                         enabledBorder: myinputborder(),
                         focusedBorder: myfocusborder(),
                       )),
                 ],
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 6.0),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 6.0),
                     child: Text('Date',
                         style: TextStyle(color: Colors.white, fontSize: 16)),
                   ),
-                  SizedBox(height: 6),
+                  const SizedBox(height: 6),
                   Container(
                     // width: 200,
                     alignment: Alignment.centerLeft,
                     //  color: Colors.blue,
-                    margin: EdgeInsets.only(right: 150),
+                    margin: const EdgeInsets.only(right: 150),
                     child: TextField(
                         controller: date,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         keyboardType: TextInputType.number,
                         // textAlign: TextAlign.center,
                         inputFormatters: [
@@ -289,7 +289,7 @@ class _SCP23_3State extends State<SCP23_3> {
                         // },
                         decoration: InputDecoration(
                           filled: true,
-                          fillColor: Color(0xFF111111),
+                          fillColor: const Color(0xFF111111),
                           // contentPadding: EdgeInsets.all(0.0),
                           // contentPadding: EdgeInsets.only(left: 16),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -297,27 +297,27 @@ class _SCP23_3State extends State<SCP23_3> {
                           labelText: "MM/DD/YYYY",
                           //  labelText: "Reply To Post...",
                           labelStyle:
-                              TextStyle(color: Color(0xFFBABABA), fontSize: 12),
+                              const TextStyle(color: Color(0xFFBABABA), fontSize: 12),
                           enabledBorder: myinputborder(),
                           focusedBorder: myfocusborder(),
                         )),
                   ),
                 ],
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 6.0),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 6.0),
                     child: Text('Location',
                         style: TextStyle(color: Colors.white, fontSize: 16)),
                   ),
-                  SizedBox(height: 6),
+                  const SizedBox(height: 6),
                   TextField(
                       controller: location,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       textCapitalization: TextCapitalization.sentences,
                       // textAlign: TextAlign.center,
                       // inputFormatters: [
@@ -333,7 +333,7 @@ class _SCP23_3State extends State<SCP23_3> {
                       // },
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: Color(0xFF111111),
+                        fillColor: const Color(0xFF111111),
                         // contentPadding: EdgeInsets.all(0.0),
                         // contentPadding: EdgeInsets.only(left: 16),
                         floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -341,13 +341,13 @@ class _SCP23_3State extends State<SCP23_3> {
                         // labelText: "MM/DD/YYYY",
                         //  labelText: "Reply To Post...",
                         labelStyle:
-                            TextStyle(color: Color(0xFFBABABA), fontSize: 12),
+                            const TextStyle(color: Color(0xFFBABABA), fontSize: 12),
                         enabledBorder: myinputborder(),
                         focusedBorder: myfocusborder(),
                       )),
                 ],
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Column(
                 children: [
                   Row(
@@ -357,28 +357,28 @@ class _SCP23_3State extends State<SCP23_3> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
+                            const Padding(
                               padding:
-                                  const EdgeInsets.only(left: 6.0, bottom: 6),
+                                  EdgeInsets.only(left: 6.0, bottom: 6),
                               child: Text('Home Team',
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 16)),
                             ),
-                            Container(
+                            SizedBox(
                               height: 60,
                               child: Form(
                                 key: _homeTeamFormKey,
                                 child: DropdownButtonFormField2(
-                                  buttonPadding: EdgeInsets.all(0.0),
+                                  buttonPadding: const EdgeInsets.all(0.0),
                                   //  alignment: Alignment.center,
                                   //  buttonWidth: 50,
                                   decoration: InputDecoration(
                                     filled: true,
-                                    fillColor: Color(0xFF111111),
+                                    fillColor: const Color(0xFF111111),
                                     floatingLabelBehavior:
                                         FloatingLabelBehavior.never,
                                     labelStyle:
-                                        TextStyle(color: Color(0xFFBABABA)),
+                                        const TextStyle(color: Color(0xFFBABABA)),
                                     enabledBorder: myinputborder(),
                                     focusedBorder: myfocusborder(),
                                   ),
@@ -413,6 +413,7 @@ class _SCP23_3State extends State<SCP23_3> {
                                     if (value == null) {
                                       return 'Select Team';
                                     }
+                                    return null;
                                   },
                                   onChanged: (value) {
                                     setState(() {
@@ -433,22 +434,22 @@ class _SCP23_3State extends State<SCP23_3> {
                           ],
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Expanded(
                         flex: 1,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
+                            const Padding(
                               padding:
-                                  const EdgeInsets.only(left: 6.0, bottom: 6),
+                                  EdgeInsets.only(left: 6.0, bottom: 6),
                               child: Text('Score',
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 16)),
                             ),
                             TextField(
                                 controller: homeScoreCtr,
-                                style: TextStyle(color: Colors.white),
+                                style: const TextStyle(color: Colors.white),
                                 textCapitalization:
                                     TextCapitalization.sentences,
                                 // textAlign: TextAlign.center,
@@ -465,7 +466,7 @@ class _SCP23_3State extends State<SCP23_3> {
                                 // },
                                 decoration: InputDecoration(
                                   filled: true,
-                                  fillColor: Color(0xFF111111),
+                                  fillColor: const Color(0xFF111111),
                                   // contentPadding: EdgeInsets.all(0.0),
                                   // contentPadding: EdgeInsets.only(left: 16),
                                   floatingLabelBehavior:
@@ -473,7 +474,7 @@ class _SCP23_3State extends State<SCP23_3> {
                                   // prefixIcon: Icon(Icons.lock),
                                   // labelText: "MM/DD/YYYY",
                                   //  labelText: "Reply To Post...",
-                                  labelStyle: TextStyle(
+                                  labelStyle: const TextStyle(
                                       color: Color(0xFFBABABA), fontSize: 12),
                                   enabledBorder: myinputborder(),
                                   focusedBorder: myfocusborder(),
@@ -485,7 +486,7 @@ class _SCP23_3State extends State<SCP23_3> {
                   ),
                 ],
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Column(
                 children: [
                   Row(
@@ -495,28 +496,28 @@ class _SCP23_3State extends State<SCP23_3> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
+                            const Padding(
                               padding:
-                                  const EdgeInsets.only(left: 6.0, bottom: 6),
+                                  EdgeInsets.only(left: 6.0, bottom: 6),
                               child: Text('Away Team',
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 16)),
                             ),
-                            Container(
+                            SizedBox(
                               height: 60,
                               child: Form(
                                 key: _awayTeamFormKey,
                                 child: DropdownButtonFormField2(
-                                  buttonPadding: EdgeInsets.all(0.0),
+                                  buttonPadding: const EdgeInsets.all(0.0),
                                   //  alignment: Alignment.center,
                                   //  buttonWidth: 50,
                                   decoration: InputDecoration(
                                     filled: true,
-                                    fillColor: Color(0xFF111111),
+                                    fillColor: const Color(0xFF111111),
                                     floatingLabelBehavior:
                                         FloatingLabelBehavior.never,
                                     labelStyle:
-                                        TextStyle(color: Color(0xFFBABABA)),
+                                        const TextStyle(color: Color(0xFFBABABA)),
                                     enabledBorder: myinputborder(),
                                     focusedBorder: myfocusborder(),
                                   ),
@@ -551,6 +552,7 @@ class _SCP23_3State extends State<SCP23_3> {
                                     if (value == null) {
                                       return 'Select Team';
                                     }
+                                    return null;
                                   },
                                   onChanged: (value) {
                                     setState(() {
@@ -572,22 +574,22 @@ class _SCP23_3State extends State<SCP23_3> {
                           ],
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Expanded(
                         flex: 1,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
+                            const Padding(
                               padding:
-                                  const EdgeInsets.only(left: 6.0, bottom: 6),
+                                  EdgeInsets.only(left: 6.0, bottom: 6),
                               child: Text('Score',
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 16)),
                             ),
                             TextField(
                                 controller: awayScoreCtr,
-                                style: TextStyle(color: Colors.white),
+                                style: const TextStyle(color: Colors.white),
                                 textCapitalization:
                                     TextCapitalization.sentences,
                                 // textAlign: TextAlign.center,
@@ -604,7 +606,7 @@ class _SCP23_3State extends State<SCP23_3> {
                                 // },
                                 decoration: InputDecoration(
                                   filled: true,
-                                  fillColor: Color(0xFF111111),
+                                  fillColor: const Color(0xFF111111),
                                   // contentPadding: EdgeInsets.all(0.0),
                                   // contentPadding: EdgeInsets.only(left: 16),
                                   floatingLabelBehavior:
@@ -612,7 +614,7 @@ class _SCP23_3State extends State<SCP23_3> {
                                   // prefixIcon: Icon(Icons.lock),
                                   // labelText: "MM/DD/YYYY",
                                   //  labelText: "Reply To Post...",
-                                  labelStyle: TextStyle(
+                                  labelStyle: const TextStyle(
                                       color: Color(0xFFBABABA), fontSize: 12),
                                   enabledBorder: myinputborder(),
                                   focusedBorder: myfocusborder(),
@@ -624,7 +626,7 @@ class _SCP23_3State extends State<SCP23_3> {
                   ),
                 ],
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               // (controller.textController.text == ""
               //     ? Container(
               //         height: 44,
@@ -639,12 +641,12 @@ class _SCP23_3State extends State<SCP23_3> {
               //         ),
               //       )
               //     :
-                    Container(
+                    SizedBox(
                       width: double.infinity,
                       height: 44,
                       // margin: EdgeInsets.only(left: 16.0, right: 16.0),
                       child: ElevatedButton(
-                        child: Text(
+                        child: const Text(
                           'Add Game',
                           style: TextStyle(color: Colors.black, fontSize: 16.0),
                         ),
@@ -658,7 +660,7 @@ class _SCP23_3State extends State<SCP23_3> {
                             // );
                           } else {
                             //  _onSubmit();
-                            print("selec:${selectedHomeTeam}:$selectedAwayTeam");
+                            print("selec:$selectedHomeTeam:$selectedAwayTeam");
                             Get.put(GameController()).gameList.add(GameModel
                               (image:imageFile,
                                 title:controller.textController.text ,
@@ -670,11 +672,11 @@ class _SCP23_3State extends State<SCP23_3> {
 
                            // Get.to(() => Profile());
                           //  controller.addItemToList();
-                               Navigator.push(context, MaterialPageRoute(builder: (_) => Profile()));
+                               Navigator.push(context, MaterialPageRoute(builder: (_) => const Profile()));
                           }
                         },
                         style: ElevatedButton.styleFrom(
-                          primary: Color(0xFFBABABA),
+                          primary: const Color(0xFFBABABA),
                         ),
                       ),
                     )

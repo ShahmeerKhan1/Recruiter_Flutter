@@ -24,11 +24,11 @@ class _AtheletePostsState extends State<AtheletePosts> {
             bottom: 16.0, top: 16.0, left: 16.0, right: 16.0),
         child: Column(
           children: [
-            Text(
+            const Text(
               'Physical Information',
               style: TextStyle(fontSize: 20, color: Colors.white),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -36,7 +36,7 @@ class _AtheletePostsState extends State<AtheletePosts> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       '16',
                       style: TextStyle(
                           color: Colors.white,
@@ -49,12 +49,12 @@ class _AtheletePostsState extends State<AtheletePosts> {
                     )
                   ],
                 ),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       '182',
                       style: TextStyle(
                           color: Colors.white,
@@ -67,12 +67,12 @@ class _AtheletePostsState extends State<AtheletePosts> {
                     )
                   ],
                 ),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "5'11''",
                       style: TextStyle(
                           color: Colors.white,
@@ -87,42 +87,42 @@ class _AtheletePostsState extends State<AtheletePosts> {
                 )
               ],
             ),
-            SizedBox(height: 32),
+            const SizedBox(height: 32),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Column(
                   children: [
-                    Text("Foot",
+                    const Text("Foot",
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 18.0,
                             fontWeight: FontWeight.w500)),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Image.asset('assets/foot.png'),
                   ],
                 ),
-                SizedBox(width: 36),
+                const SizedBox(width: 36),
                 Column(
                   children: [
-                    Text("Hand",
+                    const Text("Hand",
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 18.0,
                             fontWeight: FontWeight.w500)),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Image.asset('assets/hand.png'),
                   ],
                 ),
               ],
             ),
-            SizedBox(height: 42),
+            const SizedBox(height: 42),
             Column(
               children: [
-                Text('Academic',
+                const Text('Academic',
                     style: TextStyle(color: Colors.white, fontSize: 18.0)),
-                SizedBox(height: 16),
-                Text(
+                const SizedBox(height: 16),
+                const Text(
                   "3.2",
                   style: TextStyle(
                       color: Colors.white,
@@ -135,14 +135,14 @@ class _AtheletePostsState extends State<AtheletePosts> {
                 )
               ],
             ),
-            SizedBox(height: 56),
+            const SizedBox(height: 56),
             Column(
               children: [
-                Text(
+                const Text(
                   'Top Characteristics',
                   style: TextStyle(color: Colors.white, fontSize: 18.0),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -158,10 +158,10 @@ class _AtheletePostsState extends State<AtheletePosts> {
                           width: _width * 0.28,
                           // color: Colors.blue,
                           decoration: BoxDecoration(
-                              color: leader ? Color(0xFF10E9A1) : null,
+                              color: leader ? const Color(0xFF10E9A1) : null,
                               borderRadius:
-                              BorderRadius.all(Radius.circular(6)),
-                              border: Border.all(color: Color(0xFF10E9A1))),
+                              const BorderRadius.all(Radius.circular(6)),
+                              border: Border.all(color: const Color(0xFF10E9A1))),
                           child: Column(
                             children: [
                               leader
@@ -172,7 +172,7 @@ class _AtheletePostsState extends State<AtheletePosts> {
                                   height: 75)
                                   : Image.asset('assets/leader.png',
                                   fit: BoxFit.fill, width: 75, height: 75),
-                              Text(
+                              const Text(
                                 'Leader',
                                 style: TextStyle(color: Colors.white),
                               )
@@ -181,7 +181,7 @@ class _AtheletePostsState extends State<AtheletePosts> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     InkWell(
                       onTap: () {
                         setState(() {
@@ -194,10 +194,10 @@ class _AtheletePostsState extends State<AtheletePosts> {
                           width: _width * 0.28,
                           // color: Colors.blue,
                           decoration: BoxDecoration(
-                              color: tactical ? Color(0xFF10E9A1) : null,
+                              color: tactical ? const Color(0xFF10E9A1) : null,
                               borderRadius:
-                              BorderRadius.all(Radius.circular(6)),
-                              border: Border.all(color: Color(0xFF10E9A1))),
+                              const BorderRadius.all(Radius.circular(6)),
+                              border: Border.all(color: const Color(0xFF10E9A1))),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
@@ -213,8 +213,8 @@ class _AtheletePostsState extends State<AtheletePosts> {
                                   height: 85,
                                   width: 85,
                                   color: Colors.white),
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 8.0),
+                              const Padding(
+                                padding: EdgeInsets.only(bottom: 8.0),
                                 child: Text(
                                   'Tactical',
                                   style: TextStyle(color: Colors.white),
@@ -225,7 +225,7 @@ class _AtheletePostsState extends State<AtheletePosts> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     InkWell(
                       onTap: () {
                         setState(() {
@@ -238,10 +238,10 @@ class _AtheletePostsState extends State<AtheletePosts> {
                           width: _width * 0.28,
                           // color: Colors.blue,
                           decoration: BoxDecoration(
-                              color: sprinter ? Color(0xFF10e9A1) : null,
+                              color: sprinter ? const Color(0xFF10e9A1) : null,
                               borderRadius:
-                              BorderRadius.all(Radius.circular(6)),
-                              border: Border.all(color: Color(0xFF10E9A1))),
+                              const BorderRadius.all(Radius.circular(6)),
+                              border: Border.all(color: const Color(0xFF10E9A1))),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -250,9 +250,9 @@ class _AtheletePostsState extends State<AtheletePosts> {
                                   fit: BoxFit.cover)
                                   : Image.asset('assets/sprinter.png',
                                   fit: BoxFit.cover, color: Colors.white),
-                              SizedBox(height: 10),
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 8.0),
+                              const SizedBox(height: 10),
+                              const Padding(
+                                padding: EdgeInsets.only(bottom: 8.0),
                                 child: Text(
                                   'Sprinter',
                                   style: TextStyle(color: Colors.white),
@@ -265,40 +265,40 @@ class _AtheletePostsState extends State<AtheletePosts> {
                     )
                   ],
                 ),
-                SizedBox(height: 32),
+                const SizedBox(height: 32),
                 Image.asset('assets/shape.png'),
-                SizedBox(height: 50),
-                Text(
+                const SizedBox(height: 50),
+                const Text(
                   'Timeline',
                   style: TextStyle(color: Colors.white, fontSize: 18.0),
                 ),
                 Container(
                   // color: Colors.blue,
                   height: _height,
-                  padding: EdgeInsets.only(top: 16.0),
+                  padding: const EdgeInsets.only(top: 16.0),
                   child: ListView.builder(
                       shrinkWrap: true,
                       primary: false,
                       itemCount: 6,
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       itemBuilder: (BuildContext context, index) {
                         return Container(
                           height: _height * 0.09,
                           width: _width,
-                          margin: EdgeInsets.only(bottom: 16.0),
-                          padding: EdgeInsets.only(left: 16.0),
-                          decoration: BoxDecoration(
+                          margin: const EdgeInsets.only(bottom: 16.0),
+                          padding: const EdgeInsets.only(left: 16.0),
+                          decoration: const BoxDecoration(
                               color: Color(0xFF111111),
                               borderRadius:
                               BorderRadius.all(Radius.circular(16))),
                           child: Row(
                             children: [
                               Image.asset('assets/iowa.png'),
-                              SizedBox(width: 8),
+                              const SizedBox(width: 8),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
+                                children: const [
                                   Text(
                                     'Offer',
                                     style: TextStyle(
@@ -333,7 +333,7 @@ class _AtheletePostsState extends State<AtheletePosts> {
                                     crossAxisAlignment:
                                     CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
+                                    children: const [
                                       Text(
                                         'Feb 24th, 2021',
                                         style:

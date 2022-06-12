@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
+import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_app_bar.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
@@ -13,7 +13,7 @@ class SAP_37 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ctpAppBar('Invite Others', Icons.notifications, context),
+      appBar: sapAppBar('Invite Others', Icons.notifications, context),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -22,15 +22,15 @@ class SAP_37 extends StatelessWidget {
               const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
               child: TextField(
                   controller: search,
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
                   decoration: InputDecoration(
-                    contentPadding: EdgeInsets.only(left: 16.0),
+                    contentPadding: const EdgeInsets.only(left: 16.0),
                     filled: true,
-                    fillColor: Color(0xFF111111),
+                    fillColor: const Color(0xFF111111),
                     floatingLabelBehavior: FloatingLabelBehavior.never,
                     labelText: "Search for people",
-                    labelStyle: TextStyle(color: Color(0xFF686868)),
-                    suffixIcon: Icon(Icons.search, color: Color(0xFF686868)),
+                    labelStyle: const TextStyle(color: Color(0xFF686868)),
+                    suffixIcon: const Icon(Icons.search, color: Color(0xFF686868)),
                     //  prefixIcon: Icon(Icons.people),
                     border: myinputborder(),
                     enabledBorder: myinputborder(),
@@ -42,10 +42,10 @@ class SAP_37 extends StatelessWidget {
                   bottom: 8.0, left: 8.0, right: 8.0, top: 4.0),
               child: ListView.builder(
                   itemCount: 10,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   primary: false,
-                  padding: EdgeInsets.only(bottom: 8.0),
+                  padding: const EdgeInsets.only(bottom: 8.0),
                   itemBuilder: (BuildContext context, index) {
                     return InkWell(
                       onTap: () {
@@ -61,10 +61,10 @@ class SAP_37 extends StatelessWidget {
                       child: Container(
                         height: MediaQuery.of(context).size.height * 0.10,
                         width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                             left: 16.0, right: 16.0, top: 8.0, bottom: 8.0),
-                        margin: EdgeInsets.only(bottom: 12.0),
-                        decoration: BoxDecoration(
+                        margin: const EdgeInsets.only(bottom: 12.0),
+                        decoration: const BoxDecoration(
                           color: Color(0xFF111111),
                           borderRadius: BorderRadius.all(Radius.circular(16.0)),
                         ),
@@ -72,12 +72,12 @@ class SAP_37 extends StatelessWidget {
                           //  mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            CircleAvatar(
+                            const CircleAvatar(
                               backgroundImage:
                               AssetImage('assets/drawer_img.png'),
                               radius: 24,
                             ),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,12 +85,12 @@ class SAP_37 extends StatelessWidget {
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Text('John Doe',
+                                    const Text('John Doe',
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 16.0,
                                             fontWeight: FontWeight.w500)),
-                                    SizedBox(width: 16),
+                                    const SizedBox(width: 16),
                                     Container(
                                       height: 26,
                                       width: 66,
@@ -100,7 +100,7 @@ class SAP_37 extends StatelessWidget {
                                         border: Border.all(
                                             color: AppColor.goldenColor,
                                             width: 2.0),
-                                        borderRadius: BorderRadius.all(
+                                        borderRadius: const BorderRadius.all(
                                             Radius.circular(8.0)),
                                       ),
                                       child: Text('Coach',
@@ -112,18 +112,18 @@ class SAP_37 extends StatelessWidget {
                                   ],
                                 ),
                                 //   SizedBox(height: 6),
-                                Text('@jdoe',
+                                const Text('@jdoe',
                                     style: TextStyle(
                                         color: Color(0xFF686868), fontSize: 14.0))
                               ],
                             ),
-                            Spacer(),
+                            const Spacer(),
                             Row(
                               children: [
                                 Container(
                                     width: 22,
                                     height: 22,
-                                    decoration: ShapeDecoration(
+                                    decoration: const ShapeDecoration(
                                       //  color: Colors.white,
                                         shape: CircleBorder(
                                             side: BorderSide(

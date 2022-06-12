@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 
@@ -27,11 +26,11 @@ class _SCP30_1State extends State<SCP30_1> {
           padding: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
           child: Column(
             children: [
-              Text(
+              const Text(
                 'Top Characteristics',
                 style: TextStyle(color: Colors.white, fontSize: 18.0),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Padding(
                 padding: const EdgeInsets.only(left: 16.0, right: 16.0),
                 child: Row(
@@ -42,13 +41,13 @@ class _SCP30_1State extends State<SCP30_1> {
                         width: _width * 0.28,
                         // color: Colors.blue,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(6)),
-                            border: Border.all(color: Color(0xFF10E9A1))),
+                            borderRadius: const BorderRadius.all(Radius.circular(6)),
+                            border: Border.all(color: const Color(0xFF10E9A1))),
                         child: Column(
                           children: [
                             Image.asset('assets/leader.png',
                                 fit: BoxFit.fill, width: 75, height: 75),
-                            Text(
+                            const Text(
                               'Leader',
                               style: TextStyle(color: Colors.white),
                             )
@@ -56,15 +55,15 @@ class _SCP30_1State extends State<SCP30_1> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
                     Expanded(
                       child: Container(
                         height: _height * 0.14,
                         width: _width * 0.28,
                         // color: Colors.blue,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(6)),
-                            border: Border.all(color: Color(0xFF10E9A1))),
+                            borderRadius: const BorderRadius.all(Radius.circular(6)),
+                            border: Border.all(color: const Color(0xFF10E9A1))),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -74,8 +73,8 @@ class _SCP30_1State extends State<SCP30_1> {
                               height: 85,
                               width: 85,
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 8.0),
+                            const Padding(
+                              padding: EdgeInsets.only(bottom: 8.0),
                               child: Text(
                                 'Leader',
                                 style: TextStyle(color: Colors.white),
@@ -85,23 +84,23 @@ class _SCP30_1State extends State<SCP30_1> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
                     Expanded(
                       child: Container(
                         height: _height * 0.14,
                         width: _width * 0.28,
                         // color: Colors.blue,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(6)),
-                            border: Border.all(color: Color(0xFF10E9A1))),
+                            borderRadius: const BorderRadius.all(Radius.circular(6)),
+                            border: Border.all(color: const Color(0xFF10E9A1))),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Image.asset('assets/sprinter.png',
                                 fit: BoxFit.cover),
-                            SizedBox(height: 10),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 8.0),
+                            const SizedBox(height: 10),
+                            const Padding(
+                              padding: EdgeInsets.only(bottom: 8.0),
                               child: Text(
                                 'Sprinter',
                                 style: TextStyle(color: Colors.white),
@@ -114,7 +113,7 @@ class _SCP30_1State extends State<SCP30_1> {
                   ],
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Padding(
                 padding: const EdgeInsets.only(left: 16.0, right: 16.0),
                 child: Row(
@@ -125,13 +124,13 @@ class _SCP30_1State extends State<SCP30_1> {
                         width: _width * 0.28,
                         // color: Colors.blue,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(6)),
-                            border: Border.all(color: Color(0xFF10E9A1))),
+                            borderRadius: const BorderRadius.all(Radius.circular(6)),
+                            border: Border.all(color: const Color(0xFF10E9A1))),
                         child: Column(
                           children: [
                             Image.asset('assets/leader.png',
                                 fit: BoxFit.fill, width: 75, height: 75),
-                            Text(
+                            const Text(
                               'Leader',
                               style: TextStyle(color: Colors.white),
                             )
@@ -139,15 +138,15 @@ class _SCP30_1State extends State<SCP30_1> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
                     Expanded(
                       child: Container(
                         height: _height * 0.14,
                         width: _width * 0.28,
                         // color: Colors.blue,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(6)),
-                            border: Border.all(color: Color(0xFF10E9A1))),
+                            borderRadius: const BorderRadius.all(Radius.circular(6)),
+                            border: Border.all(color: const Color(0xFF10E9A1))),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -157,8 +156,8 @@ class _SCP30_1State extends State<SCP30_1> {
                               height: 85,
                               width: 85,
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 8.0),
+                            const Padding(
+                              padding: EdgeInsets.only(bottom: 8.0),
                               child: Text(
                                 'Leader',
                                 style: TextStyle(color: Colors.white),
@@ -168,23 +167,23 @@ class _SCP30_1State extends State<SCP30_1> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
                     Expanded(
                       child: Container(
                         height: _height * 0.14,
                         width: _width * 0.28,
                         // color: Colors.blue,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(6)),
-                            border: Border.all(color: Color(0xFF10E9A1))),
+                            borderRadius: const BorderRadius.all(Radius.circular(6)),
+                            border: Border.all(color: const Color(0xFF10E9A1))),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Image.asset('assets/sprinter.png',
                                 fit: BoxFit.cover),
-                            SizedBox(height: 10),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 8.0),
+                            const SizedBox(height: 10),
+                            const Padding(
+                              padding: EdgeInsets.only(bottom: 8.0),
                               child: Text(
                                 'Sprinter',
                                 style: TextStyle(color: Colors.white),
@@ -197,7 +196,7 @@ class _SCP30_1State extends State<SCP30_1> {
                   ],
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Padding(
                 padding: const EdgeInsets.only(left: 16.0, right: 16.0),
                 child: Row(
@@ -208,13 +207,13 @@ class _SCP30_1State extends State<SCP30_1> {
                         width: _width * 0.28,
                         // color: Colors.blue,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(6)),
-                            border: Border.all(color: Color(0xFF10E9A1))),
+                            borderRadius: const BorderRadius.all(Radius.circular(6)),
+                            border: Border.all(color: const Color(0xFF10E9A1))),
                         child: Column(
                           children: [
                             Image.asset('assets/leader.png',
                                 fit: BoxFit.fill, width: 75, height: 75),
-                            Text(
+                            const Text(
                               'Leader',
                               style: TextStyle(color: Colors.white),
                             )
@@ -222,15 +221,15 @@ class _SCP30_1State extends State<SCP30_1> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
                     Expanded(
                       child: Container(
                         height: _height * 0.14,
                         width: _width * 0.28,
                         // color: Colors.blue,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(6)),
-                            border: Border.all(color: Color(0xFF10E9A1))),
+                            borderRadius: const BorderRadius.all(Radius.circular(6)),
+                            border: Border.all(color: const Color(0xFF10E9A1))),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -240,8 +239,8 @@ class _SCP30_1State extends State<SCP30_1> {
                               height: 85,
                               width: 85,
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 8.0),
+                            const Padding(
+                              padding: EdgeInsets.only(bottom: 8.0),
                               child: Text(
                                 'Leader',
                                 style: TextStyle(color: Colors.white),
@@ -251,23 +250,23 @@ class _SCP30_1State extends State<SCP30_1> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
                     Expanded(
                       child: Container(
                         height: _height * 0.14,
                         width: _width * 0.28,
                         // color: Colors.blue,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(6)),
-                            border: Border.all(color: Color(0xFF10E9A1))),
+                            borderRadius: const BorderRadius.all(Radius.circular(6)),
+                            border: Border.all(color: const Color(0xFF10E9A1))),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Image.asset('assets/sprinter.png',
                                 fit: BoxFit.cover),
-                            SizedBox(height: 10),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 8.0),
+                            const SizedBox(height: 10),
+                            const Padding(
+                              padding: EdgeInsets.only(bottom: 8.0),
                               child: Text(
                                 'Sprinter',
                                 style: TextStyle(color: Colors.white),
@@ -280,24 +279,24 @@ class _SCP30_1State extends State<SCP30_1> {
                   ],
                 ),
               ),
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
               Card(
-                color: Color(0xFF111111),
+                color: const Color(0xFF111111),
                 child: Theme(
                   data: Theme.of(context).copyWith(
-                    unselectedWidgetColor: Color(0xFF707070),
+                    unselectedWidgetColor: const Color(0xFF707070),
                     // here for close state
-                    colorScheme: ColorScheme.light(
+                    colorScheme: const ColorScheme.light(
                       primary: Colors.white,
                     ),
                   ),
                   child: ExpansionTile(
-                    backgroundColor: Color(0xFF111111),
+                    backgroundColor: const Color(0xFF111111),
                     //   collapsedIconColor: Colors.red,
                     // sets the color of the arrow when expanded
                     //  iconColor: Colors.green,
                     //  collapsedTextColor: Colors.black,
-                    title: Text(
+                    title: const Text(
                       'Atheletic Abilities',
                       style: TextStyle(
                           color: Colors.white,
@@ -305,20 +304,20 @@ class _SCP30_1State extends State<SCP30_1> {
                           fontSize: 18.0),
                     ),
                     children: <Widget>[
-                      Divider(color: Colors.white),
+                      const Divider(color: Colors.white),
                       Padding(
                         padding: const EdgeInsets.only(
                             left: 16.0, right: 16.0, top: 16.0, bottom: 16.0),
                         child: Row(
                           children: [
-                            Text(
+                            const Text(
                               'Speed',
                               style: TextStyle(
                                   color: Color(0xFFFFEE00),
                                   fontWeight: FontWeight.w500,
                                   fontSize: 16.0),
                             ),
-                            Spacer(),
+                            const Spacer(),
                             InkWell(
                                 onTap: () {
                                   print('backprss');
@@ -330,17 +329,17 @@ class _SCP30_1State extends State<SCP30_1> {
                                     }
                                   });
                                 },
-                                child: Icon(Icons.arrow_back_ios,
+                                child: const Icon(Icons.arrow_back_ios,
                                     color: Color(0xFF707070))),
-                            SizedBox(width: 8),
+                            const SizedBox(width: 8),
                             Text(
                               _speed.toString(),
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: Color(0xFFFFEE00),
                                   fontWeight: FontWeight.w500,
                                   fontSize: 16.0),
                             ),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             InkWell(
                                 onTap: () {
                                   print('fwdprss');
@@ -348,7 +347,7 @@ class _SCP30_1State extends State<SCP30_1> {
                                     _speed++;
                                   });
                                 },
-                                child: Icon(Icons.arrow_forward_ios,
+                                child: const Icon(Icons.arrow_forward_ios,
                                     color: Color(0xFF707070)))
                           ],
                         ),
@@ -358,14 +357,14 @@ class _SCP30_1State extends State<SCP30_1> {
                             left: 16.0, right: 16.0, top: 16.0, bottom: 16.0),
                         child: Row(
                           children: [
-                            Text(
+                            const Text(
                               'Weight-bearing',
                               style: TextStyle(
                                   color: Color(0xFFFFEE00),
                                   fontWeight: FontWeight.w500,
                                   fontSize: 16.0),
                             ),
-                            Spacer(),
+                            const Spacer(),
                             InkWell(
                                 onTap: () {
                                   print('backprss');
@@ -377,17 +376,17 @@ class _SCP30_1State extends State<SCP30_1> {
                                     }
                                   });
                                 },
-                                child: Icon(Icons.arrow_back_ios,
+                                child: const Icon(Icons.arrow_back_ios,
                                     color: Color(0xFF707070))),
-                            SizedBox(width: 8),
+                            const SizedBox(width: 8),
                             Text(
                               _weight.toString(),
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: Color(0xFFFFEE00),
                                   fontWeight: FontWeight.w500,
                                   fontSize: 16.0),
                             ),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             InkWell(
                                 onTap: () {
                                   print('fwdprss');
@@ -395,7 +394,7 @@ class _SCP30_1State extends State<SCP30_1> {
                                     _weight++;
                                   });
                                 },
-                                child: Icon(Icons.arrow_forward_ios,
+                                child: const Icon(Icons.arrow_forward_ios,
                                     color: Color(0xFF707070)))
                           ],
                         ),
@@ -405,14 +404,14 @@ class _SCP30_1State extends State<SCP30_1> {
                             left: 16.0, right: 16.0, top: 16.0, bottom: 16.0),
                         child: Row(
                           children: [
-                            Text(
+                            const Text(
                               'Force - Power',
                               style: TextStyle(
                                   color: Color(0xFFFFEE00),
                                   fontWeight: FontWeight.w500,
                                   fontSize: 16.0),
                             ),
-                            Spacer(),
+                            const Spacer(),
                             InkWell(
                                 onTap: () {
                                   print('backprss');
@@ -424,17 +423,17 @@ class _SCP30_1State extends State<SCP30_1> {
                                     }
                                   });
                                 },
-                                child: Icon(Icons.arrow_back_ios,
+                                child: const Icon(Icons.arrow_back_ios,
                                     color: Color(0xFF707070))),
-                            SizedBox(width: 8),
+                            const SizedBox(width: 8),
                             Text(
                               _force.toString(),
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: Color(0xFFFFEE00),
                                   fontWeight: FontWeight.w500,
                                   fontSize: 16.0),
                             ),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             InkWell(
                                 onTap: () {
                                   print('fwdprss');
@@ -442,7 +441,7 @@ class _SCP30_1State extends State<SCP30_1> {
                                     _force++;
                                   });
                                 },
-                                child: Icon(Icons.arrow_forward_ios,
+                                child: const Icon(Icons.arrow_forward_ios,
                                     color: Color(0xFF707070)))
                           ],
                         ),
@@ -452,14 +451,14 @@ class _SCP30_1State extends State<SCP30_1> {
                             left: 16.0, right: 16.0, top: 16.0, bottom: 16.0),
                         child: Row(
                           children: [
-                            Text(
+                            const Text(
                               'Workrate',
                               style: TextStyle(
                                   color: Color(0xFFFFEE00),
                                   fontWeight: FontWeight.w500,
                                   fontSize: 16.0),
                             ),
-                            Spacer(),
+                            const Spacer(),
                             InkWell(
                                 onTap: () {
                                   print('backprss');
@@ -471,17 +470,17 @@ class _SCP30_1State extends State<SCP30_1> {
                                     }
                                   });
                                 },
-                                child: Icon(Icons.arrow_back_ios,
+                                child: const Icon(Icons.arrow_back_ios,
                                     color: Color(0xFF707070))),
-                            SizedBox(width: 8),
+                            const SizedBox(width: 8),
                             Text(
                               _work.toString(),
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: Color(0xFFFFEE00),
                                   fontWeight: FontWeight.w500,
                                   fontSize: 16.0),
                             ),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             InkWell(
                                 onTap: () {
                                   print('fwdprss');
@@ -489,7 +488,7 @@ class _SCP30_1State extends State<SCP30_1> {
                                     _work++;
                                   });
                                 },
-                                child: Icon(Icons.arrow_forward_ios,
+                                child: const Icon(Icons.arrow_forward_ios,
                                     color: Color(0xFF707070)))
                           ],
                         ),
@@ -498,18 +497,18 @@ class _SCP30_1State extends State<SCP30_1> {
                   ),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Card(
-                  color: Color(0xFF111111),
+                  color: const Color(0xFF111111),
                   child: Theme(
                     data: Theme.of(context).copyWith(
-                      unselectedWidgetColor: Color(0xFF707070),
+                      unselectedWidgetColor: const Color(0xFF707070),
                       // here for close state
-                      colorScheme: ColorScheme.light(
+                      colorScheme: const ColorScheme.light(
                         primary: Colors.white,
                       ),
                     ),
-                    child: ExpansionTile(
+                    child: const ExpansionTile(
                       title: Text(
                         'Attacking',
                         style: TextStyle(
@@ -519,18 +518,18 @@ class _SCP30_1State extends State<SCP30_1> {
                       ),
                     ),
                   )),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Card(
-                  color: Color(0xFF111111),
+                  color: const Color(0xFF111111),
                   child: Theme(
                     data: Theme.of(context).copyWith(
-                      unselectedWidgetColor: Color(0xFF707070),
+                      unselectedWidgetColor: const Color(0xFF707070),
                       // here for close state
-                      colorScheme: ColorScheme.light(
+                      colorScheme: const ColorScheme.light(
                         primary: Colors.white,
                       ),
                     ),
-                    child: ExpansionTile(
+                    child: const ExpansionTile(
                       title: Text(
                         'Defensive',
                         style: TextStyle(
@@ -540,18 +539,18 @@ class _SCP30_1State extends State<SCP30_1> {
                       ),
                     ),
                   )),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Card(
-                  color: Color(0xFF111111),
+                  color: const Color(0xFF111111),
                   child: Theme(
                     data: Theme.of(context).copyWith(
-                      unselectedWidgetColor: Color(0xFF707070),
+                      unselectedWidgetColor: const Color(0xFF707070),
                       // here for close state
-                      colorScheme: ColorScheme.light(
+                      colorScheme: const ColorScheme.light(
                         primary: Colors.white,
                       ),
                     ),
-                    child: ExpansionTile(
+                    child: const ExpansionTile(
                       title: Text(
                         'Mental Skills',
                         style: TextStyle(
@@ -561,19 +560,19 @@ class _SCP30_1State extends State<SCP30_1> {
                       ),
                     ),
                   )),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Container(
                 height: _height * 0.08,
                 width: _width,
                 alignment: Alignment.center,
                 //  padding: EdgeInsets.only(top: 16.0, bottom: 16.0, left: 4.0, right: 4.0),
-                margin: EdgeInsets.only(
+                margin: const EdgeInsets.only(
                     top: 16.0, bottom: 16.0, left: 4.0, right: 4.0),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFFFFEE00),
                   borderRadius: BorderRadius.all(Radius.circular(6.0)),
                 ),
-                child: Text(
+                child: const Text(
                   'SUBMIT EVALUATION',
                   style: TextStyle(
                       color: Color(0xFF18152E),

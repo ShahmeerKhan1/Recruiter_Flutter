@@ -1,19 +1,15 @@
 import 'dart:io';
 
 import 'package:dotted_border/dotted_border.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
-import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_highlights_tab.dart';
 import 'package:recruiter_flutter/controller/new_highlight_controller.dart';
 import 'package:recruiter_flutter/model/highlight_tab_model.dart';
 import 'package:recruiter_flutter/school_athlete_profile/screens/sap_7.dart';
+import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_app_bar.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 import 'package:video_player/video_player.dart';
@@ -82,7 +78,7 @@ class _SAP7_4State extends State<SAP7_4> {
     double _width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: ctpAppBar('New Highlights', Icons.notifications, context),
+      appBar: sapAppBar('New Highlights', Icons.notifications, context),
       //  resizeToAvoidBottomInset: false,
       floatingActionButton: _VideoController == null
           ? null
@@ -138,26 +134,26 @@ class _SAP7_4State extends State<SAP7_4> {
                             } else {
                               // If the VideoPlayerController is still initializing, show a
                               // loading spinner.
-                              return Center(child: CircularProgressIndicator());
+                              return const Center(child: CircularProgressIndicator());
                             }
                           },
                         )
                       : Container(
                           height: _height * 0.2,
                           width: _width,
-                          padding: EdgeInsets.all(16.0),
+                          padding: const EdgeInsets.all(16.0),
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
-                            color: Color(0xFF111111),
+                            color: const Color(0xFF111111),
                             borderRadius:
-                                BorderRadius.all(Radius.circular(16.0)),
-                            border: Border.all(color: Color(0xFF474747)),
+                                const BorderRadius.all(Radius.circular(16.0)),
+                            border: Border.all(color: const Color(0xFF474747)),
                           ),
                           child: DottedBorder(
                               borderType: BorderType.RRect,
-                              radius: Radius.circular(10),
-                              padding: EdgeInsets.only(left: 12.0, right: 12.0),
-                              dashPattern: [12, 12],
+                              radius: const Radius.circular(10),
+                              padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+                              dashPattern: const [12, 12],
                               color: Colors.grey,
                               strokeWidth: 2,
                               child: Column(
@@ -168,14 +164,14 @@ class _SAP7_4State extends State<SAP7_4> {
                                       getVideo();
                                       //  _onAddImageClick();
                                     },
-                                    child: Icon(
+                                    child: const Icon(
                                       Icons.add,
                                       color: Color(0xFF919191),
                                       size: 40,
                                     ),
                                   ),
-                                  SizedBox(height: 8),
-                                  Text(
+                                  const SizedBox(height: 8),
+                                  const Text(
                                     'Upload Video File\nFrom Device',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
@@ -184,20 +180,20 @@ class _SAP7_4State extends State<SAP7_4> {
                                 ],
                               )),
                         ),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 6.0),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 6.0),
                         child: Text('Title',
                             style:
                                 TextStyle(color: Colors.white, fontSize: 16)),
                       ),
-                      SizedBox(height: 6),
+                      const SizedBox(height: 6),
                       TextField(
                           controller: title,
-                          style: TextStyle(color: Colors.white),
+                          style: const TextStyle(color: Colors.white),
                           keyboardType: TextInputType.multiline,
                           maxLines: null,
                           onSubmitted: null,
@@ -213,33 +209,33 @@ class _SAP7_4State extends State<SAP7_4> {
                           },
                           decoration: InputDecoration(
                             filled: true,
-                            fillColor: Color(0xFF111111),
+                            fillColor: const Color(0xFF111111),
                             // contentPadding: EdgeInsets.all(0.0),
                             // contentPadding: EdgeInsets.only(left: 16),
                             floatingLabelBehavior: FloatingLabelBehavior.never,
                             // prefixIcon: Icon(Icons.lock),
                             //  labelText: "Reply To Post...",
-                            labelStyle: TextStyle(
+                            labelStyle: const TextStyle(
                                 color: Color(0xFFBABABA), fontSize: 12),
                             enabledBorder: myinputborder(),
                             focusedBorder: myfocusborder(),
                           )),
                     ],
                   ),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 6.0),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 6.0),
                         child: Text('Description',
                             style:
                                 TextStyle(color: Colors.white, fontSize: 16)),
                       ),
-                      SizedBox(height: 6),
+                      const SizedBox(height: 6),
                       TextField(
                           controller: description,
-                          style: TextStyle(color: Colors.white),
+                          style: const TextStyle(color: Colors.white),
                           keyboardType: TextInputType.multiline,
                           maxLines: 6,
                           maxLength: 30,
@@ -254,13 +250,13 @@ class _SAP7_4State extends State<SAP7_4> {
                           },
                           decoration: InputDecoration(
                             filled: true,
-                            fillColor: Color(0xFF111111),
+                            fillColor: const Color(0xFF111111),
                             // contentPadding: EdgeInsets.all(0.0),
                             // contentPadding: EdgeInsets.only(left: 16),
                             floatingLabelBehavior: FloatingLabelBehavior.never,
                             // prefixIcon: Icon(Icons.lock),
                             //  labelText: "Reply To Post...",
-                            labelStyle: TextStyle(
+                            labelStyle: const TextStyle(
                                 color: Color(0xFFBABABA), fontSize: 12),
                             enabledBorder: myinputborder(),
                             focusedBorder: myfocusborder(),
@@ -268,7 +264,7 @@ class _SAP7_4State extends State<SAP7_4> {
                     ],
                   ),
                   // Spacer(),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Row(
                     children: [
                       Expanded(
@@ -278,11 +274,11 @@ class _SAP7_4State extends State<SAP7_4> {
                             decoration: BoxDecoration(
                                 // color: AppColor.lightBlackColor,
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(10.0)),
+                                    const BorderRadius.all(Radius.circular(10.0)),
                                 border: Border.all(
-                                  color: Color(0xFFF61F1F),
+                                  color: const Color(0xFFF61F1F),
                                 )),
-                            child: Text(
+                            child: const Text(
                               'Cancel',
                               style: TextStyle(
                                   color: Color(0xFFF61F1F),
@@ -290,7 +286,7 @@ class _SAP7_4State extends State<SAP7_4> {
                                   fontWeight: FontWeight.w500),
                             )),
                       ),
-                      SizedBox(width: 16),
+                      const SizedBox(width: 16),
                       Expanded(
                         child: InkWell(
                           onTap: () {
@@ -311,7 +307,7 @@ class _SAP7_4State extends State<SAP7_4> {
                                       VideoController: _VideoController,
                                       initializeVideoPlayerFuture:
                                           _initializeVideoPlayerFuture));
-                              Get.offAll(SAP_7());
+                              Get.offAll(const SAP_7());
                             } else {
                               Get.snackbar(
                                   'Note',
@@ -329,11 +325,11 @@ class _SAP7_4State extends State<SAP7_4> {
                               decoration: BoxDecoration(
                                   // color: AppColor.lightBlackColor,
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(10.0)),
+                                      const BorderRadius.all(Radius.circular(10.0)),
                                   border: Border.all(
-                                    color: Color(0xFFFFEE00),
+                                    color: const Color(0xFFFFEE00),
                                   )),
-                              child: Text(
+                              child: const Text(
                                 'Publish',
                                 style: TextStyle(
                                     color: Color(0xFFFFEE00),

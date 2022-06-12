@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/model/offers_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 
 class CTP_Offer_Detail extends StatefulWidget {
   OffersModel data;
@@ -26,9 +24,9 @@ class _CTP_Offer_DetailState extends State<CTP_Offer_Detail> {
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.height,
-        margin: EdgeInsets.all(16.0),
-        padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 2.0, bottom: 8.0),
-        decoration: BoxDecoration(
+        margin: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 2.0, bottom: 8.0),
+        decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(16.0)),
           color: Color(0xFF111111),
         ),
@@ -50,7 +48,7 @@ class _CTP_Offer_DetailState extends State<CTP_Offer_Detail> {
                 children: [
                   Text(
                     widget.data.location,
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.white,
                         fontSize: 18.0,
                         fontWeight: FontWeight.w500),
@@ -60,7 +58,7 @@ class _CTP_Offer_DetailState extends State<CTP_Offer_Detail> {
                     width: 125,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                        borderRadius: const BorderRadius.all(Radius.circular(6.0)),
                         border: Border.all(color: AppColor.textGreyColor)),
                     child: Text(
                       'Add To Top Schools',
@@ -76,32 +74,32 @@ class _CTP_Offer_DetailState extends State<CTP_Offer_Detail> {
             Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.075,
-              padding: EdgeInsets.only(left: 10.0, right: 16.0),
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.only(left: 10.0, right: 16.0),
+              decoration: const BoxDecoration(
                 color: Colors.black,
                 borderRadius: BorderRadius.all(Radius.circular(8)),
               ),
               child: Row(
                 children: [
                   Image.asset('assets/coach.png'),
-                  SizedBox(width: 8),
+                  const SizedBox(width: 8),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         widget.data.name,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Color(0xFFFFEE00),
                             fontWeight: FontWeight.w500),
                       ),
-                      Text(
+                      const Text(
                         '@jdoe',
                         style: TextStyle(color: Colors.white),
                       )
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   InkWell(
                       onTap: () {
                         print('tapped');
@@ -110,7 +108,7 @@ class _CTP_Offer_DetailState extends State<CTP_Offer_Detail> {
                 ],
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Row(
               children: [
                 Text(
@@ -120,7 +118,7 @@ class _CTP_Offer_DetailState extends State<CTP_Offer_Detail> {
                       fontSize: 15.0,
                       fontWeight: FontWeight.w500),
                 ),
-                Spacer(),
+                const Spacer(),
                 Text(
                   widget.data.type,
                   style: TextStyle(
@@ -130,17 +128,17 @@ class _CTP_Offer_DetailState extends State<CTP_Offer_Detail> {
                 )
               ],
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Row(
               children: [
-                Text(
+                const Text(
                   'Full \nScholarship',
                   style: TextStyle(
                       fontSize: 15,
                       color: Colors.white,
                       fontWeight: FontWeight.w500),
                 ),
-                Spacer(),
+                const Spacer(),
                 Column(
                   children: [
                     InkWell(
@@ -156,18 +154,18 @@ class _CTP_Offer_DetailState extends State<CTP_Offer_Detail> {
                         //  margin: EdgeInsets.only(right: 2.0, bottom: 6.0),
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: commit ? Color(0xFF239B36) : Color(0xFF111111),
-                            borderRadius: BorderRadius.all(Radius.circular(6)),
-                            border: Border.all(color: !commit ? AppColor.textGreyColor : Color(0xFF111111))),
+                          color: commit ? const Color(0xFF239B36) : const Color(0xFF111111),
+                            borderRadius: const BorderRadius.all(Radius.circular(6)),
+                            border: Border.all(color: !commit ? AppColor.textGreyColor : const Color(0xFF111111))),
                         child: !commit ? Text(
                           widget.data.commit,
                           style: TextStyle(
                               color: AppColor.textGreyColor,
                               fontWeight: FontWeight.w500),
-                        ) : Text('Committed', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),),
+                        ) : const Text('Committed', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),),
                       ),
                     ),
-                    SizedBox(height: 6),
+                    const SizedBox(height: 6),
                     InkWell(
                       onTap: () {
                         setState(() {
@@ -180,22 +178,22 @@ class _CTP_Offer_DetailState extends State<CTP_Offer_Detail> {
                         //  margin: EdgeInsets.only(right: 2.0, bottom: 6.0),
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: reject ? Color(0xFF8C0900) : Color(0xFF111111),
-                            borderRadius: BorderRadius.all(Radius.circular(6)),
-                            border: Border.all(color: !reject ? AppColor.textGreyColor : Color(0xFF111111))),
+                          color: reject ? const Color(0xFF8C0900) : const Color(0xFF111111),
+                            borderRadius: const BorderRadius.all(Radius.circular(6)),
+                            border: Border.all(color: !reject ? AppColor.textGreyColor : const Color(0xFF111111))),
                         child: !reject ? Text(
                           'Reject',
                           style: TextStyle(
                               color: AppColor.textGreyColor,
                               fontWeight: FontWeight.w500),
-                        ) : Text('Rejected', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),),
+                        ) : const Text('Rejected', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),),
                       ),
                     ),
                   ],
                 )
               ],
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               //mainAxisAlignment: MainAxisAlignment.start,
@@ -207,8 +205,8 @@ class _CTP_Offer_DetailState extends State<CTP_Offer_Detail> {
                       fontWeight: FontWeight.w500,
                       fontSize: 15.0),
                 ),
-                SizedBox(height: 4),
-                Text(
+                const SizedBox(height: 4),
+                const Text(
                   'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\nLorem ipsum dolor sit amet, consetetur sadipscing',
                   style: TextStyle(
                     fontSize: 13,

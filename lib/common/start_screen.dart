@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
@@ -22,16 +21,16 @@ class StartScreen extends StatelessWidget {
           right: 0,
           child: Container(
             // color: Colors.blue,
-            padding: EdgeInsets.symmetric(vertical: 32),
+            padding: const EdgeInsets.symmetric(vertical: 32),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
+                SizedBox(
                   width: 185,
                   height: 45,
                   child: ElevatedButton(
-                    child: Text(
+                    child: const Text(
                       'Login',
                       style: TextStyle(
                           color: Colors.white,
@@ -39,22 +38,22 @@ class StartScreen extends StatelessWidget {
                           fontSize: 16.0),
                     ),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => LoginScreen()));
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => const LoginScreen()));
                     },
                     style: ElevatedButton.styleFrom(
                       primary: AppColor.goldenColor,
                     ),
                   ),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Text(
                   'New To Recruitr?',
                   style: TextStyle(fontSize: 12.0, color: AppColor.goldenColor),
                 ),
-                SizedBox(height: 2),
+                const SizedBox(height: 2),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => SignupScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => const SignupScreen()));
                   },
                   child: Ink(
                   //  color: Colors.white70,

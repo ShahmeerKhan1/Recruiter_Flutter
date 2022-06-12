@@ -1,9 +1,7 @@
 import 'dart:io';
 
-import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
@@ -12,13 +10,12 @@ import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.d
 import 'package:recruiter_flutter/controller/new_event.dart';
 import 'package:recruiter_flutter/model/events_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
 class CTP35_1 extends StatefulWidget {
 
-  CTP35_1({Key? key}) : super(key: key);
+  const CTP35_1({Key? key}) : super(key: key);
 
   @override
   _CTP35_1State createState() => _CTP35_1State();
@@ -78,15 +75,16 @@ class _CTP35_1State extends State<CTP35_1> {
 
   TimeOfDay? _selectedTime;
 
-  Future<Null> _selectTime(BuildContext context) async {
+  Future<void> _selectTime(BuildContext context) async {
     final TimeOfDay? timePicked = await showTimePicker(
       context: context,
       initialTime: TimeOfDay.now(),
     );
-    if (timePicked != null)
+    if (timePicked != null) {
       setState(() {
         _selectedTime = timePicked;
       });
+    }
     // Conversion logic starts here
     DateTime tempDate = DateFormat("hh:mm").parse(
         _selectedTime!.hour.toString() +
@@ -117,8 +115,8 @@ class _CTP35_1State extends State<CTP35_1> {
                 decoration: BoxDecoration(
                   // color: Colors.blue,
                   borderRadius:
-                  BorderRadius.all(Radius.circular(16.0)),
-                  border: Border.all(color: Color(0xFF474747)),
+                  const BorderRadius.all(Radius.circular(16.0)),
+                  border: Border.all(color: const Color(0xFF474747)),
                 ),
                 child: Image.file(
                   imageFile!,
@@ -128,20 +126,20 @@ class _CTP35_1State extends State<CTP35_1> {
                   : Container(
                 height: _height * 0.2,
                 width: _width,
-                padding: EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(16.0),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: Color(0xFF111111),
+                  color: const Color(0xFF111111),
                   borderRadius:
-                  BorderRadius.all(Radius.circular(16.0)),
-                  border: Border.all(color: Color(0xFF474747)),
+                  const BorderRadius.all(Radius.circular(16.0)),
+                  border: Border.all(color: const Color(0xFF474747)),
                 ),
                 child: DottedBorder(
                     borderType: BorderType.RRect,
-                    radius: Radius.circular(12),
+                    radius: const Radius.circular(12),
                     padding:
-                    EdgeInsets.only(left: 12.0, right: 12.0),
-                    dashPattern: [16, 16],
+                    const EdgeInsets.only(left: 12.0, right: 12.0),
+                    dashPattern: const [16, 16],
                     color: Colors.grey,
                     strokeWidth: 2,
                     child: Column(
@@ -151,14 +149,14 @@ class _CTP35_1State extends State<CTP35_1> {
                           onTap: () {
                             _onAddImageClick();
                           },
-                          child: Icon(
+                          child: const Icon(
                             Icons.add,
                             color: Color(0xFF919191),
                             size: 40,
                           ),
                         ),
-                        SizedBox(height: 8),
-                        Text(
+                        const SizedBox(height: 8),
+                        const Text(
                           'Upload Cover Photo\nFrom Device',
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -168,20 +166,20 @@ class _CTP35_1State extends State<CTP35_1> {
                       ],
                     )),
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 6.0),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 6.0),
                     child: Text('Event Title',
                         style:
                         TextStyle(color: Colors.white, fontSize: 16)),
                   ),
-                  SizedBox(height: 6),
+                  const SizedBox(height: 6),
                   TextField(
                       controller: title,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       keyboardType: TextInputType.multiline,
                       maxLines: null,
                       onSubmitted: null,
@@ -196,35 +194,35 @@ class _CTP35_1State extends State<CTP35_1> {
                       },
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: Color(0xFF111111),
-                        contentPadding: EdgeInsets.only(
+                        fillColor: const Color(0xFF111111),
+                        contentPadding: const EdgeInsets.only(
                             left: 16.0, right: 16, top: 0, bottom: 0),
                         // contentPadding: EdgeInsets.only(left: 16),
                         floatingLabelBehavior:
                         FloatingLabelBehavior.never,
                         // prefixIcon: Icon(Icons.lock),
                         //  labelText: "Reply To Post...",
-                        labelStyle: TextStyle(
+                        labelStyle: const TextStyle(
                             color: Color(0xFFBABABA), fontSize: 12),
                         enabledBorder: myinputborder(),
                         focusedBorder: myfocusborder(),
                       )),
                 ],
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 6.0),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 6.0),
                     child: Text('Event Description',
                         style:
                         TextStyle(color: Colors.white, fontSize: 16)),
                   ),
-                  SizedBox(height: 6),
+                  const SizedBox(height: 6),
                   TextField(
                       controller: description,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       keyboardType: TextInputType.multiline,
                       maxLines: 6,
                       textCapitalization: TextCapitalization.sentences,
@@ -238,22 +236,22 @@ class _CTP35_1State extends State<CTP35_1> {
                       },
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: Color(0xFF111111),
+                        fillColor: const Color(0xFF111111),
                         // contentPadding: EdgeInsets.only(
                         //     left: 16.0, right: 16, top: 0, bottom: 0),
-                        contentPadding: EdgeInsets.all(16),
+                        contentPadding: const EdgeInsets.all(16),
                         floatingLabelBehavior:
                         FloatingLabelBehavior.never,
                         // prefixIcon: Icon(Icons.lock),
                         //  labelText: "Reply To Post...",
-                        labelStyle: TextStyle(
+                        labelStyle: const TextStyle(
                             color: Color(0xFFBABABA), fontSize: 12),
                         enabledBorder: myinputborder(),
                         focusedBorder: myfocusborder(),
                       )),
                 ],
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Row(
                 children: [
                   Expanded(
@@ -262,16 +260,16 @@ class _CTP35_1State extends State<CTP35_1> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 6.0),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 6.0),
                           child: Text('Date',
                               style:
                               TextStyle(color: Colors.white, fontSize: 16)),
                         ),
-                        SizedBox(height: 6),
+                        const SizedBox(height: 6),
                         TextField(
                             controller: date,
-                            style: TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white),
                             readOnly: true,
                             // keyboardType: TextInputType.text,
                             onTap: () async {
@@ -301,12 +299,12 @@ class _CTP35_1State extends State<CTP35_1> {
                             decoration: InputDecoration(
                               filled: true,
                               //  hintText: "MM/DD/YYYY",
-                              fillColor: Color(0xFF111111),
+                              fillColor: const Color(0xFF111111),
                               // hintText: "Search",
                               floatingLabelBehavior:
                               FloatingLabelBehavior.never,
                               // border: InputBorder.none,
-                              contentPadding: EdgeInsets.only(
+                              contentPadding: const EdgeInsets.only(
                                   left: 16.0, right: 16, top: 0, bottom: 0),
                               // contentPadding: EdgeInsets.only(left: 16),
                               // floatingLabelBehavior:
@@ -323,33 +321,34 @@ class _CTP35_1State extends State<CTP35_1> {
                       ],
                     ),
                   ),
-                  SizedBox(width: 6),
+                  const SizedBox(width: 6),
                   Expanded(
                     flex: 1,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 6.0),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 6.0),
                           child: Text('Time',
                               style:
                               TextStyle(color: Colors.white, fontSize: 16)),
                         ),
-                        SizedBox(height: 6),
+                        const SizedBox(height: 6),
                         TextField(
                             controller: from,
                             readOnly: true,
-                            style: TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white),
                             onTap: () async {
                               final TimeOfDay? timePicked = await showTimePicker(
                                 context: context,
                                 initialTime: TimeOfDay.now(),
                               );
-                              if (timePicked != null)
+                              if (timePicked != null) {
                                 setState(() {
                                   _selectedTime = timePicked;
                                 });
+                              }
                               // Conversion logic starts here
                               DateTime tempDate = DateFormat("hh:mm").parse(
                                   _selectedTime!.hour.toString() +
@@ -362,12 +361,12 @@ class _CTP35_1State extends State<CTP35_1> {
                             decoration: InputDecoration(
                               filled: true,
                               //  hintText: "MM/DD/YYYY",
-                              fillColor: Color(0xFF111111),
+                              fillColor: const Color(0xFF111111),
                               // hintText: "Search",
                               floatingLabelBehavior:
                               FloatingLabelBehavior.never,
                               // border: InputBorder.none,
-                              contentPadding: EdgeInsets.only(
+                              contentPadding: const EdgeInsets.only(
                                   left: 8.0, right: 0, top: 0, bottom: 0),
                               // contentPadding: EdgeInsets.all(0),
                               // floatingLabelBehavior:
@@ -384,33 +383,34 @@ class _CTP35_1State extends State<CTP35_1> {
                       ],
                     ),
                   ),
-                  SizedBox(width: 6),
+                  const SizedBox(width: 6),
                   Expanded(
                     flex: 1,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 6.0),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 6.0),
                           child: Text('',
                               style:
                               TextStyle(color: Colors.white, fontSize: 16)),
                         ),
-                        SizedBox(height: 6),
+                        const SizedBox(height: 6),
                         TextField(
                             controller: to,
                             readOnly: true,
-                            style: TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white),
                             onTap: () async {
                                 final TimeOfDay? timePicked = await showTimePicker(
                                   context: context,
                                   initialTime: TimeOfDay.now(),
                                 );
-                                if (timePicked != null)
+                                if (timePicked != null) {
                                   setState(() {
                                     _selectedTime = timePicked;
                                   });
+                                }
                                 // Conversion logic starts here
                                 DateTime tempDate = DateFormat("hh:mm").parse(
                                     _selectedTime!.hour.toString() +
@@ -423,14 +423,14 @@ class _CTP35_1State extends State<CTP35_1> {
                             decoration: InputDecoration(
                               filled: true,
                               //  hintText: "MM/DD/YYYY",
-                              fillColor: Color(0xFF111111),
+                              fillColor: const Color(0xFF111111),
                               // hintText: "Search",
                               floatingLabelBehavior:
                               FloatingLabelBehavior.never,
                               // border: InputBorder.none,
                               // contentPadding: EdgeInsets.only(
                               //     left: 16.0, right: 16, top: 0, bottom: 0),
-                              contentPadding: EdgeInsets.only(left: 8.0, right: 0, top: 0, bottom: 0),
+                              contentPadding: const EdgeInsets.only(left: 8.0, right: 0, top: 0, bottom: 0),
                               // floatingLabelBehavior:
                               //     FloatingLabelBehavior.never,
                               // prefixIcon: Icon(Icons.lock),
@@ -447,26 +447,26 @@ class _CTP35_1State extends State<CTP35_1> {
                   ),
                 ],
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 6.0),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 6.0),
                     child: Text('Location',
                         style:
                         TextStyle(color: Colors.white, fontSize: 16)),
                   ),
-                  SizedBox(height: 6),
+                  const SizedBox(height: 6),
                   TextField(
                       controller: address,
-                      style: TextStyle(color: Colors.white, fontSize: 12.0),
+                      style: const TextStyle(color: Colors.white, fontSize: 12.0),
                       textCapitalization: TextCapitalization.sentences,
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: Color(0xFF111111),
-                        contentPadding: EdgeInsets.only(
+                        fillColor: const Color(0xFF111111),
+                        contentPadding: const EdgeInsets.only(
                             left: 16.0, right: 16, top: 0, bottom: 0),
                         // contentPadding: EdgeInsets.only(left: 16),
                         floatingLabelBehavior:
@@ -474,23 +474,23 @@ class _CTP35_1State extends State<CTP35_1> {
                         // prefixIcon: Icon(Icons.lock),
                         labelText: "Address",
                         //  labelText: "Reply To Post...",
-                        labelStyle: TextStyle(
+                        labelStyle: const TextStyle(
                             color: Color(0xFFBABABA), fontSize: 13),
                         enabledBorder: myinputborder(),
                         focusedBorder: myfocusborder(),
                       )),
-                  SizedBox(height: 6),
+                  const SizedBox(height: 6),
                   Row(
                     children: [
                       Expanded(
                         child: TextField(
                             controller: office,
-                            style: TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white),
                             textCapitalization: TextCapitalization.sentences,
                             decoration: InputDecoration(
                               filled: true,
-                              fillColor: Color(0xFF111111),
-                              contentPadding: EdgeInsets.only(
+                              fillColor: const Color(0xFF111111),
+                              contentPadding: const EdgeInsets.only(
                                   left: 16.0, right: 16, top: 0, bottom: 0),
                               // contentPadding: EdgeInsets.only(left: 16),
                               floatingLabelBehavior:
@@ -498,22 +498,22 @@ class _CTP35_1State extends State<CTP35_1> {
                               // prefixIcon: Icon(Icons.lock),
                               labelText: "Building/Office #",
                               //  labelText: "Reply To Post...",
-                              labelStyle: TextStyle(
+                              labelStyle: const TextStyle(
                                   color: Color(0xFFBABABA), fontSize: 13),
                               enabledBorder: myinputborder(),
                               focusedBorder: myfocusborder(),
                             )),
                       ),
-                      SizedBox(width: 6),
+                      const SizedBox(width: 6),
                       Expanded(
                         child: TextField(
                             controller: city,
-                            style: TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white),
                             textCapitalization: TextCapitalization.sentences,
                             decoration: InputDecoration(
                               filled: true,
-                              fillColor: Color(0xFF111111),
-                              contentPadding: EdgeInsets.only(
+                              fillColor: const Color(0xFF111111),
+                              contentPadding: const EdgeInsets.only(
                                   left: 16.0, right: 16, top: 0, bottom: 0),
                               // contentPadding: EdgeInsets.only(left: 16),
                               floatingLabelBehavior:
@@ -521,7 +521,7 @@ class _CTP35_1State extends State<CTP35_1> {
                               // prefixIcon: Icon(Icons.lock),
                               labelText: "City",
                               //  labelText: "Reply To Post...",
-                              labelStyle: TextStyle(
+                              labelStyle: const TextStyle(
                                   color: Color(0xFFBABABA), fontSize: 13),
                               enabledBorder: myinputborder(),
                               focusedBorder: myfocusborder(),
@@ -529,13 +529,13 @@ class _CTP35_1State extends State<CTP35_1> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 6),
+                  const SizedBox(height: 6),
                   Row(
                     children: [
                       Expanded(
                         child: TextField(
                             controller: state,
-                            style: TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white),
                             textCapitalization: TextCapitalization.sentences,
                             // textAlign: TextAlign.center,
                             // inputFormatters: [
@@ -551,8 +551,8 @@ class _CTP35_1State extends State<CTP35_1> {
                             // },
                             decoration: InputDecoration(
                               filled: true,
-                              fillColor: Color(0xFF111111),
-                              contentPadding: EdgeInsets.only(
+                              fillColor: const Color(0xFF111111),
+                              contentPadding: const EdgeInsets.only(
                                   left: 16.0, right: 16, top: 0, bottom: 0),
                               // contentPadding: EdgeInsets.only(left: 16),
                               floatingLabelBehavior:
@@ -560,22 +560,22 @@ class _CTP35_1State extends State<CTP35_1> {
                               // prefixIcon: Icon(Icons.lock),
                               labelText: "State",
                               //  labelText: "Reply To Post...",
-                              labelStyle: TextStyle(
+                              labelStyle: const TextStyle(
                                   color: Color(0xFFBABABA), fontSize: 13),
                               enabledBorder: myinputborder(),
                               focusedBorder: myfocusborder(),
                             )),
                       ),
-                      SizedBox(width: 6),
+                      const SizedBox(width: 6),
                       Expanded(
                         child: TextField(
                             controller: code,
-                            style: TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white),
                             textCapitalization: TextCapitalization.sentences,
                             decoration: InputDecoration(
                               filled: true,
-                              fillColor: Color(0xFF111111),
-                              contentPadding: EdgeInsets.only(
+                              fillColor: const Color(0xFF111111),
+                              contentPadding: const EdgeInsets.only(
                                   left: 16.0, right: 16, top: 0, bottom: 0),
                               // contentPadding: EdgeInsets.only(left: 16),
                               floatingLabelBehavior:
@@ -583,7 +583,7 @@ class _CTP35_1State extends State<CTP35_1> {
                               // prefixIcon: Icon(Icons.lock),
                               labelText: "Code",
                               //  labelText: "Reply To Post...",
-                              labelStyle: TextStyle(
+                              labelStyle: const TextStyle(
                                   color: Color(0xFFBABABA), fontSize: 13),
                               enabledBorder: myinputborder(),
                               focusedBorder: myfocusborder(),
@@ -593,7 +593,7 @@ class _CTP35_1State extends State<CTP35_1> {
                   )
                 ],
               ),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
                   Row(
                     children: [
                       Expanded(
@@ -602,18 +602,18 @@ class _CTP35_1State extends State<CTP35_1> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 6.0),
+                            const Padding(
+                              padding: EdgeInsets.only(left: 6.0),
                               child: Text(
                                 'Fees',
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 16),
                               ),
                             ),
-                            SizedBox(height: 6),
+                            const SizedBox(height: 6),
                             TextField(
                                 controller: fees,
-                                style: TextStyle(color: Colors.white),
+                                style: const TextStyle(color: Colors.white),
                                 keyboardType: TextInputType.number,
                                 // textAlign: TextAlign.center,
                                 // inputFormatters: [
@@ -629,8 +629,8 @@ class _CTP35_1State extends State<CTP35_1> {
                                 // },
                                 decoration: InputDecoration(
                                   filled: true,
-                                  fillColor: Color(0xFF111111),
-                                  contentPadding: EdgeInsets.only(
+                                  fillColor: const Color(0xFF111111),
+                                  contentPadding: const EdgeInsets.only(
                                       left: 16.0,
                                       right: 16,
                                       top: 0,
@@ -641,7 +641,7 @@ class _CTP35_1State extends State<CTP35_1> {
                                   // prefixIcon: Icon(Icons.lock),
                                   // labelText: "MM/DD/YYYY",
                                   //  labelText: "Reply To Post...",
-                                  labelStyle: TextStyle(
+                                  labelStyle: const TextStyle(
                                       color: Color(0xFFBABABA),
                                       fontSize: 12),
                                   enabledBorder: myinputborder(),
@@ -655,14 +655,14 @@ class _CTP35_1State extends State<CTP35_1> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
+                          children: const [
 
                           ],
                         ),
                       ),
                     ],
                   ),
-              SizedBox(height: 26),
+              const SizedBox(height: 26),
               Row(
                 children: [
                   Expanded(
@@ -678,19 +678,19 @@ class _CTP35_1State extends State<CTP35_1> {
                          // width: _width,
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(
+                              borderRadius: const BorderRadius.all(
                                   Radius.circular(10)),
                               border: Border.all(
-                                  color: Color(0xFFF61F1F),
+                                  color: const Color(0xFFF61F1F),
                                   width: 1.5)),
-                          child: Text('Cancel',
+                          child: const Text('Cancel',
                               style: TextStyle(
                                   color: Color(0xFFF61F1F),
                                   fontWeight: FontWeight.w500,
                                   fontSize: 14.0)),
                         )),
                   ),
-                  SizedBox(width: 16),
+                  const SizedBox(width: 16),
                   Expanded(
                     flex: 1,
                     child: InkWell(
@@ -722,7 +722,7 @@ class _CTP35_1State extends State<CTP35_1> {
                                 share: 'Share'
                             ),
                           );
-                           Navigator.push(context, MaterialPageRoute(builder: (_) => CTP34_1()));
+                           Navigator.push(context, MaterialPageRoute(builder: (_) => const CTP34_1()));
                         }
                       },
                       child: Container(
@@ -730,12 +730,12 @@ class _CTP35_1State extends State<CTP35_1> {
                         // width: _width,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
+                            borderRadius: const BorderRadius.all(
                                 Radius.circular(10)),
                             border: Border.all(
-                                color: Color(0xFFFFEE00),
+                                color: const Color(0xFFFFEE00),
                                 width: 1.5)),
-                        child: Text('Create',
+                        child: const Text('Create',
                             style: TextStyle(
                                 color: Color(0xFFFFEE00),
                                 fontWeight: FontWeight.w500,

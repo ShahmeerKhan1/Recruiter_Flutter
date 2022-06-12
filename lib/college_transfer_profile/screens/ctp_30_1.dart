@@ -17,15 +17,15 @@ class _CTP30_1State extends State<CTP30_1> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        iconTheme: IconThemeData(color: Colors.white),
-        title: Text('John Doe', style: TextStyle(color: Colors.white)),
+        iconTheme: const IconThemeData(color: Colors.white),
+        title: const Text('John Doe', style: TextStyle(color: Colors.white)),
         centerTitle: true,
         bottom: PreferredSize(
             child: Container(
-              color: Color(0xFF474747),
+              color: const Color(0xFF474747),
               height: 4.0,
             ),
-            preferredSize: Size.fromHeight(4.0)),
+            preferredSize: const Size.fromHeight(4.0)),
       ),
       // customAppBar('John Doe', Icons.info_outline),
       body: Column(
@@ -37,7 +37,7 @@ class _CTP30_1State extends State<CTP30_1> {
             //  color: Colors.blue,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 CircleAvatar(
                   backgroundImage: AssetImage('assets/drawer_img.png'),
                   radius: 40.0,
@@ -59,13 +59,13 @@ class _CTP30_1State extends State<CTP30_1> {
             height: MediaQuery.of(context).size.height * 0.15,
             width: MediaQuery.of(context).size.width,
             //  color: Colors.orange,
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
               children: [
                 Row(
                   children: [
-                    Text('Mute Conversation', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500)),
-                    Spacer(),
+                    const Text('Mute Conversation', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500)),
+                    const Spacer(),
                     Switch(
                       activeTrackColor: AppColor.lightBlackColor,
                       activeColor: AppColor.goldenColor,
@@ -83,8 +83,8 @@ class _CTP30_1State extends State<CTP30_1> {
                 ),
                 Row(
                   children: [
-                    Text('Block User', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500)),
-                    Spacer(),
+                    const Text('Block User', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500)),
+                    const Spacer(),
                     Switch(
                       activeTrackColor: AppColor.lightBlackColor,
                       activeColor: AppColor.goldenColor,
@@ -110,7 +110,7 @@ class _CTP30_1State extends State<CTP30_1> {
             alignment: Alignment.center,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 Text('Delete Conversation', style: TextStyle(color: Color(0xFFCF1414), fontSize: 16.0)),
                 SizedBox(height: 12),
                 Text('Report User', style: TextStyle(color: Color(0xFF686868), fontSize: 16.0)),

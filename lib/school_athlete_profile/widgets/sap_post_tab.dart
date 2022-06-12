@@ -30,10 +30,10 @@ Widget sapPostTab() {
                             .of(context)
                             .size
                             .width,
-                        padding: EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12.0),
-                          color: Color(0xFF111111),
+                          color: const Color(0xFF111111),
                         ),
                         child: Column(
                           children: [
@@ -46,12 +46,12 @@ Widget sapPostTab() {
                                         _const.postLists[index].profileImg),
                                     radius: 28,
                                   ),
-                                  SizedBox(width: 6),
+                                  const SizedBox(width: 6),
                                   Expanded(
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Container(
+                                        SizedBox(
                                           //  color: Colors.blue,
                                           width: MediaQuery
                                               .of(context)
@@ -65,18 +65,18 @@ Widget sapPostTab() {
                                             children: [
                                               Text(
                                                 _const.postLists[index].userName,
-                                                style: TextStyle(color: Colors.white),
+                                                style: const TextStyle(color: Colors.white),
                                               ),
-                                              Text(
+                                              const Text(
                                                 '- ',
                                                 style: TextStyle(color: Colors.grey),
                                               ),
                                               Text(
                                                 _const.postLists[index].time,
-                                                style: TextStyle(color: Colors.grey),
+                                                style: const TextStyle(color: Colors.grey),
                                               ),
-                                              Spacer(),
-                                              Icon(Icons.more_horiz,
+                                              const Spacer(),
+                                              const Icon(Icons.more_horiz,
                                                   color: Colors.white),
                                               //     IconButton(
                                               //         onPressed: () {},
@@ -89,7 +89,7 @@ Widget sapPostTab() {
                                           child: Text(
                                             _const.postLists[index].desc,
                                             style:
-                                            TextStyle(color: Colors.white, fontSize: 12),
+                                            const TextStyle(color: Colors.white, fontSize: 12),
                                           ),
                                         )
                                       ],
@@ -98,7 +98,7 @@ Widget sapPostTab() {
                                 ],
                               ),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             //  _con.postLists[index].img == null ?
                             Expanded(
                               flex: 4,
@@ -160,14 +160,14 @@ Widget sapPostTab() {
                               ),
                             ),
                             //    : Image.file(_con.postLists[index].img!),
-                            SizedBox(height: 16),
+                            const SizedBox(height: 16),
                             Row(
                               children: [
                                 Row(
                                   children: [
                                     Icon(Icons.favorite,
                                         color: AppColor.greyBorderColor, size: 20),
-                                    SizedBox(width: 2),
+                                    const SizedBox(width: 2),
                                     Text(
                                       _const.postLists[index].like,
                                       style: TextStyle(
@@ -175,30 +175,30 @@ Widget sapPostTab() {
                                     )
                                   ],
                                 ),
-                                SizedBox(width: 26),
+                                const SizedBox(width: 26),
                                 Row(
                                   children: [
                                     Icon(Icons.comment,
                                         color: AppColor.greyBorderColor, size: 20),
-                                    SizedBox(width: 2),
+                                    const SizedBox(width: 2),
                                     Text(_const.postLists[index].comment,
                                         style:
                                         TextStyle(color: AppColor.greyBorderColor))
                                   ],
                                 ),
-                                SizedBox(width: 26),
+                                const SizedBox(width: 26),
                                 Row(
                                   children: [
                                     Icon(Icons.star,
                                         color: AppColor.greyBorderColor, size: 20),
-                                    SizedBox(width: 2),
+                                    const SizedBox(width: 2),
                                     Text(_const.postLists[index].star,
                                         style:
                                         TextStyle(color: AppColor.greyBorderColor))
                                   ],
                                 ),
                                 // SizedBox(width: 16),
-                                Spacer(),
+                                const Spacer(),
                                 Icon(Icons.share,
                                     color: AppColor.greyBorderColor, size: 20),
                               ],
@@ -211,7 +211,7 @@ Widget sapPostTab() {
                 }
             ); }
           else {
-            return Center(child: Text('Please Add Posts', style: TextStyle(color: Colors.white)),);
+            return const Center(child: Text('Please Add Posts', style: TextStyle(color: Colors.white)),);
           }
         }
     ),

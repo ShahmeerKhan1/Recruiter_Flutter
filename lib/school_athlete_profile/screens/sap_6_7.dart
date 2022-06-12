@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7_1.dart';
 import 'package:recruiter_flutter/school_athlete_profile/screens/sap_7.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
@@ -19,33 +16,36 @@ class SAP6_7 extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
                 'Recieve Offers Directly\nFrom Coaches & Your\nFavourite Schools',
                 style: TextStyle(color: Colors.white, fontSize: 26.0)),
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.22,
               width: MediaQuery.of(context).size.width,
               //  color: Colors.blue,
             ),
-            Stack(overflow: Overflow.visible, children: [
+            Stack(
+             //   overflow: Overflow.visible,
+                clipBehavior: Clip.none,
+                children: [
               Container(
                   height: MediaQuery.of(context).size.height * 0.20,
                   width: MediaQuery.of(context).size.width,
-                  padding: EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(10.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12.0),
-                    color: Color(0xFF111111),
+                    color: const Color(0xFF111111),
                   ),
                   child: Row(
                     children: [
                       Expanded(
                           flex: 1,
-                          child: Container(
+                          child: SizedBox(
                               height: MediaQuery.of(context).size.height * 0.20,
                               width: MediaQuery.of(context).size.width,
                               child: Image.asset('assets/events_img2.png',
                                   fit: BoxFit.fitHeight))),
-                      SizedBox(width: 12),
+                      const SizedBox(width: 12),
                       Expanded(
                         flex: 2,
                         child: Row(
@@ -53,37 +53,37 @@ class SAP6_7 extends StatelessWidget {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
+                                const Text(
                                   'Ohio State University',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.w500),
                                 ),
-                                SizedBox(height: 4),
+                                const SizedBox(height: 4),
                                 Text('Coach John Doe',
                                     style: TextStyle(
                                         color: AppColor.yellowColor,
                                         fontWeight: FontWeight.w500)),
-                                SizedBox(height: 4),
+                                const SizedBox(height: 4),
                                 Text('8/8/2020', style: TextStyle(fontSize: 12.0, color: AppColor.textGreyColor)),
-                                Spacer(),
-                                Text('Full', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),),
-                                SizedBox(height: 2),
-                                Text('Scholarship', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),),
+                                const Spacer(),
+                                const Text('Full', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),),
+                                const SizedBox(height: 2),
+                                const Text('Scholarship', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),),
                               ],
                             ),
-                            Spacer(),
+                            const Spacer(),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Icon(Icons.more_horiz, color: AppColor.textGreyColor),
-                                Spacer(),
+                                const Spacer(),
                                 Container(
                                   height: 34,
                                   width: 78,
                                   alignment: Alignment.center,
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.all(Radius.circular(6)),
+                                    borderRadius: const BorderRadius.all(Radius.circular(6)),
                                     border: Border.all(color: AppColor.textGreyColor, width: 1.5)
                                   ),
                                   child: Text('Commit', style: TextStyle(color: AppColor.textGreyColor, fontWeight: FontWeight.w500),),
@@ -102,11 +102,11 @@ class SAP6_7 extends StatelessWidget {
                 child: Container(
                     height: MediaQuery.of(context).size.height * 0.20,
                     width: MediaQuery.of(context).size.width,
-                    padding: EdgeInsets.all(10.0),
+                    padding: const EdgeInsets.all(10.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12.0),
-                      color: Color(0xFF111111),
-                        boxShadow: [
+                      color: const Color(0xFF111111),
+                        boxShadow: const [
                               BoxShadow(
                                 color: Colors.black54,
                                 blurRadius: 10.0,
@@ -119,12 +119,12 @@ class SAP6_7 extends StatelessWidget {
                       children: [
                         Expanded(
                             flex: 1,
-                            child: Container(
+                            child: SizedBox(
                                 height: MediaQuery.of(context).size.height * 0.20,
                                 width: MediaQuery.of(context).size.width,
                                 child: Image.asset('assets/events_img2.png',
                                     fit: BoxFit.fitHeight))),
-                        SizedBox(width: 12),
+                        const SizedBox(width: 12),
                         Expanded(
                           flex: 2,
                           child: Row(
@@ -132,37 +132,37 @@ class SAP6_7 extends StatelessWidget {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Ohio State University',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w500),
                                   ),
-                                  SizedBox(height: 4),
+                                  const SizedBox(height: 4),
                                   Text('Coach John Doe',
                                       style: TextStyle(
                                           color: AppColor.yellowColor,
                                           fontWeight: FontWeight.w500)),
-                                  SizedBox(height: 4),
+                                  const SizedBox(height: 4),
                                   Text('8/8/2020', style: TextStyle(fontSize: 12.0, color: AppColor.textGreyColor)),
-                                  Spacer(),
-                                  Text('Full', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),),
-                                  SizedBox(height: 2),
-                                  Text('Scholarship', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),),
+                                  const Spacer(),
+                                  const Text('Full', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),),
+                                  const SizedBox(height: 2),
+                                  const Text('Scholarship', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),),
                                 ],
                               ),
-                              Spacer(),
+                              const Spacer(),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
                                   Icon(Icons.more_horiz, color: AppColor.textGreyColor),
-                                  Spacer(),
+                                  const Spacer(),
                                   Container(
                                     height: 34,
                                     width: 78,
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.all(Radius.circular(6)),
+                                        borderRadius: const BorderRadius.all(Radius.circular(6)),
                                         border: Border.all(color: AppColor.textGreyColor, width: 1.5)
                                     ),
                                     child: Text('Commit', style: TextStyle(color: AppColor.textGreyColor, fontWeight: FontWeight.w500),),
@@ -176,16 +176,16 @@ class SAP6_7 extends StatelessWidget {
                     )),
               ),
             ]),
-            SizedBox(height: 26),
-            Text(
+            const SizedBox(height: 26),
+            const Text(
                 'And Many Other\nAwesome Features',
                 style: TextStyle(color: Colors.white, fontSize: 26.0)),
-            SizedBox(height: 26),
-            Container(
+            const SizedBox(height: 26),
+            SizedBox(
               width: 200,
               height: 40,
               child: ElevatedButton(
-                child: Text(
+                child: const Text(
                   "Go To HomePage",
                   style: TextStyle(
                       color: Colors.white,
@@ -193,7 +193,7 @@ class SAP6_7 extends StatelessWidget {
                       fontSize: 16.0),
                 ),
                 onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_7()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => const SAP_7()));
                 },
                 style: ElevatedButton.styleFrom(
                   primary: AppColor.goldenColor,

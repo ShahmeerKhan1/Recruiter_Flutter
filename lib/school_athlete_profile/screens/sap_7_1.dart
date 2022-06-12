@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
-import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_highlights_tab.dart';
-import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_posts_tab.dart';
 import 'package:recruiter_flutter/controller/new_highlight_controller.dart';
 import 'package:recruiter_flutter/controller/new_post_controller.dart';
+import 'package:recruiter_flutter/school_athlete_profile/screens/sap_44.dart';
 import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_drawer.dart';
 import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_highlights_tab.dart';
 import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_post_tab.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'package:recruiter_flutter/widgets/custom_highlight_widget.dart';
-import 'package:recruiter_flutter/widgets/custom_post_widget.dart';
 
 class SAP_7_1 extends StatefulWidget {
   const SAP_7_1({Key? key}) : super(key: key);
@@ -26,8 +22,8 @@ class _SAP_7_1State extends State<SAP_7_1> with SingleTickerProviderStateMixin {
   int _selectedIndex = 0;   //  Tab Bar Index
 
   List<Widget> list = [
-    Tab(text: 'Posts'),
-    Tab(text: 'Highlights')
+    const Tab(text: 'Posts'),
+    const Tab(text: 'Highlights')
   ];
 
   @override
@@ -108,23 +104,23 @@ class _SAP_7_1State extends State<SAP_7_1> with SingleTickerProviderStateMixin {
       // //   ),
       appBar: AppBar(
           backgroundColor: Colors.black,
-          iconTheme: IconThemeData(color: Colors.white),
+          iconTheme: const IconThemeData(color: Colors.white),
           title: Image.asset('assets/logo.png', width: 135),
           centerTitle: true,
           actions: [
             InkWell(
               onTap: () {
-                // Navigator.push(
-                //     context, MaterialPageRoute(builder: (_) => CCP_42()));
+                 Navigator.push(
+                     context, MaterialPageRoute(builder: (_) => SAP_44()));
               },
-              child: Padding(
-                padding: const EdgeInsets.only(right: 12.0),
+              child: const Padding(
+                padding: EdgeInsets.only(right: 12.0),
                 child: Icon(Icons.notifications, color: Colors.white),
               ),
             )
           ],
           bottom: TabBar(
-            labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+            labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
             labelColor: Colors.white,
             unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
             indicatorColor: Colors.white,
@@ -138,10 +134,10 @@ class _SAP_7_1State extends State<SAP_7_1> with SingleTickerProviderStateMixin {
           )),
       body: TabBarView(
         controller: _controller,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         children: [
           sapPostTab(),
-          SAP_Highlights_Tab(),
+          const SAP_Highlights_Tab(),
         ],
       ),
     );

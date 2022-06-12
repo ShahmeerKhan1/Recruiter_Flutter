@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp29.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -19,14 +18,14 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
   static const String routeName = '/profile';
 
   List<Widget> list = [
-    Tab(text: 'Posts'),
-    Tab(
+    const Tab(text: 'Posts'),
+    const Tab(
       text: 'Highlights',
     ),
-    Tab(
+    const Tab(
       text: 'Top Schools',
     ),
-    Tab(
+    const Tab(
       text: 'Offers',
     ),
   ];
@@ -56,29 +55,29 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
         backgroundColor: Colors.black,
         centerTitle: true,
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.white),
-        title: Text('Profile', style: TextStyle(color: Colors.white)),
-        actions: [
+        iconTheme: const IconThemeData(color: Colors.white),
+        title: const Text('Profile', style: TextStyle(color: Colors.white)),
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 16.0),
+            padding: EdgeInsets.only(right: 16.0),
             child: Icon(Icons.notifications, color: Colors.white),
           ),
         ],
         bottom: PreferredSize(
             child: Container(
-              color: Color(0xFF474747),
+              color: const Color(0xFF474747),
               height: 4.0,
             ),
-            preferredSize: Size.fromHeight(4.0)),
+            preferredSize: const Size.fromHeight(4.0)),
       ),
       drawer: drawerWidget(context),
       body: SingleChildScrollView(
         child: Stack(
           children: <Widget>[
             // The containers in the background
-            new Column(
+            Column(
               children: <Widget>[
-                new Container(
+                SizedBox(
                   height: MediaQuery.of(context).size.height * .25,
                   //   color: Colors.blue,
                   child: Padding(
@@ -86,7 +85,7 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
                     child: Image.asset('assets/profile_cover.png',),
                   ),
                 ),
-                new Container(
+                Container(
                   height: MediaQuery.of(context).size.height * .75,
                   //   color: Colors.pink,
                 )
@@ -97,13 +96,13 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
             // set the `alignment` of container to Alignment.bottomCenter
             Column(
               children: [
-                new Container(
+                Container(
                   alignment: Alignment.topCenter,
-                  padding: new EdgeInsets.only(
+                  padding: EdgeInsets.only(
                       top: MediaQuery.of(context).size.height * 0.16,
                       right: 20.0,
                       left: 20.0),
-                  child: new Container(
+                  child: Container(
                     height: 100.0,
                     alignment: Alignment.topLeft,
                     //    color: Colors.green,
@@ -131,19 +130,19 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text('Martin Mangram',
+                                      const Text('Martin Mangram',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 16.0,
                                               fontWeight: FontWeight.w500)),
-                                      Text('Bufford High School',
+                                      const Text('Bufford High School',
                                           style: TextStyle(
                                               color: Color(0xFF686868))),
-                                      SizedBox(height: 6),
+                                      const SizedBox(height: 6),
                                       Row(
                                         children: [
                                           Row(
-                                            children: [
+                                            children: const [
                                               Text('800',
                                                   style: TextStyle(
                                                       fontSize: 16.0, color: Colors.white)),
@@ -154,9 +153,9 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
                                               ),
                                             ],
                                           ),
-                                          SizedBox(width: 16),
+                                          const SizedBox(width: 16),
                                           Row(
-                                            children: [
+                                            children: const [
                                               Text('600',
                                                   style: TextStyle(
                                                       fontSize: 16.0, color: Colors.white)),
@@ -169,7 +168,7 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
                                       )
                                     ],
                                   ),
-                                  Spacer(),
+                                  const Spacer(),
                                   Padding(
                                     padding: const EdgeInsets.only(top: 8.0),
                                     child: Column(
@@ -189,14 +188,14 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
                                               width: 68,
                                               alignment: Alignment.center,
                                               decoration: BoxDecoration(
-                                                color: Color(0xFFBABABA),
+                                                color: const Color(0xFFBABABA),
                                                 border: Border.all(
-                                                    color: Color(0xFF474747),
+                                                    color: const Color(0xFF474747),
                                                     width: 2.0),
-                                                borderRadius: BorderRadius.all(
+                                                borderRadius: const BorderRadius.all(
                                                     Radius.circular(8.0)),
                                               ),
-                                              child:Text('Following',
+                                              child:const Text('Following',
                                                   style: TextStyle(
                                                       color: Colors.black,
                                                       fontSize: 12.0,
@@ -208,31 +207,31 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
                                               decoration: BoxDecoration(
                                                 color: Colors.black,
                                                 border: Border.all(
-                                                    color: Color(0xFF474747),
+                                                    color: const Color(0xFF474747),
                                                     width: 2.0),
-                                                borderRadius: BorderRadius.all(
+                                                borderRadius: const BorderRadius.all(
                                                     Radius.circular(8.0)),
                                               ),
-                                              child: Text('Follow',
+                                              child: const Text('Follow',
                                                   style: TextStyle(
                                                       color: Color(0xFF474747),
                                                       fontSize: 12.0,
                                                       fontWeight: FontWeight.w500)),
                                             )
                                         ),
-                                        SizedBox(height: 4),
+                                        const SizedBox(height: 4),
                                         Container(
                                           height: 30,
                                           width: 36,
                                           alignment: Alignment.center,
                                           decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                                              borderRadius: const BorderRadius.all(Radius.circular(6.0)),
                                               border: Border.all(
                                                   color: AppColor.textGreyColor,
                                                   width: 2
                                               )
                                           ),
-                                          child: Icon(Icons.work_outline, color: Color(0xFFE0B216)),
+                                          child: const Icon(Icons.work_outline, color: Color(0xFFE0B216)),
                                         )
                                       ],
                                     ),
@@ -251,26 +250,26 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
                       .of(context)
                       .size
                       .height * 0.20,
-                  padding: EdgeInsets.only(left: 16, right: 16.0, top: 16.0),
-                  margin: EdgeInsets.only(left: 16.0, right: 16.0),
-                  decoration: BoxDecoration(
+                  padding: const EdgeInsets.only(left: 16, right: 16.0, top: 16.0),
+                  margin: const EdgeInsets.only(left: 16.0, right: 16.0),
+                  decoration: const BoxDecoration(
                     color: Color(0xFF111111),
                     borderRadius: BorderRadius.all(Radius.circular(16)),
                   ),
                   child: Column(
                     children: [
-                      Text(
+                      const Text(
                           'Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore.',
                           style:
                           TextStyle(color: Colors.white, fontSize: 12.0)),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       Row(
                         //  crossAxisAlignment: CrossAxisAlignment.start,
                         //  mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
+                            children: const [
                               Text(
                                 'Sport:',
                                 style: TextStyle(
@@ -293,10 +292,10 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
                               ),
                             ],
                           ),
-                          SizedBox(width: 22),
+                          const SizedBox(width: 22),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
+                            children: const [
                               Text('Football',
                                   style: TextStyle(color: Colors.white)),
                               SizedBox(height: 10),
@@ -307,11 +306,11 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
                                   style: TextStyle(color: Colors.white)),
                             ],
                           ),
-                          Spacer(),
+                          const Spacer(),
                           InkWell(
                             onTap: () {
                               print('sad');
-                                   Navigator.push(context, MaterialPageRoute(builder: (_) => SCP29()));
+                                   Navigator.push(context, MaterialPageRoute(builder: (_) => const SCP29()));
                             },
                             child: Container(
                               height: 74,
@@ -321,15 +320,15 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Image.asset('assets/atheletic_profile.png'),
-                                  SizedBox(height: 4),
-                                  Text('Athletic Profile',
+                                  const SizedBox(height: 4),
+                                  const Text('Athletic Profile',
                                       style: TextStyle(
                                           fontSize: 10.0,
                                           color: Colors.white,
                                           fontWeight: FontWeight.w500))
                                 ],
                               ),
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                   color: Color(0xFF0E1E3D),
                                   borderRadius:
                                   BorderRadius.all(Radius.circular(16.0))),
@@ -343,7 +342,7 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
                 Container(
                   child: TabBar(
                     isScrollable: true,
-                    labelStyle: TextStyle(
+                    labelStyle: const TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 16.0),
                     labelColor: Colors.white,
                     unselectedLabelStyle:
@@ -358,18 +357,18 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
                     tabs: list,
                   ),
                 ),
-                Container(
+                SizedBox(
                   height: 300,
                   width: double.maxFinite,
                   //  color: Colors.blue,
                   child: TabBarView(
                     controller: _controller,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     children: [
                       postsTab(), // custom Post Widget
-                      CustomHighlightWidget(),
-                      TopSchools(),
-                      Offers(),
+                      const CustomHighlightWidget(),
+                      const TopSchools(),
+                      const Offers(),
                       //  CustomHighlightWidget(), // custom hightlight widget
                       // Container(
                       //   color: Colors.green,
@@ -730,7 +729,7 @@ class TopSchools extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold();
   }
 }
 
@@ -739,7 +738,7 @@ class Offers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold();
   }
 }
 

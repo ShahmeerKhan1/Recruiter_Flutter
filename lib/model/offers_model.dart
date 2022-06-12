@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 class OffersModel {
   String img, date, name, type, commit, location;

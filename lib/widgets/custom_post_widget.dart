@@ -69,10 +69,10 @@ Widget postsTab() {
               child: Container(
                 height: MediaQuery.of(context).size.height * 0.46,
                 width: MediaQuery.of(context).size.width,
-                padding: EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12.0),
-                  color: Color(0xFF111111),
+                  color: const Color(0xFF111111),
                 ),
                 child: Column(
                   children: [
@@ -82,11 +82,11 @@ Widget postsTab() {
                           backgroundImage: AssetImage(_postData[index].profileImg),
                           radius: 28,
                         ),
-                        SizedBox(width: 6),
+                        const SizedBox(width: 6),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
+                            SizedBox(
                               //  color: Colors.blue,
                               width: MediaQuery.of(context).size.width * 0.7,
                               child: Row(
@@ -95,18 +95,18 @@ Widget postsTab() {
                                 children: [
                                   Text(
                                     _postData[index].userName ,
-                                    style: TextStyle(color: Colors.white),
+                                    style: const TextStyle(color: Colors.white),
                                   ),
-                                  Text(
+                                  const Text(
                                     '- ',
                                     style: TextStyle(color: Colors.grey),
                                   ),
                                   Text(
                                     _postData[index].time,
-                                    style: TextStyle(color: Colors.grey),
+                                    style: const TextStyle(color: Colors.grey),
                                   ),
-                                  Spacer(),
-                                  Icon(Icons.more_horiz, color: Colors.white),
+                                  const Spacer(),
+                                  const Icon(Icons.more_horiz, color: Colors.white),
                                   //     IconButton(
                                   //         onPressed: () {},
                                   //         icon: Icon(Icons.more_horiz))
@@ -117,52 +117,52 @@ Widget postsTab() {
                             Text(
                               _postData[index].desc,
                                 style:
-                              TextStyle(color: Colors.white, fontSize: 12),
+                              const TextStyle(color: Colors.white, fontSize: 12),
                             )
                           ],
                         )
                       ],
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Column(
                       children: [
                         Row(
                           children: [
                             Expanded(
                               flex: 1,
-                              child: Container(
+                              child: SizedBox(
                                 height: 110,
                               //  color: Colors.blue,
                                   child: Image.asset(_postData[index].img1,
                                     fit: BoxFit.fill,)
                               ),
                             ),
-                            SizedBox(width: 8),
+                            const SizedBox(width: 8),
                             Expanded(
                               flex: 1,
-                              child: Container(
+                              child: SizedBox(
                                 height: 110,
                               //  color: Colors.green,
                                   child: Image.asset(_postData[index].img2, fit: BoxFit.fill,)),
                             )
                           ],
                         ),
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
                         Row(
                           children: [
                             Expanded(
                               flex: 1,
-                              child: Container(
+                              child: SizedBox(
                                   height: 110,
                                   //  color: Colors.blue,
                                   child: Image.asset(_postData[index].img3,
                                     fit: BoxFit.fill,)
                               ),
                             ),
-                            SizedBox(width: 8),
+                            const SizedBox(width: 8),
                             Expanded(
                               flex: 1,
-                              child: Container(
+                              child: SizedBox(
                                   height: 110,
                                   //  color: Colors.green,
                                   child: Image.asset(_postData[index].img4, fit: BoxFit.fill,)),
@@ -171,44 +171,44 @@ Widget postsTab() {
                         ),
                       ],
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     Row(
                       children: [
                         Row(
                           children: [
                             Icon(Icons.favorite,
                                 color: AppColor.greyBorderColor, size: 20),
-                            SizedBox(width: 2),
+                            const SizedBox(width: 2),
                             Text(
                               _postData[index].like,
                               style: TextStyle(color: AppColor.greyBorderColor),
                             )
                           ],
                         ),
-                        SizedBox(width: 26),
+                        const SizedBox(width: 26),
                         Row(
                           children: [
                             Icon(Icons.comment,
                                 color: AppColor.greyBorderColor, size: 20),
-                            SizedBox(width: 2),
+                            const SizedBox(width: 2),
                             Text(_postData[index].comment,
                                 style:
                                 TextStyle(color: AppColor.greyBorderColor))
                           ],
                         ),
-                        SizedBox(width: 26),
+                        const SizedBox(width: 26),
                         Row(
                           children: [
                             Icon(Icons.star,
                                 color: AppColor.greyBorderColor, size: 20),
-                            SizedBox(width: 2),
+                            const SizedBox(width: 2),
                             Text(_postData[index].star,
                                 style:
                                 TextStyle(color: AppColor.greyBorderColor))
                           ],
                         ),
                         // SizedBox(width: 16),
-                        Spacer(),
+                        const Spacer(),
                         Icon(Icons.share,
                             color: AppColor.greyBorderColor, size: 20),
                       ],

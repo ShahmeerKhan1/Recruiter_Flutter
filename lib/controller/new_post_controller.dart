@@ -1,7 +1,5 @@
-import 'dart:io';
 
 import 'package:get/get.dart';
-import 'package:recruiter_flutter/model/game_model.dart';
 import 'package:recruiter_flutter/model/post_tab_model.dart';
 
 class PostController extends GetxController{
@@ -26,8 +24,4 @@ class PostController extends GetxController{
     // ),
   ];
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
 }

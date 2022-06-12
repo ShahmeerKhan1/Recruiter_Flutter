@@ -13,8 +13,8 @@ class Bookmarks extends StatefulWidget {
 
 class _BookmarksState extends State<Bookmarks> {
 
-  TextEditingController _filter = TextEditingController();
-  TextEditingController _search = TextEditingController();
+  final TextEditingController _filter = TextEditingController();
+  final TextEditingController _search = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,36 +31,36 @@ class _BookmarksState extends State<Bookmarks> {
                     flex: 2,
                     child: TextField(
                         controller: _search,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 12.0),
+                          contentPadding: const EdgeInsets.only(left: 12.0),
                           filled: true,
-                          fillColor: Color(0xFF111111),
+                          fillColor: const Color(0xFF111111),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           labelText: "Search",
-                          labelStyle: TextStyle(color: Color(0xFF686868)),
-                          suffixIcon: Icon(Icons.search, color: Color(0xFF686868)),
+                          labelStyle: const TextStyle(color: Color(0xFF686868)),
+                          suffixIcon: const Icon(Icons.search, color: Color(0xFF686868)),
                           //  prefixIcon: Icon(Icons.people),
                           border: myinputborder(),
                           enabledBorder: myinputborder(),
                           focusedBorder: myfocusborder(),
                         )),
                   ),
-                  SizedBox(width: 8),
+                  const SizedBox(width: 8),
                   Expanded(
                     flex: 1,
                     child: TextField(
                         controller: _filter,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 4.0),
+                          contentPadding: const EdgeInsets.only(left: 4.0),
                           filled: true,
-                          fillColor: Color(0xFF111111),
+                          fillColor: const Color(0xFF111111),
                           floatingLabelBehavior: FloatingLabelBehavior.never,
                           labelText: "Filter",
-                          labelStyle: TextStyle(color: Color(0xFF686868)),
+                          labelStyle: const TextStyle(color: Color(0xFF686868)),
                           suffixIcon:
-                          Icon(Icons.filter, color: Color(0xFF686868)),
+                          const Icon(Icons.filter, color: Color(0xFF686868)),
                           //  prefixIcon: Icon(Icons.people),
                           border: myinputborder(),
                           enabledBorder: myinputborder(),
@@ -73,31 +73,31 @@ class _BookmarksState extends State<Bookmarks> {
             Container(
               height: MediaQuery.of(context).size.height * 0.46,
               width: MediaQuery.of(context).size.width,
-              margin: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16.0),
-              padding: EdgeInsets.all(10.0),
+              margin: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16.0),
+              padding: const EdgeInsets.all(10.0),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12.0),
-                color: Color(0xFF111111),
+                color: const Color(0xFF111111),
               ),
               child: Column(
                 children: [
                   Row(
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         backgroundImage: AssetImage('assets/drawer_img.png'),
                         radius: 28,
                       ),
-                      SizedBox(width: 6),
+                      const SizedBox(width: 6),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
+                          SizedBox(
                             //  color: Colors.blue,
                             width: MediaQuery.of(context).size.width * 0.7,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
+                              children: const [
                                 Text(
                                   'Martin Mangram',
                                   style: TextStyle(color: Colors.white),
@@ -119,7 +119,7 @@ class _BookmarksState extends State<Bookmarks> {
                             ),
                           ),
                           //  SizedBox(height: 4),
-                          Text(
+                          const Text(
                             'After a great conversation with coach Ark \nCarter, I am extremely blessed to receive an \noffer from the University of Arkansas',
                             overflow: TextOverflow.visible,
                             style: TextStyle(
@@ -129,14 +129,14 @@ class _BookmarksState extends State<Bookmarks> {
                       )
                     ],
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Column(
                     children: [
                       Row(
                         children: [
                           Expanded(
                             flex: 1,
-                            child: Container(
+                            child: SizedBox(
                                 height: 110,
                                 //  color: Colors.blue,
                                 child: Image.asset(
@@ -144,10 +144,10 @@ class _BookmarksState extends State<Bookmarks> {
                                   fit: BoxFit.fill,
                                 )),
                           ),
-                          SizedBox(width: 8),
+                          const SizedBox(width: 8),
                           Expanded(
                             flex: 1,
-                            child: Container(
+                            child: SizedBox(
                                 height: 110,
                                 //  color: Colors.green,
                                 child: Image.asset(
@@ -157,12 +157,12 @@ class _BookmarksState extends State<Bookmarks> {
                           )
                         ],
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Row(
                         children: [
                           Expanded(
                             flex: 1,
-                            child: Container(
+                            child: SizedBox(
                                 height: 110,
                                 //  color: Colors.blue,
                                 child: Image.asset(
@@ -170,10 +170,10 @@ class _BookmarksState extends State<Bookmarks> {
                                   fit: BoxFit.fill,
                                 )),
                           ),
-                          SizedBox(width: 8),
+                          const SizedBox(width: 8),
                           Expanded(
                             flex: 1,
-                            child: Container(
+                            child: SizedBox(
                                 height: 110,
                                 //  color: Colors.green,
                                 child: Image.asset(
@@ -185,14 +185,14 @@ class _BookmarksState extends State<Bookmarks> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Row(
                     children: [
                       Row(
                         children: [
                           Icon(Icons.favorite,
                               color: AppColor.greyBorderColor, size: 20),
-                          SizedBox(width: 2),
+                          const SizedBox(width: 2),
                           Text(
                             '1.1k',
                             style:
@@ -200,30 +200,30 @@ class _BookmarksState extends State<Bookmarks> {
                           )
                         ],
                       ),
-                      SizedBox(width: 26),
+                      const SizedBox(width: 26),
                       Row(
                         children: [
                           Icon(Icons.comment,
                               color: AppColor.greyBorderColor, size: 20),
-                          SizedBox(width: 2),
+                          const SizedBox(width: 2),
                           Text('1.1k',
                               style: TextStyle(
                                   color: AppColor.greyBorderColor))
                         ],
                       ),
-                      SizedBox(width: 26),
+                      const SizedBox(width: 26),
                       Row(
                         children: [
                           Icon(Icons.star,
                               color: AppColor.greyBorderColor, size: 20),
-                          SizedBox(width: 2),
+                          const SizedBox(width: 2),
                           Text('1.1k',
                               style: TextStyle(
                                   color: AppColor.greyBorderColor))
                         ],
                       ),
                       // SizedBox(width: 16),
-                      Spacer(),
+                      const Spacer(),
                       Icon(Icons.share,
                           color: AppColor.greyBorderColor, size: 20),
                     ],
@@ -234,8 +234,8 @@ class _BookmarksState extends State<Bookmarks> {
             Container(
               height: MediaQuery.of(context).size.height * 0.31,
               width: MediaQuery.of(context).size.width,
-              margin: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16.0),
-              decoration: BoxDecoration(
+              margin: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16.0),
+              decoration: const BoxDecoration(
                 color: Color(0xFF111111),
                 borderRadius: BorderRadius.all(Radius.circular(12.0)),
               ),
@@ -263,35 +263,35 @@ class _BookmarksState extends State<Bookmarks> {
                                   color: AppColor.yellowColor,
                                   fontWeight: FontWeight.w500),
                             ),
-                            SizedBox(height: 2),
-                            Text(
+                            const SizedBox(height: 2),
+                            const Text(
                               'Private Football Camp',
                               style: TextStyle(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 16.0,
                                   color: Colors.white),
                             ),
-                            SizedBox(height: 2),
+                            const SizedBox(height: 2),
                             Text(
                               'Ohio Stadium',
                               style: TextStyle(color: AppColor.greyBorderColor),
                             )
                           ],
                         ),
-                        Spacer(),
+                        const Spacer(),
                         Column(
                           children: [
                             Text('\$',
                                 style: TextStyle(
                                     color: AppColor.greyBorderColor, fontSize: 16.0, fontWeight: FontWeight.w500)),
-                            SizedBox(height: 4),
+                            const SizedBox(height: 4),
                             Container(
                               width: 46,
                               height: 24,
                               alignment: Alignment.center,
                               // padding: EdgeInsets.all(6.0),
                               decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.all(
+                                  borderRadius: const BorderRadius.all(
                                       Radius.circular(6.0)),
                                   color: Colors.black,
                                   border: Border.all(

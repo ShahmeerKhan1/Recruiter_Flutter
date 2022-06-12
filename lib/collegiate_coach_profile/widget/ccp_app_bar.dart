@@ -4,8 +4,8 @@ import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_42.dart';
 AppBar ccpAppBar(String title, IconData icon, BuildContext context) {
   return AppBar(
     backgroundColor: Colors.black,
-    iconTheme: IconThemeData(color: Colors.white),
-    title: Text(title, style: TextStyle(color: Colors.white)),
+    iconTheme: const IconThemeData(color: Colors.white),
+    title: Text(title, style: const TextStyle(color: Colors.white)),
     centerTitle: true,
     actions: [
       InkWell(
@@ -20,9 +20,9 @@ AppBar ccpAppBar(String title, IconData icon, BuildContext context) {
     ],
     bottom: PreferredSize(
         child: Container(
-          color: Color(0xFF474747),
+          color: const Color(0xFF474747),
           height: 4.0,
         ),
-        preferredSize: Size.fromHeight(4.0)),
+        preferredSize: const Size.fromHeight(4.0)),
   );
 }

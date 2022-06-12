@@ -3,7 +3,6 @@ import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_47_1.dart
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/model/nli_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
@@ -12,7 +11,7 @@ class CTP46_1 extends StatelessWidget {
 
   TextEditingController search = TextEditingController();
 
-  List<NLIModel> _list = [
+  final List<NLIModel> _list = [
     NLIModel(
         img: 'assets/events_img2.png',
         date: 'Fri, Oct 2nd',
@@ -51,16 +50,16 @@ class CTP46_1 extends StatelessWidget {
             children: [
               TextField(
                   controller: search,
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
                   decoration: InputDecoration(
-                    contentPadding: EdgeInsets.only(left: 10.0),
+                    contentPadding: const EdgeInsets.only(left: 10.0),
                     filled: true,
-                    fillColor: Color(0xFF111111),
+                    fillColor: const Color(0xFF111111),
                     floatingLabelBehavior: FloatingLabelBehavior.never,
                     labelText: "Search",
-                    labelStyle: TextStyle(color: Color(0xFF686868)),
+                    labelStyle: const TextStyle(color: Color(0xFF686868)),
                     suffixIcon:
-                    Icon(Icons.search, color: Color(0xFF686868)),
+                    const Icon(Icons.search, color: Color(0xFF686868)),
                     //  prefixIcon: Icon(Icons.people),
                     border: myinputborder(),
                     enabledBorder: myinputborder(),
@@ -68,20 +67,20 @@ class CTP46_1 extends StatelessWidget {
                   )),
               ListView.builder(
                   itemCount: _list.length,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   primary: false,
                   itemBuilder: (BuildContext context, index) {
                     return InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (_) => CTP47_1()));
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => const CTP47_1()));
                       },
                       child: Container(
                         height: MediaQuery.of(context).size.height * 0.12,
                         width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.only(left: 6.0, right: 6.0, top: 6.0),
-                        margin: EdgeInsets.only(top: 16.0, bottom: 2.0),
-                        decoration: BoxDecoration(
+                        padding: const EdgeInsets.only(left: 6.0, right: 6.0, top: 6.0),
+                        margin: const EdgeInsets.only(top: 16.0, bottom: 2.0),
+                        decoration: const BoxDecoration(
                           color: Color(0xFF111111),
                           borderRadius: BorderRadius.all(Radius.circular(6.0)),
                         ),
@@ -89,12 +88,12 @@ class CTP46_1 extends StatelessWidget {
                           children: [
                             Row(
                               children: [
-                                Container(
+                                SizedBox(
                                     height: 100,
                                     width: 100,
                                     child: Image.asset(_list[index].img,
                                         fit: BoxFit.cover)),
-                                SizedBox(width: 6),
+                                const SizedBox(width: 6),
                                 Padding(
                                   padding: const EdgeInsets.only(top: 8.0),
                                   child: Column(
@@ -106,23 +105,23 @@ class CTP46_1 extends StatelessWidget {
                                             color: AppColor.greyBorderColor,
                                             fontSize: 14.0),
                                       ),
-                                      SizedBox(height: 4),
-                                      Container(
+                                      const SizedBox(height: 4),
+                                      SizedBox(
                                         width: 160,
                                         // color: Colors.blue,
                                         // height: MediaQuery.of(context).size.height,
                                         child: Text(
                                           _list[index].location,
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontWeight: FontWeight.w500,
                                               fontSize: 14.0,
                                               color: Colors.white),
                                         ),
                                       ),
-                                      SizedBox(height: 4),
+                                      const SizedBox(height: 4),
                                       Text(
                                         _list[index].sentBy,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: Color(0xFFFFEE00),
                                             fontWeight: FontWeight.w500),
                                       ),

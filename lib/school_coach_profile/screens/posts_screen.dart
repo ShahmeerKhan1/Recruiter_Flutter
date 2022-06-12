@@ -1,7 +1,5 @@
 import 'dart:io';
-import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:recruiter_flutter/model/post_tab_model.dart';
@@ -13,7 +11,6 @@ import 'package:recruiter_flutter/widgets/custom_post_widget.dart';
 import 'package:recruiter_flutter/widgets/drawer_widget.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
-import 'package:video_player/video_player.dart';
 
 class PostsScreen extends StatefulWidget {
   const PostsScreen({Key? key}) : super(key: key);
@@ -28,8 +25,8 @@ class _PostsScreenState extends State<PostsScreen> with SingleTickerProviderStat
   int _selectedIndex = 0; //  Tab Bar Index
 
   List<Widget> list = [
-    Tab(text: 'Posts'),
-    Tab(
+    const Tab(text: 'Posts'),
+    const Tab(
       text: 'Highlights',
     ),
   ];
@@ -57,17 +54,17 @@ class _PostsScreenState extends State<PostsScreen> with SingleTickerProviderStat
       drawer: drawerWidget(context),
       appBar: AppBar(
           backgroundColor: Colors.black,
-          iconTheme: IconThemeData(color: Colors.white),
+          iconTheme: const IconThemeData(color: Colors.white),
           title: Image.asset('assets/logo.png', width: 135),
           centerTitle: true,
-          actions: [
+          actions: const [
             Padding(
-              padding: const EdgeInsets.only(right: 12.0),
+              padding: EdgeInsets.only(right: 12.0),
               child: Icon(Icons.notifications, color: Colors.white),
             )
           ],
           bottom: TabBar(
-            labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+            labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
             labelColor: Colors.white,
             unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
             indicatorColor: Colors.white,
@@ -104,10 +101,10 @@ class _PostsScreenState extends State<PostsScreen> with SingleTickerProviderStat
       //  ),
       body: TabBarView(
         controller: _controller,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         children: [
           postsTab(), // custom Post Widget
-          CustomHighlightWidget(), // custom hightlight widget
+          const CustomHighlightWidget(), // custom hightlight widget
           // Container(
           //   color: Colors.green,
           // )
@@ -185,7 +182,7 @@ class _PostsScreenState extends State<PostsScreen> with SingleTickerProviderStat
 class PostDetail extends StatefulWidget {
   final PostTabModel data;
 
-  PostDetail({Key? key, required this.data});
+  const PostDetail({Key? key, required this.data});
 
   @override
   State<PostDetail> createState() => _PostDetailState();
@@ -349,7 +346,7 @@ class _PostDetailState extends State<PostDetail> {
       appBar: scpAppBar('Post', Icons.notifications, context),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
               Padding(
@@ -357,10 +354,10 @@ class _PostDetailState extends State<PostDetail> {
                 child: Container(
                   height: MediaQuery.of(context).size.height * 0.46,
                   width: MediaQuery.of(context).size.width,
-                  padding: EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(10.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12.0),
-                    color: Color(0xFF111111),
+                    color: const Color(0xFF111111),
                   ),
                   child: Column(
                     children: [
@@ -370,11 +367,11 @@ class _PostDetailState extends State<PostDetail> {
                             backgroundImage: AssetImage(widget.data.profileImg),
                             radius: 28,
                           ),
-                          SizedBox(width: 6),
+                          const SizedBox(width: 6),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Container(
+                              SizedBox(
                                 //  color: Colors.blue,
                                 width: MediaQuery.of(context).size.width * 0.7,
                                 child: Row(
@@ -383,18 +380,18 @@ class _PostDetailState extends State<PostDetail> {
                                   children: [
                                     Text(
                                       widget.data.userName,
-                                      style: TextStyle(color: Colors.white),
+                                      style: const TextStyle(color: Colors.white),
                                     ),
-                                    Text(
+                                    const Text(
                                       ' - ',
                                       style: TextStyle(color: Colors.grey),
                                     ),
                                     Text(
                                       widget.data.time,
-                                      style: TextStyle(color: Colors.grey),
+                                      style: const TextStyle(color: Colors.grey),
                                     ),
-                                    Spacer(),
-                                    Icon(Icons.more_horiz, color: Colors.white),
+                                    const Spacer(),
+                                    const Icon(Icons.more_horiz, color: Colors.white),
                                     //     IconButton(
                                     //         onPressed: () {},
                                     //         icon: Icon(Icons.more_horiz))
@@ -404,21 +401,21 @@ class _PostDetailState extends State<PostDetail> {
                               //  SizedBox(height: 4),
                               Text(
                                 widget.data.desc,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.white, fontSize: 12),
                               )
                             ],
                           )
                         ],
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Column(
                         children: [
                           Row(
                             children: [
                               Expanded(
                                 flex: 1,
-                                child: Container(
+                                child: SizedBox(
                                     height: 110,
                                     //  color: Colors.blue,
                                     child: Image.asset(
@@ -426,10 +423,10 @@ class _PostDetailState extends State<PostDetail> {
                                       fit: BoxFit.fill,
                                     )),
                               ),
-                              SizedBox(width: 8),
+                              const SizedBox(width: 8),
                               Expanded(
                                 flex: 1,
-                                child: Container(
+                                child: SizedBox(
                                     height: 110,
                                     //  color: Colors.green,
                                     child: Image.asset(
@@ -439,12 +436,12 @@ class _PostDetailState extends State<PostDetail> {
                               )
                             ],
                           ),
-                          SizedBox(height: 8),
+                          const SizedBox(height: 8),
                           Row(
                             children: [
                               Expanded(
                                 flex: 1,
-                                child: Container(
+                                child: SizedBox(
                                     height: 110,
                                     //  color: Colors.blue,
                                     child: Image.asset(
@@ -452,10 +449,10 @@ class _PostDetailState extends State<PostDetail> {
                                       fit: BoxFit.fill,
                                     )),
                               ),
-                              SizedBox(width: 8),
+                              const SizedBox(width: 8),
                               Expanded(
                                 flex: 1,
-                                child: Container(
+                                child: SizedBox(
                                     height: 110,
                                     //  color: Colors.green,
                                     child: Image.asset(
@@ -467,14 +464,14 @@ class _PostDetailState extends State<PostDetail> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       Row(
                         children: [
                           Row(
                             children: [
                               Icon(Icons.favorite,
                                   color: AppColor.greyBorderColor, size: 20),
-                              SizedBox(width: 2),
+                              const SizedBox(width: 2),
                               Text(
                                 widget.data.like,
                                 style:
@@ -482,30 +479,30 @@ class _PostDetailState extends State<PostDetail> {
                               )
                             ],
                           ),
-                          SizedBox(width: 26),
+                          const SizedBox(width: 26),
                           Row(
                             children: [
                               Icon(Icons.comment,
                                   color: AppColor.greyBorderColor, size: 20),
-                              SizedBox(width: 2),
+                              const SizedBox(width: 2),
                               Text(widget.data.comment,
                                   style: TextStyle(
                                       color: AppColor.greyBorderColor))
                             ],
                           ),
-                          SizedBox(width: 26),
+                          const SizedBox(width: 26),
                           Row(
                             children: [
                               Icon(Icons.star,
                                   color: AppColor.greyBorderColor, size: 20),
-                              SizedBox(width: 2),
+                              const SizedBox(width: 2),
                               Text(widget.data.star,
                                   style: TextStyle(
                                       color: AppColor.greyBorderColor))
                             ],
                           ),
                           // SizedBox(width: 16),
-                          Spacer(),
+                          const Spacer(),
                           Icon(Icons.share,
                               color: AppColor.greyBorderColor, size: 20),
                         ],
@@ -520,7 +517,7 @@ class _PostDetailState extends State<PostDetail> {
                   children: [
                     TextFormField(
                         controller: comment,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         keyboardType: TextInputType.multiline,
                         maxLines: null,
                         textCapitalization: TextCapitalization.sentences,
@@ -534,13 +531,13 @@ class _PostDetailState extends State<PostDetail> {
                         },
                         decoration: InputDecoration(
                             filled: true,
-                            fillColor: Color(0xFF111111),
-                            contentPadding: EdgeInsets.all(0.0),
+                            fillColor: const Color(0xFF111111),
+                            contentPadding: const EdgeInsets.all(0.0),
                             // contentPadding: EdgeInsets.only(left: 16),
                             floatingLabelBehavior: FloatingLabelBehavior.never,
                             // prefixIcon: Icon(Icons.lock),
                             labelText: "Reply To Post...",
-                            labelStyle: TextStyle(
+                            labelStyle: const TextStyle(
                                 color: Color(0xFFBABABA), fontSize: 12),
                             enabledBorder: myinputborder(),
                             focusedBorder: myfocusborder(),
@@ -555,8 +552,8 @@ class _PostDetailState extends State<PostDetail> {
                                       if (comment.text == "") {
                                         print('please enter text');
                                         _scaffoldKey.currentState!.showSnackBar(
-                                            new SnackBar(
-                                                content: new Text('Please enter message...')
+                                            const SnackBar(
+                                                content: Text('Please enter message...')
                                             )
                                         );
                                       } else {
@@ -567,7 +564,7 @@ class _PostDetailState extends State<PostDetail> {
                                       width: 44,
                                       height: 22,
                                       alignment: Alignment.center,
-                                      child: Text('Reply',
+                                      child: const Text('Reply',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 12.0,
@@ -619,7 +616,7 @@ class _PostDetailState extends State<PostDetail> {
                             height: 300,
                             //  height: 200,
                             //         color: Colors.blue,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(12)),
                             ),
@@ -640,24 +637,24 @@ class _PostDetailState extends State<PostDetail> {
                   ],
                 ),
               ),
-              Divider(color: Colors.grey),
+              const Divider(color: Colors.grey),
               Padding(
                 padding: const EdgeInsets.only(
                     top: 4.0, bottom: 12.0, left: 6, right: 6),
                 child: Row(
                   children: [
-                    Text(
+                    const Text(
                       'Replies',
                       style: TextStyle(
                           color: Colors.white, fontWeight: FontWeight.w500),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Text(
                       'Newest',
                       style: TextStyle(color: AppColor.greyBorderColor),
                     ),
-                    SizedBox(width: 16),
-                    Text('Top',
+                    const SizedBox(width: 16),
+                    const Text('Top',
                         style: TextStyle(
                             color: Colors.white, fontWeight: FontWeight.w500)),
                   ],
@@ -667,18 +664,18 @@ class _PostDetailState extends State<PostDetail> {
                   itemCount: _list.length,
                   primary: false,
                   shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (BuildContext context, index) {
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 10.0),
                       child: Container(
                         height: MediaQuery.of(context).size.height * 0.14,
                         width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
                           //  color: Colors.blue,
                           borderRadius: BorderRadius.circular(12.0),
-                          color: Color(0xFF111111),
+                          color: const Color(0xFF111111),
                         ),
                         child: Column(
                           children: [
@@ -689,12 +686,12 @@ class _PostDetailState extends State<PostDetail> {
                                       AssetImage(_list[index].profileImg),
                                   radius: 18,
                                 ),
-                                SizedBox(width: 6),
+                                const SizedBox(width: 6),
                                 Column(
                                   crossAxisAlignment:
                                       CrossAxisAlignment.start,
                                   children: [
-                                    Container(
+                                    SizedBox(
                                       //  color: Colors.blue,
                                       width:
                                           MediaQuery.of(context).size.width *
@@ -707,10 +704,10 @@ class _PostDetailState extends State<PostDetail> {
                                         children: [
                                           Text(
                                             _list[index].userName,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 color: Colors.white),
                                           ),
-                                          Text(
+                                          const Text(
                                             '- ',
                                             style:
                                                 TextStyle(color: Colors.grey),
@@ -718,10 +715,10 @@ class _PostDetailState extends State<PostDetail> {
                                           Text(
                                             _list[index].time,
                                             style:
-                                                TextStyle(color: Colors.grey),
+                                                const TextStyle(color: Colors.grey),
                                           ),
-                                          Spacer(),
-                                          Icon(Icons.more_horiz,
+                                          const Spacer(),
+                                          const Icon(Icons.more_horiz,
                                               color: Colors.white),
                                           //     IconButton(
                                           //         onPressed: () {},
@@ -732,14 +729,14 @@ class _PostDetailState extends State<PostDetail> {
                                     //  SizedBox(height: 4),
                                     Text(
                                       _list[index].desc,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.white, fontSize: 12),
                                     ),
                                   ],
                                 )
                               ],
                             ),
-                            SizedBox(height: 16),
+                            const SizedBox(height: 16),
                             Row(
                               children: [
                                 Row(
@@ -747,7 +744,7 @@ class _PostDetailState extends State<PostDetail> {
                                     Icon(Icons.favorite,
                                         color: AppColor.greyBorderColor,
                                         size: 20),
-                                    SizedBox(width: 2),
+                                    const SizedBox(width: 2),
                                     Text(
                                       _list[index].like,
                                       style: TextStyle(
@@ -755,19 +752,19 @@ class _PostDetailState extends State<PostDetail> {
                                     )
                                   ],
                                 ),
-                                SizedBox(width: 26),
+                                const SizedBox(width: 26),
                                 Row(
                                   children: [
                                     Icon(Icons.comment,
                                         color: AppColor.greyBorderColor,
                                         size: 20),
-                                    SizedBox(width: 2),
+                                    const SizedBox(width: 2),
                                     Text(_list[index].comment,
                                         style: TextStyle(
                                             color: AppColor.greyBorderColor))
                                   ],
                                 ),
-                                Spacer(),
+                                const Spacer(),
                                 Text(_list[index].reply,
                                     style: TextStyle(
                                         fontSize: 12,

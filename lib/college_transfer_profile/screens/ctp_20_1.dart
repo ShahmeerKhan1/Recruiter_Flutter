@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_21_1.dart';
 import 'package:recruiter_flutter/model/chat_message_model.dart';
-import 'package:recruiter_flutter/model/messages_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
@@ -94,26 +93,26 @@ class _CTP20_1State extends State<CTP20_1> {
       key: _scaffoldKey,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.white),
         title: Text(widget.data,
-            style: TextStyle(color: Colors.white)),
+            style: const TextStyle(color: Colors.white)),
         centerTitle: true,
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 12.0),
             child: InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP21_1()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const CTP21_1()));
                 },
-                child: Icon(Icons.info_outline, color: Colors.white)),
+                child: const Icon(Icons.info_outline, color: Colors.white)),
           ),
         ],
         bottom: PreferredSize(
             child: Container(
-              color: Color(0xFF474747),
+              color: const Color(0xFF474747),
               height: 4.0,
             ),
-            preferredSize: Size.fromHeight(4.0)),
+            preferredSize: const Size.fromHeight(4.0)),
       ),
       body: Stack(
         alignment: Alignment.center,
@@ -127,14 +126,14 @@ class _CTP20_1State extends State<CTP20_1> {
                     itemCount: messages.length,
                     shrinkWrap: true,
                     primary: false,
-                    padding: EdgeInsets.only(top: 16, bottom: 10),
+                    padding: const EdgeInsets.only(top: 16, bottom: 10),
                     // physics: NeverScrollableScrollPhysics(),
                     itemBuilder: (BuildContext context, index) {
                       return Container(
                         padding: messages[index].messageType == "receiver"
-                            ? EdgeInsets.only(
+                            ? const EdgeInsets.only(
                             left: 16, right: 42, top: 10, bottom: 10)
-                            : EdgeInsets.only(
+                            : const EdgeInsets.only(
                             left: 90, right: 16, top: 10, bottom: 10),
                         child: Align(
                           alignment: (messages[index].messageType == "receiver"
@@ -143,14 +142,14 @@ class _CTP20_1State extends State<CTP20_1> {
                           child: messages[index].messageType == "receiver"
                               ? Row(
                             children: [
-                              CircleAvatar(
+                              const CircleAvatar(
                                   backgroundImage:
                                   AssetImage('assets/drawer_img.png'),
                                   radius: 18),
-                              SizedBox(width: 10),
+                              const SizedBox(width: 10),
                               Expanded(
                                 child: Container(
-                                  padding: EdgeInsets.all(16),
+                                  padding: const EdgeInsets.all(16),
                                   decoration: BoxDecoration(
                                     borderRadius:
                                     BorderRadius.circular(12),
@@ -161,7 +160,7 @@ class _CTP20_1State extends State<CTP20_1> {
                                   ),
                                   child: Text(
                                       messages[index].messageContent,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.w500)),
                                 ),
@@ -172,7 +171,7 @@ class _CTP20_1State extends State<CTP20_1> {
                             children: [
                               Expanded(
                                 child: Container(
-                                  padding: EdgeInsets.all(16),
+                                  padding: const EdgeInsets.all(16),
                                   decoration: BoxDecoration(
                                     borderRadius:
                                     BorderRadius.circular(12),
@@ -183,7 +182,7 @@ class _CTP20_1State extends State<CTP20_1> {
                                   ),
                                   child: Text(
                                       messages[index].messageContent,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.w500)),
                                 ),
@@ -202,7 +201,7 @@ class _CTP20_1State extends State<CTP20_1> {
             alignment: Alignment.bottomLeft,
             child: Container(
               padding:
-              EdgeInsets.only(left: 10, bottom: 10, top: 10, right: 10),
+              const EdgeInsets.only(left: 10, bottom: 10, top: 10, right: 10),
               // height: 60,
               // width: double.infinity,
               // color: Colors.white,
@@ -225,15 +224,15 @@ class _CTP20_1State extends State<CTP20_1> {
                           onChanged: (val) {
                             isTextFieldEmpty();
                           },
-                          style: TextStyle(color: Colors.white),
+                          style: const TextStyle(color: Colors.white),
                           decoration: InputDecoration(
-                            contentPadding: EdgeInsets.only(left: 16.0),
+                            contentPadding: const EdgeInsets.only(left: 16.0),
                             filled: true,
-                            fillColor: Color(0xFF111111),
+                            fillColor: const Color(0xFF111111),
                             floatingLabelBehavior: FloatingLabelBehavior.never,
                             labelText: "Start Typing....",
                             labelStyle:
-                            TextStyle(color: Colors.white, fontSize: 14.0),
+                            const TextStyle(color: Colors.white, fontSize: 14.0),
                             suffixIcon: Padding(
                               padding: const EdgeInsets.only(right: 16.0),
                               child: Row(
@@ -242,14 +241,14 @@ class _CTP20_1State extends State<CTP20_1> {
                                 children: [
                                   Icon(Icons.attach_file,
                                       color: AppColor.greyBorderColor),
-                                  SizedBox(width: 6),
+                                  const SizedBox(width: 6),
                                   InkWell(
                                       onTap: () {
                                         if (search.text == "") {
                                           print('please enter text');
                                           _scaffoldKey.currentState!
-                                              .showSnackBar(new SnackBar(
-                                              content: new Text(
+                                              .showSnackBar(const SnackBar(
+                                              content: Text(
                                                   'Please enter message...')));
                                         } else {
                                           _onSubmit();

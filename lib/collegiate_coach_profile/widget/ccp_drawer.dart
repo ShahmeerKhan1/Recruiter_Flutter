@@ -7,12 +7,12 @@ import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_44.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
 Widget ccp_drawer(BuildContext context) {       // CCP Drawer
-  return Container(
+  return SizedBox(
     width: MediaQuery.of(context).size.width * 0.70,
     // color: Colors.purple,
     child: Drawer(
       // backgroundColor: Color(0xFF2A2A2A),
-      backgroundColor: Color(0xFF111111),
+      backgroundColor: const Color(0xFF111111),
       //  backgroundColor: Colors.blue,
       child: Column(
         children: [
@@ -22,55 +22,55 @@ Widget ccp_drawer(BuildContext context) {       // CCP Drawer
                 _drawerHeader(context),
                 ListTile(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_22()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => const CCP_22()));
                     //   Navigator.pushReplacementNamed(context, Routes.profile);
                   },
                   leading: Image.asset('assets/small_profile.png'),
-                  title: Text(
+                  title: const Text(
                     "Profile",
                     style: TextStyle(color: Colors.white, fontSize: 16.0),
                   ),
                 ),
                 ListTile(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_31()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => const CCP_31()));
                     //  Navigator.pushReplacementNamed(context, Routes.events);
                   },
                   leading: Image.asset('assets/events.png'),
-                  title: Text(
+                  title: const Text(
                     "Events",
                     style: TextStyle(color: Colors.white, fontSize: 16.0),
                   ),
                 ),
                 ListTile(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_38()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => const CCP_38()));
                     //   Navigator.pushReplacementNamed(context, Routes.bookmarks);
                   },
                   leading: Image.asset('assets/nli.png'),
-                  title: Text(
+                  title: const Text(
                     "NLI Signing",
                     style: TextStyle(color: Colors.white, fontSize: 16.0),
                   ),
                 ),
                 ListTile(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_43()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => const CCP_43()));
                     //   Navigator.pushReplacementNamed(context, Routes.bookmarks);
                   },
                   leading: Image.asset('assets/bookmarks.png'),
-                  title: Text(
+                  title: const Text(
                     "Bookmarks",
                     style: TextStyle(color: Colors.white, fontSize: 16.0),
                   ),
                 ),
                 ListTile(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_44()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => const CCP_44()));
                     //   Navigator.pushReplacementNamed(context, Routes.bookmarks);
                   },
                   leading: Image.asset('assets/transfer.png'),
-                  title: Text(
+                  title: const Text(
                     "Transfers Portal",
                     style: TextStyle(color: Colors.white, fontSize: 16.0),
                   ),
@@ -89,7 +89,7 @@ Widget ccp_drawer(BuildContext context) {       // CCP Drawer
               // //  Navigator.pushReplacementNamed(context, Routes.settings);
               // },
               leading: Image.asset('assets/settings.png'),
-              title: Text(
+              title: const Text(
                 "Settings",
                 style: TextStyle(color: Colors.white, fontSize: 16.0),
               ),
@@ -102,31 +102,31 @@ Widget ccp_drawer(BuildContext context) {       // CCP Drawer
 }
 
 Widget _drawerHeader(BuildContext context) {
-  return new Container(
+  return SizedBox(
     height: 200,
-    child: new DrawerHeader(
+    child: DrawerHeader(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                new CircleAvatar(
+                const CircleAvatar(
                   backgroundImage:
                   AssetImage('assets/drawer_img.png'),
                   radius: 32,
                 ),
                 IconButton(
-                  icon: Icon(Icons.close, color: Colors.white),
+                  icon: const Icon(Icons.close, color: Colors.white),
                   onPressed: () {
                     Navigator.pop(context);
                   },
                 )
               ],
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             Row(
-              children: [
+              children: const [
                 Text(
                   'Martin Mangram',
                   style: TextStyle(
@@ -162,33 +162,33 @@ Widget _drawerHeader(BuildContext context) {
               '@martin',
               style: TextStyle(color: AppColor.greyBorderColor),
             ),
-            SizedBox(height: 12),
-            Container(
+            const SizedBox(height: 12),
+            SizedBox(
               height: 30,
               width: MediaQuery.of(context).size.width,
               //  color: Colors.blue,
               child: Row(
                 children: [
-                  Text(
+                  const Text(
                     '800',
                     style: TextStyle(
                         fontWeight: FontWeight.w500,
                         color: Colors.white),
                   ),
-                  SizedBox(width: 4),
+                  const SizedBox(width: 4),
                   Text(
                     'followers',
                     style: TextStyle(
                         color: AppColor.greyBorderColor),
                   ),
-                  SizedBox(width: 16),
-                  Text(
+                  const SizedBox(width: 16),
+                  const Text(
                     '600',
                     style: TextStyle(
                         fontWeight: FontWeight.w500,
                         color: Colors.white),
                   ),
-                  SizedBox(width: 4),
+                  const SizedBox(width: 4),
                   Text(
                     'following',
                     style: TextStyle(

@@ -1,7 +1,5 @@
 import 'package:get/get.dart';
 import 'package:recruiter_flutter/model/events_model.dart';
-import 'package:recruiter_flutter/model/game_model.dart';
-import 'package:recruiter_flutter/model/post_tab_model.dart';
 
 class EventController extends GetxController{
 
@@ -25,8 +23,4 @@ class EventController extends GetxController{
     // ),
   ];
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
 }

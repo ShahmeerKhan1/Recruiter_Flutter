@@ -18,26 +18,26 @@ class SAP6_6 extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
                 'Update Your Atheletic\nProfile & Get Evaluation\nFrom Role Coaches',
                 style: TextStyle(color: Colors.white, fontSize: 26.0)),
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.12,
               width: MediaQuery.of(context).size.width,
             //  color: Colors.blue,
             ),
             Center(
                 child: Image.asset('assets/shape.png')),
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.12,
               width: MediaQuery.of(context).size.width,
             //  color: Colors.blue,
             ),
-            Container(
+            SizedBox(
               width: 125,
               height: 40,
               child: ElevatedButton(
-                child: Text(
+                child: const Text(
                   "Next",
                   style: TextStyle(
                       color: Colors.white,
@@ -45,19 +45,19 @@ class SAP6_6 extends StatelessWidget {
                       fontSize: 16.0),
                 ),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => SAP6_7()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const SAP6_7()));
                 },
                 style: ElevatedButton.styleFrom(
                   primary: AppColor.goldenColor,
                 ),
               ),
             ),
-            SizedBox(height: 10),
-            Container(
+            const SizedBox(height: 10),
+            SizedBox(
               width: 100,
               height: 40,
               child: ElevatedButton(
-                child: Text(
+                child: const Text(
                   "Skip",
                   style: TextStyle(
                       color: Colors.white,
@@ -65,10 +65,10 @@ class SAP6_6 extends StatelessWidget {
                       fontSize: 16.0),
                 ),
                 onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => CTP6_7()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => const CTP6_7()));
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Color(0xFF2A2A2A),
+                  primary: const Color(0xFF2A2A2A),
                 ),
               ),
             ),

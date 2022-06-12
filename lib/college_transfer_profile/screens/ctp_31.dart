@@ -1,16 +1,9 @@
-import 'dart:io';
 
-import 'package:dotted_border/dotted_border.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:intl/intl.dart';
-import 'package:pattern_formatter/pattern_formatter.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_33_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
-import 'package:recruiter_flutter/model/stats_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
@@ -30,8 +23,8 @@ class _CTP31State extends State<CTP31> with SingleTickerProviderStateMixin {
   bool _editProfile = false;
 
   List<Widget> list = [
-    Tab(text: 'Posts'),
-    Tab(text: 'Stats'),
+    const Tab(text: 'Posts'),
+    const Tab(text: 'Stats'),
   ];
 
   @override
@@ -85,17 +78,17 @@ class _CTP31State extends State<CTP31> with SingleTickerProviderStateMixin {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            CircleAvatar(
+                            const CircleAvatar(
                               backgroundImage:
                                   AssetImage('assets/drawer_img.png'),
                               radius: 40,
                             ),
-                            SizedBox(width: 8),
+                            const SizedBox(width: 8),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('Martin Mangram',
+                                const Text('Martin Mangram',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 16.0,
@@ -108,18 +101,18 @@ class _CTP31State extends State<CTP31> with SingleTickerProviderStateMixin {
                                         child: Form(
                                           key: _selectSchoolFormKey,
                                           child: DropdownButtonFormField2(
-                                            buttonPadding: EdgeInsets.all(0.0),
+                                            buttonPadding: const EdgeInsets.all(0.0),
                                             //  alignment: Alignment.center,
                                             //  buttonWidth: 50,
                                             decoration: InputDecoration(
                                               contentPadding:
-                                                  EdgeInsets.only(left: 10.0),
+                                                  const EdgeInsets.only(left: 10.0),
                                               isDense: true,
                                               filled: true,
-                                              fillColor: Color(0xFF111111),
+                                              fillColor: const Color(0xFF111111),
                                               floatingLabelBehavior:
                                                   FloatingLabelBehavior.never,
-                                              labelStyle: TextStyle(
+                                              labelStyle: const TextStyle(
                                                   color: Color(0xFFBABABA)),
                                               enabledBorder: myinputborder(),
                                               focusedBorder: myfocusborder(),
@@ -137,7 +130,7 @@ class _CTP31State extends State<CTP31> with SingleTickerProviderStateMixin {
                                             iconSize: 30,
                                             buttonHeight: 80,
                                             dropdownDecoration: BoxDecoration(
-                                              color: Color(0xFF111111),
+                                              color: const Color(0xFF111111),
                                               borderRadius:
                                                   BorderRadius.circular(6),
                                             ),
@@ -158,6 +151,7 @@ class _CTP31State extends State<CTP31> with SingleTickerProviderStateMixin {
                                               if (value == null) {
                                                 return 'Select School';
                                               }
+                                              return null;
                                             },
                                             onChanged: (value) {
                                               setState(() {
@@ -177,11 +171,11 @@ class _CTP31State extends State<CTP31> with SingleTickerProviderStateMixin {
                                         ),
                                       )
                                     : Text(selectSchool.toString(),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: Color(0xFF686868),
                                             fontWeight: FontWeight.w500)),
                                 !_editProfile
-                                    ? SizedBox(height: 10)
+                                    ? const SizedBox(height: 10)
                                     : Container(),
                                 _editProfile
                                     ? Container(
@@ -191,18 +185,18 @@ class _CTP31State extends State<CTP31> with SingleTickerProviderStateMixin {
                                         child: Form(
                                           key: _selectPositionFormKey,
                                           child: DropdownButtonFormField2(
-                                            buttonPadding: EdgeInsets.all(0.0),
+                                            buttonPadding: const EdgeInsets.all(0.0),
                                             //  alignment: Alignment.center,
                                             //  buttonWidth: 50,
                                             decoration: InputDecoration(
                                               contentPadding:
-                                                  EdgeInsets.only(left: 10.0),
+                                                  const EdgeInsets.only(left: 10.0),
                                               isDense: true,
                                               filled: true,
-                                              fillColor: Color(0xFF111111),
+                                              fillColor: const Color(0xFF111111),
                                               floatingLabelBehavior:
                                                   FloatingLabelBehavior.never,
-                                              labelStyle: TextStyle(
+                                              labelStyle: const TextStyle(
                                                   color: Color(0xFFBABABA)),
                                               enabledBorder: myinputborder(),
                                               focusedBorder: myfocusborder(),
@@ -220,7 +214,7 @@ class _CTP31State extends State<CTP31> with SingleTickerProviderStateMixin {
                                             iconSize: 26,
                                             buttonHeight: 30,
                                             dropdownDecoration: BoxDecoration(
-                                              color: Color(0xFF111111),
+                                              color: const Color(0xFF111111),
                                               borderRadius:
                                                   BorderRadius.circular(10),
                                             ),
@@ -241,6 +235,7 @@ class _CTP31State extends State<CTP31> with SingleTickerProviderStateMixin {
                                               if (value == null) {
                                                 return 'Select Position';
                                               }
+                                              return null;
                                             },
                                             onChanged: (value) {
                                               setState(() {
@@ -267,32 +262,32 @@ class _CTP31State extends State<CTP31> with SingleTickerProviderStateMixin {
                                         width: 46,
                                         alignment: Alignment.center,
                                         decoration: BoxDecoration(
-                                          color: Color(0xFFBABABA),
+                                          color: const Color(0xFFBABABA),
                                           border: Border.all(
                                               color: Colors.white, width: 2.0),
-                                          borderRadius: BorderRadius.all(
+                                          borderRadius: const BorderRadius.all(
                                               Radius.circular(8.0)),
                                         ),
                                         child: Text(selectPosition.toString(),
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                               color: Colors.black,
                                               fontSize: 16.0,
                                             )),
                                       )
                               ],
                             ),
-                            Spacer(),
+                            const Spacer(),
                             Column(
                               children: [
                                 InkWell(
                                 onTap: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP33_1()));
+                                  Navigator.push(context, MaterialPageRoute(builder: (_) => const CTP33_1()));
                                 },
                                   child: Container(
                                     height: 32,
                                     width: 80,
                                     alignment: Alignment.center,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       color: Color(0xFF239B36),
                                       // border: Border.all(
                                       //     color: Color(0xFF474747),
@@ -300,14 +295,14 @@ class _CTP31State extends State<CTP31> with SingleTickerProviderStateMixin {
                                       borderRadius:
                                           BorderRadius.all(Radius.circular(8.0)),
                                     ),
-                                    child: Text('Committed',
+                                    child: const Text('Committed',
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 12.0,
                                             fontWeight: FontWeight.w500)),
                                   ),
                                 ),
-                                SizedBox(height: 16),
+                                const SizedBox(height: 16),
                                 InkWell(
                                     onTap: () {
                                       print('edit');
@@ -323,12 +318,12 @@ class _CTP31State extends State<CTP31> with SingleTickerProviderStateMixin {
                                             decoration: BoxDecoration(
                                               color: Colors.black,
                                               border: Border.all(
-                                                  color: Color(0xFF474747),
+                                                  color: const Color(0xFF474747),
                                                   width: 2.0),
-                                              borderRadius: BorderRadius.all(
+                                              borderRadius: const BorderRadius.all(
                                                   Radius.circular(8.0)),
                                             ),
-                                            child: Text('Edit Profile',
+                                            child: const Text('Edit Profile',
                                                 style: TextStyle(
                                                     color: Color(0xFF474747),
                                                     fontSize: 12.0,
@@ -340,12 +335,12 @@ class _CTP31State extends State<CTP31> with SingleTickerProviderStateMixin {
                                             width: 78,
                                             alignment: Alignment.center,
                                             decoration: BoxDecoration(
-                                                borderRadius: BorderRadius.all(
+                                                borderRadius: const BorderRadius.all(
                                                     Radius.circular(10)),
                                                 border: Border.all(
-                                                    color: Color(0xFF1F6DE2),
+                                                    color: const Color(0xFF1F6DE2),
                                                     width: 1.5)),
-                                            child: Text('Save',
+                                            child: const Text('Save',
                                                 style: TextStyle(
                                                     color: Color(0xFF1F6DE2),
                                                     fontWeight: FontWeight.w500,
@@ -356,9 +351,9 @@ class _CTP31State extends State<CTP31> with SingleTickerProviderStateMixin {
                           ],
                         ),
                       ),
-                      SizedBox(height: 16),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+                      const SizedBox(height: 16),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 16.0, right: 16.0),
                         child: Text(
                           'Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore Magna Aliquyam Erat, Sed Diam Voluptua.',
                           style: TextStyle(
@@ -369,7 +364,7 @@ class _CTP31State extends State<CTP31> with SingleTickerProviderStateMixin {
                       ),
                       Container(
                         child: TabBar(
-                          labelStyle: TextStyle(
+                          labelStyle: const TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 16.0),
                           labelColor: Colors.white,
                           unselectedLabelStyle:
@@ -387,15 +382,15 @@ class _CTP31State extends State<CTP31> with SingleTickerProviderStateMixin {
                     ])))
           ];
         },
-        body: Container(
+        body: SizedBox(
           height: _height,
           width: _width,
           //  color: Colors.blue,
           child: TabBarView(
             controller: _controller,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             children: [
-              AtheletePosts(), // custom Post Widget
+              const AtheletePosts(), // custom Post Widget
               AtheleteStats(editProfile: _editProfile)
               //  CustomHighlightWidget(), // custom hightlight widget
               // Container(

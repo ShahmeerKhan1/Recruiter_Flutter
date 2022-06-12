@@ -22,10 +22,10 @@ class _ChooseProfileState extends State<ChooseProfile> {
   @override
   void initState() {
     super.initState();
-    genders.add(new Gender("High School\nAthlete", 'assets/football.png', false));
-    genders.add(new Gender("Collegiate\nCoach", 'assets/jockey.png', false));
-    genders.add(new Gender("High School\nCoach", 'assets/jockey.png', false));
-    genders.add(new Gender("Collegiate\nTransfer", 'assets/judo.png', false));
+    genders.add(Gender("High School\nAthlete", 'assets/football.png', false));
+    genders.add(Gender("Collegiate\nCoach", 'assets/jockey.png', false));
+    genders.add(Gender("High School\nCoach", 'assets/jockey.png', false));
+    genders.add(Gender("Collegiate\nTransfer", 'assets/judo.png', false));
   }
 
   @override
@@ -40,7 +40,7 @@ class _ChooseProfileState extends State<ChooseProfile> {
                 Container(
                   height: MediaQuery.of(context).size.height * 0.25,
                   width: double.infinity,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                  //   color: Colors.blue,
                     image: DecorationImage(
                         image: AssetImage("assets/one.png"),
@@ -55,17 +55,17 @@ class _ChooseProfileState extends State<ChooseProfile> {
                       children: [
                         IconButton(onPressed: () {
                           Navigator.pop(context);
-                        }, icon: Icon(Icons.arrow_back_ios, color: Colors.white,)),
-                        Spacer(),
+                        }, icon: const Icon(Icons.arrow_back_ios, color: Colors.white,)),
+                        const Spacer(),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
+                          children: const [
                             Text('Choose Your', style: TextStyle(color: Colors.white, fontSize: 22),),
                             SizedBox(height: 6),
                             Text('Profile Type', style: TextStyle(color: Colors.white, fontSize: 22),),
                           ],
                         ),
-                        Spacer()
+                        const Spacer()
                       ],
                     ),
                   ),
@@ -77,7 +77,7 @@ class _ChooseProfileState extends State<ChooseProfile> {
              alignment: Alignment.center,
              // color: Colors.green,
               child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                   mainAxisExtent: 165,
                   crossAxisSpacing: 5,
@@ -90,7 +90,9 @@ class _ChooseProfileState extends State<ChooseProfile> {
                     //  splashColor: Colors.pinkAccent,
                       onTap: () {
                         setState(() {
-                          genders.forEach((gender) => gender.isSelected = false);
+                          for (var gender in genders) {
+                            gender.isSelected = false;
+                          }
                           genders[index].isSelected = true;
                           selectedIndex=index;
                         });
@@ -99,12 +101,12 @@ class _ChooseProfileState extends State<ChooseProfile> {
                     );
                   })
             ),
-            SizedBox(height: 36),
-            Container(
+            const SizedBox(height: 36),
+            SizedBox(
               width: 150,
               height: 45,
               child: ElevatedButton(
-                child: Text(
+                child: const Text(
                   "Next",
                   style: TextStyle(
                       color: Colors.white,
@@ -133,20 +135,20 @@ class _ChooseProfileState extends State<ChooseProfile> {
           backgroundColor: AppColor.goldenColor,colorText: Colors.white);
         break;
       case 0:
-        Navigator.push(context, MaterialPageRoute(builder: (_) => SAP6_2()));
+        Navigator.push(context, MaterialPageRoute(builder: (_) => const SAP6_2()));
         print('index 0');
         break;
       case 1:
-        Navigator.push(context, MaterialPageRoute(builder: (_) => CCP6_2()));
+        Navigator.push(context, MaterialPageRoute(builder: (_) => const CCP6_2()));
         print('index 1');
         break;
       case 2:
-        Navigator.push(context, MaterialPageRoute(builder: (_) => SCP6_2()));
+        Navigator.push(context, MaterialPageRoute(builder: (_) => const SCP6_2()));
         print("index 2");
         break;
       case 3:
         print("index 3");
-        Navigator.push(context, MaterialPageRoute(builder: (_) => CTP6_2()));
+        Navigator.push(context, MaterialPageRoute(builder: (_) => const CTP6_2()));
         break;
     }
   }

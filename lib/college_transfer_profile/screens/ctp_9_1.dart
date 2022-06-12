@@ -6,14 +6,13 @@ import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.d
 import 'package:recruiter_flutter/model/post_tab_model.dart';
 import 'package:recruiter_flutter/model/reply_post_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
 class CTP9_1 extends StatefulWidget {
   final PostTabModel data;
 
-  CTP9_1({Key? key, required this.data});
+  const CTP9_1({Key? key, required this.data});
 
   @override
   _CTP9_1State createState() => _CTP9_1State();
@@ -179,7 +178,7 @@ class _CTP9_1State extends State<CTP9_1> {
       appBar: ctpAppBar('Post', Icons.notifications, context),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
               Padding(
@@ -187,10 +186,10 @@ class _CTP9_1State extends State<CTP9_1> {
                 child: Container(
                   height: MediaQuery.of(context).size.height * 0.46,
                   width: MediaQuery.of(context).size.width,
-                  padding: EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(10.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12.0),
-                    color: Color(0xFF111111),
+                    color: const Color(0xFF111111),
                   ),
                   child: Column(
                     children: [
@@ -201,12 +200,12 @@ class _CTP9_1State extends State<CTP9_1> {
                               backgroundImage: AssetImage(widget.data.profileImg),
                               radius: 28,
                             ),
-                            SizedBox(width: 6),
+                            const SizedBox(width: 6),
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Container(
+                                  SizedBox(
                                     //  color: Colors.blue,
                                     width: MediaQuery.of(context).size.width * 0.7,
                                     child: Row(
@@ -215,18 +214,18 @@ class _CTP9_1State extends State<CTP9_1> {
                                       children: [
                                         Text(
                                           widget.data.userName,
-                                          style: TextStyle(color: Colors.white),
+                                          style: const TextStyle(color: Colors.white),
                                         ),
-                                        Text(
+                                        const Text(
                                           ' - ',
                                           style: TextStyle(color: Colors.grey),
                                         ),
                                         Text(
                                           widget.data.time,
-                                          style: TextStyle(color: Colors.grey),
+                                          style: const TextStyle(color: Colors.grey),
                                         ),
-                                        Spacer(),
-                                        Icon(Icons.more_horiz, color: Colors.white),
+                                        const Spacer(),
+                                        const Icon(Icons.more_horiz, color: Colors.white),
                                         //     IconButton(
                                         //         onPressed: () {},
                                         //         icon: Icon(Icons.more_horiz))
@@ -237,7 +236,7 @@ class _CTP9_1State extends State<CTP9_1> {
                                   Expanded(
                                     child: Text(
                                       widget.data.desc,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.white, fontSize: 12),
                                     ),
                                   )
@@ -247,7 +246,7 @@ class _CTP9_1State extends State<CTP9_1> {
                           ],
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Expanded(
                         flex: 4,
                         child: Column(
@@ -309,7 +308,7 @@ class _CTP9_1State extends State<CTP9_1> {
                           ],
                         ),
                       ),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       Row(
                         children: [
                           Row(
@@ -324,7 +323,7 @@ class _CTP9_1State extends State<CTP9_1> {
                                 child: Icon(Icons.favorite,
                                     color: _hearReact ? Colors.red : AppColor.greyBorderColor, size: 20),
                               ),
-                              SizedBox(width: 2),
+                              const SizedBox(width: 2),
                               Text(
                                 widget.data.like,
                                 style:
@@ -332,30 +331,30 @@ class _CTP9_1State extends State<CTP9_1> {
                               )
                             ],
                           ),
-                          SizedBox(width: 26),
+                          const SizedBox(width: 26),
                           Row(
                             children: [
                               Icon(Icons.comment,
                                   color: AppColor.greyBorderColor, size: 20),
-                              SizedBox(width: 2),
+                              const SizedBox(width: 2),
                               Text(widget.data.comment,
                                   style: TextStyle(
                                       color: AppColor.greyBorderColor))
                             ],
                           ),
-                          SizedBox(width: 26),
+                          const SizedBox(width: 26),
                           Row(
                             children: [
                               Icon(Icons.star,
                                   color: AppColor.greyBorderColor, size: 20),
-                              SizedBox(width: 2),
+                              const SizedBox(width: 2),
                               Text(widget.data.star,
                                   style: TextStyle(
                                       color: AppColor.greyBorderColor))
                             ],
                           ),
                           // SizedBox(width: 16),
-                          Spacer(),
+                          const Spacer(),
                           Icon(Icons.share,
                               color: AppColor.greyBorderColor, size: 20),
                         ],
@@ -370,7 +369,7 @@ class _CTP9_1State extends State<CTP9_1> {
                   children: [
                     TextFormField(
                         controller: comment,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                         keyboardType: TextInputType.multiline,
                         maxLines: null,
                         textCapitalization: TextCapitalization.sentences,
@@ -384,13 +383,13 @@ class _CTP9_1State extends State<CTP9_1> {
                         },
                         decoration: InputDecoration(
                             filled: true,
-                            fillColor: Color(0xFF111111),
-                            contentPadding: EdgeInsets.all(0.0),
+                            fillColor: const Color(0xFF111111),
+                            contentPadding: const EdgeInsets.all(0.0),
                             // contentPadding: EdgeInsets.only(left: 16),
                             floatingLabelBehavior: FloatingLabelBehavior.never,
                             // prefixIcon: Icon(Icons.lock),
                             labelText: "Reply To Post...",
-                            labelStyle: TextStyle(
+                            labelStyle: const TextStyle(
                                 color: Color(0xFFBABABA), fontSize: 12),
                             enabledBorder: myinputborder(),
                             focusedBorder: myfocusborder(),
@@ -405,8 +404,8 @@ class _CTP9_1State extends State<CTP9_1> {
                                       if (comment.text == "") {
                                         print('please enter text');
                                         _scaffoldKey.currentState!.showSnackBar(
-                                            new SnackBar(
-                                                content: new Text('Please enter message...')
+                                            const SnackBar(
+                                                content: Text('Please enter message...')
                                             )
                                         );
                                       } else {
@@ -417,7 +416,7 @@ class _CTP9_1State extends State<CTP9_1> {
                                       width: 44,
                                       height: 22,
                                       alignment: Alignment.center,
-                                      child: Text('Reply',
+                                      child: const Text('Reply',
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 12.0,
@@ -469,7 +468,7 @@ class _CTP9_1State extends State<CTP9_1> {
                       height: 300,
                       //  height: 200,
                       //         color: Colors.blue,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         borderRadius:
                         BorderRadius.all(Radius.circular(12)),
                       ),
@@ -490,24 +489,24 @@ class _CTP9_1State extends State<CTP9_1> {
                   ],
                 ),
               ),
-              Divider(color: Colors.grey),
+              const Divider(color: Colors.grey),
               Padding(
                 padding: const EdgeInsets.only(
                     top: 4.0, bottom: 12.0, left: 6, right: 6),
                 child: Row(
                   children: [
-                    Text(
+                    const Text(
                       'Replies',
                       style: TextStyle(
                           color: Colors.white, fontWeight: FontWeight.w500),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Text(
                       'Newest',
                       style: TextStyle(color: AppColor.greyBorderColor),
                     ),
-                    SizedBox(width: 16),
-                    Text('Top',
+                    const SizedBox(width: 16),
+                    const Text('Top',
                         style: TextStyle(
                             color: Colors.white, fontWeight: FontWeight.w500)),
                   ],
@@ -517,18 +516,18 @@ class _CTP9_1State extends State<CTP9_1> {
                   itemCount: _list.length,
                   primary: false,
                   shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (BuildContext context, index) {
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 10.0),
                       child: Container(
                         height: MediaQuery.of(context).size.height * 0.14,
                         width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
                           //  color: Colors.blue,
                           borderRadius: BorderRadius.circular(12.0),
-                          color: Color(0xFF111111),
+                          color: const Color(0xFF111111),
                         ),
                         child: Column(
                           children: [
@@ -539,12 +538,12 @@ class _CTP9_1State extends State<CTP9_1> {
                                   AssetImage(_list[index].profileImg),
                                   radius: 18,
                                 ),
-                                SizedBox(width: 6),
+                                const SizedBox(width: 6),
                                 Column(
                                   crossAxisAlignment:
                                   CrossAxisAlignment.start,
                                   children: [
-                                    Container(
+                                    SizedBox(
                                       //  color: Colors.blue,
                                       width:
                                       MediaQuery.of(context).size.width *
@@ -557,10 +556,10 @@ class _CTP9_1State extends State<CTP9_1> {
                                         children: [
                                           Text(
                                             _list[index].userName,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 color: Colors.white),
                                           ),
-                                          Text(
+                                          const Text(
                                             '- ',
                                             style:
                                             TextStyle(color: Colors.grey),
@@ -568,10 +567,10 @@ class _CTP9_1State extends State<CTP9_1> {
                                           Text(
                                             _list[index].time,
                                             style:
-                                            TextStyle(color: Colors.grey),
+                                            const TextStyle(color: Colors.grey),
                                           ),
-                                          Spacer(),
-                                          Icon(Icons.more_horiz,
+                                          const Spacer(),
+                                          const Icon(Icons.more_horiz,
                                               color: Colors.white),
                                           //     IconButton(
                                           //         onPressed: () {},
@@ -582,14 +581,14 @@ class _CTP9_1State extends State<CTP9_1> {
                                     //  SizedBox(height: 4),
                                     Text(
                                       _list[index].desc,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.white, fontSize: 12),
                                     ),
                                   ],
                                 )
                               ],
                             ),
-                            SizedBox(height: 16),
+                            const SizedBox(height: 16),
                             Row(
                               children: [
                                 Row(
@@ -597,7 +596,7 @@ class _CTP9_1State extends State<CTP9_1> {
                                     Icon(Icons.favorite,
                                         color: AppColor.greyBorderColor,
                                         size: 20),
-                                    SizedBox(width: 2),
+                                    const SizedBox(width: 2),
                                     Text(
                                       _list[index].like,
                                       style: TextStyle(
@@ -605,19 +604,19 @@ class _CTP9_1State extends State<CTP9_1> {
                                     )
                                   ],
                                 ),
-                                SizedBox(width: 26),
+                                const SizedBox(width: 26),
                                 Row(
                                   children: [
                                     Icon(Icons.comment,
                                         color: AppColor.greyBorderColor,
                                         size: 20),
-                                    SizedBox(width: 2),
+                                    const SizedBox(width: 2),
                                     Text(_list[index].comment,
                                         style: TextStyle(
                                             color: AppColor.greyBorderColor))
                                   ],
                                 ),
-                                Spacer(),
+                                const Spacer(),
                                 Text(_list[index].reply,
                                     style: TextStyle(
                                         fontSize: 12,

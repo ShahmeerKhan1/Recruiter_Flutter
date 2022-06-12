@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/posts_screen.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp_15_1.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -19,7 +17,7 @@ class _SCP7State extends State<SCP7> with SingleTickerProviderStateMixin {
 
  // int _selectedIndex = 0;   //  Tab Bar Index
   int _navSelectedIndex = 0;  // bottom Nav Index
-  int _currentIndex = 0;      // bottom Nav
+  final int _currentIndex = 0;      // bottom Nav
 
  // GlobalKey<ScaffoldState> _drawerKey = GlobalKey<ScaffoldState>();
 
@@ -28,7 +26,7 @@ class _SCP7State extends State<SCP7> with SingleTickerProviderStateMixin {
   //   Tab(text: 'Highlights',),
   // ];
 
-  List<GlobalKey<NavigatorState>> _navigatorKeys = [
+  final List<GlobalKey<NavigatorState>> _navigatorKeys = [
     GlobalKey<NavigatorState>(),
     GlobalKey<NavigatorState>(),
     GlobalKey<NavigatorState>(),
@@ -125,7 +123,7 @@ onWillPop: () async {
               });
             },
             currentIndex: _navSelectedIndex,
-            items: [
+            items: const [
               BottomNavigationBarItem(
                 icon: Icon(Icons.home_filled),
                   label: ''
@@ -173,12 +171,12 @@ onWillPop: () async {
     return {
       '/': (context) {
         return [
-          PostsScreen(),
-          SecondScreen(),
+          const PostsScreen(),
+          const SecondScreen(),
           Container(
             color: Colors.pink,
           ),
-          SCP15_1(),
+          const SCP15_1(),
           Container(
             color: Colors.purple,
           ),
@@ -218,12 +216,12 @@ class SecondScreen extends StatelessWidget {
           //   Navigator.pop(context);
           // }, icon: Icon(Icons.arrow_back_rounded)),
           backgroundColor: Colors.black,
-          iconTheme: IconThemeData(color: Colors.white),
+          iconTheme: const IconThemeData(color: Colors.white),
           title: Image.asset('assets/logo.png',width: 135),
           centerTitle: true,
-          actions: [
+          actions: const [
             Padding(
-              padding: const EdgeInsets.only(right: 12.0),
+              padding: EdgeInsets.only(right: 12.0),
               child: Icon(Icons.notifications, color: Colors.white),
             )
           ],
@@ -232,8 +230,8 @@ class SecondScreen extends StatelessWidget {
           color: Colors.orange,
           child: ElevatedButton.icon(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => ThirdScreen()));
-              }, icon: Icon(Icons.add), label: Text('da')),
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const ThirdScreen()));
+              }, icon: const Icon(Icons.add), label: const Text('da')),
         ),
       ),
     );
@@ -245,7 +243,7 @@ class ThirdScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.blue,
     );
   }

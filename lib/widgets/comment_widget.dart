@@ -119,7 +119,7 @@ class _CommentWidgetState extends State<CommentWidget> {
             children: [
               TextFormField(
                   controller: comment,
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
                   keyboardType: TextInputType.multiline,
                   maxLines: null,
                   textCapitalization: TextCapitalization.sentences,
@@ -133,13 +133,13 @@ class _CommentWidgetState extends State<CommentWidget> {
                   },
                   decoration: InputDecoration(
                       filled: true,
-                      fillColor: Color(0xFF111111),
-                      contentPadding: EdgeInsets.all(0.0),
+                      fillColor: const Color(0xFF111111),
+                      contentPadding: const EdgeInsets.all(0.0),
                       // contentPadding: EdgeInsets.only(left: 16),
                       floatingLabelBehavior: FloatingLabelBehavior.never,
                       // prefixIcon: Icon(Icons.lock),
                       labelText: "Reply To Post...",
-                      labelStyle: TextStyle(
+                      labelStyle: const TextStyle(
                           color: Color(0xFFBABABA), fontSize: 12),
                       enabledBorder: myinputborder(),
                       focusedBorder: myfocusborder(),
@@ -166,7 +166,7 @@ class _CommentWidgetState extends State<CommentWidget> {
                                 width: 44,
                                 height: 22,
                                 alignment: Alignment.center,
-                                child: Text('Reply',
+                                child: const Text('Reply',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 12.0,
@@ -218,7 +218,7 @@ class _CommentWidgetState extends State<CommentWidget> {
                 height: 300,
                 //  height: 200,
                 //         color: Colors.blue,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   borderRadius:
                   BorderRadius.all(Radius.circular(12)),
                 ),
@@ -234,18 +234,18 @@ class _CommentWidgetState extends State<CommentWidget> {
                   itemCount: _list.length,
                   primary: false,
                   shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (BuildContext context, index) {
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 10.0, top: 10.0),
                       child: Container(
                         height: MediaQuery.of(context).size.height * 0.14,
                         width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
                           //  color: Colors.blue,
                           borderRadius: BorderRadius.circular(12.0),
-                          color: Color(0xFF111111),
+                          color: const Color(0xFF111111),
                         ),
                         child: Column(
                           children: [
@@ -256,12 +256,12 @@ class _CommentWidgetState extends State<CommentWidget> {
                                   AssetImage(_list[index].profileImg),
                                   radius: 18,
                                 ),
-                                SizedBox(width: 6),
+                                const SizedBox(width: 6),
                                 Column(
                                   crossAxisAlignment:
                                   CrossAxisAlignment.start,
                                   children: [
-                                    Container(
+                                    SizedBox(
                                       //  color: Colors.blue,
                                       width:
                                       MediaQuery.of(context).size.width *
@@ -274,10 +274,10 @@ class _CommentWidgetState extends State<CommentWidget> {
                                         children: [
                                           Text(
                                             _list[index].userName,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 color: Colors.white),
                                           ),
-                                          Text(
+                                          const Text(
                                             '- ',
                                             style:
                                             TextStyle(color: Colors.grey),
@@ -285,10 +285,10 @@ class _CommentWidgetState extends State<CommentWidget> {
                                           Text(
                                             _list[index].time,
                                             style:
-                                            TextStyle(color: Colors.grey),
+                                            const TextStyle(color: Colors.grey),
                                           ),
-                                          Spacer(),
-                                          Icon(Icons.more_horiz,
+                                          const Spacer(),
+                                          const Icon(Icons.more_horiz,
                                               color: Colors.white),
                                           //     IconButton(
                                           //         onPressed: () {},
@@ -299,14 +299,14 @@ class _CommentWidgetState extends State<CommentWidget> {
                                     //  SizedBox(height: 4),
                                     Text(
                                       _list[index].desc,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.white, fontSize: 12),
                                     ),
                                   ],
                                 )
                               ],
                             ),
-                            SizedBox(height: 16),
+                            const SizedBox(height: 16),
                             Row(
                               children: [
                                 Row(
@@ -314,7 +314,7 @@ class _CommentWidgetState extends State<CommentWidget> {
                                     Icon(Icons.favorite,
                                         color: AppColor.greyBorderColor,
                                         size: 20),
-                                    SizedBox(width: 2),
+                                    const SizedBox(width: 2),
                                     Text(
                                       _list[index].like,
                                       style: TextStyle(
@@ -322,19 +322,19 @@ class _CommentWidgetState extends State<CommentWidget> {
                                     )
                                   ],
                                 ),
-                                SizedBox(width: 26),
+                                const SizedBox(width: 26),
                                 Row(
                                   children: [
                                     Icon(Icons.comment,
                                         color: AppColor.greyBorderColor,
                                         size: 20),
-                                    SizedBox(width: 2),
+                                    const SizedBox(width: 2),
                                     Text(_list[index].comment,
                                         style: TextStyle(
                                             color: AppColor.greyBorderColor))
                                   ],
                                 ),
-                                Spacer(),
+                                const Spacer(),
                                 Text(_list[index].reply,
                                     style: TextStyle(
                                         fontSize: 12,

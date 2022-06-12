@@ -6,8 +6,6 @@ import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_posts_tab
 import 'package:recruiter_flutter/controller/new_highlight_controller.dart';
 import 'package:recruiter_flutter/controller/new_post_controller.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'package:recruiter_flutter/widgets/custom_highlight_widget.dart';
-import 'package:recruiter_flutter/widgets/custom_post_widget.dart';
 
 class CTP_7_1 extends StatefulWidget {
   const CTP_7_1({Key? key}) : super(key: key);
@@ -23,8 +21,8 @@ class _CTP_7_1State extends State<CTP_7_1> with SingleTickerProviderStateMixin {
   int _selectedIndex = 0;   //  Tab Bar Index
 
   List<Widget> list = [
-    Tab(text: 'Posts'),
-    Tab(text: 'Highlights')
+    const Tab(text: 'Posts'),
+    const Tab(text: 'Highlights')
   ];
 
   @override
@@ -61,12 +59,12 @@ class _CTP_7_1State extends State<CTP_7_1> with SingleTickerProviderStateMixin {
                   child: InkWell(
                       onTap: () {
                         print('noti');
-                      },child: Icon(Icons.notifications, color: Colors.white)),
+                      },child: const Icon(Icons.notifications, color: Colors.white)),
                 )
               ],
             flexibleSpace:
                 TabBar(
-                  labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                  labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
                   labelColor: Colors.white,
                   unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
                   indicatorColor: Colors.white,
@@ -133,10 +131,10 @@ class _CTP_7_1State extends State<CTP_7_1> with SingleTickerProviderStateMixin {
           // ),
           body: TabBarView(
             controller: _controller,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             children: [
               ctpPostsTab(), // custom Post Widget
-              CTP_Highlights_Tab()
+              const CTP_Highlights_Tab()
              // CustomHighlightWidget(), // custom hightlight widget
              // HighlightsTab()
               // Container(

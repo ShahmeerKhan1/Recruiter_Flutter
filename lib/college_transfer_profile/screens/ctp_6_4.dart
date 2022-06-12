@@ -15,27 +15,27 @@ class CTP6_4 extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset('assets/logo.png'),
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.10,
               width: MediaQuery.of(context).size.width,
             //   color: Colors.blue,
             ),
-            Text(
+            const Text(
               'Congratulation On\nCreating Your Account!',
               style: TextStyle(color: Colors.white, fontSize: 26.0),
             ),
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.16,
               width: MediaQuery.of(context).size.width,
               //  color: Colors.orange,
             ),
-            Text("Check Recruitr's\nBest Features", style: TextStyle(color: Colors.white, fontSize: 26.0)),
-            SizedBox(height: 26),
-            Container(
+            const Text("Check Recruitr's\nBest Features", style: TextStyle(color: Colors.white, fontSize: 26.0)),
+            const SizedBox(height: 26),
+            SizedBox(
               width: 125,
               height: 45,
               child: ElevatedButton(
-                child: Text(
+                child: const Text(
                   "Next",
                   style: TextStyle(
                       color: Colors.white,
@@ -43,19 +43,19 @@ class CTP6_4 extends StatelessWidget {
                       fontSize: 16.0),
                 ),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP6_5()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const CTP6_5()));
                 },
                 style: ElevatedButton.styleFrom(
                   primary: AppColor.goldenColor,
                 ),
               ),
             ),
-            SizedBox(height: 12),
-            Container(
+            const SizedBox(height: 12),
+            SizedBox(
               width: 100,
               height: 45,
               child: ElevatedButton(
-                child: Text(
+                child: const Text(
                   "Skip",
                   style: TextStyle(
                       color: Colors.white,
@@ -66,7 +66,7 @@ class CTP6_4 extends StatelessWidget {
                   //  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP6_1()));
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Color(0xFF2A2A2A),
+                  primary: const Color(0xFF2A2A2A),
                 ),
               ),
             ),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/model/offer_sent_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 
 class CCP_Offer_Detail extends StatefulWidget {
   OfferSentModel data;
@@ -25,9 +24,9 @@ class _CCP_Offer_DetailState extends State<CCP_Offer_Detail> {
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.height,
-        margin: EdgeInsets.all(16.0),
-        padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 10.0, bottom: 0.0),
-        decoration: BoxDecoration(
+        margin: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 10.0, bottom: 0.0),
+        decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(16.0)),
           color: Color(0xFF111111),
         ),
@@ -40,7 +39,7 @@ class _CCP_Offer_DetailState extends State<CCP_Offer_Detail> {
             //       Icons.more_horiz,
             //       color: AppColor.textGreyColor,
             //     )),
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.2,
                 width: MediaQuery.of(context).size.width,
                 child: Image.file(widget.data.img!, fit: BoxFit.fill)),
@@ -48,7 +47,7 @@ class _CCP_Offer_DetailState extends State<CCP_Offer_Detail> {
               padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
               child: Text(
                 widget.data.uniName,
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.white,
                     fontSize: 16.0,
                     fontWeight: FontWeight.w500),
@@ -57,32 +56,32 @@ class _CCP_Offer_DetailState extends State<CCP_Offer_Detail> {
             Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.06,
-              padding: EdgeInsets.only(left: 10.0, right: 16.0),
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.only(left: 10.0, right: 16.0),
+              decoration: const BoxDecoration(
                 color: Colors.black,
                 borderRadius: BorderRadius.all(Radius.circular(8)),
               ),
               child: Row(
                 children: [
                   Image.asset('assets/coach.png'),
-                  SizedBox(width: 8),
+                  const SizedBox(width: 8),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         widget.data.athleteName,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Color(0xFFFFEE00),
                             fontWeight: FontWeight.w500),
                       ),
-                      Text(
+                      const Text(
                         '@jdoe',
                         style: TextStyle(color: Colors.white),
                       )
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   InkWell(
                       onTap: () {
                         print('tapped');
@@ -91,7 +90,7 @@ class _CCP_Offer_DetailState extends State<CCP_Offer_Detail> {
                 ],
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Row(
               children: [
                 Text(
@@ -101,9 +100,9 @@ class _CCP_Offer_DetailState extends State<CCP_Offer_Detail> {
                       fontSize: 15.0,
                       fontWeight: FontWeight.w500),
                 ),
-                Spacer(),
+                const Spacer(),
                 Text(
-                  '${(widget.data.offerType)}',
+                  (widget.data.offerType),
                   style: TextStyle(
                       color: AppColor.textGreyColor,
                       fontSize: 15.0,
@@ -111,7 +110,7 @@ class _CCP_Offer_DetailState extends State<CCP_Offer_Detail> {
                 ),
               ],
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Row(
               children: [
                 Column(
@@ -121,7 +120,7 @@ class _CCP_Offer_DetailState extends State<CCP_Offer_Detail> {
                         color: AppColor.textGreyColor,
                         fontSize: 15.0,
                         fontWeight: FontWeight.w500)),
-                    Text(
+                    const Text(
                       'Full Scholarship',
                       style: TextStyle(
                           fontSize: 15,
@@ -130,21 +129,21 @@ class _CCP_Offer_DetailState extends State<CCP_Offer_Detail> {
                     ),
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
                 Container(
                   height: 28,
                   width: 72,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                    // color: Color(0xFFF61F1F),
-                    borderRadius: BorderRadius.all(Radius.circular(6.0)),
-                    border: Border.all(color: Color(0xFFF61F1F), width: 1.5)
+                    borderRadius: const BorderRadius.all(Radius.circular(6.0)),
+                    border: Border.all(color: const Color(0xFFF61F1F), width: 1.5)
                   ),
-                  child: Text('Rescind', style: TextStyle(color: Color(0xFFF61F1F), fontWeight: FontWeight.w500),),
+                  child: const Text('Rescind', style: TextStyle(color: Color(0xFFF61F1F), fontWeight: FontWeight.w500),),
                 )
               ],
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               //mainAxisAlignment: MainAxisAlignment.start,
@@ -156,7 +155,7 @@ class _CCP_Offer_DetailState extends State<CCP_Offer_Detail> {
                       fontWeight: FontWeight.w500,
                       fontSize: 15.0),
                 ),
-                Text(
+                const Text(
                   'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\nLorem ipsum dolor sit amet, consetetur sadipscing',
                   style: TextStyle(
                       fontSize: 13,
@@ -164,25 +163,25 @@ class _CCP_Offer_DetailState extends State<CCP_Offer_Detail> {
                 ),
               ],
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('Documents (Click To Open)', style: TextStyle(color: AppColor.textGreyColor, fontWeight: FontWeight.w500),),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Row(
                     children: [
                       Image.asset('assets/pdf.png'),
-                      SizedBox(width: 4),
-                      Text('File Name.Pdf', style: TextStyle(decoration: TextDecoration.underline, color: Color(0xFFE0B216), fontSize: 12.0))
+                      const SizedBox(width: 4),
+                      const Text('File Name.Pdf', style: TextStyle(decoration: TextDecoration.underline, color: Color(0xFFE0B216), fontSize: 12.0))
                     ],
                   ),
-                SizedBox(height: 2),
+                const SizedBox(height: 2),
                 Row(
                   children: [
                     Image.asset('assets/pdf.png'),
-                    SizedBox(width: 4),
-                    Text('File Name.Pdf', style: TextStyle(decoration: TextDecoration.underline, color: Color(0xFFE0B216), fontSize: 12.0))
+                    const SizedBox(width: 4),
+                    const Text('File Name.Pdf', style: TextStyle(decoration: TextDecoration.underline, color: Color(0xFFE0B216), fontSize: 12.0))
                   ],
                 )
               ],

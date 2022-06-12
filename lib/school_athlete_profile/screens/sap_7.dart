@@ -1,11 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_15_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_39_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_42_1.dart';
+import 'package:recruiter_flutter/school_athlete_profile/screens/sap_43.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
 import 'sap_15.dart';
+import 'sap_39.dart';
 import 'sap_7_1.dart';
 import 'sap_7_2.dart';
 import 'sap_7_4.dart';
@@ -19,9 +19,9 @@ class SAP_7 extends StatefulWidget {
 
 class _SAP_7State extends State<SAP_7> with SingleTickerProviderStateMixin {
   int _navSelectedIndex = 0; // bottom Nav Index
-  int _currentIndex = 0; // bottom Nav
+  final int _currentIndex = 0; // bottom Nav
 
-  List<GlobalKey<NavigatorState>> _navigatorKeys = [
+  final List<GlobalKey<NavigatorState>> _navigatorKeys = [
     GlobalKey<NavigatorState>(),
     GlobalKey<NavigatorState>(),
     GlobalKey<NavigatorState>(),
@@ -80,7 +80,7 @@ class _SAP_7State extends State<SAP_7> with SingleTickerProviderStateMixin {
               });
             },
             currentIndex: _navSelectedIndex,
-            items: [
+            items: const [
               BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: ''),
               BottomNavigationBarItem(
                   icon: Icon(Icons.work),
@@ -109,11 +109,11 @@ class _SAP_7State extends State<SAP_7> with SingleTickerProviderStateMixin {
     return {
       '/': (context) {
         return [
-          SAP_7_1(),
-          CTP39_1(),
-          CustomOverlay(),
-          SAP_15(),
-          CTP_42_1(),
+          const SAP_7_1(),
+          const SAP_39(),
+          const CustomOverlay(),
+          const SAP_15(),
+          const SAP_43(),
         ].elementAt(index);
       },
     };
@@ -152,33 +152,33 @@ class CustomOverlay extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => SAP7_4()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => const SAP7_4()));
                   },
                   child: Container(
                     height: 40,
                     width: 100,
                     alignment: Alignment.center,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color(0xFFBABABA),
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     ),
-                    child: Text('Highlight', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0)),
+                    child: const Text('Highlight', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0)),
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => SAP7_2()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => const SAP7_2()));
                   },
                   child: Container(
                     height: 40,
                     width: 100,
                     alignment: Alignment.center,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color(0xFFBABABA),
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     ),
-                    child: Text('Post', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0)),
+                    child: const Text('Post', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0)),
                   ),
                 )
               ],

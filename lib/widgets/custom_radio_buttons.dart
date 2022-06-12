@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
@@ -11,13 +10,14 @@ class Gender {
 }
 
 class CustomRadio extends StatelessWidget {
-  Gender _gender;
+  final Gender _gender;
 
-  CustomRadio(this._gender);
+  const CustomRadio(this._gender);
 
   genderWidget() {
     return Stack(
-      overflow: Overflow.visible,
+     // overflow: Overflow.visible,
+      clipBehavior: Clip.none,
       children: [
         Container(
           height: 150,
@@ -27,12 +27,12 @@ class CustomRadio extends StatelessWidget {
               color:
                   _gender.isSelected ? AppColor.goldenColor : AppColor.bgColor,
               border: Border.all(color: AppColor.greyBorderColor, width: 2),
-              borderRadius: BorderRadius.all(Radius.circular(
+              borderRadius: const BorderRadius.all(Radius.circular(
                       12.0) //                 <--- border radius here
                   )),
           // margin: new EdgeInsets.all(5.0),
           padding:
-              EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16.0, top: 26.0),
+              const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16.0, top: 26.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -44,7 +44,7 @@ class CustomRadio extends StatelessWidget {
                 width: 50,
                 //  size: 40,
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Expanded(
                 child: Text(
                   _gender.name,
@@ -64,11 +64,11 @@ class CustomRadio extends StatelessWidget {
                 child: Container(
                   width: 20.0,
                   height: 20.0,
-                  decoration: new BoxDecoration(
+                  decoration: BoxDecoration(
                     color: AppColor.greenColor,
                     shape: BoxShape.circle,
                   ),
-                  child: Icon(Icons.check, color: Colors.white, size: 12),
+                  child: const Icon(Icons.check, color: Colors.white, size: 12),
                 ),
               )
             : Container(),
@@ -78,7 +78,8 @@ class CustomRadio extends StatelessWidget {
 
   typeWidget() {
     return Stack(
-      overflow: Overflow.visible,
+    //  overflow: Overflow.visible,
+      clipBehavior: Clip.none,
       children: [
         Container(
           height: 185,
@@ -88,11 +89,11 @@ class CustomRadio extends StatelessWidget {
               color:
                   _gender.isSelected ? AppColor.goldenColor : AppColor.bgColor,
               border: Border.all(color: AppColor.greyBorderColor, width: 2),
-              borderRadius: BorderRadius.all(Radius.circular(
+              borderRadius: const BorderRadius.all(Radius.circular(
                       12.0) //                 <--- border radius here
                   )),
-          margin: new EdgeInsets.all(5.0),
-          padding: EdgeInsets.all(16.0),
+          margin: const EdgeInsets.all(5.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -104,7 +105,7 @@ class CustomRadio extends StatelessWidget {
                 width: 60,
                 //  size: 40,
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Expanded(
                 child: Text(
                   _gender.name,
@@ -124,11 +125,11 @@ class CustomRadio extends StatelessWidget {
                 child: Container(
                   width: 20.0,
                   height: 20.0,
-                  decoration: new BoxDecoration(
+                  decoration: BoxDecoration(
                     color: AppColor.greenColor,
                     shape: BoxShape.circle,
                   ),
-                  child: Icon(Icons.check, color: Colors.white, size: 12),
+                  child: const Icon(Icons.check, color: Colors.white, size: 12),
                 ),
               )
             : Container(),
@@ -138,7 +139,8 @@ class CustomRadio extends StatelessWidget {
 
   atheticWidget() {
     return Stack(
-      overflow: Overflow.visible,
+     // overflow: Overflow.visible,
+      clipBehavior: Clip.none,
       children: [
         Container(
           //    height: 125,
@@ -158,7 +160,7 @@ class CustomRadio extends StatelessWidget {
             bottom: 32,
             left: 32,
             child: Text(_gender.name,
-                style: TextStyle(color: Colors.white, fontSize: 16.0))),
+                style: const TextStyle(color: Colors.white, fontSize: 16.0))),
         _gender.isSelected
             ? Positioned(
                 top: 15,
@@ -166,11 +168,11 @@ class CustomRadio extends StatelessWidget {
                 child: Container(
                   width: 20.0,
                   height: 20.0,
-                  decoration: new BoxDecoration(
+                  decoration: BoxDecoration(
                     color: AppColor.greenColor,
                     shape: BoxShape.circle,
                   ),
-                  child: Icon(Icons.check, color: Colors.white, size: 12),
+                  child: const Icon(Icons.check, color: Colors.white, size: 12),
                 ),
               )
             : Container(),

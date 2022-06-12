@@ -4,12 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/controller/new_post_controller.dart';
 import 'package:recruiter_flutter/model/post_tab_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
@@ -88,7 +86,7 @@ class _CTP7_2State extends State<CTP7_2> {
           children: [
             TextFormField(
                 controller: comment,
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
                 // maxLines: 3,
@@ -105,13 +103,13 @@ class _CTP7_2State extends State<CTP7_2> {
                 },
                 decoration: InputDecoration(
                     filled: true,
-                    fillColor: Color(0xFF111111),
-                    contentPadding: EdgeInsets.all(0.0),
+                    fillColor: const Color(0xFF111111),
+                    contentPadding: const EdgeInsets.all(0.0),
                     // contentPadding: EdgeInsets.only(left: 16),
                     floatingLabelBehavior: FloatingLabelBehavior.never,
                     // prefixIcon: Icon(Icons.lock),
                     labelText: "Type your message...",
-                    labelStyle: TextStyle(
+                    labelStyle: const TextStyle(
                         color: Color(0xFFBABABA), fontSize: 12),
                     enabledBorder: myinputborder(),
                     focusedBorder: myfocusborder(),
@@ -156,7 +154,7 @@ class _CTP7_2State extends State<CTP7_2> {
                                     img4: 'assets/posts_img_four.png',
                                   img: imageFile
                                 ));
-                                Get.offAll(CTP_7());
+                                Get.offAll(const CTP_7());
                                 // Navigator.push(context, MaterialPageRoute(
                                 //     builder: (_) => CTP_7_1()));
 
@@ -168,7 +166,7 @@ class _CTP7_2State extends State<CTP7_2> {
                               width: 44,
                               height: 22,
                               alignment: Alignment.center,
-                              child: Text('Post',
+                              child: const Text('Post',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 12.0,
@@ -219,7 +217,7 @@ class _CTP7_2State extends State<CTP7_2> {
                   height: 300,
                   //  height: 200,
                   //         color: Colors.blue,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     borderRadius:
                     BorderRadius.all(Radius.circular(12)),
                   ),
@@ -243,8 +241,8 @@ class _CTP7_2State extends State<CTP7_2> {
                       width: 66,
                       height: 30,
                       alignment: Alignment.center,
-                      child: Text('Delete', style: TextStyle(color: Colors.white)),
-                      decoration: BoxDecoration(
+                      child: const Text('Delete', style: TextStyle(color: Colors.white)),
+                      decoration: const BoxDecoration(
                         color: Color(0xFFF12727),
                         borderRadius: BorderRadius.all(Radius.circular(6.0)),
                       ),

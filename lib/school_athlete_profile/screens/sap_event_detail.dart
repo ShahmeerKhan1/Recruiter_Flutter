@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_34_1.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_37_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
-import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_34.dart';
 import 'package:recruiter_flutter/model/events_model.dart';
+import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_app_bar.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 
 import 'sap_37.dart';
 
 class SAPEventDetail extends StatefulWidget {
   final EventsModel data;
 
-  SAPEventDetail({Key? key, required this.data}) : super(key: key);
+  const SAPEventDetail({Key? key, required this.data}) : super(key: key);
 
   @override
   _SAPEventDetailState createState() => _SAPEventDetailState();
@@ -28,7 +25,7 @@ class _SAPEventDetailState extends State<SAPEventDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ctpAppBar('Events', Icons.notifications, context),
+      appBar: sapAppBar('Events', Icons.notifications, context),
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -43,8 +40,8 @@ class _SAPEventDetailState extends State<SAPEventDetail> {
                 decoration: BoxDecoration(
                   // color: Colors.blue,
                   borderRadius:
-                  BorderRadius.all(Radius.circular(16.0)),
-                  border: Border.all(color: Color(0xFF474747)),
+                  const BorderRadius.all(Radius.circular(16.0)),
+                  border: Border.all(color: const Color(0xFF474747)),
                 ),
                 child: Image.file(
                   widget.data.imgFile!,
@@ -68,22 +65,22 @@ class _SAPEventDetailState extends State<SAPEventDetail> {
                             color: AppColor.yellowColor,
                             fontWeight: FontWeight.w500),
                       ),
-                      SizedBox(height: 2),
+                      const SizedBox(height: 2),
                       Text(
                         widget.data.match,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 16.0,
                             color: Colors.white),
                       ),
-                      SizedBox(height: 2),
+                      const SizedBox(height: 2),
                       Text(
                         widget.data.location,
                         style: TextStyle(color: AppColor.greyBorderColor),
                       )
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Column(
                     children: [
                       Text(widget.data.rate,
@@ -104,7 +101,7 @@ class _SAPEventDetailState extends State<SAPEventDetail> {
                   Row(
                     children: [
                       Image.asset('assets/pin.png'),
-                      SizedBox(width: 6),
+                      const SizedBox(width: 6),
                       Text(
                         '${widget.data.officeNo} ${widget.data.city} ${widget.data.state} ${widget.data.code}',
                         style: TextStyle(
@@ -113,11 +110,11 @@ class _SAPEventDetailState extends State<SAPEventDetail> {
                       )
                     ],
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Row(
                     children: [
                       Image.asset('assets/dollar.png'),
-                      SizedBox(width: 6),
+                      const SizedBox(width: 6),
                       Text(
                         widget.data.rate,
                         style: TextStyle(
@@ -126,11 +123,11 @@ class _SAPEventDetailState extends State<SAPEventDetail> {
                       )
                     ],
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Row(
                     children: [
                       Image.asset('assets/time.png'),
-                      SizedBox(width: 6),
+                      const SizedBox(width: 6),
                       Text(
                         '${widget.data.from} to ${widget.data.to}',
                         style: TextStyle(
@@ -148,20 +145,20 @@ class _SAPEventDetailState extends State<SAPEventDetail> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Description',
+                  const Text('Description',
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
                           fontSize: 16.0)),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text(
                      widget.data.desc,
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                   )
                 ],
               ),
             ),
-            SizedBox(height: 26),
+            const SizedBox(height: 26),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -178,10 +175,10 @@ class _SAPEventDetailState extends State<SAPEventDetail> {
                       height: 34,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                          color: _rsvp == false ?  Colors.black : Color(0xFF2C4471),
-                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                          color: _rsvp == false ?  Colors.black : const Color(0xFF2C4471),
+                          borderRadius: const BorderRadius.all(Radius.circular(6)),
                           border: Border.all(
-                              color: _rsvp == false ? AppColor.textGreyColor : Color(0xFF2C4471), width: 2)),
+                              color: _rsvp == false ? AppColor.textGreyColor : const Color(0xFF2C4471), width: 2)),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -192,7 +189,7 @@ class _SAPEventDetailState extends State<SAPEventDetail> {
                                 color: _rsvp == false ? AppColor.textGreyColor : Colors.white,
                                 fontWeight: FontWeight.w500),
                           ),
-                          SizedBox(width: 2),
+                          const SizedBox(width: 2),
                           Icon(Icons.calendar_today_outlined,
                               color: _rsvp == false ? AppColor.textGreyColor : Colors.white, size: 16)
                         ],
@@ -210,7 +207,7 @@ class _SAPEventDetailState extends State<SAPEventDetail> {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                           color: Colors.black,
-                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                          borderRadius: const BorderRadius.all(Radius.circular(6)),
                           border: Border.all(
                               color: AppColor.textGreyColor, width: 2)),
                       child: Row(
@@ -223,7 +220,7 @@ class _SAPEventDetailState extends State<SAPEventDetail> {
                                 color: AppColor.textGreyColor,
                                 fontWeight: FontWeight.w500),
                           ),
-                          SizedBox(width: 2),
+                          const SizedBox(width: 2),
                           Icon(Icons.add,
                               color: AppColor.textGreyColor, size: 18)
                         ],
@@ -236,7 +233,7 @@ class _SAPEventDetailState extends State<SAPEventDetail> {
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                         color: Colors.black,
-                        borderRadius: BorderRadius.all(Radius.circular(6)),
+                        borderRadius: const BorderRadius.all(Radius.circular(6)),
                         border: Border.all(
                             color: AppColor.textGreyColor, width: 2)),
                     child: Row(
@@ -249,7 +246,7 @@ class _SAPEventDetailState extends State<SAPEventDetail> {
                               color: AppColor.textGreyColor,
                               fontWeight: FontWeight.w500),
                         ),
-                        SizedBox(width: 2),
+                        const SizedBox(width: 2),
                         Icon(Icons.share,
                             color: AppColor.textGreyColor, size: 16)
                       ],
@@ -261,7 +258,7 @@ class _SAPEventDetailState extends State<SAPEventDetail> {
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                         color: Colors.black,
-                        borderRadius: BorderRadius.all(Radius.circular(6)),
+                        borderRadius: const BorderRadius.all(Radius.circular(6)),
                         border: Border.all(
                             color: AppColor.textGreyColor, width: 2)),
                     child: Row(
@@ -274,7 +271,7 @@ class _SAPEventDetailState extends State<SAPEventDetail> {
                               color: AppColor.textGreyColor,
                               fontWeight: FontWeight.w500),
                         ),
-                        SizedBox(width: 2),
+                        const SizedBox(width: 2),
                         Icon(Icons.delete,
                             color: AppColor.textGreyColor, size: 18)
                       ],
@@ -299,16 +296,16 @@ class _SAPEventDetailState extends State<SAPEventDetail> {
                       width: 106,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        color: going ? Color(0xFF239B36) : Color(0xFF010C21),
+                        color: going ? const Color(0xFF239B36) : const Color(0xFF010C21),
                         border: Border.all(
-                          color: Color(0xFF239B36),
+                          color: const Color(0xFF239B36),
                         ),
-                        borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                        borderRadius: const BorderRadius.all(Radius.circular(6.0)),
                       ),
                       child: Text(
                         'Going',
                         style: TextStyle(
-                            color: !going ? Color(0xFF239B36) : Colors.white,
+                            color: !going ? const Color(0xFF239B36) : Colors.white,
                             fontSize: 16.0,
                             fontWeight: FontWeight.w500),
                       ),
@@ -325,16 +322,16 @@ class _SAPEventDetailState extends State<SAPEventDetail> {
                       width: 106,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        color: mayBe ? Color(0xFF989203) : Color(0xFF010C21),
+                        color: mayBe ? const Color(0xFF989203) : const Color(0xFF010C21),
                         border: Border.all(
-                          color: Color(0xFF989203),
+                          color: const Color(0xFF989203),
                         ),
-                        borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                        borderRadius: const BorderRadius.all(Radius.circular(6.0)),
                       ),
                       child: Text(
                         'May Be',
                         style: TextStyle(
-                            color: !mayBe ? Color(0xFF989203) : Colors.white,
+                            color: !mayBe ? const Color(0xFF989203) : Colors.white,
                             fontSize: 16.0,
                             fontWeight: FontWeight.w500),
                       ),
@@ -351,16 +348,16 @@ class _SAPEventDetailState extends State<SAPEventDetail> {
                       width: 106,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        color: notGoing ? Color(0xFF8c0900) : Color(0xFF010C21),
+                        color: notGoing ? const Color(0xFF8c0900) : const Color(0xFF010C21),
                         border: Border.all(
-                          color: Color(0xFF8C0900),
+                          color: const Color(0xFF8C0900),
                         ),
-                        borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                        borderRadius: const BorderRadius.all(Radius.circular(6.0)),
                       ),
                       child: Text(
                         'Not Going',
                         style: TextStyle(
-                            color: !notGoing ? Color(0xFF8C0900) : Colors.white,
+                            color: !notGoing ? const Color(0xFF8C0900) : Colors.white,
                             fontSize: 16.0,
                             fontWeight: FontWeight.w500),
                       ),

@@ -9,7 +9,7 @@ class CCP_16 extends StatelessWidget {
 
   TextEditingController search = TextEditingController();
 
-  List<MessagesModel> _list = [
+  final List<MessagesModel> _list = [
     MessagesModel(
       profileImg: 'assets/drawer_img.png',
       name: 'John Doe',
@@ -135,36 +135,36 @@ class CCP_16 extends StatelessWidget {
                   flex: 2,
                   child: TextField(
                       controller: search,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.only(left: 16.0),
+                        contentPadding: const EdgeInsets.only(left: 16.0),
                         filled: true,
-                        fillColor: Color(0xFF111111),
+                        fillColor: const Color(0xFF111111),
                         floatingLabelBehavior: FloatingLabelBehavior.never,
                         labelText: "Search for people",
-                        labelStyle: TextStyle(color: Color(0xFF686868)),
-                        suffixIcon: Icon(Icons.search, color: Color(0xFF686868)),
+                        labelStyle: const TextStyle(color: Color(0xFF686868)),
+                        suffixIcon: const Icon(Icons.search, color: Color(0xFF686868)),
                         //  prefixIcon: Icon(Icons.people),
                         border: myinputborder(),
                         enabledBorder: myinputborder(),
                         focusedBorder: myfocusborder(),
                       )),
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Expanded(
                   flex: 1,
                   child: TextField(
                       controller: search,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.only(left: 16.0),
+                        contentPadding: const EdgeInsets.only(left: 16.0),
                         filled: true,
-                        fillColor: Color(0xFF111111),
+                        fillColor: const Color(0xFF111111),
                         floatingLabelBehavior: FloatingLabelBehavior.never,
                         labelText: "Filter",
-                        labelStyle: TextStyle(color: Color(0xFF686868)),
+                        labelStyle: const TextStyle(color: Color(0xFF686868)),
                         suffixIcon:
-                        Icon(Icons.art_track, color: Color(0xFF686868)),
+                        const Icon(Icons.art_track, color: Color(0xFF686868)),
                         //  prefixIcon: Icon(Icons.people),
                         border: myinputborder(),
                         enabledBorder: myinputborder(),
@@ -178,17 +178,17 @@ class CCP_16 extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0, top: 4.0),
             child: ListView.builder(
                 itemCount: _list.length,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 primary: false,
-                padding: EdgeInsets.only(bottom: 8.0),
+                padding: const EdgeInsets.only(bottom: 8.0),
                 itemBuilder: (BuildContext context, index){
                   return Container(
                     height: MediaQuery.of(context).size.height * 0.11,
                     width: MediaQuery.of(context).size.width,
-                    padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 8.0, bottom: 8.0),
-                    margin: EdgeInsets.only(bottom: 12.0),
-                    decoration: BoxDecoration(
+                    padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 8.0, bottom: 8.0),
+                    margin: const EdgeInsets.only(bottom: 12.0),
+                    decoration: const BoxDecoration(
                       color: Color(0xFF111111),
                       borderRadius: BorderRadius.all(Radius.circular(16.0)),
                     ),
@@ -200,7 +200,7 @@ class CCP_16 extends StatelessWidget {
                           backgroundImage: AssetImage(_list[index].profileImg),
                           radius: 24,
                         ),
-                        SizedBox(width: 12),
+                        const SizedBox(width: 12),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -208,8 +208,8 @@ class CCP_16 extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Text(_list[index].name, style: TextStyle(color: Colors.white, fontSize: 16.0, fontWeight: FontWeight.w500)),
-                                SizedBox(width: 16),
+                                Text(_list[index].name, style: const TextStyle(color: Colors.white, fontSize: 16.0, fontWeight: FontWeight.w500)),
+                                const SizedBox(width: 16),
                                 Container(
                                   height: 26,
                                   width: 66,
@@ -219,7 +219,7 @@ class CCP_16 extends StatelessWidget {
                                     border: Border.all(
                                         color: AppColor.goldenColor,
                                         width: 2.0),
-                                    borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                                    borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                                   ),
                                   child: Text(_list[index].type,
                                       style: TextStyle(
@@ -229,19 +229,19 @@ class CCP_16 extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 6),
-                            Text(_list[index].msg, style: TextStyle(color: Colors.white, fontSize: 12.0))
+                            const SizedBox(height: 6),
+                            Text(_list[index].msg, style: const TextStyle(color: Colors.white, fontSize: 12.0))
                           ],
                         ),
-                        Spacer(),
+                        const Spacer(),
                         Row(
                           children: [
                             Column(
                               children: [
-                                Icon(_list[index].info, color: Color(0xFF686868)),
+                                Icon(_list[index].info, color: const Color(0xFF686868)),
                                 Icon(_list[index].star, color: AppColor.goldenColor),
-                                SizedBox(height: 4),
-                                Text(_list[index].time, style: TextStyle(color: Color(0xFF686868))),
+                                const SizedBox(height: 4),
+                                Text(_list[index].time, style: const TextStyle(color: Color(0xFF686868))),
                               ],
                             )
                           ],

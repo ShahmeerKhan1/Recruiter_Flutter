@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_28.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_29.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_8.dart';
@@ -21,14 +19,14 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
   static const String routeName = '/profile';
 
   List<Widget> list = [
-    Tab(text: 'Posts'),
-    Tab(
+    const Tab(text: 'Posts'),
+    const Tab(
       text: 'Highlights',
     ),
-    Tab(
+    const Tab(
       text: 'Top Schools',
     ),
-    Tab(
+    const Tab(
       text: 'Offers',
     ),
   ];
@@ -63,25 +61,25 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
         backgroundColor: Colors.black,
         centerTitle: true,
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.white),
-        title: Text('Profile', style: TextStyle(color: Colors.white)),
+        iconTheme: const IconThemeData(color: Colors.white),
+        title: const Text('Profile', style: TextStyle(color: Colors.white)),
         actions: [
           InkWell(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_28()));
+              Navigator.push(context, MaterialPageRoute(builder: (_) => const CCP_28()));
             },
-            child: Padding(
-              padding: const EdgeInsets.only(right: 16.0),
+            child: const Padding(
+              padding: EdgeInsets.only(right: 16.0),
               child: Icon(Icons.info_outline, color: Colors.white),
             ),
           ),
         ],
         bottom: PreferredSize(
             child: Container(
-              color: Color(0xFF474747),
+              color: const Color(0xFF474747),
               height: 4.0,
             ),
-            preferredSize: Size.fromHeight(4.0)),
+            preferredSize: const Size.fromHeight(4.0)),
       ),
       drawer: ccp_drawer(context),
       body: SingleChildScrollView(
@@ -90,7 +88,7 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
             // The containers in the background
             Column(
               children: <Widget>[
-                new Container(
+                SizedBox(
                   height: MediaQuery.of(context).size.height * .25,
                   //   color: Colors.blue,
                   child: Padding(
@@ -100,7 +98,7 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
                     ),
                   ),
                 ),
-                new Container(
+                Container(
                   height: MediaQuery.of(context).size.height * .75,
                   //   color: Colors.pink,
                 )
@@ -111,13 +109,13 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
             // set the `alignment` of container to Alignment.bottomCenter
             Column(
               children: [
-                new Container(
+                Container(
                   alignment: Alignment.topCenter,
-                  padding: new EdgeInsets.only(
+                  padding: EdgeInsets.only(
                       top: MediaQuery.of(context).size.height * 0.16,
                       right: 20.0,
                       left: 20.0),
-                  child: new Container(
+                  child: Container(
                     height: 100.0,
                     alignment: Alignment.topLeft,
                     //    color: Colors.green,
@@ -148,7 +146,7 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Row(
-                                        children: [
+                                        children: const [
                                           Text('Martin Mangram',
                                               style: TextStyle(
                                                   color: Colors.white,
@@ -156,15 +154,15 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
                                                   fontWeight: FontWeight.w500)),
                                         ],
                                       ),
-                                      SizedBox(height: 2),
+                                      const SizedBox(height: 2),
                                       Text(selectSchool.toString(),
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               color: Color(0xFF686868), fontWeight: FontWeight.w500)),
-                                      SizedBox(height: 6),
+                                      const SizedBox(height: 6),
                                       Row(
                                         children: [
                                           Row(
-                                            children: [
+                                            children: const [
                                               Text('800',
                                                   style: TextStyle(
                                                       fontSize: 16.0,
@@ -180,9 +178,9 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
                                               ),
                                             ],
                                           ),
-                                          SizedBox(width: 16),
+                                          const SizedBox(width: 16),
                                           Row(
-                                            children: [
+                                            children: const [
                                               Text('600',
                                                   style: TextStyle(
                                                       fontSize: 16.0,
@@ -200,7 +198,7 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
                                       )
                                     ],
                                   ),
-                                  Spacer(),
+                                  const Spacer(),
                                   Padding(
                                     padding: const EdgeInsets.only(top: 6.0),
                                     child: Column(
@@ -220,11 +218,11 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
                                             height: 30,
                                             width: 82,
                                             alignment: Alignment.center,
-                                            decoration: BoxDecoration(
+                                            decoration: const BoxDecoration(
                                                 color: Color(0xFFBABABA),
                                                 borderRadius: BorderRadius.all(
                                                     Radius.circular(10))),
-                                            child: Text('Following',
+                                            child: const Text('Following',
                                                 style: TextStyle(
                                                     color: Colors.black,
                                                     fontWeight: FontWeight.w500,
@@ -235,42 +233,42 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
                                             width: 78,
                                             alignment: Alignment.center,
                                             decoration: BoxDecoration(
-                                                borderRadius: BorderRadius.all(
+                                                borderRadius: const BorderRadius.all(
                                                     Radius.circular(10)),
                                                 border: Border.all(
-                                                    color: Color(0xFF686868),
+                                                    color: const Color(0xFF686868),
                                                     width: 1.5)),
-                                            child: Text('Follow',
+                                            child: const Text('Follow',
                                                 style: TextStyle(
                                                     color: Color(0xFF686868),
                                                     fontWeight: FontWeight.w500,
                                                     fontSize: 13.0)),
                                           ),
                                         ),
-                                        SizedBox(height: 6),
+                                        const SizedBox(height: 6),
                                         Container(
                                           height: 30,
                                           width: 38,
                                           decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.all(
+                                              borderRadius: const BorderRadius.all(
                                                   Radius.circular(8)),
                                               border: Border.all(
-                                                  color: Color(0xFF686868),
+                                                  color: const Color(0xFF686868),
                                                   width: 1.5)),
                                           child: PopupMenuButton(
                                               color: AppColor.greyBorderColor,
-                                              offset: Offset(0, 24),
+                                              offset: const Offset(0, 24),
                                               shape: RoundedRectangleBorder(
                                                 borderRadius: BorderRadius.circular(8),
                                               ),
-                                              padding: EdgeInsets.all(0.0),
+                                              padding: const EdgeInsets.all(0.0),
                                               icon: Image.asset(
                                                 'assets/bag.png'
                                               ),
                                               itemBuilder: (context) {
                                                 return [
                                                   PopupMenuItem(
-                                                    child: Text('Send Offer',
+                                                    child: const Text('Send Offer',
                                                         style: TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.w500)),
                                                   //  height: 16,
                                                     onTap: () {
@@ -282,7 +280,7 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
                                                     },
                                                   ),
                                                   PopupMenuItem(
-                                                    child: Text('Add Prospect',
+                                                    child: const Text('Add Prospect',
                                                         style: TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.w500)),
                                                   //  height: 16,
                                                     onTap: () {
@@ -310,26 +308,26 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height * 0.20,
-                  padding: EdgeInsets.only(left: 12, right: 12.0, top: 16.0),
-                  margin: EdgeInsets.only(left: 18.0, right: 16.0),
-                  decoration: BoxDecoration(
+                  padding: const EdgeInsets.only(left: 12, right: 12.0, top: 16.0),
+                  margin: const EdgeInsets.only(left: 18.0, right: 16.0),
+                  decoration: const BoxDecoration(
                     color: Color(0xFF111111),
                     borderRadius: BorderRadius.all(Radius.circular(16)),
                   ),
                   child: Column(
                     children: [
-                      Text(
+                      const Text(
                           'Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Elitr, Sed Diam Nonumy Eirmod Tempor Invidunt Ut Labore Et Dolore.',
                           style:
                           TextStyle(color: Colors.white, fontSize: 12.0)),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       Row(
                         //  crossAxisAlignment: CrossAxisAlignment.start,
                         //  mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
+                            children: const [
                               Text(
                                 'Sport:',
                                 style: TextStyle(
@@ -352,21 +350,21 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
                               ),
                             ],
                           ),
-                          SizedBox(width: 10),
+                          const SizedBox(width: 10),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(selectSport.toString(),
-                                  style: TextStyle(color: Colors.white)),
-                              SizedBox(height: 10),
+                                  style: const TextStyle(color: Colors.white)),
+                              const SizedBox(height: 10),
                               Text(selectPosition.toString(),
-                                  style: TextStyle(color: Colors.white)),
-                              SizedBox(height: 10),
+                                  style: const TextStyle(color: Colors.white)),
+                              const SizedBox(height: 10),
                               Text(selectYear.toString(),
-                                  style: TextStyle(color: Colors.white)),
+                                  style: const TextStyle(color: Colors.white)),
                             ],
                           ),
-                          Spacer(),
+                          const Spacer(),
                           InkWell(
                             onTap: () {
                               print('tap');
@@ -380,15 +378,15 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Image.asset('assets/atheletic_profile.png'),
-                                  SizedBox(height: 4),
-                                  Text('Athletic Profile',
+                                  const SizedBox(height: 4),
+                                  const Text('Athletic Profile',
                                       style: TextStyle(
                                           fontSize: 10.0,
                                           color: Colors.white,
                                           fontWeight: FontWeight.w500))
                                 ],
                               ),
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                   color: Color(0xFF0E1E3D),
                                   borderRadius:
                                   BorderRadius.all(Radius.circular(16.0))),
@@ -403,7 +401,7 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
                   child: TabBar(
                     isScrollable: true,
                     labelStyle:
-                    TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
                     labelColor: Colors.white,
                     unselectedLabelStyle:
                     TextStyle(color: AppColor.greyBorderColor),
@@ -417,18 +415,18 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
                     tabs: list,
                   ),
                 ),
-                Container(
+                SizedBox(
                   height: 500,
                   width: double.maxFinite,
                   //  color: Colors.blue,
                   child: TabBarView(
                     controller: _controller,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     children: [
                       CCP_Posts_Tab(),
-                      CCP_Highlights_Tab(),
-                      TopSchools(),
-                      Offers(),
+                      const CCP_Highlights_Tab(),
+                      const TopSchools(),
+                      const Offers(),
                       //  CustomHighlightWidget(), // custom hightlight widget
                       // Container(
                       //   color: Colors.green,
@@ -459,25 +457,25 @@ class TopSchools extends StatelessWidget {
               return Container(
                 height: MediaQuery.of(context).size.height * 0.1,
                 width: MediaQuery.of(context).size.width,
-                margin: EdgeInsets.only(bottom: 12),
-                padding: EdgeInsets.only(left: 6, right: 6),
-                decoration: BoxDecoration(
+                margin: const EdgeInsets.only(bottom: 12),
+                padding: const EdgeInsets.only(left: 6, right: 6),
+                decoration: const BoxDecoration(
                   color: Color(0xFF111111),
                   borderRadius: BorderRadius.all(Radius.circular(16.0)),
                 ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
+                    SizedBox(
                         height: 100,
                         width: 100,
                         child: Image.asset('assets/events_img2.png',
                             fit: BoxFit.cover)),
-                    SizedBox(width: 6),
+                    const SizedBox(width: 6),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children: const [
                         Text('Ohio State University',
                             style: TextStyle(
                                 color: Colors.white,
@@ -490,8 +488,8 @@ class TopSchools extends StatelessWidget {
                         )
                       ],
                     ),
-                    Spacer(),
-                    Icon(Icons.more_horiz, color: Color(0xFF686868))
+                    const Spacer(),
+                    const Icon(Icons.more_horiz, color: Color(0xFF686868))
                   ],
                 ),
               );
@@ -520,50 +518,50 @@ class Offers extends StatelessWidget {
                       height: MediaQuery.of(context).size.height * 0.20,
                       width: MediaQuery.of(context).size.width,
                       // margin: EdgeInsets.only(bottom: 12),
-                      padding: EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(10.0),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12.0),
-                        color: Color(0xFF111111),
+                        color: const Color(0xFF111111),
                       ),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
+                          SizedBox(
                               height: MediaQuery.of(context).size.height * 0.20,
                               // width: MediaQuery.of(context).size.width,
                               //  height: 100,
                               width: 125,
                               child: Image.asset('assets/events_img2.png',
                                   fit: BoxFit.cover)),
-                          SizedBox(width: 12),
+                          const SizedBox(width: 12),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
+                              const Text(
                                 'Ohio State University',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w500,
                                     fontSize: 16.0),
                               ),
-                              SizedBox(height: 4),
+                              const SizedBox(height: 4),
                               Text('Coach John Doe',
                                   style: TextStyle(
                                       color: AppColor.yellowColor,
                                       fontWeight: FontWeight.w500)),
-                              SizedBox(height: 4),
+                              const SizedBox(height: 4),
                               Text('8/8/2020',
                                   style:
                                   TextStyle(color: AppColor.textGreyColor)),
-                              Spacer(),
-                              Text(
+                              const Spacer(),
+                              const Text(
                                 'Full',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w500),
                               ),
-                              SizedBox(height: 2),
-                              Text(
+                              const SizedBox(height: 2),
+                              const Text(
                                 'Scholarship',
                                 style: TextStyle(
                                     color: Colors.white,
@@ -571,7 +569,7 @@ class Offers extends StatelessWidget {
                               ),
                             ],
                           ),
-                          Spacer(),
+                          const Spacer(),
                           Icon(Icons.more_horiz, color: AppColor.textGreyColor)
                         ],
                       ),
@@ -584,7 +582,7 @@ class Offers extends StatelessWidget {
                         width: 75,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(8)),
+                            borderRadius: const BorderRadius.all(Radius.circular(8)),
                             border: Border.all(
                                 color: AppColor.textGreyColor, width: 1.5)),
                         child: Text('Commit',

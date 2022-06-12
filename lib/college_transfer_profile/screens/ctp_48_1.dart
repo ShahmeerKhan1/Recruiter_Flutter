@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
-import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
@@ -33,37 +31,37 @@ class _CTP48_1State extends State<CTP48_1> {
                   flex: 1,
                   child: TextField(
                       controller: search,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.only(left: 10.0),
+                        contentPadding: const EdgeInsets.only(left: 10.0),
                         filled: true,
-                        fillColor: Color(0xFF111111),
+                        fillColor: const Color(0xFF111111),
                         floatingLabelBehavior: FloatingLabelBehavior.never,
                         labelText: "Filter",
-                        labelStyle: TextStyle(color: Color(0xFF686868)),
+                        labelStyle: const TextStyle(color: Color(0xFF686868)),
                         suffixIcon: Image.asset('assets/filter.png',
-                            color: Color(0xFF686868)),
+                            color: const Color(0xFF686868)),
                         //  prefixIcon: Icon(Icons.people),
                         border: myinputborder(),
                         enabledBorder: myinputborder(),
                         focusedBorder: myfocusborder(),
                       )),
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Expanded(
                   flex: 2,
                   child: TextField(
                       controller: search,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.only(left: 10.0),
+                        contentPadding: const EdgeInsets.only(left: 10.0),
                         filled: true,
-                        fillColor: Color(0xFF111111),
+                        fillColor: const Color(0xFF111111),
                         floatingLabelBehavior: FloatingLabelBehavior.never,
                         labelText: "Search",
-                        labelStyle: TextStyle(color: Color(0xFF686868)),
+                        labelStyle: const TextStyle(color: Color(0xFF686868)),
                         suffixIcon:
-                            Icon(Icons.search, color: Color(0xFF686868)),
+                            const Icon(Icons.search, color: Color(0xFF686868)),
                         //  prefixIcon: Icon(Icons.people),
                         border: myinputborder(),
                         enabledBorder: myinputborder(),
@@ -72,8 +70,8 @@ class _CTP48_1State extends State<CTP48_1> {
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
+            const Padding(
+              padding: EdgeInsets.only(top: 16.0, bottom: 16.0),
               child: Divider(
                 height: 0,
                 color: Color(0xFF686868),
@@ -88,10 +86,10 @@ class _CTP48_1State extends State<CTP48_1> {
                       height: MediaQuery.of(context).size.height * 0.14,
                       width: MediaQuery.of(context).size.width,
                       margin:
-                          EdgeInsets.only(left: 8.0, right: 8.0, bottom: 12.0),
-                      padding: EdgeInsets.only(
+                          const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 12.0),
+                      padding: const EdgeInsets.only(
                           left: 8.0, right: 8.0, top: 8.0, bottom: 8.0),
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(16.0)),
                         color: Color(0xFF111111),
                       ),
@@ -99,23 +97,23 @@ class _CTP48_1State extends State<CTP48_1> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Image.asset('assets/drawer_img.png'),
-                          SizedBox(width: 8),
+                          const SizedBox(width: 8),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('John Doe',
+                              const Text('John Doe',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.w500,
                                       fontSize: 16.0)),
-                              SizedBox(height: 2),
-                              Text(
+                              const SizedBox(height: 2),
+                              const Text(
                                 '6-3 / 200',
                                 style: TextStyle(
                                     color: Color(0xFFFFEE00),
                                     fontWeight: FontWeight.w500),
                               ),
-                              SizedBox(height: 4),
+                              const SizedBox(height: 4),
                               Row(
                                 children: [
                                   RatingBar.builder(
@@ -125,9 +123,9 @@ class _CTP48_1State extends State<CTP48_1> {
                                     direction: Axis.horizontal,
                                     allowHalfRating: false,
                                     itemCount: 5,
-                                    unratedColor: Color(0xFF686868),
-                                    itemPadding: EdgeInsets.only(right: 2.0),
-                                    itemBuilder: (context, _) => Icon(
+                                    unratedColor: const Color(0xFF686868),
+                                    itemPadding: const EdgeInsets.only(right: 2.0),
+                                    itemBuilder: (context, _) => const Icon(
                                       Icons.star,
                                       color: Color(0xFFFFEE00),
                                     ),
@@ -135,15 +133,15 @@ class _CTP48_1State extends State<CTP48_1> {
                                       print(rating);
                                     },
                                   ),
-                                  SizedBox(width: 4),
-                                  Text(
+                                  const SizedBox(width: 4),
+                                  const Text(
                                     '0.801 (T)',
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 12.0),
                                   )
                                 ],
                               ),
-                              SizedBox(height: 2),
+                              const SizedBox(height: 2),
                               Row(
                                 children: [
                                   RatingBar.builder(
@@ -153,9 +151,9 @@ class _CTP48_1State extends State<CTP48_1> {
                                     direction: Axis.horizontal,
                                     allowHalfRating: false,
                                     itemCount: 5,
-                                    unratedColor: Color(0xFF686868),
-                                    itemPadding: EdgeInsets.only(right: 2.0),
-                                    itemBuilder: (context, _) => Icon(
+                                    unratedColor: const Color(0xFF686868),
+                                    itemPadding: const EdgeInsets.only(right: 2.0),
+                                    itemBuilder: (context, _) => const Icon(
                                       Icons.star,
                                       color: Color(0xFFFFEE00),
                                     ),
@@ -163,8 +161,8 @@ class _CTP48_1State extends State<CTP48_1> {
                                       print(rating);
                                     },
                                   ),
-                                  SizedBox(width: 4),
-                                  Text(
+                                  const SizedBox(width: 4),
+                                  const Text(
                                     '0.801 (T)',
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 12.0),
@@ -173,7 +171,7 @@ class _CTP48_1State extends State<CTP48_1> {
                               ),
                             ],
                           ),
-                          Spacer(),
+                          const Spacer(),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
@@ -181,22 +179,22 @@ class _CTP48_1State extends State<CTP48_1> {
                                 height: 28,
                                 width: 46,
                                 alignment: Alignment.center,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: Color(0xFFBABABA),
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(8.0)),
                                 ),
-                                child: Text(
+                                child: const Text(
                                   'RB',
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 16.0),
                                 ),
                               ),
-                              SizedBox(height: 4),
+                              const SizedBox(height: 4),
                               Container(
                                 height: 52,
                                 width: 100,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: Colors.black,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(6.0)),
@@ -211,7 +209,7 @@ class _CTP48_1State extends State<CTP48_1> {
                                         fit: BoxFit.fill,
                                       ),
                                     ),
-                                    Icon(Icons.arrow_forward_ios,
+                                    const Icon(Icons.arrow_forward_ios,
                                         color: Colors.grey, size: 20),
                                     Expanded(
                                       child: Image.asset('assets/iowa_small.png',

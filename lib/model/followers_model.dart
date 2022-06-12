@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 class FollowersModel {
   String profileImg, name, type, at, follow;

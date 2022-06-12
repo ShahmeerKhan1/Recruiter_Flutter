@@ -23,7 +23,7 @@ class AtheleteStats extends StatefulWidget {
 }
 
 class _AtheleteStatsState extends State<AtheleteStats> {
-  List<StatsModel> _list = [
+  final List<StatsModel> _list = [
     StatsModel(
         date: 'Fri, Oct 2nd',
         team: 'School 1 Vs School2',
@@ -31,7 +31,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
         status: 'W 41-24',
         ratio: '7.2',
         rating: 'Rating',
-        color: Color(0xFF239B36)),
+        color: const Color(0xFF239B36)),
     StatsModel(
         date: 'Fri, Oct 2nd',
         team: 'School 1 Vs School2',
@@ -39,7 +39,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
         status: 'L 24-29',
         ratio: '7.2',
         rating: 'Rating',
-        color: Color(0xFFF61F1F)),
+        color: const Color(0xFFF61F1F)),
     StatsModel(
         date: 'Fri, Oct 2nd',
         team: 'School 1 Vs School2',
@@ -47,7 +47,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
         status: 'W 41-24',
         ratio: '7.2',
         rating: 'Rating',
-        color: Color(0xFF239B36)),
+        color: const Color(0xFF239B36)),
     StatsModel(
         date: 'Fri, Oct 2nd',
         team: 'School 1 Vs School2',
@@ -55,7 +55,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
         status: 'L 24-40',
         ratio: '7.2',
         rating: 'Rating',
-        color: Color(0xFFF61F1F)),
+        color: const Color(0xFFF61F1F)),
     StatsModel(
         date: 'Fri, Oct 2nd',
         team: 'School 1 Vs School2',
@@ -63,7 +63,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
         status: 'W 41-24',
         ratio: '7.2',
         rating: 'Rating',
-        color: Color(0xFF239B36)),
+        color: const Color(0xFF239B36)),
     StatsModel(
         date: 'Fri, Oct 2nd',
         team: 'School 1 Vs School2',
@@ -71,7 +71,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
         status: 'W 41-24',
         ratio: '7.2',
         rating: 'Rating',
-        color: Color(0xFF239B36)),
+        color: const Color(0xFF239B36)),
   ];
 
   TextEditingController title = TextEditingController(text: ' ');
@@ -200,7 +200,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 'Performance History',
                 style: TextStyle(color: Colors.white, fontSize: 18.0),
               ),
@@ -208,23 +208,23 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                   itemCount: _list.length,
                   shrinkWrap: true,
                   primary: false,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (BuildContext context, index) {
                     return PerformHistoryList(
                         index: index, list: _list, callback: refresh);
                   }),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               _editPerformance
                   ? Column(
                 children: [
                   Container(
                     width: _width,
                     height: 44,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         borderRadius: BorderRadius.all(
                             Radius.circular(12.0))),
                     child: ElevatedButton(
-                      child: Text(
+                      child: const Text(
                         'Add New Game',
                         style: TextStyle(color: Colors.black),
                       ),
@@ -234,11 +234,11 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                         });
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: Color(0xFFBABABA),
+                        primary: const Color(0xFFBABABA),
                       ),
                     ),
                   ),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
                   InkWell(
                       onTap: () {
                         setState(() {
@@ -250,12 +250,12 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                         width: _width,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
+                            borderRadius: const BorderRadius.all(
                                 Radius.circular(10)),
                             border: Border.all(
-                                color: Color(0xFF1F6DE2),
+                                color: const Color(0xFF1F6DE2),
                                 width: 1.5)),
-                        child: Text('Save',
+                        child: const Text('Save',
                             style: TextStyle(
                                 color: Color(0xFF1F6DE2),
                                 fontWeight: FontWeight.w500,
@@ -266,11 +266,11 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                   : Container(
                 width: _width,
                 height: 44,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     borderRadius:
                     BorderRadius.all(Radius.circular(12.0))),
                 child: ElevatedButton(
-                  child: Text(
+                  child: const Text(
                     'Edit Performance History',
                     style: TextStyle(color: Colors.black),
                   ),
@@ -280,18 +280,18 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                     });
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Color(0xFFBABABA),
+                    primary: const Color(0xFFBABABA),
                   ),
                 ),
               ),
-              SizedBox(height: 38),
+              const SizedBox(height: 38),
               _editPerformance
                   ? Container()
                   : Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text('Physical Stats',
+                  const Text('Physical Stats',
                       style: TextStyle(
                           color: Colors.white, fontSize: 18.0)),
                   !widget.editProfile
@@ -312,7 +312,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                               children: [
                                 Text(
                                   benchCtr.text,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white,
                                       fontWeight:
                                       FontWeight.bold,
@@ -322,7 +322,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                   //   color: Colors.blue,
                                   width: 125,
                                   alignment: Alignment.center,
-                                  child: Text(
+                                  child: const Text(
                                     'Bench Press',
                                     style: TextStyle(
                                         color:
@@ -342,7 +342,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                               children: [
                                 Text(
                                   squatCtr.text,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white,
                                       fontWeight:
                                       FontWeight.bold,
@@ -352,7 +352,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                   //    color: Colors.blue,
                                   width: 125,
                                   alignment: Alignment.center,
-                                  child: Text(
+                                  child: const Text(
                                     'Squat',
                                     style: TextStyle(
                                         color:
@@ -366,7 +366,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                           ],
                         ),
                       ),
-                      SizedBox(height: 32),
+                      const SizedBox(height: 32),
                       Padding(
                         padding:
                         const EdgeInsets.only(top: 16.0),
@@ -382,7 +382,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                               children: [
                                 Text(
                                   verticalCtr.text,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white,
                                       fontWeight:
                                       FontWeight.bold,
@@ -392,7 +392,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                   //  color: Colors.blue,
                                   width: 125,
                                   alignment: Alignment.center,
-                                  child: Text(
+                                  child: const Text(
                                     'Vertical',
                                     style: TextStyle(
                                         color:
@@ -412,7 +412,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                               children: [
                                 Text(
                                   broadCtr.text,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white,
                                       fontWeight:
                                       FontWeight.bold,
@@ -422,7 +422,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                   //   color: Colors.blue,
                                   width: 125,
                                   alignment: Alignment.center,
-                                  child: Text(
+                                  child: const Text(
                                     'Broad Jump',
                                     style: TextStyle(
                                         color:
@@ -436,7 +436,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                           ],
                         ),
                       ),
-                      SizedBox(height: 32),
+                      const SizedBox(height: 32),
                       Padding(
                         padding: const EdgeInsets.only(
                             top: 16.0, bottom: 16.0),
@@ -452,7 +452,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                               children: [
                                 Text(
                                   powerCtr.text,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white,
                                       fontWeight:
                                       FontWeight.bold,
@@ -462,7 +462,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                   //     color: Colors.blue,
                                   width: 125,
                                   alignment: Alignment.center,
-                                  child: Text(
+                                  child: const Text(
                                     'Power Clean',
                                     style: TextStyle(
                                         color:
@@ -482,7 +482,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                               children: [
                                 Text(
                                   deadCtr.text,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white,
                                       fontWeight:
                                       FontWeight.bold,
@@ -492,7 +492,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                   //    color: Colors.blue,
                                   width: 125,
                                   alignment: Alignment.center,
-                                  child: Text(
+                                  child: const Text(
                                     'Deadlift',
                                     style: TextStyle(
                                         color:
@@ -524,24 +524,24 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                   child:
                                   DropdownButtonFormField2(
                                     buttonPadding:
-                                    EdgeInsets.all(0.0),
+                                    const EdgeInsets.all(0.0),
                                     //  alignment: Alignment.center,
                                     //  buttonWidth: 50,
                                     decoration:
                                     InputDecoration(
                                       contentPadding:
-                                      EdgeInsets.only(
+                                      const EdgeInsets.only(
                                           left: 10,
                                           right: 10,
                                           top: 0,
                                           bottom: 0),
                                       filled: true,
                                       fillColor:
-                                      Color(0xFF111111),
+                                      const Color(0xFF111111),
                                       floatingLabelBehavior:
                                       FloatingLabelBehavior
                                           .never,
-                                      labelStyle: TextStyle(
+                                      labelStyle: const TextStyle(
                                           color: Color(
                                               0xFFBABABA)),
                                       enabledBorder:
@@ -589,6 +589,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                       if (value == null) {
                                         return 'Bench Press';
                                       }
+                                      return null;
                                     },
                                     onChanged: (value) {
                                       setState(() {
@@ -611,21 +612,21 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             Expanded(
                               flex: 1,
                               child: TextField(
                                   controller: benchCtr,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white),
                                   keyboardType:
                                   TextInputType.number,
                                   decoration: InputDecoration(
                                     filled: true,
                                     fillColor:
-                                    Color(0xFF111111),
+                                    const Color(0xFF111111),
                                     contentPadding:
-                                    EdgeInsets.only(
+                                    const EdgeInsets.only(
                                         left: 16.0,
                                         right: 16,
                                         top: 0,
@@ -637,7 +638,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                     // prefixIcon: Icon(Icons.lock),
                                     // labelText: "MM/DD/YYYY",
                                     //  labelText: "Reply To Post...",
-                                    labelStyle: TextStyle(
+                                    labelStyle: const TextStyle(
                                         color:
                                         Color(0xFFBABABA),
                                         fontSize: 12),
@@ -649,7 +650,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Row(
                           children: [
                             Expanded(
@@ -662,24 +663,24 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                   child:
                                   DropdownButtonFormField2(
                                     buttonPadding:
-                                    EdgeInsets.all(0.0),
+                                    const EdgeInsets.all(0.0),
                                     //  alignment: Alignment.center,
                                     //  buttonWidth: 50,
                                     decoration:
                                     InputDecoration(
                                       contentPadding:
-                                      EdgeInsets.only(
+                                      const EdgeInsets.only(
                                           left: 10,
                                           right: 10,
                                           top: 0,
                                           bottom: 0),
                                       filled: true,
                                       fillColor:
-                                      Color(0xFF111111),
+                                      const Color(0xFF111111),
                                       floatingLabelBehavior:
                                       FloatingLabelBehavior
                                           .never,
-                                      labelStyle: TextStyle(
+                                      labelStyle: const TextStyle(
                                           color: Color(
                                               0xFFBABABA)),
                                       enabledBorder:
@@ -727,6 +728,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                       if (value == null) {
                                         return 'Squat List';
                                       }
+                                      return null;
                                     },
                                     onChanged: (value) {
                                       setState(() {
@@ -749,21 +751,21 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             Expanded(
                               flex: 1,
                               child: TextField(
                                   controller: squatCtr,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white),
                                   keyboardType:
                                   TextInputType.number,
                                   decoration: InputDecoration(
                                     filled: true,
                                     fillColor:
-                                    Color(0xFF111111),
+                                    const Color(0xFF111111),
                                     contentPadding:
-                                    EdgeInsets.only(
+                                    const EdgeInsets.only(
                                         left: 16.0,
                                         right: 16,
                                         top: 0,
@@ -775,7 +777,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                     // prefixIcon: Icon(Icons.lock),
                                     // labelText: "MM/DD/YYYY",
                                     //  labelText: "Reply To Post...",
-                                    labelStyle: TextStyle(
+                                    labelStyle: const TextStyle(
                                         color:
                                         Color(0xFFBABABA),
                                         fontSize: 12),
@@ -787,7 +789,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Row(
                           children: [
                             Expanded(
@@ -800,24 +802,24 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                   child:
                                   DropdownButtonFormField2(
                                     buttonPadding:
-                                    EdgeInsets.all(0.0),
+                                    const EdgeInsets.all(0.0),
                                     //  alignment: Alignment.center,
                                     //  buttonWidth: 50,
                                     decoration:
                                     InputDecoration(
                                       contentPadding:
-                                      EdgeInsets.only(
+                                      const EdgeInsets.only(
                                           left: 10,
                                           right: 10,
                                           top: 0,
                                           bottom: 0),
                                       filled: true,
                                       fillColor:
-                                      Color(0xFF111111),
+                                      const Color(0xFF111111),
                                       floatingLabelBehavior:
                                       FloatingLabelBehavior
                                           .never,
-                                      labelStyle: TextStyle(
+                                      labelStyle: const TextStyle(
                                           color: Color(
                                               0xFFBABABA)),
                                       enabledBorder:
@@ -865,6 +867,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                       if (value == null) {
                                         return 'Vertical';
                                       }
+                                      return null;
                                     },
                                     onChanged: (value) {
                                       setState(() {
@@ -887,21 +890,21 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             Expanded(
                               flex: 1,
                               child: TextField(
                                   controller: verticalCtr,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white),
                                   keyboardType:
                                   TextInputType.number,
                                   decoration: InputDecoration(
                                     filled: true,
                                     fillColor:
-                                    Color(0xFF111111),
+                                    const Color(0xFF111111),
                                     contentPadding:
-                                    EdgeInsets.only(
+                                    const EdgeInsets.only(
                                         left: 16.0,
                                         right: 16,
                                         top: 0,
@@ -913,7 +916,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                     // prefixIcon: Icon(Icons.lock),
                                     // labelText: "MM/DD/YYYY",
                                     //  labelText: "Reply To Post...",
-                                    labelStyle: TextStyle(
+                                    labelStyle: const TextStyle(
                                         color:
                                         Color(0xFFBABABA),
                                         fontSize: 12),
@@ -925,7 +928,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Row(
                           children: [
                             Expanded(
@@ -938,24 +941,24 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                   child:
                                   DropdownButtonFormField2(
                                     buttonPadding:
-                                    EdgeInsets.all(0.0),
+                                    const EdgeInsets.all(0.0),
                                     //  alignment: Alignment.center,
                                     //  buttonWidth: 50,
                                     decoration:
                                     InputDecoration(
                                       contentPadding:
-                                      EdgeInsets.only(
+                                      const EdgeInsets.only(
                                           left: 10,
                                           right: 10,
                                           top: 0,
                                           bottom: 0),
                                       filled: true,
                                       fillColor:
-                                      Color(0xFF111111),
+                                      const Color(0xFF111111),
                                       floatingLabelBehavior:
                                       FloatingLabelBehavior
                                           .never,
-                                      labelStyle: TextStyle(
+                                      labelStyle: const TextStyle(
                                           color: Color(
                                               0xFFBABABA)),
                                       enabledBorder:
@@ -1003,6 +1006,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                       if (value == null) {
                                         return 'Broad Jump';
                                       }
+                                      return null;
                                     },
                                     onChanged: (value) {
                                       setState(() {
@@ -1025,21 +1029,21 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             Expanded(
                               flex: 1,
                               child: TextField(
                                   controller: broadCtr,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white),
                                   keyboardType:
                                   TextInputType.number,
                                   decoration: InputDecoration(
                                     filled: true,
                                     fillColor:
-                                    Color(0xFF111111),
+                                    const Color(0xFF111111),
                                     contentPadding:
-                                    EdgeInsets.only(
+                                    const EdgeInsets.only(
                                         left: 16.0,
                                         right: 16,
                                         top: 0,
@@ -1051,7 +1055,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                     // prefixIcon: Icon(Icons.lock),
                                     // labelText: "MM/DD/YYYY",
                                     //  labelText: "Reply To Post...",
-                                    labelStyle: TextStyle(
+                                    labelStyle: const TextStyle(
                                         color:
                                         Color(0xFFBABABA),
                                         fontSize: 12),
@@ -1063,7 +1067,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Row(
                           children: [
                             Expanded(
@@ -1076,24 +1080,24 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                   child:
                                   DropdownButtonFormField2(
                                     buttonPadding:
-                                    EdgeInsets.all(0.0),
+                                    const EdgeInsets.all(0.0),
                                     //  alignment: Alignment.center,
                                     //  buttonWidth: 50,
                                     decoration:
                                     InputDecoration(
                                       contentPadding:
-                                      EdgeInsets.only(
+                                      const EdgeInsets.only(
                                           left: 10,
                                           right: 10,
                                           top: 0,
                                           bottom: 0),
                                       filled: true,
                                       fillColor:
-                                      Color(0xFF111111),
+                                      const Color(0xFF111111),
                                       floatingLabelBehavior:
                                       FloatingLabelBehavior
                                           .never,
-                                      labelStyle: TextStyle(
+                                      labelStyle: const TextStyle(
                                           color: Color(
                                               0xFFBABABA)),
                                       enabledBorder:
@@ -1141,6 +1145,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                       if (value == null) {
                                         return 'Power List';
                                       }
+                                      return null;
                                     },
                                     onChanged: (value) {
                                       setState(() {
@@ -1163,21 +1168,21 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             Expanded(
                               flex: 1,
                               child: TextField(
                                   controller: powerCtr,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white),
                                   keyboardType:
                                   TextInputType.number,
                                   decoration: InputDecoration(
                                     filled: true,
                                     fillColor:
-                                    Color(0xFF111111),
+                                    const Color(0xFF111111),
                                     contentPadding:
-                                    EdgeInsets.only(
+                                    const EdgeInsets.only(
                                         left: 16.0,
                                         right: 16,
                                         top: 0,
@@ -1189,7 +1194,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                     // prefixIcon: Icon(Icons.lock),
                                     // labelText: "MM/DD/YYYY",
                                     //  labelText: "Reply To Post...",
-                                    labelStyle: TextStyle(
+                                    labelStyle: const TextStyle(
                                         color:
                                         Color(0xFFBABABA),
                                         fontSize: 12),
@@ -1201,7 +1206,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Row(
                           crossAxisAlignment:
                           CrossAxisAlignment.center,
@@ -1218,24 +1223,24 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                   child:
                                   DropdownButtonFormField2(
                                     buttonPadding:
-                                    EdgeInsets.all(0.0),
+                                    const EdgeInsets.all(0.0),
                                     //  alignment: Alignment.center,
                                     //  buttonWidth: 50,
                                     decoration:
                                     InputDecoration(
                                       contentPadding:
-                                      EdgeInsets.only(
+                                      const EdgeInsets.only(
                                           left: 10,
                                           right: 10,
                                           top: 0,
                                           bottom: 0),
                                       filled: true,
                                       fillColor:
-                                      Color(0xFF111111),
+                                      const Color(0xFF111111),
                                       floatingLabelBehavior:
                                       FloatingLabelBehavior
                                           .never,
-                                      labelStyle: TextStyle(
+                                      labelStyle: const TextStyle(
                                           color: Color(
                                               0xFFBABABA)),
                                       enabledBorder:
@@ -1283,6 +1288,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                       if (value == null) {
                                         return 'Dead Lift';
                                       }
+                                      return null;
                                     },
                                     onChanged: (value) {
                                       setState(() {
@@ -1305,21 +1311,21 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             Expanded(
                               flex: 1,
                               child: TextField(
                                   controller: deadCtr,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white),
                                   keyboardType:
                                   TextInputType.number,
                                   decoration: InputDecoration(
                                     filled: true,
                                     fillColor:
-                                    Color(0xFF111111),
+                                    const Color(0xFF111111),
                                     contentPadding:
-                                    EdgeInsets.only(
+                                    const EdgeInsets.only(
                                         left: 16.0,
                                         right: 16,
                                         top: 0,
@@ -1331,7 +1337,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                     // prefixIcon: Icon(Icons.lock),
                                     // labelText: "MM/DD/YYYY",
                                     //  labelText: "Reply To Post...",
-                                    labelStyle: TextStyle(
+                                    labelStyle: const TextStyle(
                                         color:
                                         Color(0xFFBABABA),
                                         fontSize: 12),
@@ -1352,11 +1358,11 @@ class _AtheleteStatsState extends State<AtheleteStats> {
           )
               : Column(
             children: [
-              Text(
+              const Text(
                 'Performance History',
                 style: TextStyle(color: Colors.white, fontSize: 18.0),
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               imageFile != null
                   ? Container(
                 width: MediaQuery.of(context).size.width,
@@ -1365,8 +1371,8 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                 decoration: BoxDecoration(
                   // color: Colors.blue,
                   borderRadius:
-                  BorderRadius.all(Radius.circular(16.0)),
-                  border: Border.all(color: Color(0xFF474747)),
+                  const BorderRadius.all(Radius.circular(16.0)),
+                  border: Border.all(color: const Color(0xFF474747)),
                 ),
                 child: Image.file(
                   imageFile!,
@@ -1376,20 +1382,20 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                   : Container(
                 height: _height * 0.2,
                 width: _width,
-                padding: EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(16.0),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: Color(0xFF111111),
+                  color: const Color(0xFF111111),
                   borderRadius:
-                  BorderRadius.all(Radius.circular(16.0)),
-                  border: Border.all(color: Color(0xFF474747)),
+                  const BorderRadius.all(Radius.circular(16.0)),
+                  border: Border.all(color: const Color(0xFF474747)),
                 ),
                 child: DottedBorder(
                     borderType: BorderType.RRect,
-                    radius: Radius.circular(12),
+                    radius: const Radius.circular(12),
                     padding:
-                    EdgeInsets.only(left: 12.0, right: 12.0),
-                    dashPattern: [16, 16],
+                    const EdgeInsets.only(left: 12.0, right: 12.0),
+                    dashPattern: const [16, 16],
                     color: Colors.grey,
                     strokeWidth: 2,
                     child: Column(
@@ -1399,14 +1405,14 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                           onTap: () {
                             _onAddImageClick();
                           },
-                          child: Icon(
+                          child: const Icon(
                             Icons.add,
                             color: Color(0xFF919191),
                             size: 40,
                           ),
                         ),
-                        SizedBox(height: 8),
-                        Text(
+                        const SizedBox(height: 8),
+                        const Text(
                           'Upload Cover Photo\nFrom Device',
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -1416,20 +1422,20 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                       ],
                     )),
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 6.0),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 6.0),
                     child: Text('Title',
                         style:
                         TextStyle(color: Colors.white, fontSize: 16)),
                   ),
-                  SizedBox(height: 6),
+                  const SizedBox(height: 6),
                   TextField(
                       controller: title,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       keyboardType: TextInputType.multiline,
                       maxLines: null,
                       onSubmitted: null,
@@ -1444,35 +1450,35 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                       },
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: Color(0xFF111111),
-                        contentPadding: EdgeInsets.only(
+                        fillColor: const Color(0xFF111111),
+                        contentPadding: const EdgeInsets.only(
                             left: 16.0, right: 16, top: 0, bottom: 0),
                         // contentPadding: EdgeInsets.only(left: 16),
                         floatingLabelBehavior:
                         FloatingLabelBehavior.never,
                         // prefixIcon: Icon(Icons.lock),
                         //  labelText: "Reply To Post...",
-                        labelStyle: TextStyle(
+                        labelStyle: const TextStyle(
                             color: Color(0xFFBABABA), fontSize: 12),
                         enabledBorder: myinputborder(),
                         focusedBorder: myfocusborder(),
                       )),
                 ],
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 6.0),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 6.0),
                     child: Text('Description (Optional)',
                         style:
                         TextStyle(color: Colors.white, fontSize: 16)),
                   ),
-                  SizedBox(height: 6),
+                  const SizedBox(height: 6),
                   TextField(
                       controller: description,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       keyboardType: TextInputType.multiline,
                       maxLines: 6,
                       textCapitalization: TextCapitalization.sentences,
@@ -1486,36 +1492,36 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                       },
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: Color(0xFF111111),
-                        contentPadding: EdgeInsets.only(
+                        fillColor: const Color(0xFF111111),
+                        contentPadding: const EdgeInsets.only(
                             left: 16.0, right: 16, top: 26, bottom: 0),
                         // contentPadding: EdgeInsets.only(left: 16),
                         floatingLabelBehavior:
                         FloatingLabelBehavior.never,
                         // prefixIcon: Icon(Icons.lock),
                         //  labelText: "Reply To Post...",
-                        labelStyle: TextStyle(
+                        labelStyle: const TextStyle(
                             color: Color(0xFFBABABA), fontSize: 12),
                         enabledBorder: myinputborder(),
                         focusedBorder: myfocusborder(),
                       )),
                 ],
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 6.0),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 6.0),
                     child: Text('Date',
                         style:
                         TextStyle(color: Colors.white, fontSize: 16)),
                   ),
-                  SizedBox(height: 6),
+                  const SizedBox(height: 6),
                   TextField(
                       controller: date,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       readOnly: true,
                       // keyboardType: TextInputType.text,
                       onTap: () async {
@@ -1545,12 +1551,12 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                       decoration: InputDecoration(
                         filled: true,
                         //  hintText: "MM/DD/YYYY",
-                        fillColor: Color(0xFF111111),
+                        fillColor: const Color(0xFF111111),
                         // hintText: "Search",
                         floatingLabelBehavior:
                         FloatingLabelBehavior.never,
                         // border: InputBorder.none,
-                        contentPadding: EdgeInsets.only(
+                        contentPadding: const EdgeInsets.only(
                             left: 16.0, right: 16, top: 0, bottom: 0),
                         // contentPadding: EdgeInsets.only(left: 16),
                         // floatingLabelBehavior:
@@ -1566,21 +1572,21 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                       )),
                 ],
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 6.0),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 6.0),
                     child: Text('Location',
                         style:
                         TextStyle(color: Colors.white, fontSize: 16)),
                   ),
-                  SizedBox(height: 6),
+                  const SizedBox(height: 6),
                   TextField(
                       controller: location,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       textCapitalization: TextCapitalization.sentences,
                       // textAlign: TextAlign.center,
                       // inputFormatters: [
@@ -1596,8 +1602,8 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                       // },
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: Color(0xFF111111),
-                        contentPadding: EdgeInsets.only(
+                        fillColor: const Color(0xFF111111),
+                        contentPadding: const EdgeInsets.only(
                             left: 16.0, right: 16, top: 0, bottom: 0),
                         // contentPadding: EdgeInsets.only(left: 16),
                         floatingLabelBehavior:
@@ -1605,14 +1611,14 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                         // prefixIcon: Icon(Icons.lock),
                         // labelText: "MM/DD/YYYY",
                         //  labelText: "Reply To Post...",
-                        labelStyle: TextStyle(
+                        labelStyle: const TextStyle(
                             color: Color(0xFFBABABA), fontSize: 12),
                         enabledBorder: myinputborder(),
                         focusedBorder: myfocusborder(),
                       )),
                 ],
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Column(
                 children: [
                   Row(
@@ -1622,8 +1628,8 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
+                            const Padding(
+                              padding: EdgeInsets.only(
                                   left: 6.0, bottom: 6),
                               child: Text('Home Team',
                                   style: TextStyle(
@@ -1635,20 +1641,20 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                               child: Form(
                                 key: _homeTeamFormKey,
                                 child: DropdownButtonFormField2(
-                                  buttonPadding: EdgeInsets.all(0.0),
+                                  buttonPadding: const EdgeInsets.all(0.0),
                                   //  alignment: Alignment.center,
                                   //  buttonWidth: 50,
                                   decoration: InputDecoration(
-                                    contentPadding: EdgeInsets.only(
+                                    contentPadding: const EdgeInsets.only(
                                         left: 10,
                                         right: 10,
                                         top: 0,
                                         bottom: 0),
                                     filled: true,
-                                    fillColor: Color(0xFF111111),
+                                    fillColor: const Color(0xFF111111),
                                     floatingLabelBehavior:
                                     FloatingLabelBehavior.never,
-                                    labelStyle: TextStyle(
+                                    labelStyle: const TextStyle(
                                         color: Color(0xFFBABABA)),
                                     enabledBorder: myinputborder(),
                                     focusedBorder: myfocusborder(),
@@ -1688,6 +1694,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                     if (value == null) {
                                       return 'Select Team';
                                     }
+                                    return null;
                                   },
                                   onChanged: (value) {
                                     setState(() {
@@ -1709,14 +1716,14 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                           ],
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Expanded(
                         flex: 1,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
+                            const Padding(
+                              padding: EdgeInsets.only(
                                   left: 6.0, bottom: 6),
                               child: Text('Score',
                                   style: TextStyle(
@@ -1724,12 +1731,12 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                             ),
                             TextField(
                                 controller: homeScoreCtr,
-                                style: TextStyle(color: Colors.white),
+                                style: const TextStyle(color: Colors.white),
                                 keyboardType: TextInputType.number,
                                 decoration: InputDecoration(
                                   filled: true,
-                                  fillColor: Color(0xFF111111),
-                                  contentPadding: EdgeInsets.only(
+                                  fillColor: const Color(0xFF111111),
+                                  contentPadding: const EdgeInsets.only(
                                       left: 16.0,
                                       right: 16,
                                       top: 0,
@@ -1740,7 +1747,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                   // prefixIcon: Icon(Icons.lock),
                                   // labelText: "MM/DD/YYYY",
                                   //  labelText: "Reply To Post...",
-                                  labelStyle: TextStyle(
+                                  labelStyle: const TextStyle(
                                       color: Color(0xFFBABABA),
                                       fontSize: 12),
                                   enabledBorder: myinputborder(),
@@ -1753,7 +1760,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                   ),
                 ],
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Column(
                 children: [
                   Row(
@@ -1765,8 +1772,8 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
+                            const Padding(
+                              padding: EdgeInsets.only(
                                   left: 6.0, bottom: 6),
                               child: Text('Away Team',
                                   style: TextStyle(
@@ -1778,20 +1785,20 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                               child: Form(
                                 key: _awayTeamFormKey,
                                 child: DropdownButtonFormField2(
-                                  buttonPadding: EdgeInsets.all(0.0),
+                                  buttonPadding: const EdgeInsets.all(0.0),
                                   //  alignment: Alignment.center,
                                   //  buttonWidth: 50,
                                   decoration: InputDecoration(
-                                    contentPadding: EdgeInsets.only(
+                                    contentPadding: const EdgeInsets.only(
                                         left: 10,
                                         right: 10,
                                         top: 0,
                                         bottom: 0),
                                     filled: true,
-                                    fillColor: Color(0xFF111111),
+                                    fillColor: const Color(0xFF111111),
                                     floatingLabelBehavior:
                                     FloatingLabelBehavior.never,
-                                    labelStyle: TextStyle(
+                                    labelStyle: const TextStyle(
                                         color: Color(0xFFBABABA)),
                                     enabledBorder: myinputborder(),
                                     focusedBorder: myfocusborder(),
@@ -1831,6 +1838,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                     if (value == null) {
                                       return 'Select Team';
                                     }
+                                    return null;
                                   },
                                   onChanged: (value) {
                                     setState(() {
@@ -1852,14 +1860,14 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                           ],
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Expanded(
                         flex: 1,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
+                            const Padding(
+                              padding: EdgeInsets.only(
                                   left: 6.0, bottom: 6),
                               child: Text('Score',
                                   style: TextStyle(
@@ -1867,12 +1875,12 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                             ),
                             TextField(
                                 controller: awayScoreCtr,
-                                style: TextStyle(color: Colors.white),
+                                style: const TextStyle(color: Colors.white),
                                 keyboardType: TextInputType.number,
                                 decoration: InputDecoration(
                                   filled: true,
-                                  fillColor: Color(0xFF111111),
-                                  contentPadding: EdgeInsets.only(
+                                  fillColor: const Color(0xFF111111),
+                                  contentPadding: const EdgeInsets.only(
                                       left: 16.0,
                                       right: 16,
                                       top: 0,
@@ -1883,7 +1891,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                   // prefixIcon: Icon(Icons.lock),
                                   // labelText: "MM/DD/YYYY",
                                   //  labelText: "Reply To Post...",
-                                  labelStyle: TextStyle(
+                                  labelStyle: const TextStyle(
                                       color: Color(0xFFBABABA),
                                       fontSize: 12),
                                   enabledBorder: myinputborder(),
@@ -1894,12 +1902,12 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
                   Padding(
                     padding: const EdgeInsets.only(left: 6.0),
                     child: Row(
                       children: [
-                        Expanded(
+                        const Expanded(
                           flex: 1,
                           child: Text(
                             'Your Rating',
@@ -1907,12 +1915,12 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                 color: Colors.white, fontSize: 16),
                           ),
                         ),
-                        SizedBox(width: 6),
+                        const SizedBox(width: 6),
                         Expanded(
                           flex: 3,
                           child: TextField(
                               controller: rating,
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                               keyboardType: TextInputType.number,
                               // textAlign: TextAlign.center,
                               // inputFormatters: [
@@ -1928,8 +1936,8 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                               // },
                               decoration: InputDecoration(
                                 filled: true,
-                                fillColor: Color(0xFF111111),
-                                contentPadding: EdgeInsets.only(
+                                fillColor: const Color(0xFF111111),
+                                contentPadding: const EdgeInsets.only(
                                     left: 16.0,
                                     right: 16,
                                     top: 0,
@@ -1940,7 +1948,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                 // prefixIcon: Icon(Icons.lock),
                                 // labelText: "MM/DD/YYYY",
                                 //  labelText: "Reply To Post...",
-                                labelStyle: TextStyle(
+                                labelStyle: const TextStyle(
                                     color: Color(0xFFBABABA),
                                     fontSize: 12),
                                 enabledBorder: myinputborder(),
@@ -1950,8 +1958,8 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 12),
-                  Text(
+                  const SizedBox(height: 12),
+                  const Text(
                     'Your Game Rating Will Be Available For Coaches To\nVote In With Their Rating For This Game As Well.',
                     style: TextStyle(color: Color(0xFF585656)),
                   ),
@@ -1971,24 +1979,24 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                   child:
                                   DropdownButtonFormField2(
                                     buttonPadding:
-                                    EdgeInsets.all(0.0),
+                                    const EdgeInsets.all(0.0),
                                     //  alignment: Alignment.center,
                                     //  buttonWidth: 50,
                                     decoration:
                                     InputDecoration(
                                       contentPadding:
-                                      EdgeInsets.only(
+                                      const EdgeInsets.only(
                                           left: 10,
                                           right: 10,
                                           top: 0,
                                           bottom: 0),
                                       filled: true,
                                       fillColor:
-                                      Color(0xFF111111),
+                                      const Color(0xFF111111),
                                       floatingLabelBehavior:
                                       FloatingLabelBehavior
                                           .never,
-                                      labelStyle: TextStyle(
+                                      labelStyle: const TextStyle(
                                           color: Color(
                                               0xFFBABABA)),
                                       enabledBorder:
@@ -2036,6 +2044,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                       if (value == null) {
                                         return 'Stat';
                                       }
+                                      return null;
                                     },
                                     // onChanged: (value) {
                                     //   setState(() {
@@ -2058,21 +2067,21 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             Expanded(
                               flex: 1,
                               child: TextField(
                                 // controller: benchCtr,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white),
                                   keyboardType:
                                   TextInputType.number,
                                   decoration: InputDecoration(
                                     filled: true,
                                     fillColor:
-                                    Color(0xFF111111),
+                                    const Color(0xFF111111),
                                     contentPadding:
-                                    EdgeInsets.only(
+                                    const EdgeInsets.only(
                                         left: 16.0,
                                         right: 16,
                                         top: 0,
@@ -2084,7 +2093,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                     // prefixIcon: Icon(Icons.lock),
                                     // labelText: "MM/DD/YYYY",
                                     //  labelText: "Reply To Post...",
-                                    labelStyle: TextStyle(
+                                    labelStyle: const TextStyle(
                                         color:
                                         Color(0xFFBABABA),
                                         fontSize: 12),
@@ -2096,7 +2105,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Row(
                           children: [
                             Expanded(
@@ -2109,24 +2118,24 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                   child:
                                   DropdownButtonFormField2(
                                     buttonPadding:
-                                    EdgeInsets.all(0.0),
+                                    const EdgeInsets.all(0.0),
                                     //  alignment: Alignment.center,
                                     //  buttonWidth: 50,
                                     decoration:
                                     InputDecoration(
                                       contentPadding:
-                                      EdgeInsets.only(
+                                      const EdgeInsets.only(
                                           left: 10,
                                           right: 10,
                                           top: 0,
                                           bottom: 0),
                                       filled: true,
                                       fillColor:
-                                      Color(0xFF111111),
+                                      const Color(0xFF111111),
                                       floatingLabelBehavior:
                                       FloatingLabelBehavior
                                           .never,
-                                      labelStyle: TextStyle(
+                                      labelStyle: const TextStyle(
                                           color: Color(
                                               0xFFBABABA)),
                                       enabledBorder:
@@ -2174,6 +2183,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                       if (value == null) {
                                         return 'Stat';
                                       }
+                                      return null;
                                     },
                                     // onChanged: (value) {
                                     //   setState(() {
@@ -2196,21 +2206,21 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             Expanded(
                               flex: 1,
                               child: TextField(
                                 // controller: squatCtr,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white),
                                   keyboardType:
                                   TextInputType.number,
                                   decoration: InputDecoration(
                                     filled: true,
                                     fillColor:
-                                    Color(0xFF111111),
+                                    const Color(0xFF111111),
                                     contentPadding:
-                                    EdgeInsets.only(
+                                    const EdgeInsets.only(
                                         left: 16.0,
                                         right: 16,
                                         top: 0,
@@ -2222,7 +2232,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                     // prefixIcon: Icon(Icons.lock),
                                     // labelText: "MM/DD/YYYY",
                                     //  labelText: "Reply To Post...",
-                                    labelStyle: TextStyle(
+                                    labelStyle: const TextStyle(
                                         color:
                                         Color(0xFFBABABA),
                                         fontSize: 12),
@@ -2234,7 +2244,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Row(
                           children: [
                             Expanded(
@@ -2247,24 +2257,24 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                   child:
                                   DropdownButtonFormField2(
                                     buttonPadding:
-                                    EdgeInsets.all(0.0),
+                                    const EdgeInsets.all(0.0),
                                     //  alignment: Alignment.center,
                                     //  buttonWidth: 50,
                                     decoration:
                                     InputDecoration(
                                       contentPadding:
-                                      EdgeInsets.only(
+                                      const EdgeInsets.only(
                                           left: 10,
                                           right: 10,
                                           top: 0,
                                           bottom: 0),
                                       filled: true,
                                       fillColor:
-                                      Color(0xFF111111),
+                                      const Color(0xFF111111),
                                       floatingLabelBehavior:
                                       FloatingLabelBehavior
                                           .never,
-                                      labelStyle: TextStyle(
+                                      labelStyle: const TextStyle(
                                           color: Color(
                                               0xFFBABABA)),
                                       enabledBorder:
@@ -2312,6 +2322,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                       if (value == null) {
                                         return 'Stat';
                                       }
+                                      return null;
                                     },
                                     // onChanged: (value) {
                                     //   setState(() {
@@ -2334,21 +2345,21 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             Expanded(
                               flex: 1,
                               child: TextField(
                                 //    controller: verticalCtr,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white),
                                   keyboardType:
                                   TextInputType.number,
                                   decoration: InputDecoration(
                                     filled: true,
                                     fillColor:
-                                    Color(0xFF111111),
+                                    const Color(0xFF111111),
                                     contentPadding:
-                                    EdgeInsets.only(
+                                    const EdgeInsets.only(
                                         left: 16.0,
                                         right: 16,
                                         top: 0,
@@ -2360,7 +2371,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                     // prefixIcon: Icon(Icons.lock),
                                     // labelText: "MM/DD/YYYY",
                                     //  labelText: "Reply To Post...",
-                                    labelStyle: TextStyle(
+                                    labelStyle: const TextStyle(
                                         color:
                                         Color(0xFFBABABA),
                                         fontSize: 12),
@@ -2372,7 +2383,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Row(
                           children: [
                             Expanded(
@@ -2385,24 +2396,24 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                   child:
                                   DropdownButtonFormField2(
                                     buttonPadding:
-                                    EdgeInsets.all(0.0),
+                                    const EdgeInsets.all(0.0),
                                     //  alignment: Alignment.center,
                                     //  buttonWidth: 50,
                                     decoration:
                                     InputDecoration(
                                       contentPadding:
-                                      EdgeInsets.only(
+                                      const EdgeInsets.only(
                                           left: 10,
                                           right: 10,
                                           top: 0,
                                           bottom: 0),
                                       filled: true,
                                       fillColor:
-                                      Color(0xFF111111),
+                                      const Color(0xFF111111),
                                       floatingLabelBehavior:
                                       FloatingLabelBehavior
                                           .never,
-                                      labelStyle: TextStyle(
+                                      labelStyle: const TextStyle(
                                           color: Color(
                                               0xFFBABABA)),
                                       enabledBorder:
@@ -2450,6 +2461,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                       if (value == null) {
                                         return 'Stat';
                                       }
+                                      return null;
                                     },
                                     // onChanged: (value) {
                                     //   setState(() {
@@ -2472,21 +2484,21 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             Expanded(
                               flex: 1,
                               child: TextField(
                                 //  controller: broadCtr,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white),
                                   keyboardType:
                                   TextInputType.number,
                                   decoration: InputDecoration(
                                     filled: true,
                                     fillColor:
-                                    Color(0xFF111111),
+                                    const Color(0xFF111111),
                                     contentPadding:
-                                    EdgeInsets.only(
+                                    const EdgeInsets.only(
                                         left: 16.0,
                                         right: 16,
                                         top: 0,
@@ -2498,7 +2510,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                     // prefixIcon: Icon(Icons.lock),
                                     // labelText: "MM/DD/YYYY",
                                     //  labelText: "Reply To Post...",
-                                    labelStyle: TextStyle(
+                                    labelStyle: const TextStyle(
                                         color:
                                         Color(0xFFBABABA),
                                         fontSize: 12),
@@ -2510,7 +2522,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Row(
                           children: [
                             Expanded(
@@ -2523,24 +2535,24 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                   child:
                                   DropdownButtonFormField2(
                                     buttonPadding:
-                                    EdgeInsets.all(0.0),
+                                    const EdgeInsets.all(0.0),
                                     //  alignment: Alignment.center,
                                     //  buttonWidth: 50,
                                     decoration:
                                     InputDecoration(
                                       contentPadding:
-                                      EdgeInsets.only(
+                                      const EdgeInsets.only(
                                           left: 10,
                                           right: 10,
                                           top: 0,
                                           bottom: 0),
                                       filled: true,
                                       fillColor:
-                                      Color(0xFF111111),
+                                      const Color(0xFF111111),
                                       floatingLabelBehavior:
                                       FloatingLabelBehavior
                                           .never,
-                                      labelStyle: TextStyle(
+                                      labelStyle: const TextStyle(
                                           color: Color(
                                               0xFFBABABA)),
                                       enabledBorder:
@@ -2588,6 +2600,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                       if (value == null) {
                                         return 'Stat';
                                       }
+                                      return null;
                                     },
                                     // onChanged: (value) {
                                     //   setState(() {
@@ -2610,21 +2623,21 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             Expanded(
                               flex: 1,
                               child: TextField(
                                 //  controller: powerCtr,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white),
                                   keyboardType:
                                   TextInputType.number,
                                   decoration: InputDecoration(
                                     filled: true,
                                     fillColor:
-                                    Color(0xFF111111),
+                                    const Color(0xFF111111),
                                     contentPadding:
-                                    EdgeInsets.only(
+                                    const EdgeInsets.only(
                                         left: 16.0,
                                         right: 16,
                                         top: 0,
@@ -2636,7 +2649,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                     // prefixIcon: Icon(Icons.lock),
                                     // labelText: "MM/DD/YYYY",
                                     //  labelText: "Reply To Post...",
-                                    labelStyle: TextStyle(
+                                    labelStyle: const TextStyle(
                                         color:
                                         Color(0xFFBABABA),
                                         fontSize: 12),
@@ -2648,7 +2661,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 12),
+                        const SizedBox(height: 12),
                         Row(
                           crossAxisAlignment:
                           CrossAxisAlignment.center,
@@ -2665,24 +2678,24 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                   child:
                                   DropdownButtonFormField2(
                                     buttonPadding:
-                                    EdgeInsets.all(0.0),
+                                    const EdgeInsets.all(0.0),
                                     //  alignment: Alignment.center,
                                     //  buttonWidth: 50,
                                     decoration:
                                     InputDecoration(
                                       contentPadding:
-                                      EdgeInsets.only(
+                                      const EdgeInsets.only(
                                           left: 10,
                                           right: 10,
                                           top: 0,
                                           bottom: 0),
                                       filled: true,
                                       fillColor:
-                                      Color(0xFF111111),
+                                      const Color(0xFF111111),
                                       floatingLabelBehavior:
                                       FloatingLabelBehavior
                                           .never,
-                                      labelStyle: TextStyle(
+                                      labelStyle: const TextStyle(
                                           color: Color(
                                               0xFFBABABA)),
                                       enabledBorder:
@@ -2730,6 +2743,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                       if (value == null) {
                                         return 'Stat';
                                       }
+                                      return null;
                                     },
                                     onChanged: (value) {
                                       setState(() {
@@ -2752,21 +2766,21 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             Expanded(
                               flex: 1,
                               child: TextField(
                                 //  controller: deadCtr,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white),
                                   keyboardType:
                                   TextInputType.number,
                                   decoration: InputDecoration(
                                     filled: true,
                                     fillColor:
-                                    Color(0xFF111111),
+                                    const Color(0xFF111111),
                                     contentPadding:
-                                    EdgeInsets.only(
+                                    const EdgeInsets.only(
                                         left: 16.0,
                                         right: 16,
                                         top: 0,
@@ -2778,7 +2792,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                                     // prefixIcon: Icon(Icons.lock),
                                     // labelText: "MM/DD/YYYY",
                                     //  labelText: "Reply To Post...",
-                                    labelStyle: TextStyle(
+                                    labelStyle: const TextStyle(
                                         color:
                                         Color(0xFFBABABA),
                                         fontSize: 12),
@@ -2795,13 +2809,13 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                   ),
                 ],
               ),
-              SizedBox(height: 16),
-              Container(
+              const SizedBox(height: 16),
+              SizedBox(
                 width: double.infinity,
                 height: 44,
                 // margin: EdgeInsets.only(left: 16.0, right: 16.0),
                 child: ElevatedButton(
-                  child: Text(
+                  child: const Text(
                     'Add New Stat',
                     style: TextStyle(color: Colors.black, fontSize: 16.0),
                   ),
@@ -2809,16 +2823,16 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                     print('New State');
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Color(0xFFBABABA),
+                    primary: const Color(0xFFBABABA),
                   ),
                 ),
               ),
-              SizedBox(height: 16),
-              Text(
+              const SizedBox(height: 16),
+              const Text(
                 'Badges',
                 style: TextStyle(color: Colors.white, fontSize: 18.0),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -2836,8 +2850,8 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                         decoration: BoxDecoration(
                           //  color: leader ? Color(0xFF10E9A1) : null,
                             borderRadius:
-                            BorderRadius.all(Radius.circular(6)),
-                            border: Border.all(color: Color(0xFF10E9A1))),
+                            const BorderRadius.all(Radius.circular(6)),
+                            border: Border.all(color: const Color(0xFF10E9A1))),
                         child: Column(
                           children: [
                             // leader
@@ -2849,7 +2863,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                             //     :
                             Image.asset('assets/leader.png',
                                 fit: BoxFit.fill, width: 75, height: 75),
-                            Text(
+                            const Text(
                               'Leader',
                               style: TextStyle(color: Colors.white),
                             )
@@ -2858,7 +2872,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                       ),
                     ),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   InkWell(
                     onTap: () {
                       setState(() {
@@ -2873,8 +2887,8 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                         decoration: BoxDecoration(
                           // color: tactical ? Color(0xFF10E9A1) : null,
                             borderRadius:
-                            BorderRadius.all(Radius.circular(6)),
-                            border: Border.all(color: Color(0xFF10E9A1))),
+                            const BorderRadius.all(Radius.circular(6)),
+                            border: Border.all(color: const Color(0xFF10E9A1))),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -2892,8 +2906,8 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                             //     height: 85,
                             //     width: 85,
                             //     color: Colors.white),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 8.0),
+                            const Padding(
+                              padding: EdgeInsets.only(bottom: 8.0),
                               child: Text(
                                 'Tactical',
                                 style: TextStyle(color: Colors.white),
@@ -2904,7 +2918,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                       ),
                     ),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   InkWell(
                     onTap: () {
                       setState(() {
@@ -2919,8 +2933,8 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                         decoration: BoxDecoration(
                           //   color: sprinter ? Color(0xFF10e9A1) : null,
                             borderRadius:
-                            BorderRadius.all(Radius.circular(6)),
-                            border: Border.all(color: Color(0xFF10E9A1))),
+                            const BorderRadius.all(Radius.circular(6)),
+                            border: Border.all(color: const Color(0xFF10E9A1))),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -2931,9 +2945,9 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                             //     :
                             // Image.asset('assets/sprinter.png',
                             //     fit: BoxFit.cover, color: Colors.white),
-                            SizedBox(height: 10),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 8.0),
+                            const SizedBox(height: 10),
+                            const Padding(
+                              padding: EdgeInsets.only(bottom: 8.0),
                               child: Text(
                                 'Sprinter',
                                 style: TextStyle(color: Colors.white),
@@ -2946,7 +2960,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                   )
                 ],
               ),
-              SizedBox(height: 26),
+              const SizedBox(height: 26),
               InkWell(
                   onTap: () {
                     setState(() {
@@ -2958,24 +2972,24 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                     width: _width,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(
+                        borderRadius: const BorderRadius.all(
                             Radius.circular(10)),
                         border: Border.all(
-                            color: Color(0xFFF61F1F),
+                            color: const Color(0xFFF61F1F),
                             width: 1.5)),
-                    child: Text('Cancel',
+                    child: const Text('Cancel',
                         style: TextStyle(
                             color: Color(0xFFF61F1F),
                             fontWeight: FontWeight.w500,
                             fontSize: 14.0)),
                   )),
-              SizedBox(height: 8),
-              Container(
+              const SizedBox(height: 8),
+              SizedBox(
                 width: double.infinity,
                 height: 44,
                 // margin: EdgeInsets.only(left: 16.0, right: 16.0),
                 child: ElevatedButton(
-                  child: Text(
+                  child: const Text(
                     'Add New Game',
                     style: TextStyle(color: Colors.black, fontSize: 16.0),
                   ),
@@ -2991,11 +3005,11 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                             StatsModel(
                                 date: date.text,
                                 team:
-                                '${selectedHomeTeam} Vs ${selectedAwayTeam}',
+                                '$selectedHomeTeam Vs $selectedAwayTeam',
                                 color: int.parse(homeScoreCtr.text) >
                                     int.parse(awayScoreCtr.text)
-                                    ? Color(0xFF239B36)
-                                    : Color(0xFFF61F1F),
+                                    ? const Color(0xFF239B36)
+                                    : const Color(0xFFF61F1F),
                                 location: location.text,
                                 ratio: rating.text,
                                 rating: 'Rating',
@@ -3009,7 +3023,7 @@ class _AtheleteStatsState extends State<AtheleteStats> {
                     }
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Color(0xFFBABABA),
+                    primary: const Color(0xFFBABABA),
                   ),
                 ),
               )
