@@ -1,5 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:recruiter_flutter/college_transfer_profile/controller/new_highlight_ctp.dart';
+import 'package:recruiter_flutter/college_transfer_profile/controller/new_post_ctp.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_44_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_highlights_tab.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_posts_tab.dart';
@@ -20,9 +24,20 @@ class _CTP_7_1State extends State<CTP_7_1> with SingleTickerProviderStateMixin {
 
   int _selectedIndex = 0;   //  Tab Bar Index
 
+  bool _notification = false;
+
+
   List<Widget> list = [
-    const Tab(text: 'Posts'),
-    const Tab(text: 'Highlights')
+    Container(
+     // color: Colors.blue,
+     //  padding: EdgeInsets.only(left: 50.0),
+        alignment: Alignment.center,
+        child:  Tab(text: 'Posts')),
+    Container(
+     // padding: EdgeInsets.only(right: 50),
+    //  color: Colors.yellow,
+        alignment: Alignment.center,
+        child: Tab(text: 'Highlights'))
   ];
 
   @override
@@ -31,9 +46,6 @@ class _CTP_7_1State extends State<CTP_7_1> with SingleTickerProviderStateMixin {
     super.initState();
     // Create TabController for getting the index of current tab
     _controller = TabController(length: list.length, vsync: this); // Tab Bar
-
-    Get.put(PostController());
-    Get.put(HighlightController());
 
     _controller.addListener(() {
       // Tab Bar
@@ -45,7 +57,18 @@ class _CTP_7_1State extends State<CTP_7_1> with SingleTickerProviderStateMixin {
   }
 
   @override
+  void dispose() {
+   // Get.delete<PostControllerCTP>();
+    // TODO: implement dispose
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+
+    Get.put(PostControllerCTP());
+    Get.put(HighlightControllerCTP());
+
     return SafeArea(
       child: DefaultTabController(
         length: 2,
@@ -58,23 +81,44 @@ class _CTP_7_1State extends State<CTP_7_1> with SingleTickerProviderStateMixin {
                   padding: const EdgeInsets.only(right: 10.0),
                   child: InkWell(
                       onTap: () {
+                        setState(() {
+                          _notification = true;
+                        });
                         print('noti');
-                      },child: const Icon(Icons.notifications, color: Colors.white)),
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => CTP_44_1()));
+                      },
+                      child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                      : Icon(Icons.notifications_none)
+                  ),
                 )
               ],
             flexibleSpace:
-                TabBar(
-                  labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-                  labelColor: Colors.white,
-                  unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
-                  indicatorColor: Colors.white,
-                  onTap: (index) {
-                    print('Tab $index is tapped');
-                    // Should not used it as it only called when tab options are clicked,
-                    // not when user swapped
-                  },
-                  controller: _controller,
-                  tabs: list,
+                Container(
+                //  color: Colors.blue,
+                  padding: EdgeInsets.only(left: 36, right: 36.0),
+                  alignment: Alignment.center,
+                  child: TabBar(
+                  //  padding: EdgeInsets.zero,
+                   // indicatorPadding: EdgeInsets.zero,
+                   //   indicatorSize: TabBarIndicatorSize.label,
+              //    labelPadding: EdgeInsets.only(left: 56.0, right: 56.0),
+                    indicator: UnderlineTabIndicator(
+                      //  borderSide: BorderSide(width: 5.0),
+                      //  insets: EdgeInsets.symmetric(horizontal:26.0)
+                    ),
+                    indicatorPadding: EdgeInsets.only(left: 36, right: 30.0, bottom: 12),
+                    labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                    labelColor: Colors.white,
+                    unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
+                    indicatorColor: Colors.white,
+                    onTap: (index) {
+                      print('Tab $index is tapped');
+                      // Should not used it as it only called when tab options are clicked,
+                      // not when user swapped
+                    },
+                    controller: _controller,
+                    tabs: list,
+                  ),
                 )
             ),
         //  ),
@@ -133,7 +177,8 @@ class _CTP_7_1State extends State<CTP_7_1> with SingleTickerProviderStateMixin {
             controller: _controller,
             physics: const NeverScrollableScrollPhysics(),
             children: [
-              ctpPostsTab(), // custom Post Widget
+              CTPPostTab(),
+             // ctpPostsTab(), // custom Post Widget
               const CTP_Highlights_Tab()
              // CustomHighlightWidget(), // custom hightlight widget
              // HighlightsTab()

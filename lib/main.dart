@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:recruiter_flutter/common/start_screen.dart';
+import 'package:recruiter_flutter/school_coach_profile/screens/scp_7.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
 void main() {

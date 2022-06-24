@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/model/followers_model.dart';
+import 'package:recruiter_flutter/school_coach_profile/screens/scp26_1.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
@@ -249,10 +250,11 @@ class _FollowersState extends State<Followers> {
                   return InkWell(
                     onTap: () {
                       print('click');
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => const SCP26_1()));
                       //   if(_list.any((element) => element.isSelected)){
-                      setState(() {
-                        _list[index].isSelected = !_list[index].isSelected;
-                      });
+                      // setState(() {
+                      //   _list[index].isSelected = !_list[index].isSelected;
+                      // });
                       //   }
                     },
                     // onLongPress: () {

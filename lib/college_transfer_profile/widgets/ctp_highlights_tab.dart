@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:recruiter_flutter/college_transfer_profile/controller/new_highlight_ctp.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/controller/new_highlight_controller.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -86,7 +87,7 @@ class _CTP_Highlights_TabState extends State<CTP_Highlights_Tab> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: GetBuilder<HighlightController>(
+      child: GetBuilder<HighlightControllerCTP>(
         builder: (_cont) {
           return _cont.highlightList.isNotEmpty ? ListView.builder(
               itemCount: _cont.highlightList.length,

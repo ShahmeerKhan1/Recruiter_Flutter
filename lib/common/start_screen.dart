@@ -7,6 +7,8 @@ import 'signup_screen.dart';
 class StartScreen extends StatelessWidget {
   const StartScreen({Key? key}) : super(key: key);
 
+  static String id = 'startScreen';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

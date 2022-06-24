@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/model/new_message_model.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp_18_1.dart';
+import 'package:recruiter_flutter/school_coach_profile/widget/scp_app_bar.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 

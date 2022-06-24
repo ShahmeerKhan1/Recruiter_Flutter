@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:recruiter_flutter/controller/new_post_controller.dart';
 import 'package:recruiter_flutter/model/post_tab_model.dart';
+import 'package:recruiter_flutter/school_athlete_profile/controller/new_post_sap.dart';
 import 'package:recruiter_flutter/school_athlete_profile/screens/sap_7.dart';
 import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_app_bar.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -125,7 +126,7 @@ class _SAP7_2State extends State<SAP7_2> {
                                 //  _onSubmit();
                                 print('submit');
 
-                                Get.put(PostController()).postLists.add(
+                                Get.put(PostControllerSAP()).postLists.add(
                                     PostTabModel(
                                         profileImg: 'assets/drawer_img.png',
                                         userName: 'Martin Mangram ',
@@ -134,13 +135,15 @@ class _SAP7_2State extends State<SAP7_2> {
                                         like: '1.1k',
                                         comment: '2.2k',
                                         star: '2.2k',
-                                        img1: 'assets/posts_img_one.png',
-                                        img2: 'assets/posts_img_two.png',
-                                        img3: 'assets/posts_img_three.png',
-                                        img4: 'assets/posts_img_four.png',
+                                        heartReact: false,
+                                        starReact: false,
+                                        // img1: 'assets/posts_img_one.png',
+                                        // img2: 'assets/posts_img_two.png',
+                                        // img3: 'assets/posts_img_three.png',
+                                        // img4: 'assets/posts_img_four.png',
                                         img: imageFile
                                     ));
-                                Get.offAll(const SAP_7());
+                                Get.off(const SAP_7());
                                 // Navigator.push(context, MaterialPageRoute(
                                 //     builder: (_) => CTP_7_1()));
 

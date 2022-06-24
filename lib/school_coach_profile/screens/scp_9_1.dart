@@ -2,195 +2,28 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/model/post_tab_model.dart';
 import 'package:recruiter_flutter/model/reply_post_model.dart';
+import 'package:recruiter_flutter/school_coach_profile/widget/scp_app_bar.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
-import 'package:recruiter_flutter/widgets/custom_highlight_widget.dart';
-import 'package:recruiter_flutter/widgets/custom_post_widget.dart';
-import 'package:recruiter_flutter/widgets/drawer_widget.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
-class PostsScreen extends StatefulWidget {
-  const PostsScreen({Key? key}) : super(key: key);
-
-  @override
-  State<PostsScreen> createState() => _PostsScreenState();
-}
-
-class _PostsScreenState extends State<PostsScreen> with SingleTickerProviderStateMixin {
-  late TabController _controller;
-
-  int _selectedIndex = 0; //  Tab Bar Index
-
-  List<Widget> list = [
-    const Tab(text: 'Posts'),
-    const Tab(
-      text: 'Highlights',
-    ),
-  ];
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    // Create TabController for getting the index of current tab
-    _controller = TabController(length: list.length, vsync: this); // Tab Bar
-
-    _controller.addListener(() {
-      // Tab Bar
-      setState(() {
-        _selectedIndex = _controller.index;
-      });
-      print("Selected Index: " + _controller.index.toString());
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      drawer: drawerWidget(context),
-      appBar: AppBar(
-          backgroundColor: Colors.black,
-          iconTheme: const IconThemeData(color: Colors.white),
-          title: Image.asset('assets/logo.png', width: 135),
-          centerTitle: true,
-          actions: const [
-            Padding(
-              padding: EdgeInsets.only(right: 12.0),
-              child: Icon(Icons.notifications, color: Colors.white),
-            )
-          ],
-          bottom: TabBar(
-            labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-            labelColor: Colors.white,
-            unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
-            indicatorColor: Colors.white,
-            onTap: (index) {
-              print('Tab $index is tapped');
-              // Should not used it as it only called when tab options are clicked,
-              // not when user swapped
-            },
-            controller: _controller,
-            tabs: list,
-          )
-      ),
-      //  appBar: PreferredSize(
-      //    preferredSize: Size.fromHeight(kToolbarHeight),
-      //    child: Container(
-      //      child: Column(
-      //        children: [
-      //          TabBar(
-      //            labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-      //            labelColor: Colors.white,
-      //            unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
-      //            indicatorColor: Colors.white,
-      //            onTap: (index) {
-      //              print('Tab $index is tapped');
-      //              // Should not used it as it only called when tab options are clicked,
-      //              // not when user swapped
-      //            },
-      //            controller: _controller,
-      //            tabs: list,
-      //          ),
-      //        ],
-      //      ),
-      //    ),
-      //  ),
-      body: TabBarView(
-        controller: _controller,
-        physics: const NeverScrollableScrollPhysics(),
-        children: [
-          postsTab(), // custom Post Widget
-          const CustomHighlightWidget(), // custom hightlight widget
-          // Container(
-          //   color: Colors.green,
-          // )
-        ],
-      ),
-      // AppBar(
-      //   backgroundColor: Colors.black,
-      //   iconTheme: IconThemeData(color: Colors.white),
-      //   title: Image.asset('assets/logo.png', width: 135),
-      //   centerTitle: true,
-      //   actions: [
-      //     Padding(
-      //       padding: const EdgeInsets.only(right: 12.0),
-      //       child: Icon(Icons.notifications, color: Colors.white),
-      //     )
-      //   ],
-      //   bottom: TabBar(
-      //     labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-      //     labelColor: Colors.white,
-      //     unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
-      //     indicatorColor: Colors.white,
-      //     onTap: (index) {
-      //       print('Tab $index is tapped');
-      //       // Should not used it as it only called when tab options are clicked,
-      //       // not when user swapped
-      //     },
-      //     controller: _controller,
-      //     tabs: list,
-      //   ),
-      // backgroundColor: Colors.black,
-      // automaticallyImplyLeading: false,
-      // flexibleSpace: Column(
-      //   children: [
-      //     TabBar(
-      //       labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-      //       labelColor: Colors.white,
-      //       unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
-      //       indicatorColor: Colors.white,
-      //       onTap: (index) {
-      //         print('Tab $index is tapped');
-      //         // Should not used it as it only called when tab options are clicked,
-      //         // not when user swapped
-      //       },
-      //       controller: _controller,
-      //       tabs: list,
-      //     ),
-      //   ],
-      // ),
-      // backgroundColor: Colors.black,
-      // iconTheme: IconThemeData(color: Colors.white),
-      // title: Image.asset('assets/logo.png',width: 135),
-      // centerTitle: true,
-      // actions: [
-      //   Padding(
-      //     padding: const EdgeInsets.only(right: 12.0),
-      //     child: Icon(Icons.notifications, color: Colors.white),
-      //   )
-      // ],
-      // bottom: TabBar(
-      //   labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-      //   labelColor: Colors.white,
-      //   unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
-      //   indicatorColor: Colors.white,
-      //   onTap: (index) {
-      //     print('Tab $index is tapped');
-      //     // Should not used it as it only called when tab options are clicked,
-      //     // not when user swapped
-      //   },
-      //   controller: _controller,
-      //   tabs: list,
-    );
-  }
-}
-
-class PostDetail extends StatefulWidget {
+class SCP9_1 extends StatefulWidget {
   final PostTabModel data;
 
-  const PostDetail({Key? key, required this.data});
+  const SCP9_1({Key? key, required this.data});
 
   @override
-  State<PostDetail> createState() => _PostDetailState();
+  _SCP9_1State createState() => _SCP9_1State();
 }
 
-class _PostDetailState extends State<PostDetail> {
+class _SCP9_1State extends State<SCP9_1> {
+
   TextEditingController comment = TextEditingController();
   bool isButtonEnabled = false;
+  bool _hearReact = false;
   final _formKey = GlobalKey<FormState>();
 
   ReplyPostModel model = ReplyPostModel(
@@ -198,7 +31,7 @@ class _PostDetailState extends State<PostDetail> {
       userName: 'John Doe ',
       time: '1m',
       desc:
-          "Congratulations after all the hard work!\nYou really deserve this.",
+      "Congratulations after all the hard work!\nYou really deserve this.",
       like: '1.1k',
       comment: '1.1k',
       reply: 'Reply');
@@ -209,7 +42,7 @@ class _PostDetailState extends State<PostDetail> {
         userName: 'John Doe ',
         time: '1m',
         desc:
-            "Congratulations after all the hard work!\nYou really deserve this.",
+        "Congratulations after all the hard work!\nYou really deserve this.",
         like: '1.1k',
         comment: '1.1k',
         reply: 'Reply')
@@ -352,160 +185,204 @@ class _PostDetailState extends State<PostDetail> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 16.0),
                 child: Container(
-                  height: MediaQuery.of(context).size.height * 0.46,
-                  width: MediaQuery.of(context).size.width,
-                  padding: const EdgeInsets.all(10.0),
+                  height: widget.data.img != null ?
+                  MediaQuery.of(context).size.height * 0.46 :
+                  MediaQuery.of(context).size.height * 0.145,
+                  width: MediaQuery
+                      .of(context)
+                      .size
+                      .width,
+                  padding: EdgeInsets.only(left: 10, right: 10, top: 10),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12.0),
                     color: const Color(0xFF111111),
                   ),
                   child: Column(
                     children: [
-                      Row(
-                        children: [
-                          CircleAvatar(
-                            backgroundImage: AssetImage(widget.data.profileImg),
-                            radius: 28,
-                          ),
-                          const SizedBox(width: 6),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                //  color: Colors.blue,
-                                width: MediaQuery.of(context).size.width * 0.7,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      widget.data.userName,
-                                      style: const TextStyle(color: Colors.white),
+                      Expanded(
+                        child: Row(
+                          children: [
+                            CircleAvatar(
+                              backgroundImage: AssetImage(widget.data.profileImg),
+                              radius: 24,
+                            ),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    //  color: Colors.blue,
+                                    width: MediaQuery.of(context).size.width * 0.7,
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            widget.data.userName,
+                                            style: const TextStyle(color: Colors.white),
+                                          ),
+                                        ),
+                                        const Text(
+                                          ' - ',
+                                          style: TextStyle(color: Colors.grey),
+                                        ),
+                                        Text(
+                                          widget.data.time,
+                                          style: const TextStyle(color: Colors.grey),
+                                        ),
+                                        const Spacer(),
+                                        const Icon(Icons.more_horiz, color: Colors.white),
+                                        //     IconButton(
+                                        //         onPressed: () {},
+                                        //         icon: Icon(Icons.more_horiz))
+                                      ],
                                     ),
-                                    const Text(
-                                      ' - ',
-                                      style: TextStyle(color: Colors.grey),
+                                  ),
+                                  //  SizedBox(height: 4),
+                                  Expanded(
+                                    child: Text(
+                                      widget.data.desc,
+                                      style: const TextStyle(
+                                          color: Colors.white, fontSize: 13),
                                     ),
-                                    Text(
-                                      widget.data.time,
-                                      style: const TextStyle(color: Colors.grey),
-                                    ),
-                                    const Spacer(),
-                                    const Icon(Icons.more_horiz, color: Colors.white),
-                                    //     IconButton(
-                                    //         onPressed: () {},
-                                    //         icon: Icon(Icons.more_horiz))
-                                  ],
-                                ),
+                                  )
+                                ],
                               ),
-                              //  SizedBox(height: 4),
-                              Text(
-                                widget.data.desc,
-                                style: const TextStyle(
-                                    color: Colors.white, fontSize: 12),
-                              )
-                            ],
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
                       const SizedBox(height: 10),
-                      Column(
-                        children: [
-                          Row(
-                            children: [
-                              Expanded(
-                                flex: 1,
-                                child: SizedBox(
-                                    height: 110,
-                                    //  color: Colors.blue,
-                                    child: Image.asset(
-                                      widget.data.img1,
-                                      fit: BoxFit.fill,
-                                    )),
-                              ),
-                              const SizedBox(width: 8),
-                              Expanded(
-                                flex: 1,
-                                child: SizedBox(
-                                    height: 110,
-                                    //  color: Colors.green,
-                                    child: Image.asset(
-                                      widget.data.img2,
-                                      fit: BoxFit.fill,
-                                    )),
-                              )
-                            ],
-                          ),
-                          const SizedBox(height: 8),
-                          Row(
-                            children: [
-                              Expanded(
-                                flex: 1,
-                                child: SizedBox(
-                                    height: 110,
-                                    //  color: Colors.blue,
-                                    child: Image.asset(
-                                      widget.data.img3,
-                                      fit: BoxFit.fill,
-                                    )),
-                              ),
-                              const SizedBox(width: 8),
-                              Expanded(
-                                flex: 1,
-                                child: SizedBox(
-                                    height: 110,
-                                    //  color: Colors.green,
-                                    child: Image.asset(
-                                      widget.data.img4,
-                                      fit: BoxFit.fill,
-                                    )),
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 16),
-                      Row(
-                        children: [
-                          Row(
-                            children: [
-                              Icon(Icons.favorite,
-                                  color: AppColor.greyBorderColor, size: 20),
-                              const SizedBox(width: 2),
-                              Text(
-                                widget.data.like,
-                                style:
+                      widget.data.img != null ? Expanded(
+                        flex: 5,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Expanded(child: widget.data.img != null ?
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 8.0),
+                              child: Image.file(widget.data.img!, fit: BoxFit.fill),
+                            ) : Container())
+                            // Row(
+                            //   children: [
+                            //     Expanded(
+                            //       flex: 1,
+                            //       child: Container(
+                            //           height: 110,
+                            //           //  color: Colors.blue,
+                            //           child: Image.asset(
+                            //             widget.data.img1,
+                            //             fit: BoxFit.fill,
+                            //           )),
+                            //     ),
+                            //     SizedBox(width: 8),
+                            //     Expanded(
+                            //       flex: 1,
+                            //       child: Container(
+                            //           height: 110,
+                            //           //  color: Colors.green,
+                            //           child: Image.asset(
+                            //             widget.data.img2,
+                            //             fit: BoxFit.fill,
+                            //           )),
+                            //     )
+                            //   ],
+                            // ),
+                            // SizedBox(height: 8),
+                            // Row(
+                            //   children: [
+                            //     Expanded(
+                            //       flex: 1,
+                            //       child: Container(
+                            //           height: 110,
+                            //           //  color: Colors.blue,
+                            //           child: Image.asset(
+                            //             widget.data.img3,
+                            //             fit: BoxFit.fill,
+                            //           )),
+                            //     ),
+                            //     SizedBox(width: 8),
+                            //     Expanded(
+                            //       flex: 1,
+                            //       child: Container(
+                            //           height: 110,
+                            //           //  color: Colors.green,
+                            //           child: Image.asset(
+                            //             widget.data.img4,
+                            //             fit: BoxFit.fill,
+                            //           )),
+                            //     )
+                            //   ],
+                            // ),
+                          ],
+                        ),
+                      ) : Container(color: Colors.green,),
+                      // const SizedBox(height: 16),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0, left: 2),
+                        child: Row(
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                setState(() {
+                                  widget.data.heartReact = !widget.data.heartReact;
+                                });
+                              },
+                              child: Row(
+                                children: [
+                                  !widget.data.heartReact ? Icon(Icons.favorite_outline,
+                                      color: AppColor.greyBorderColor, size: 20)
+                                      : Icon(Icons.favorite,
+                                      color: Colors.red, size: 20),
+                                  const SizedBox(width: 4),
+                                  Text(
+                                    widget.data.like,
+                                    style:
                                     TextStyle(color: AppColor.greyBorderColor),
-                              )
-                            ],
-                          ),
-                          const SizedBox(width: 26),
-                          Row(
-                            children: [
-                              Icon(Icons.comment,
-                                  color: AppColor.greyBorderColor, size: 20),
-                              const SizedBox(width: 2),
-                              Text(widget.data.comment,
-                                  style: TextStyle(
-                                      color: AppColor.greyBorderColor))
-                            ],
-                          ),
-                          const SizedBox(width: 26),
-                          Row(
-                            children: [
-                              Icon(Icons.star,
-                                  color: AppColor.greyBorderColor, size: 20),
-                              const SizedBox(width: 2),
-                              Text(widget.data.star,
-                                  style: TextStyle(
-                                      color: AppColor.greyBorderColor))
-                            ],
-                          ),
-                          // SizedBox(width: 16),
-                          const Spacer(),
-                          Icon(Icons.share,
-                              color: AppColor.greyBorderColor, size: 20),
-                        ],
+                                  )
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 30),
+                            Row(
+                              children: [
+                                Icon(Icons.comment,
+                                    color: AppColor.greyBorderColor, size: 20),
+                                const SizedBox(width: 4),
+                                Text(widget.data.comment,
+                                    style: TextStyle(
+                                        color: AppColor.greyBorderColor))
+                              ],
+                            ),
+                            const SizedBox(width: 30),
+                            Row(
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      widget.data.starReact = !widget.data.starReact;
+                                      print('togle');
+                                    });
+                                  },
+                                  child: !widget.data.starReact ? Icon(Icons.star_border,
+                                      color: AppColor.greyBorderColor, size: 20)
+                                      : Icon(Icons.star,
+                                      color: AppColor.goldenColor, size: 20),
+                                ),
+                                const SizedBox(width: 4),
+                                Text(widget.data.star,
+                                    style: TextStyle(
+                                        color: AppColor.greyBorderColor))
+                              ],
+                            ),
+                            // SizedBox(width: 16),
+                            const Spacer(),
+                            Icon(Icons.share,
+                                color: AppColor.greyBorderColor, size: 20),
+                          ],
+                        ),
                       )
                     ],
                   ),
@@ -574,7 +451,7 @@ class _PostDetailState extends State<PostDetail> {
                                             ? AppColor.goldenColor
                                             : Colors.grey,
                                         borderRadius:
-                                            BorderRadius.circular(6.0),
+                                        BorderRadius.circular(6.0),
                                       ),
                                     ),
                                   ),
@@ -612,22 +489,22 @@ class _PostDetailState extends State<PostDetail> {
                     //  gridImgView(),
                     imageFile != null
                         ? Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: 300,
-                            //  height: 200,
-                            //         color: Colors.blue,
-                            decoration: const BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(12)),
-                            ),
-                            child: Image.file(
-                              imageFile!,
-                              fit: BoxFit.fill,
-                            ),
-                          )
+                      width: MediaQuery.of(context).size.width,
+                      height: 300,
+                      //  height: 200,
+                      //         color: Colors.blue,
+                      decoration: const BoxDecoration(
+                        borderRadius:
+                        BorderRadius.all(Radius.circular(12)),
+                      ),
+                      child: Image.file(
+                        imageFile!,
+                        fit: BoxFit.fill,
+                      ),
+                    )
                         : Container(
-                            //   child: Icon(Icons.camera, color: Colors.white),
-                            ),
+                      //   child: Icon(Icons.camera, color: Colors.white),
+                    ),
                     // ElevatedButton.icon(
                     //     onPressed: () {
                     //       _onAddImageClick();
@@ -683,24 +560,24 @@ class _PostDetailState extends State<PostDetail> {
                               children: [
                                 CircleAvatar(
                                   backgroundImage:
-                                      AssetImage(_list[index].profileImg),
+                                  AssetImage(_list[index].profileImg),
                                   radius: 18,
                                 ),
                                 const SizedBox(width: 6),
                                 Column(
                                   crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                  CrossAxisAlignment.start,
                                   children: [
                                     SizedBox(
                                       //  color: Colors.blue,
                                       width:
-                                          MediaQuery.of(context).size.width *
-                                              0.7,
+                                      MediaQuery.of(context).size.width *
+                                          0.7,
                                       child: Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                        MainAxisAlignment.center,
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.center,
+                                        CrossAxisAlignment.center,
                                         children: [
                                           Text(
                                             _list[index].userName,
@@ -710,12 +587,12 @@ class _PostDetailState extends State<PostDetail> {
                                           const Text(
                                             '- ',
                                             style:
-                                                TextStyle(color: Colors.grey),
+                                            TextStyle(color: Colors.grey),
                                           ),
                                           Text(
                                             _list[index].time,
                                             style:
-                                                const TextStyle(color: Colors.grey),
+                                            const TextStyle(color: Colors.grey),
                                           ),
                                           const Spacer(),
                                           const Icon(Icons.more_horiz,
@@ -741,10 +618,10 @@ class _PostDetailState extends State<PostDetail> {
                               children: [
                                 Row(
                                   children: [
-                                    Icon(Icons.favorite,
+                                    Icon(Icons.favorite_outline,
                                         color: AppColor.greyBorderColor,
                                         size: 20),
-                                    const SizedBox(width: 2),
+                                    const SizedBox(width: 4),
                                     Text(
                                       _list[index].like,
                                       style: TextStyle(

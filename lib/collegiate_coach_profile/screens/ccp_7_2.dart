@@ -1,8 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/controller/new_post_ccp.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_7.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/controller/new_post_controller.dart';
@@ -89,9 +91,12 @@ class _CCP_7_2State extends State<CCP_7_2> {
                 style: const TextStyle(color: Colors.white),
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
+                inputFormatters: [
+                  FilteringTextInputFormatter.deny(new RegExp(r"\n"))
+                ],
                 // maxLines: 3,
                 // minLines: 1,
-                maxLength: 60,
+                maxLength: 125,
                 textCapitalization: TextCapitalization.sentences,
                 // onSaved: (val) {
                 //   setState(() {
@@ -139,7 +144,7 @@ class _CCP_7_2State extends State<CCP_7_2> {
                                 //  _onSubmit();
                                 print('submit');
 
-                                Get.put(PostController()).postLists.add(
+                                Get.put(PostControllerCCP()).postLists.add(
                                     PostTabModel(
                                         profileImg: 'assets/drawer_img.png',
                                         userName: 'Martin Mangram ',
@@ -148,13 +153,16 @@ class _CCP_7_2State extends State<CCP_7_2> {
                                         like: '1.1k',
                                         comment: '2.2k',
                                         star: '2.2k',
-                                        img1: 'assets/posts_img_one.png',
-                                        img2: 'assets/posts_img_two.png',
-                                        img3: 'assets/posts_img_three.png',
-                                        img4: 'assets/posts_img_four.png',
+                                        heartReact: false,
+                                        starReact: false,
+                                        // img1: 'assets/posts_img_one.png',
+                                        // img2: 'assets/posts_img_two.png',
+                                        // img3: 'assets/posts_img_three.png',
+                                        // img4: 'assets/posts_img_four.png',
                                         img: imageFile
                                     ));
-                                Get.offAll(const CCP_7());
+                                Get.off(() => CustomOverlay());
+                                Get.off(() => const CCP_7());
                                 // Navigator.push(context, MaterialPageRoute(
                                 //     builder: (_) => CTP_7_1()));
 

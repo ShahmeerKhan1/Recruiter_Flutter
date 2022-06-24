@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_radio_buttons.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
@@ -29,6 +30,8 @@ class _SAP6_3State extends State<SAP6_3> {
   }
 
   TextEditingController search = TextEditingController();
+
+  int selectedIndex = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -124,6 +127,7 @@ class _SAP6_3State extends State<SAP6_3> {
                                 gender.isSelected = false;
                               }
                               genders[index].isSelected = true;
+                              selectedIndex=index;
                             });
                           },
                           child: CustomRadio(genders[index]).atheticWidget(),
@@ -168,7 +172,7 @@ class _SAP6_3State extends State<SAP6_3> {
                                     fontSize: 16.0),
                               ),
                               onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (_) => const SAP6_4()));
+                                choosePath();
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: AppColor.goldenColor,
@@ -183,4 +187,38 @@ class _SAP6_3State extends State<SAP6_3> {
         )
     );
   }
+
+  choosePath(){
+    switch(selectedIndex){
+      case -1:
+        Get.snackbar("Note", "Please select Sports", snackPosition: SnackPosition.BOTTOM,
+            backgroundColor: AppColor.goldenColor,colorText: Colors.white);
+        break;
+      case 0:
+        Navigator.push(context, MaterialPageRoute(builder: (_) => const SAP6_4()));
+        print('index 0');
+        break;
+      case 1:
+        Navigator.push(context, MaterialPageRoute(builder: (_) => const SAP6_4()));
+        print('index 1');
+        break;
+      case 2:
+        Navigator.push(context, MaterialPageRoute(builder: (_) => const SAP6_4()));
+        print('index 2');
+        break;
+      case 3:
+        Navigator.push(context, MaterialPageRoute(builder: (_) => const SAP6_4()));
+        print('index 3');
+        break;
+      case 4:
+        Navigator.push(context, MaterialPageRoute(builder: (_) => const SAP6_4()));
+        print('index 4');
+        break;
+      case 5:
+        Navigator.push(context, MaterialPageRoute(builder: (_) => const SAP6_4()));
+        print('index 5');
+        break;
+    }
+  }
+
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_16.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_17.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_20.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_42.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_drawer.dart';
 import 'package:recruiter_flutter/model/messages_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -27,6 +28,8 @@ class _CCP_15State extends State<CCP_15> with SingleTickerProviderStateMixin {
       text: 'Favourites',
     ),
   ];
+
+  bool _notification = false;
 
   @override
   void initState() {
@@ -54,11 +57,21 @@ class _CCP_15State extends State<CCP_15> with SingleTickerProviderStateMixin {
             iconTheme: const IconThemeData(color: Colors.white),
             title: const Text('Messages'),
             centerTitle: true,
-            actions: const [
+            actions: [
               Padding(
-                padding: EdgeInsets.only(right: 12.0),
-                child: Icon(Icons.notifications, color: Colors.white),
-              ),
+                padding: const EdgeInsets.only(right: 12.0),
+                child: InkWell(
+                    onTap: () {
+                      setState(() {
+                        _notification = true;
+                      });
+                      print('noti');
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_42()));
+                    },
+                    child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                        : Icon(Icons.notifications_none)
+                ),
+              )
             ],
             bottom: TabBar(
               labelStyle:

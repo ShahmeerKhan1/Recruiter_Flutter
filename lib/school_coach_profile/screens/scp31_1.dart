@@ -1,88 +1,52 @@
+
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/model/events_model.dart';
+import 'package:get/get.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_35_1.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_38_1.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_event_detail.dart';
+import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
+import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
+import 'package:recruiter_flutter/controller/new_event.dart';
+import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_app_bar.dart';
+import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_drawer.dart';
+import 'package:recruiter_flutter/school_coach_profile/screens/new_event.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp35_1.dart';
+import 'package:recruiter_flutter/school_coach_profile/screens/scp_event_detail.dart';
+import 'package:recruiter_flutter/school_coach_profile/widget/scp_app_bar.dart';
+import 'package:recruiter_flutter/school_coach_profile/widget/scp_drawer.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
-import 'package:recruiter_flutter/widgets/drawer_widget.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
-import 'scp32_1.dart';
+class SCP31_1 extends StatefulWidget {
 
-class SCP31_1 extends StatelessWidget {
-  SCP31_1({Key? key}) : super(key: key);
+  const SCP31_1({Key? key}) : super(key: key);
+
+  @override
+  State<SCP31_1> createState() => _SCP31_1State();
+}
+
+class _SCP31_1State extends State<SCP31_1> {
 
   TextEditingController search = TextEditingController();
 
-  final List<EventsModel> _list = [
-    EventsModel(
-        img: 'assets/events_img1.png',
-        date: 'Fri, Oct 2nd',
-        match: 'Private Football Camp',
-        location: 'Ohio Stadium',
-        officeNo: 'Ohio Stadium',
-        city: 'Ohio Stadium',
-        state: 'Ohio Stadium',
-        code: 'Ohio Stadium',
-        desc: 'Ohio Stadium',
-        from: '11',
-        to: '11',
-        rate: '\$',
-        share: 'Share'),
-    EventsModel(
-        img: 'assets/events_img2.png',
-        date: 'Fri, Oct 2nd',
-        match: 'Private State University Football Camp',
-        location: 'Ohio Stadium',
-        officeNo: 'Ohio Stadium',
-        city: 'Ohio Stadium',
-        state: 'Ohio Stadium',
-        code: 'Ohio Stadium',
-        desc: 'Ohio Stadium',
-        from: '11',
-        to: '11',
-        rate: 'Free',
-        share: 'Share'),
-    EventsModel(
-        img: 'assets/events_img1.png',
-        date: 'Fri, Oct 2nd',
-        match: 'Private Football Camp',
-        from: '11',
-        to: '11',
-        location: 'Ohio Stadium',
-        officeNo: 'Ohio Stadium',
-        city: 'Ohio Stadium',
-        state: 'Ohio Stadium',
-        code: 'Ohio Stadium',
-        desc: 'Ohio Stadium',
-        rate: '\$',
-        share: 'Share'),
-    EventsModel(
-        img: 'assets/events_img1.png',
-        date: 'Fri, Oct 2nd',
-        match: 'Private Football Camp',
-        location: 'Ohio Stadium',
-        officeNo: 'Ohio Stadium',
-        city: 'Ohio Stadium',
-        state: 'Ohio Stadium',
-        code: 'Ohio Stadium',
-        desc: 'Ohio Stadium',
-        from: '11',
-        to: '11',
-        rate: '\$',
-        share: 'Share'),
-  ];
+  @override
+  void initState() {
+    super.initState();
+
+    Get.put(EventController());
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: scpAppBar('Events', Icons.notifications, context),
-      drawer: drawerWidget(context),
+      drawer: scpDrawer(context),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 6.0, right: 6.0, top: 6.0),
+              padding: const EdgeInsets.only(left: 12.0, right: 12.0, top: 6.0),
               child: Row(
                 children: [
                   InkWell(
@@ -94,11 +58,11 @@ class SCP31_1 extends StatelessWidget {
                       height: 40,
                       padding: const EdgeInsets.only(left: 4, right: 4),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF111111),
-                        borderRadius: const BorderRadius.all(Radius.circular(12.0)),
-                        border: Border.all(
-                          color: const Color(0xFF686868)
-                        )
+                          color: const Color(0xFF111111),
+                          borderRadius: const BorderRadius.all(Radius.circular(12.0)),
+                          border: Border.all(
+                              color: const Color(0xFF686868)
+                          )
                       ),
                       child: Row(
                         children: const [
@@ -107,47 +71,32 @@ class SCP31_1 extends StatelessWidget {
                           Icon(Icons.calendar_today_outlined, color: Color(0xFF686868)),
                         ],
                       ),
-                      // child: TextField(
-                      //     controller: search,
-                      //     // textAlign: TextAlign.left,
-                      //     style: TextStyle(color: Colors.white),
-                      //     decoration: InputDecoration(
-                      //       contentPadding: EdgeInsets.only(left: 4.0),
-                      //       filled: true,
-                      //       fillColor: Color(0xFF111111),
-                      //       floatingLabelBehavior: FloatingLabelBehavior.never,
-                      //       labelText: "Calendar",
-                      //       labelStyle: TextStyle(color: Color(0xFF686868)),
-                      //       suffixIcon: Icon(Icons.calendar_today_outlined,
-                      //           color: Color(0xFF686868)),
-                      //       //  prefixIcon: Icon(Icons.people),
-                      //       border: myinputborder(),
-                      //       enabledBorder: myinputborder(),
-                      //       focusedBorder: myfocusborder(),
-                      //     )),
                     ),
                   ),
-                  const SizedBox(width: 2),
-                  SizedBox(
-                    width: 100,
-                    height: 42,
-                    child: TextField(
-                        controller: search,
-                        style: const TextStyle(color: Colors.white),
-                        decoration: InputDecoration(
-                          // contentPadding: EdgeInsets.only(left: 16.0),
-                          contentPadding: const EdgeInsets.only(left: 4.0),
-                          filled: true,
-                          fillColor: const Color(0xFF111111),
-                          floatingLabelBehavior: FloatingLabelBehavior.never,
-                          labelText: "Create",
-                          labelStyle: const TextStyle(color: Color(0xFF686868)),
-                          suffixIcon: const Icon(Icons.add, color: Color(0xFF686868)),
-                          //  prefixIcon: Icon(Icons.people),
-                          border: myinputborder(),
-                          enabledBorder: myinputborder(),
-                          focusedBorder: myfocusborder(),
-                        )),
+                  const SizedBox(width: 6),
+                  InkWell(
+                    onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => const NewEvent()));
+                    },
+                    child: Container(
+                      width: 85,
+                      height: 40,
+                      padding: const EdgeInsets.only(left: 4, right: 4),
+                      decoration: BoxDecoration(
+                          color: const Color(0xFF111111),
+                          borderRadius: const BorderRadius.all(Radius.circular(12.0)),
+                          border: Border.all(
+                              color: const Color(0xFF686868)
+                          )
+                      ),
+                      child: Row(
+                        children: const [
+                          Text('Create', style: TextStyle(color: Color(0xFF686868), fontWeight: FontWeight.w500)),
+                          Spacer(),
+                          Icon(Icons.add, color: Color(0xFF686868)),
+                        ],
+                      ),
+                    ),
                   ),
                   const Spacer(),
                   SizedBox(
@@ -165,7 +114,7 @@ class SCP31_1 extends StatelessWidget {
                           labelText: "Filter",
                           labelStyle: const TextStyle(color: Color(0xFF686868)),
                           suffixIcon:
-                              const Icon(Icons.filter, color: Color(0xFF686868)),
+                          const Icon(Icons.filter, color: Color(0xFF686868)),
                           //  prefixIcon: Icon(Icons.people),
                           border: myinputborder(),
                           enabledBorder: myinputborder(),
@@ -179,96 +128,124 @@ class SCP31_1 extends StatelessWidget {
               padding: const EdgeInsets.only(
                   left: 16.0, right: 16.0, top: 16.0, bottom: 16.0),
               child: Column(
-                //  mainAxisAlignment: MainAxisAlignment.start,
-                // crossAxisAlignment: CrossAxisAlignment.start,
+                 //  mainAxisAlignment: MainAxisAlignment.center,
+                 // crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  ListView.builder(
-                    itemCount: _list.length,
-                      shrinkWrap: true,
-                      primary: false,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemBuilder: (BuildContext context, index) {
-                      return InkWell(
-                        onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (_) => SCP32_1(data: _list[index])));
-                        },
-                        child: Container(
-                          height: MediaQuery.of(context).size.height * 0.31,
-                          width: MediaQuery.of(context).size.width,
-                          margin: const EdgeInsets.only(bottom: 12),
-                          decoration: const BoxDecoration(
-                            color: Color(0xFF111111),
-                            borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                          ),
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                                child: Align(
-                                    alignment: Alignment.topRight,
-                                    child: Icon(Icons.more_horiz,
-                                        color: AppColor.greyBorderColor)),
-                              ),
-                              Image.asset(_list[index].img!),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 6.0, left: 10.0, right: 10.0),
-                                child: Row(
-                                  children: [
-                                    Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          _list[index].date,
-                                          style: TextStyle(
-                                              color: AppColor.yellowColor,
-                                              fontWeight: FontWeight.w500),
-                                        ),
-                                        const SizedBox(height: 2),
-                                        Text(
-                                          _list[index].match,
-                                          style: const TextStyle(
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 16.0,
-                                              color: Colors.white),
-                                        ),
-                                        const SizedBox(height: 2),
-                                        Text(
-                                          _list[index].location,
-                                          style: TextStyle(color: AppColor.greyBorderColor),
-                                        )
-                                      ],
-                                    ),
-                                    const Spacer(),
-                                    Column(
-                                      children: [
-                                        Text(_list[index].rate,
-                                            style: TextStyle(
-                                                color: AppColor.greyBorderColor, fontSize: 16.0, fontWeight: FontWeight.w500)),
-                                        const SizedBox(height: 4),
-                                        Container(
-                                          width: 46,
-                                          height: 24,
-                                          alignment: Alignment.center,
-                                          // padding: EdgeInsets.all(6.0),
+                  GetBuilder<EventController>(
+                    builder: (_event) {
+                      if(_event.eventLists.isNotEmpty) {
+                        return ListView.builder(
+                            itemCount: _event.eventLists.length,
+                            shrinkWrap: true,
+                            primary: false,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemBuilder: (BuildContext context, index) {
+                              return InkWell(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (_) => SCPEventDetail(data: _event.eventLists[index])));
+                                },
+                                child: Container(
+                                  height: MediaQuery.of(context).size.height * 0.31,
+                                  width: MediaQuery.of(context).size.width,
+                                  margin: const EdgeInsets.only(bottom: 12),
+                                  decoration: const BoxDecoration(
+                                    color: Color(0xFF111111),
+                                    borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                                        child: Align(
+                                            alignment: Alignment.topRight,
+                                            child: Icon(Icons.more_horiz,
+                                                color: AppColor.greyBorderColor)),
+                                      ),
+                                      Expanded(
+                                        child: _event.eventLists[index].imgFile != null
+                                            ? Container(
+                                          width: MediaQuery.of(context).size.width,
+                                          //  height: 200,
+                                          //  height: 200,
                                           decoration: BoxDecoration(
-                                              borderRadius: const BorderRadius.all(
-                                                  Radius.circular(6.0)),
-                                              color: Colors.black,
-                                              border: Border.all(
-                                                  color: AppColor.greyBorderColor)),
-                                          child: Text(_list[index].share, style: TextStyle(color: AppColor.greyBorderColor, fontSize: 12.0),),
-                                        )
-                                      ],
-                                    ),
-                                  ],
+                                            // color: Colors.blue,
+                                            borderRadius:
+                                            const BorderRadius.all(Radius.circular(16.0)),
+                                            border: Border.all(color: const Color(0xFF474747)),
+                                          ),
+                                          child: Image.file(
+                                            _event.eventLists[index].imgFile!,
+                                            fit: BoxFit.fill,
+                                          ),
+                                        ) :
+                                        Image.asset(_event.eventLists[index].img!),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 6.0, left: 10.0, right: 10.0),
+                                        child: Row(
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  _event.eventLists[index].date,
+                                                  style: TextStyle(
+                                                      color: AppColor.yellowColor,
+                                                      fontWeight: FontWeight.w500),
+                                                ),
+                                                const SizedBox(height: 2),
+                                                Text(
+                                                  _event.eventLists[index].match,
+                                                  style: const TextStyle(
+                                                      fontWeight: FontWeight.w500,
+                                                      fontSize: 16.0,
+                                                      color: Colors.white),
+                                                ),
+                                                const SizedBox(height: 2),
+                                                Text(
+                                                  _event.eventLists[index].location,
+                                                  style: TextStyle(color: AppColor.greyBorderColor),
+                                                )
+                                              ],
+                                            ),
+                                            const Spacer(),
+                                            Column(
+                                              children: [
+                                                Text(_event.eventLists[index].rate,
+                                                    style: TextStyle(
+                                                        color: AppColor.greyBorderColor, fontSize: 16.0, fontWeight: FontWeight.w500)),
+                                                const SizedBox(height: 4),
+                                                Container(
+                                                  width: 46,
+                                                  height: 24,
+                                                  alignment: Alignment.center,
+                                                  // padding: EdgeInsets.all(6.0),
+                                                  decoration: BoxDecoration(
+                                                      borderRadius: const BorderRadius.all(
+                                                          Radius.circular(6.0)),
+                                                      color: Colors.black,
+                                                      border: Border.all(
+                                                          color: AppColor.greyBorderColor)),
+                                                  child: Text(_event.eventLists[index].share, style: TextStyle(color: AppColor.greyBorderColor, fontSize: 12.0),),
+                                                )
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
-                              )
-                            ],
-                          ),
-                        ),
-                      );
+                              );
+                            }
+                        );
                       }
+                      else {
+                      //  print('Please create event');
+                        return const Center(child: Text('Please create event', style: TextStyle(color: Colors.black)),);
+                      }
+                    },
                   ),
                 ],
               ),

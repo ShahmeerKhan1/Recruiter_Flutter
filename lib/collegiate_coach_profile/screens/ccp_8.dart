@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/controller/new_highlight_ccp.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/controller/new_highlight_controller.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -84,7 +85,7 @@ class _CCP_Highlights_TabState extends State<CCP_Highlights_Tab> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: GetBuilder<HighlightController>(
+      child: GetBuilder<HighlightControllerCCP>(
           builder: (_cont) {
             return _cont.highlightList.isNotEmpty ? ListView.builder(
                 itemCount: _cont.highlightList.length,

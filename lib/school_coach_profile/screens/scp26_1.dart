@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp29.dart';
+import 'package:recruiter_flutter/school_coach_profile/widget/scp_drawer.dart';
+import 'package:recruiter_flutter/school_coach_profile/widget/scp_posts_tab.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_highlight_widget.dart';
-import 'package:recruiter_flutter/widgets/custom_post_widget.dart';
-import 'package:recruiter_flutter/widgets/drawer_widget.dart';
 
 class SCP26_1 extends StatefulWidget {
   const SCP26_1({Key? key}) : super(key: key);
@@ -70,7 +70,7 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
             ),
             preferredSize: const Size.fromHeight(4.0)),
       ),
-      drawer: drawerWidget(context),
+      drawer: scpDrawer(context),
       body: SingleChildScrollView(
         child: Stack(
           children: <Widget>[
@@ -365,7 +365,8 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
                     controller: _controller,
                     physics: const NeverScrollableScrollPhysics(),
                     children: [
-                      postsTab(), // custom Post Widget
+                      SCPPostTab(),
+                     // scpPostsTab(), // custom Post Widget
                       const CustomHighlightWidget(),
                       const TopSchools(),
                       const Offers(),

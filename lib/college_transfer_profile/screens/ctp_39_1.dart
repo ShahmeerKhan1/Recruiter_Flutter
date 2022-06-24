@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_44_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_offer_detail.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
 import 'package:recruiter_flutter/model/offers_model.dart';
@@ -18,6 +19,7 @@ class _CTP39_1State extends State<CTP39_1> with SingleTickerProviderStateMixin {
   late TabController _controller;
 
   int _selectedIndex = 0; //  Tab Bar Index
+  bool _notification = false;
 
   List<Widget> list = [
     const Tab(text: 'Offers'),
@@ -44,40 +46,52 @@ class _CTP39_1State extends State<CTP39_1> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: customDrawer(context),
-      appBar: AppBar(
-          backgroundColor: Colors.black,
-          iconTheme: const IconThemeData(color: Colors.white),
-          title: const Text('Recruiting', style: TextStyle(color: Colors.white)),
-          centerTitle: true,
-          actions: const [
-            Padding(
-              padding: EdgeInsets.only(right: 16.0),
-              child: Icon(Icons.notifications),
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        drawer: customDrawer(context),
+        appBar: AppBar(
+            backgroundColor: Colors.black,
+            iconTheme: const IconThemeData(color: Colors.white),
+            title: const Text('Recruiting', style: TextStyle(color: Colors.white)),
+            centerTitle: true,
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(right: 16.0),
+                child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      _notification = true;
+                    });
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => CTP_44_1()));
+                  },
+                  child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+              : Icon(Icons.notifications_none),
+                ),
+              ),
+            ],
+            bottom: TabBar(
+              labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+              labelColor: Colors.white,
+              unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
+              indicatorColor: Colors.white,
+              onTap: (index) {
+                print('Tab $index is tapped');
+                // Should not used it as it only called when tab options are clicked,
+                // not when user swapped
+              },
+              controller: _controller,
+              tabs: list,
             ),
+        ),
+        body: TabBarView(
+          controller: _controller,
+          physics: const NeverScrollableScrollPhysics(),
+          children: [
+            Offers(),
+            TopSchools(),
           ],
-          bottom: TabBar(
-            labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-            labelColor: Colors.white,
-            unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
-            indicatorColor: Colors.white,
-            onTap: (index) {
-              print('Tab $index is tapped');
-              // Should not used it as it only called when tab options are clicked,
-              // not when user swapped
-            },
-            controller: _controller,
-            tabs: list,
-          ),
-      ),
-      body: TabBarView(
-        controller: _controller,
-        physics: const NeverScrollableScrollPhysics(),
-        children: [
-          Offers(),
-          TopSchools(),
-        ],
+        ),
       ),
     );
   }

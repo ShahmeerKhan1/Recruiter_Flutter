@@ -1,4 +1,4 @@
-
+import 'package:flutter/material.dart';
 class ReplyPostModel {
   String profileImg, userName, time, desc, like, comment, reply;
 

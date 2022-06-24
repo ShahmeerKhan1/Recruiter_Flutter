@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
+import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_app_bar.dart';
+import 'package:recruiter_flutter/school_coach_profile/widget/scp_app_bar.dart';
 
 class SCP30_1 extends StatefulWidget {
   const SCP30_1({Key? key}) : super(key: key);
@@ -14,13 +15,25 @@ class _SCP30_1State extends State<SCP30_1> {
   int _force = 0;
   int _work = 0;
 
+  bool leader1 = false;
+  bool tactical1 = false;
+  bool sprinter1 = false;
+
+  bool leader2 = false;
+  bool tactical2 = false;
+  bool sprinter2 = false;
+
+  bool leader3 = false;
+  bool tactical3 = false;
+  bool sprinter3 = false;
+
   @override
   Widget build(BuildContext context) {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: scpAppBar('Evaluate', Icons.notifications, context),
+      appBar: sapAppBar('Evaluate', Icons.notifications, context),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
@@ -28,24 +41,37 @@ class _SCP30_1State extends State<SCP30_1> {
             children: [
               const Text(
                 'Top Characteristics',
-                style: TextStyle(color: Colors.white, fontSize: 18.0),
+                style: TextStyle(color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.w500),
               ),
               const SizedBox(height: 16),
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-                child: Row(
-                  children: [
-                    Expanded(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        leader1 = !leader1;
+                      });
+                    },
+                    child: Expanded(
                       child: Container(
                         height: _height * 0.14,
                         width: _width * 0.28,
                         // color: Colors.blue,
                         decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(Radius.circular(6)),
+                            color: leader1 ? const Color(0xFF10E9A1) : null,
+                            borderRadius:
+                            const BorderRadius.all(Radius.circular(6)),
                             border: Border.all(color: const Color(0xFF10E9A1))),
                         child: Column(
                           children: [
-                            Image.asset('assets/leader.png',
+                            leader1
+                                ? Image.asset('assets/leader.png',
+                                color: Colors.white,
+                                fit: BoxFit.fill,
+                                width: 75,
+                                height: 75)
+                                : Image.asset('assets/leader.png',
                                 fit: BoxFit.fill, width: 75, height: 75),
                             const Text(
                               'Leader',
@@ -55,28 +81,38 @@ class _SCP30_1State extends State<SCP30_1> {
                         ),
                       ),
                     ),
-                    const SizedBox(width: 16),
-                    Expanded(
+                  ),
+                  const SizedBox(width: 8),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        tactical1 = !tactical1;
+                      });
+                    },
+                    child: Expanded(
                       child: Container(
                         height: _height * 0.14,
                         width: _width * 0.28,
                         // color: Colors.blue,
                         decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(Radius.circular(6)),
+                            color: tactical1 ? const Color(0xFF10E9A1) : null,
+                            borderRadius:
+                            const BorderRadius.all(Radius.circular(6)),
                             border: Border.all(color: const Color(0xFF10E9A1))),
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Image.asset(
-                              'assets/tactical.png',
-                              fit: BoxFit.cover,
-                              height: 85,
-                              width: 85,
-                            ),
+                            tactical1
+                                ? Image.asset('assets/tactical.png',
+                                color: Colors.white,
+                                fit: BoxFit.fill,
+                                width: 85,
+                                height: 85)
+                                : Image.asset('assets/tactical.png',
+                                fit: BoxFit.fill, width: 85, height: 85),
                             const Padding(
                               padding: EdgeInsets.only(bottom: 8.0),
                               child: Text(
-                                'Leader',
+                                'Tactical',
                                 style: TextStyle(color: Colors.white),
                               ),
                             )
@@ -84,20 +120,32 @@ class _SCP30_1State extends State<SCP30_1> {
                         ),
                       ),
                     ),
-                    const SizedBox(width: 16),
-                    Expanded(
+                  ),
+                  const SizedBox(width: 8),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        sprinter1 = !sprinter1;
+                      });
+                    },
+                    child: Expanded(
                       child: Container(
                         height: _height * 0.14,
                         width: _width * 0.28,
                         // color: Colors.blue,
                         decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(Radius.circular(6)),
+                            color: sprinter1 ? const Color(0xFF10e9A1) : null,
+                            borderRadius:
+                            const BorderRadius.all(Radius.circular(6)),
                             border: Border.all(color: const Color(0xFF10E9A1))),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset('assets/sprinter.png',
-                                fit: BoxFit.cover),
+                            !sprinter1
+                                ? Image.asset('assets/sprinter.png',
+                                fit: BoxFit.cover)
+                                : Image.asset('assets/sprinter.png',
+                                fit: BoxFit.cover, color: Colors.white),
                             const SizedBox(height: 10),
                             const Padding(
                               padding: EdgeInsets.only(bottom: 8.0),
@@ -109,26 +157,39 @@ class _SCP30_1State extends State<SCP30_1> {
                           ],
                         ),
                       ),
-                    )
-                  ],
-                ),
+                    ),
+                  )
+                ],
               ),
-              const SizedBox(height: 16),
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-                child: Row(
-                  children: [
-                    Expanded(
+              const SizedBox(height: 8),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        leader2 = !leader2;
+                      });
+                    },
+                    child: Expanded(
                       child: Container(
                         height: _height * 0.14,
                         width: _width * 0.28,
                         // color: Colors.blue,
                         decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(Radius.circular(6)),
+                            color: leader2 ? const Color(0xFF10E9A1) : null,
+                            borderRadius:
+                            const BorderRadius.all(Radius.circular(6)),
                             border: Border.all(color: const Color(0xFF10E9A1))),
                         child: Column(
                           children: [
-                            Image.asset('assets/leader.png',
+                            leader2
+                                ? Image.asset('assets/leader.png',
+                                color: Colors.white,
+                                fit: BoxFit.fill,
+                                width: 75,
+                                height: 75)
+                                : Image.asset('assets/leader.png',
                                 fit: BoxFit.fill, width: 75, height: 75),
                             const Text(
                               'Leader',
@@ -138,28 +199,38 @@ class _SCP30_1State extends State<SCP30_1> {
                         ),
                       ),
                     ),
-                    const SizedBox(width: 16),
-                    Expanded(
+                  ),
+                  const SizedBox(width: 8),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        tactical2 = !tactical2;
+                      });
+                    },
+                    child: Expanded(
                       child: Container(
                         height: _height * 0.14,
                         width: _width * 0.28,
                         // color: Colors.blue,
                         decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(Radius.circular(6)),
+                            color: tactical2 ? const Color(0xFF10E9A1) : null,
+                            borderRadius:
+                            const BorderRadius.all(Radius.circular(6)),
                             border: Border.all(color: const Color(0xFF10E9A1))),
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Image.asset(
-                              'assets/tactical.png',
-                              fit: BoxFit.cover,
-                              height: 85,
-                              width: 85,
-                            ),
+                            tactical2
+                                ? Image.asset('assets/tactical.png',
+                                color: Colors.white,
+                                fit: BoxFit.fill,
+                                width: 85,
+                                height: 85)
+                                : Image.asset('assets/tactical.png',
+                                fit: BoxFit.fill, width: 85, height: 85),
                             const Padding(
                               padding: EdgeInsets.only(bottom: 8.0),
                               child: Text(
-                                'Leader',
+                                'Tactical',
                                 style: TextStyle(color: Colors.white),
                               ),
                             )
@@ -167,20 +238,32 @@ class _SCP30_1State extends State<SCP30_1> {
                         ),
                       ),
                     ),
-                    const SizedBox(width: 16),
-                    Expanded(
+                  ),
+                  const SizedBox(width: 8),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        sprinter2 = !sprinter2;
+                      });
+                    },
+                    child: Expanded(
                       child: Container(
                         height: _height * 0.14,
                         width: _width * 0.28,
                         // color: Colors.blue,
                         decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(Radius.circular(6)),
+                            color: sprinter2 ? const Color(0xFF10e9A1) : null,
+                            borderRadius:
+                            const BorderRadius.all(Radius.circular(6)),
                             border: Border.all(color: const Color(0xFF10E9A1))),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset('assets/sprinter.png',
-                                fit: BoxFit.cover),
+                            !sprinter2
+                                ? Image.asset('assets/sprinter.png',
+                                fit: BoxFit.cover)
+                                : Image.asset('assets/sprinter.png',
+                                fit: BoxFit.cover, color: Colors.white),
                             const SizedBox(height: 10),
                             const Padding(
                               padding: EdgeInsets.only(bottom: 8.0),
@@ -192,26 +275,39 @@ class _SCP30_1State extends State<SCP30_1> {
                           ],
                         ),
                       ),
-                    )
-                  ],
-                ),
+                    ),
+                  )
+                ],
               ),
-              const SizedBox(height: 16),
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-                child: Row(
-                  children: [
-                    Expanded(
+              const SizedBox(height: 8),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        leader3 = !leader3;
+                      });
+                    },
+                    child: Expanded(
                       child: Container(
                         height: _height * 0.14,
                         width: _width * 0.28,
                         // color: Colors.blue,
                         decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(Radius.circular(6)),
+                            color: leader3 ? const Color(0xFF10E9A1) : null,
+                            borderRadius:
+                            const BorderRadius.all(Radius.circular(6)),
                             border: Border.all(color: const Color(0xFF10E9A1))),
                         child: Column(
                           children: [
-                            Image.asset('assets/leader.png',
+                            leader3
+                                ? Image.asset('assets/leader.png',
+                                color: Colors.white,
+                                fit: BoxFit.fill,
+                                width: 75,
+                                height: 75)
+                                : Image.asset('assets/leader.png',
                                 fit: BoxFit.fill, width: 75, height: 75),
                             const Text(
                               'Leader',
@@ -221,28 +317,38 @@ class _SCP30_1State extends State<SCP30_1> {
                         ),
                       ),
                     ),
-                    const SizedBox(width: 16),
-                    Expanded(
+                  ),
+                  const SizedBox(width: 8),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        tactical3 = !tactical3;
+                      });
+                    },
+                    child: Expanded(
                       child: Container(
                         height: _height * 0.14,
                         width: _width * 0.28,
                         // color: Colors.blue,
                         decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(Radius.circular(6)),
+                            color: tactical3 ? const Color(0xFF10E9A1) : null,
+                            borderRadius:
+                            const BorderRadius.all(Radius.circular(6)),
                             border: Border.all(color: const Color(0xFF10E9A1))),
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Image.asset(
-                              'assets/tactical.png',
-                              fit: BoxFit.cover,
-                              height: 85,
-                              width: 85,
-                            ),
+                            tactical3
+                                ? Image.asset('assets/tactical.png',
+                                color: Colors.white,
+                                fit: BoxFit.fill,
+                                width: 85,
+                                height: 85)
+                                : Image.asset('assets/tactical.png',
+                                fit: BoxFit.fill, width: 85, height: 85),
                             const Padding(
                               padding: EdgeInsets.only(bottom: 8.0),
                               child: Text(
-                                'Leader',
+                                'Tactical',
                                 style: TextStyle(color: Colors.white),
                               ),
                             )
@@ -250,20 +356,32 @@ class _SCP30_1State extends State<SCP30_1> {
                         ),
                       ),
                     ),
-                    const SizedBox(width: 16),
-                    Expanded(
+                  ),
+                  const SizedBox(width: 8),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        sprinter3 = !sprinter3;
+                      });
+                    },
+                    child: Expanded(
                       child: Container(
                         height: _height * 0.14,
                         width: _width * 0.28,
                         // color: Colors.blue,
                         decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(Radius.circular(6)),
+                            color: sprinter3 ? const Color(0xFF10e9A1) : null,
+                            borderRadius:
+                            const BorderRadius.all(Radius.circular(6)),
                             border: Border.all(color: const Color(0xFF10E9A1))),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset('assets/sprinter.png',
-                                fit: BoxFit.cover),
+                            !sprinter3
+                                ? Image.asset('assets/sprinter.png',
+                                fit: BoxFit.cover)
+                                : Image.asset('assets/sprinter.png',
+                                fit: BoxFit.cover, color: Colors.white),
                             const SizedBox(height: 10),
                             const Padding(
                               padding: EdgeInsets.only(bottom: 8.0),
@@ -275,9 +393,9 @@ class _SCP30_1State extends State<SCP30_1> {
                           ],
                         ),
                       ),
-                    )
-                  ],
-                ),
+                    ),
+                  )
+                ],
               ),
               const SizedBox(height: 32),
               Card(
@@ -561,23 +679,28 @@ class _SCP30_1State extends State<SCP30_1> {
                     ),
                   )),
               const SizedBox(height: 16),
-              Container(
-                height: _height * 0.08,
-                width: _width,
-                alignment: Alignment.center,
-                //  padding: EdgeInsets.only(top: 16.0, bottom: 16.0, left: 4.0, right: 4.0),
-                margin: const EdgeInsets.only(
-                    top: 16.0, bottom: 16.0, left: 4.0, right: 4.0),
-                decoration: const BoxDecoration(
-                  color: Color(0xFFFFEE00),
-                  borderRadius: BorderRadius.all(Radius.circular(6.0)),
-                ),
-                child: const Text(
-                  'SUBMIT EVALUATION',
-                  style: TextStyle(
-                      color: Color(0xFF18152E),
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.w500),
+              InkWell(
+                onTap: () {
+             //     Navigator.push(context, MaterialPageRoute(builder: (_) => const CTP34_1()));
+                },
+                child: Container(
+                  height: _height * 0.08,
+                  width: _width,
+                  alignment: Alignment.center,
+                  //  padding: EdgeInsets.only(top: 16.0, bottom: 16.0, left: 4.0, right: 4.0),
+                  margin: const EdgeInsets.only(
+                      top: 16.0, bottom: 16.0, left: 4.0, right: 4.0),
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFFFEE00),
+                    borderRadius: BorderRadius.all(Radius.circular(6.0)),
+                  ),
+                  child: const Text(
+                    'SUBMIT EVALUATION',
+                    style: TextStyle(
+                        color: Color(0xFF18152E),
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w500),
+                  ),
                 ),
               )
             ],

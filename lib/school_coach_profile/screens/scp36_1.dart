@@ -4,6 +4,8 @@ import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
+import 'scp42_1.dart';
+
 class SCP36_1 extends StatefulWidget {
   const SCP36_1({Key? key}) : super(key: key);
 
@@ -39,6 +41,8 @@ class _SCP36_1State extends State<SCP36_1> with SingleTickerProviderStateMixin {
     });
   }
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,10 +51,20 @@ class _SCP36_1State extends State<SCP36_1> with SingleTickerProviderStateMixin {
           iconTheme: const IconThemeData(color: Colors.white),
           title: const Text('Recruiting', style: TextStyle(color: Colors.white)),
           centerTitle: true,
-          actions: const [
+          actions: [
             Padding(
-              padding: EdgeInsets.only(right: 12.0),
-              child: Icon(Icons.notifications, color: Colors.white),
+              padding: const EdgeInsets.only(right: 10.0),
+              child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      _notification = true;
+                    });
+                    print('noti');
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => SCP42_1()));
+                  },
+                  child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                      : Icon(Icons.notifications_none)
+              ),
             )
           ],
           bottom: TabBar(

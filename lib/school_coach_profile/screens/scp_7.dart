@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/school_coach_profile/screens/posts_screen.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp_15_1.dart';
+import 'package:recruiter_flutter/school_coach_profile/screens/scp_7_1.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'package:recruiter_flutter/widgets/drawer_widget.dart';
+import 'package:recruiter_flutter/school_coach_profile/widget/scp_drawer.dart';
+
+import 'scp36_1.dart';
+import 'scp41_1.dart';
+import 'scp_7_2.dart';
+import 'scp_7_4.dart';
 
 class SCP7 extends StatefulWidget {
   const SCP7({Key? key}) : super(key: key);
@@ -30,7 +35,8 @@ class _SCP7State extends State<SCP7> with SingleTickerProviderStateMixin {
     GlobalKey<NavigatorState>(),
     GlobalKey<NavigatorState>(),
     GlobalKey<NavigatorState>(),
-    GlobalKey<NavigatorState>()
+    GlobalKey<NavigatorState>(),
+    GlobalKey<NavigatorState>(),
   ];
 
   // void onTabTapped(int index) {     // bottom Nav
@@ -54,6 +60,14 @@ class _SCP7State extends State<SCP7> with SingleTickerProviderStateMixin {
   //   });
   // }
 
+  late final TabController tabController;
+
+  @override
+  void initState() {
+    tabController = TabController(length: 5, vsync: this);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
       return WillPopScope(
@@ -65,34 +79,6 @@ onWillPop: () async {
   return isFirstRouteInCurrentTab;
 },
       child: Scaffold(
-     //   drawer: drawerWidget(context),
-      //  key: _drawerKey,
-      //     appBar: AppBar(
-      //       backgroundColor: Colors.black,
-      //       //automaticallyImplyLeading: false,
-      //       iconTheme: IconThemeData(color: Colors.white),
-      //       title: Image.asset('assets/logo.png',width: 135),
-      //       centerTitle: true,
-      //       actions: [
-      //         Padding(
-      //           padding: const EdgeInsets.only(right: 12.0),
-      //           child: Icon(Icons.notifications, color: Colors.white),
-      //         )
-      //       ],
-      //       // bottom: TabBar(
-      //       //   labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-      //       //   labelColor: Colors.white,
-      //       //   unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
-      //       //   indicatorColor: Colors.white,
-      //       //   onTap: (index) {
-      //       //     print('Tab $index is tapped');
-      //       //     // Should not used it as it only called when tab options are clicked,
-      //       //     // not when user swapped
-      //       //   },
-      //       //   controller: _controller,
-      //       //   tabs: list,
-      //       // ),
-      //     ),
           body: Stack(
             children: [
             //  pages.elementAt(_navSelectedIndex),
@@ -100,86 +86,99 @@ onWillPop: () async {
               _buildOffstageNavigator(1),
               _buildOffstageNavigator(2),
               _buildOffstageNavigator(3),
+              _buildOffstageNavigator(4),
             ],
           ),
         bottomNavigationBar: Container(
           height: 70,
-          width: MediaQuery.of(context).size.width,
-          color: Colors.white,
-          child: BottomNavigationBar(
-            backgroundColor: Colors.black,
-            selectedItemColor: AppColor.goldenColor,
-            unselectedItemColor: AppColor.greyBorderColor,
-       //   selectedLabelStyle: TextStyle(color: AppColors.purpleColor, fontWeight: FontWeight.w500),
-          //  unselectedLabelStyle: TextStyle(color: Color(0xFF341950)),
-            type: BottomNavigationBarType.fixed,
-           // backgroundColor: AppColors.bgColor,
-            elevation: 0,
-            // onTap: onTabTapped,
+          // padding: EdgeInsets.all(0.0),
+          width: MediaQuery
+              .of(context)
+              .size
+              .width,
+          alignment: Alignment.center,
+          padding: EdgeInsets.all(0.0),
+          // padding: EdgeInsets.only(right: 6.0, left: 0.0),
+          color: Colors.black,
+          child: TabBar(
+            labelStyle: TextStyle(fontFamily: 'Helvetica', fontSize: 13.0, fontWeight: FontWeight.w100),
+            unselectedLabelStyle: TextStyle(fontFamily: 'Helvetica', fontSize: 13.0),
+            isScrollable: true,
+            padding: EdgeInsets.zero,
+            controller: tabController,
+            // labelPadding: EdgeInsets.only(right: 6.0, left: 6),
+            unselectedLabelColor: AppColor.greyBorderColor,
+            indicatorColor: Colors.white,
+            indicatorSize: TabBarIndicatorSize.label,
+            indicatorPadding: EdgeInsets.only(bottom: 18),
+            labelColor: Colors.white,
             onTap: (index) {
               setState(() {
                 _navSelectedIndex = index;
-                print('nav item index $index');
               });
             },
-            currentIndex: _navSelectedIndex,
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home_filled),
-                  label: ''
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.work),
-              //  icon: SvgPicture.asset('assets/bottom_nav_office.svg'),
-                  label: ''
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.add_circle_outline, size: 38),
-                //  icon: SvgPicture.asset('assets/bottom_nav_add.svg'),
-                   label: ''
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.email),
-                //  icon: SvgPicture.asset('assets/bottom_nav_mail.svg'),
-                  label: ''
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.search),
-               // icon: SvgPicture.asset('assets/bottom_nav_search.svg'),
-                  label: ''
-              )
+            tabs: const [
+              Tab(text: 'Home',),
+              Tab(text: 'Recruiting'),
+              Tab(text: 'Create'),
+              Tab(text: 'Messages'),
+              Tab(text: 'Search'),
             ],
           ),
+          // BottomNavigationBar(
+          //   backgroundColor: Colors.black,
+          //   selectedItemColor: Colors.white,
+          //   selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0),
+          //   unselectedItemColor: AppColor.greyBorderColor,
+          //   //   selectedLabelStyle: TextStyle(color: AppColors.purpleColor, fontWeight: FontWeight.w500),
+          //   unselectedLabelStyle: const TextStyle(fontSize: 15.0),
+          //   type: BottomNavigationBarType.fixed,
+          //   // backgroundColor: AppColors.bgColor,
+          //   elevation: 0,
+          //   selectedIconTheme: const IconThemeData(opacity: 0.0, size: 0),
+          //   unselectedIconTheme: const IconThemeData(opacity: 0.0, size: 0),
+          //   // onTap: onTabTapped,
+          //   onTap: (index) {
+          //     setState(() {
+          //       _navSelectedIndex = index;
+          //       print('nav item index $index');
+          //     });
+          //   },
+          //   currentIndex: _navSelectedIndex,
+          //   items: const [
+          //     BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Home'),
+          //     BottomNavigationBarItem(
+          //         icon: Icon(Icons.work),
+          //         //  icon: SvgPicture.asset('assets/bottom_nav_office.svg'),
+          //         label: 'Recruiting'),
+          //     BottomNavigationBarItem(
+          //         icon: Icon(Icons.add_circle_outline),
+          //         //  icon: SvgPicture.asset('assets/bottom_nav_add.svg'),
+          //         label: 'Create'),
+          //     BottomNavigationBarItem(
+          //         icon: Icon(Icons.email),
+          //         //  icon: SvgPicture.asset('assets/bottom_nav_mail.svg'),
+          //         label: 'Messages'),
+          //     BottomNavigationBarItem(
+          //         icon: Icon(Icons.search),
+          //         // icon: SvgPicture.asset('assets/bottom_nav_search.svg'),
+          //         label: 'Search')
+          //   ],
+          // ),
         ),
       ),
     );
     }
 
-  // List<Widget> pages = <Widget>[
-  //   PostsScreen(),
-  //   SecondScreen(),
-  //   Container(
-  //     color: Colors.pink,
-  //   ),
-  //   SCP15_1(),
-  //   Container(
-  //     color: Colors.purple,
-  //   ),
-  // ];
-
   Map<String, WidgetBuilder> _routeBuilders(BuildContext context, int index) {
     return {
       '/': (context) {
         return [
-          const PostsScreen(),
-          const SecondScreen(),
-          Container(
-            color: Colors.pink,
-          ),
+          const SCP7_1(),
+          const SCP36_1(),
+          CustomOverlay(),
           const SCP15_1(),
-          Container(
-            color: Colors.purple,
-          ),
+          SCP41_1()
         ].elementAt(index);
       },
     };
@@ -202,49 +201,55 @@ onWillPop: () async {
   }
 }
 
-class SecondScreen extends StatelessWidget {
-  const SecondScreen({Key? key}) : super(key: key);
+class CustomOverlay extends StatelessWidget {
+  const CustomOverlay({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
-        drawer: drawerWidget(context),
-        appBar: AppBar(
-          // leading: IconButton(onPressed: () {
-          //   Navigator.pop(context);
-          // }, icon: Icon(Icons.arrow_back_rounded)),
-          backgroundColor: Colors.black,
-          iconTheme: const IconThemeData(color: Colors.white),
-          title: Image.asset('assets/logo.png',width: 135),
-          centerTitle: true,
-          actions: const [
-            Padding(
-              padding: EdgeInsets.only(right: 12.0),
-              child: Icon(Icons.notifications, color: Colors.white),
-            )
-          ],
-        ),
-        body: Container(
-          color: Colors.orange,
-          child: ElevatedButton.icon(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => const ThirdScreen()));
-              }, icon: const Icon(Icons.add), label: const Text('da')),
+        body: Align(
+          alignment: Alignment.bottomCenter,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const SCP7_4()));
+                },
+                child: Container(
+                  height: 40,
+                  width: 100,
+                  alignment: Alignment.center,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFBABABA),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  ),
+                  child: const Text('Highlight', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0)),
+                ),
+              ),
+              const SizedBox(height: 10),
+              InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const SCP7_2()));
+                },
+                child: Container(
+                  height: 40,
+                  width: 100,
+                  alignment: Alignment.center,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFBABABA),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  ),
+                  child: const Text('Post', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0)),
+                ),
+              )
+            ],
+          ),
         ),
       ),
-    );
-  }
-}
-
-class ThirdScreen extends StatelessWidget {
-  const ThirdScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.blue,
     );
   }
 }

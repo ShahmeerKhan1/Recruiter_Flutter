@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp42_1.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'package:recruiter_flutter/widgets/drawer_widget.dart';
+import 'package:recruiter_flutter/school_coach_profile/widget/scp_drawer.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
@@ -68,7 +68,7 @@ class _SCP41_1State extends State<SCP41_1> with SingleTickerProviderStateMixin {
         //   tabs: list,
         // )
       ),
-      drawer: drawerWidget(context),
+      drawer: scpDrawer(context),
       body: SingleChildScrollView(
         child: Column(
           children: [

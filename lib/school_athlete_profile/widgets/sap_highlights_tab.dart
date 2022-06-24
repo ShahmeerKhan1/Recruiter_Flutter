@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:recruiter_flutter/controller/new_highlight_controller.dart';
+import 'package:recruiter_flutter/school_athlete_profile/controller/new_highlight_sap.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/comment_widget.dart';
 import 'package:recruiter_flutter/widgets/video_controller.dart';
@@ -44,7 +45,7 @@ class _SAP_Highlights_TabState extends State<SAP_Highlights_Tab> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: GetBuilder<HighlightController>(
+      child: GetBuilder<HighlightControllerSAP>(
           builder: (_cont) {
             return _cont.highlightList.isNotEmpty ? ListView.builder(
                 itemCount: _cont.highlightList.length,

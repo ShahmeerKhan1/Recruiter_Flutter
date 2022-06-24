@@ -4,6 +4,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:recruiter_flutter/college_transfer_profile/controller/new_highlight_ctp.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/controller/new_highlight_controller.dart';
@@ -341,7 +342,7 @@ class _CTP7_4State extends State<CTP7_4> {
                             if ((title.text != "") &&
                                 (description.text != "") &&
                                 (_VideoController != null)) {
-                              Get.put(HighlightController()).highlightList.add(
+                              Get.put(HighlightControllerCTP()).highlightList.add(
                                   HighLightTabModel(
                                       profileImg: 'assets/drawer_img.png',
                                       userName: 'Martin Mangram ',
@@ -355,7 +356,7 @@ class _CTP7_4State extends State<CTP7_4> {
                                       VideoController: _VideoController,
                                       initializeVideoPlayerFuture:
                                           _initializeVideoPlayerFuture));
-                              Get.offAll(const CTP_7());
+                              Get.off(const CTP_7());
                             } else {
                               Get.snackbar(
                                   'Note',

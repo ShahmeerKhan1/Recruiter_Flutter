@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_30_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_31.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
+import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_posts_tab.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_highlight_widget.dart';
-import 'package:recruiter_flutter/widgets/custom_post_widget.dart';
 
 class CTP28_1 extends StatefulWidget {
   const CTP28_1({Key? key}) : super(key: key);
@@ -365,7 +365,7 @@ class _CTP28_1State extends State<CTP28_1> with SingleTickerProviderStateMixin {
                     controller: _controller,
                     physics: const NeverScrollableScrollPhysics(),
                     children: [
-                      postsTab(), // custom Post Widget
+                      ctpPostsTab(), // custom Post Widget
                       const CustomHighlightWidget(),
                       const TopSchools(),
                       const Offers(),

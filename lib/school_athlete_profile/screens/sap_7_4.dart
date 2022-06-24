@@ -7,6 +7,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/controller/new_highlight_controller.dart';
 import 'package:recruiter_flutter/model/highlight_tab_model.dart';
+import 'package:recruiter_flutter/school_athlete_profile/controller/new_highlight_sap.dart';
 import 'package:recruiter_flutter/school_athlete_profile/screens/sap_7.dart';
 import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_app_bar.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -83,6 +84,7 @@ class _SAP7_4State extends State<SAP7_4> {
       floatingActionButton: _VideoController == null
           ? null
           : FloatingActionButton(
+        heroTag: "sapFab",
               backgroundColor: AppColor.yellowColor,
               onPressed: () {
                 // Wrap the play or pause in a call to `setState`. This ensures the
@@ -293,7 +295,7 @@ class _SAP7_4State extends State<SAP7_4> {
                             if ((title.text != "") &&
                                 (description.text != "") &&
                                 (_VideoController != null)) {
-                              Get.put(HighlightController()).highlightList.add(
+                              Get.put(HighlightControllerSAP()).highlightList.add(
                                   HighLightTabModel(
                                       profileImg: 'assets/drawer_img.png',
                                       userName: 'Martin Mangram ',
@@ -307,7 +309,7 @@ class _SAP7_4State extends State<SAP7_4> {
                                       VideoController: _VideoController,
                                       initializeVideoPlayerFuture:
                                           _initializeVideoPlayerFuture));
-                              Get.offAll(const SAP_7());
+                              Get.off(const SAP_7());
                             } else {
                               Get.snackbar(
                                   'Note',

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_16_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_17_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_20_1.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_44_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
 import 'package:recruiter_flutter/model/messages_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -18,6 +19,8 @@ class CTP15_1 extends StatefulWidget {
 class _CTP15_1State extends State<CTP15_1> with SingleTickerProviderStateMixin {
 
   late TabController _controller;
+
+  bool _notification = false;
 
   int _selectedIndex = 0; //  Tab Bar Index
 
@@ -54,10 +57,19 @@ class _CTP15_1State extends State<CTP15_1> with SingleTickerProviderStateMixin {
             iconTheme: const IconThemeData(color: Colors.white),
             title: const Text('Messages'),
             centerTitle: true,
-            actions: const [
+            actions: [
               Padding(
                 padding: EdgeInsets.only(right: 12.0),
-                child: Icon(Icons.notifications, color: Colors.white),
+                child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      _notification = true;
+                    });
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => CTP_44_1()));
+                  },
+                  child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                      : Icon(Icons.notifications_none),
+                ),
               ),
             ],
             bottom: TabBar(

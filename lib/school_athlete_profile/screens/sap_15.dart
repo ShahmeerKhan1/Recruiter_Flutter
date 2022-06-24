@@ -46,6 +46,8 @@ class _SAP_15State extends State<SAP_15> with SingleTickerProviderStateMixin {
     });
   }
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -57,15 +59,20 @@ class _SAP_15State extends State<SAP_15> with SingleTickerProviderStateMixin {
             title: const Text('Messages'),
             centerTitle: true,
             actions: [
-              InkWell(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_44()));
-                },
-                child: Padding(
-                  padding: EdgeInsets.only(right: 12.0),
-                  child: Icon(Icons.notifications, color: Colors.white),
+              Padding(
+                padding: const EdgeInsets.only(right: 10.0),
+                child: InkWell(
+                    onTap: () {
+                      setState(() {
+                        _notification = true;
+                      });
+                      print('noti');
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_44()));
+                    },
+                    child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                        : Icon(Icons.notifications_none)
                 ),
-              ),
+              )
             ],
             bottom: TabBar(
               labelStyle:

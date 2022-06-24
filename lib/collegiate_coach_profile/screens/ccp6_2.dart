@@ -1,5 +1,6 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:pattern_formatter/pattern_formatter.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp6_3.dart';
@@ -46,6 +47,8 @@ class _CCP6_2State extends State<CCP6_2> {
   final _schoolFormKey = GlobalKey<FormState>();
   final _stateFormKey = GlobalKey<FormState>();
   final _cityFormKey = GlobalKey<FormState>();
+
+  int selectedIndex = -1;
 
   @override
   void initState() {
@@ -166,6 +169,7 @@ class _CCP6_2State extends State<CCP6_2> {
                                       gender.isSelected = false;
                                     }
                                     genders[index].isSelected = true;
+                                    selectedIndex=index;
                                   });
                                 },
                                 child: CustomRadio(genders[index]).genderWidget(),
@@ -482,7 +486,7 @@ class _CCP6_2State extends State<CCP6_2> {
                           fontSize: 16.0),
                     ),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => const CCP6_3()));
+                      choosePath();
                     },
                     style: ElevatedButton.styleFrom(
                       primary: AppColor.goldenColor,
@@ -495,5 +499,22 @@ class _CCP6_2State extends State<CCP6_2> {
         ),
       ),
     );
+  }
+
+  choosePath(){
+    switch(selectedIndex){
+      case -1:
+        Get.snackbar("Note", "Please select Gender", snackPosition: SnackPosition.BOTTOM,
+            backgroundColor: AppColor.goldenColor,colorText: Colors.white);
+        break;
+      case 0:
+        Navigator.push(context, MaterialPageRoute(builder: (_) => const CCP6_3()));
+        print('index 0');
+        break;
+      case 1:
+        Navigator.push(context, MaterialPageRoute(builder: (_) => const CCP6_3()));
+        print('index 1');
+        break;
+    }
   }
 }

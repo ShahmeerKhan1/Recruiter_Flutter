@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/model/events_model.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp34_1.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp35_1.dart';
+import 'package:recruiter_flutter/school_coach_profile/widget/scp_app_bar.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'package:recruiter_flutter/widgets/custom_app_bar.dart';
 
 class SCP32_1 extends StatefulWidget {
   final EventsModel data;

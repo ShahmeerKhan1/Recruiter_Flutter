@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_42.dart';
+import 'package:recruiter_flutter/school_coach_profile/screens/scp42_1.dart';
 
 AppBar scpAppBar(String title, IconData icon, BuildContext context) {
   return AppBar(
@@ -10,7 +11,7 @@ AppBar scpAppBar(String title, IconData icon, BuildContext context) {
     actions: [
       InkWell(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_42()));
+          Navigator.push(context, MaterialPageRoute(builder: (_) => SCP42_1()));
         },
         child: Padding(
           padding: const EdgeInsets.only(right: 12.0),

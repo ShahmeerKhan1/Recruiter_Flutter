@@ -46,47 +46,57 @@ class _SAP_39State extends State<SAP_39> with SingleTickerProviderStateMixin {
     });
   }
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: sapDrawer(context),
-      appBar: AppBar(
-          backgroundColor: Colors.black,
-          iconTheme: const IconThemeData(color: Colors.white),
-          title: const Text('Recruiting', style: TextStyle(color: Colors.white)),
-          centerTitle: true,
-          actions: [
-            InkWell(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_44()));
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        drawer: sapDrawer(context),
+        appBar: AppBar(
+            backgroundColor: Colors.black,
+            iconTheme: const IconThemeData(color: Colors.white),
+            title: const Text('Recruiting', style: TextStyle(color: Colors.white)),
+            centerTitle: true,
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(right: 10.0),
+                child: InkWell(
+                    onTap: () {
+                      setState(() {
+                        _notification = true;
+                      });
+                      print('noti');
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_44()));
+                    },
+                    child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                        : Icon(Icons.notifications_none)
+                ),
+              )
+            ],
+            bottom: TabBar(
+              labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+              labelColor: Colors.white,
+              unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
+              indicatorColor: Colors.white,
+              onTap: (index) {
+                print('Tab $index is tapped');
+                // Should not used it as it only called when tab options are clicked,
+                // not when user swapped
               },
-              child: Padding(
-                padding: EdgeInsets.only(right: 16.0),
-                child: Icon(Icons.notifications),
-              ),
+              controller: _controller,
+              tabs: list,
             ),
+        ),
+        body: TabBarView(
+          controller: _controller,
+          physics: const NeverScrollableScrollPhysics(),
+          children: [
+            Offers(),
+            TopSchools(),
           ],
-          bottom: TabBar(
-            labelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-            labelColor: Colors.white,
-            unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
-            indicatorColor: Colors.white,
-            onTap: (index) {
-              print('Tab $index is tapped');
-              // Should not used it as it only called when tab options are clicked,
-              // not when user swapped
-            },
-            controller: _controller,
-            tabs: list,
-          ),
-      ),
-      body: TabBarView(
-        controller: _controller,
-        physics: const NeverScrollableScrollPhysics(),
-        children: [
-          Offers(),
-          TopSchools(),
-        ],
+        ),
       ),
     );
   }

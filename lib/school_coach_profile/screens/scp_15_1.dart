@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/model/messages_model.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp_17_1.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'package:recruiter_flutter/widgets/drawer_widget.dart';
+import 'package:recruiter_flutter/school_coach_profile/widget/scp_drawer.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
+
+import 'scp42_1.dart';
 
 class SCP15_1 extends StatefulWidget {
   const SCP15_1({Key? key}) : super(key: key);
@@ -41,6 +43,8 @@ class _SCP15_1State extends State<SCP15_1> with SingleTickerProviderStateMixin {
     });
   }
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -49,13 +53,23 @@ class _SCP15_1State extends State<SCP15_1> with SingleTickerProviderStateMixin {
         appBar: AppBar(
             backgroundColor: Colors.black,
             iconTheme: const IconThemeData(color: Colors.white),
-            title: Image.asset('assets/logo.png', width: 135),
+            title: Text('Messages'),
             centerTitle: true,
-            actions: const [
-              Padding(
-                padding: EdgeInsets.only(right: 12.0),
-                child: Icon(Icons.notifications, color: Colors.white),
-              ),
+            actions: [
+        Padding(
+        padding: const EdgeInsets.only(right: 10.0),
+        child: InkWell(
+            onTap: () {
+              setState(() {
+                _notification = true;
+              });
+              print('noti');
+              Navigator.push(context, MaterialPageRoute(builder: (_) => SCP42_1()));
+            },
+            child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                : Icon(Icons.notifications_none)
+        ),
+      )
             ],
             bottom: TabBar(
               labelStyle:
@@ -71,7 +85,7 @@ class _SCP15_1State extends State<SCP15_1> with SingleTickerProviderStateMixin {
               controller: _controller,
               tabs: list,
             )),
-        drawer: drawerWidget(context),
+        drawer: scpDrawer(context),
         floatingActionButton: FloatingActionButton(
           backgroundColor: AppColor.goldenColor,
           onPressed: () {

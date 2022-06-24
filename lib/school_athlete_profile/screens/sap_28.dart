@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
 import 'package:recruiter_flutter/school_athlete_profile/screens/sap_30.dart';
 import 'package:recruiter_flutter/school_athlete_profile/screens/sap_31.dart';
+import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_post_tab.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_highlight_widget.dart';
-import 'package:recruiter_flutter/widgets/custom_post_widget.dart';
 
 class SAP_28 extends StatefulWidget {
   const SAP_28({Key? key}) : super(key: key);
@@ -365,7 +365,7 @@ class _SAP_28State extends State<SAP_28> with SingleTickerProviderStateMixin {
                     controller: _controller,
                     physics: const NeverScrollableScrollPhysics(),
                     children: [
-                      postsTab(), // custom Post Widget
+                      sapPostTab(), // custom Post Widget
                       const CustomHighlightWidget(),
                       const TopSchools(),
                       const Offers(),

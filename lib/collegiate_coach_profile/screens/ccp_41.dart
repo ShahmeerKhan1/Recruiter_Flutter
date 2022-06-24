@@ -24,6 +24,8 @@ class _CCP_41State extends State<CCP_41> with SingleTickerProviderStateMixin {
     const Tab(text: 'Posts'),
   ];
 
+  bool _notification = false;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -42,109 +44,118 @@ class _CCP_41State extends State<CCP_41> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: InkWell(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_42()));
-                },
-                child: const Icon(Icons.notifications)),
-          ),
-        ],
-        // bottom: TabBar(
-        //   labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-        //   labelColor: Colors.white,
-        //   unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
-        //   indicatorColor: Colors.white,
-        //   onTap: (index) {
-        //     print('Tab $index is tapped');
-        //     // Should not used it as it only called when tab options are clicked,
-        //     // not when user swapped
-        //   },
-        //   controller: _controller,
-        //   tabs: list,
-        // )
-      ),
-      drawer: ccp_drawer(context),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        appBar: AppBar(
+          actions: [
             Padding(
-              padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-              child: TextField(
-                  controller: _search,
-                  style: const TextStyle(color: Colors.white),
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.only(left: 12.0),
-                    filled: true,
-                    fillColor: const Color(0xFF111111),
-                    floatingLabelBehavior: FloatingLabelBehavior.never,
-                    labelText: "Search",
-                    labelStyle: const TextStyle(color: Color(0xFF686868)),
-                    suffixIcon: const Icon(Icons.search, color: Color(0xFF686868)),
-                    //  prefixIcon: Icon(Icons.people),
-                    border: myinputborder(),
-                    enabledBorder: myinputborder(),
-                    focusedBorder: myfocusborder(),
-                  )),
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 10.0),
-              child: TabBar(
-                //  isScrollable: true,
-                labelStyle:
-                const TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-                labelColor: Colors.white,
-                unselectedLabelStyle:
-                TextStyle(color: AppColor.greyBorderColor),
-                indicatorColor: Colors.white,
-                onTap: (index) {
-                  print('Tab $index is tapped');
-                  // Should not used it as it only called when tab options are clicked,
-                  // not when user swapped
-                },
-                controller: _controller,
-                tabs: list,
+              padding: const EdgeInsets.only(right: 16.0),
+              child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      _notification = true;
+                    });
+                    print('noti');
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_42()));
+                  },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none),
               ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height,
-              width: double.maxFinite,
-              //  color: Colors.blue,
-              child: TabBarView(
-                controller: _controller,
-                physics: const NeverScrollableScrollPhysics(),
-                children: [
-                  const All(),
-                  Container(),
-                  Container(),
-                  //  CustomHighlightWidget(), // custom hightlight widget
-                  // Container(
-                  //   color: Colors.green,
-                  // )
-                ],
-              ),
-            ),
+            )
           ],
+          // bottom: TabBar(
+          //   labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+          //   labelColor: Colors.white,
+          //   unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
+          //   indicatorColor: Colors.white,
+          //   onTap: (index) {
+          //     print('Tab $index is tapped');
+          //     // Should not used it as it only called when tab options are clicked,
+          //     // not when user swapped
+          //   },
+          //   controller: _controller,
+          //   tabs: list,
+          // )
         ),
+        drawer: ccp_drawer(context),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+                child: TextField(
+                    controller: _search,
+                    style: const TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.only(left: 12.0),
+                      filled: true,
+                      fillColor: const Color(0xFF111111),
+                      floatingLabelBehavior: FloatingLabelBehavior.never,
+                      labelText: "Search",
+                      labelStyle: const TextStyle(color: Color(0xFF686868)),
+                      suffixIcon: const Icon(Icons.search, color: Color(0xFF686868)),
+                      //  prefixIcon: Icon(Icons.people),
+                      border: myinputborder(),
+                      enabledBorder: myinputborder(),
+                      focusedBorder: myfocusborder(),
+                    )),
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 10.0),
+                child: TabBar(
+                  //  isScrollable: true,
+                  labelStyle:
+                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                  labelColor: Colors.white,
+                  unselectedLabelStyle:
+                  TextStyle(color: AppColor.greyBorderColor),
+                  indicatorColor: Colors.white,
+                  onTap: (index) {
+                    print('Tab $index is tapped');
+                    // Should not used it as it only called when tab options are clicked,
+                    // not when user swapped
+                  },
+                  controller: _controller,
+                  tabs: list,
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height,
+                width: double.maxFinite,
+                //  color: Colors.blue,
+                child: TabBarView(
+                  controller: _controller,
+                  physics: const NeverScrollableScrollPhysics(),
+                  children: [
+                    const All(),
+                    Container(),
+                    Container(),
+                    //  CustomHighlightWidget(), // custom hightlight widget
+                    // Container(
+                    //   color: Colors.green,
+                    // )
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        // body: TabBarView(
+        //   controller: _controller,
+        //   physics: NeverScrollableScrollPhysics(),
+        //   children: [
+        //     Container(),
+        //     Container(),
+        //     Container(),
+        //     //  Team(),
+        //     //  Offered()// custom hightlight widget
+        //     // Container(
+        //     //   color: Colors.green,
+        //     // )
+        //   ],
+        // ),
       ),
-      // body: TabBarView(
-      //   controller: _controller,
-      //   physics: NeverScrollableScrollPhysics(),
-      //   children: [
-      //     Container(),
-      //     Container(),
-      //     Container(),
-      //     //  Team(),
-      //     //  Offered()// custom hightlight widget
-      //     // Container(
-      //     //   color: Colors.green,
-      //     // )
-      //   ],
-      // ),
     );
   }
 }

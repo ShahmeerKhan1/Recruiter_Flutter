@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp36_2.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_42.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_offer_detail.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_drawer.dart';
 import 'package:recruiter_flutter/controller/new_offer.dart';
@@ -25,6 +26,8 @@ class _CCP36State extends State<CCP36_1> with SingleTickerProviderStateMixin {
     const Tab(text: 'Offer Sent'),
     const Tab(text: 'Committed'),
   ];
+
+  bool _notification = false;
 
   @override
   void initState() {
@@ -53,10 +56,20 @@ class _CCP36State extends State<CCP36_1> with SingleTickerProviderStateMixin {
           iconTheme: const IconThemeData(color: Colors.white),
           title: const Text('Recruiting', style: TextStyle(color: Colors.white)),
           centerTitle: true,
-          actions: const [
+          actions: [
             Padding(
-              padding: EdgeInsets.only(right: 12.0),
-              child: Icon(Icons.notifications, color: Colors.white),
+              padding: const EdgeInsets.only(right: 10.0),
+              child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      _notification = true;
+                    });
+                    print('noti');
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_42()));
+                  },
+                  child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                      : Icon(Icons.notifications_none)
+              ),
             )
           ],
           bottom: TabBar(

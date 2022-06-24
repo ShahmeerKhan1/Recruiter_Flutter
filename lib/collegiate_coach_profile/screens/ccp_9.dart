@@ -184,9 +184,14 @@ class _CCP_9State extends State<CCP_9> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 16.0),
                 child: Container(
-                  height: MediaQuery.of(context).size.height * 0.46,
-                  width: MediaQuery.of(context).size.width,
-                  padding: const EdgeInsets.all(10.0),
+                  height: widget.data.img != null ?
+                  MediaQuery.of(context).size.height * 0.46 :
+                  MediaQuery.of(context).size.height * 0.145,
+                  width: MediaQuery
+                      .of(context)
+                      .size
+                      .width,
+                  padding: EdgeInsets.only(left: 10, right: 10, top: 10),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12.0),
                     color: const Color(0xFF111111),
@@ -198,9 +203,9 @@ class _CCP_9State extends State<CCP_9> {
                           children: [
                             CircleAvatar(
                               backgroundImage: AssetImage(widget.data.profileImg),
-                              radius: 28,
+                              radius: 24,
                             ),
-                            const SizedBox(width: 6),
+                            const SizedBox(width: 10),
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -237,7 +242,7 @@ class _CCP_9State extends State<CCP_9> {
                                     child: Text(
                                       widget.data.desc,
                                       style: const TextStyle(
-                                          color: Colors.white, fontSize: 12),
+                                          color: Colors.white, fontSize: 13),
                                     ),
                                   )
                                 ],
@@ -247,13 +252,16 @@ class _CCP_9State extends State<CCP_9> {
                         ),
                       ),
                       const SizedBox(height: 10),
-                      Expanded(
-                        flex: 4,
+                      widget.data.img != null ? Expanded(
+                        flex: 5,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             Expanded(child: widget.data.img != null ?
-                            Image.file(widget.data.img!, fit: BoxFit.fill) : Container())
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 8.0),
+                              child: Image.file(widget.data.img!, fit: BoxFit.fill),
+                            ) : Container())
                             // Row(
                             //   children: [
                             //     Expanded(
@@ -307,57 +315,76 @@ class _CCP_9State extends State<CCP_9> {
                             // ),
                           ],
                         ),
-                      ),
-                      const SizedBox(height: 16),
-                      Row(
-                        children: [
-                          Row(
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    _hearReact = !_hearReact;
-                                  });
-                                  print('toggle');
-                                },
-                                child: Icon(Icons.favorite,
-                                    color: _hearReact ? Colors.red : AppColor.greyBorderColor, size: 20),
-                              ),
-                              const SizedBox(width: 2),
-                              Text(
-                                widget.data.like,
-                                style:
-                                TextStyle(color: AppColor.greyBorderColor),
-                              )
-                            ],
-                          ),
-                          const SizedBox(width: 26),
-                          Row(
-                            children: [
-                              Icon(Icons.comment,
-                                  color: AppColor.greyBorderColor, size: 20),
-                              const SizedBox(width: 2),
-                              Text(widget.data.comment,
-                                  style: TextStyle(
-                                      color: AppColor.greyBorderColor))
-                            ],
-                          ),
-                          const SizedBox(width: 26),
-                          Row(
-                            children: [
-                              Icon(Icons.star,
-                                  color: AppColor.greyBorderColor, size: 20),
-                              const SizedBox(width: 2),
-                              Text(widget.data.star,
-                                  style: TextStyle(
-                                      color: AppColor.greyBorderColor))
-                            ],
-                          ),
-                          // SizedBox(width: 16),
-                          const Spacer(),
-                          Icon(Icons.share,
-                              color: AppColor.greyBorderColor, size: 20),
-                        ],
+                      ) : Container(),
+                    //  const SizedBox(height: 16),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0, left: 2),
+                        child: Row(
+                          children: [
+                            Row(
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      widget.data.heartReact = !widget.data.heartReact;
+                                    });
+                                    print('toggle');
+                                  },
+                                  child: Row(
+                                    children: [
+                                      !widget.data.heartReact ? Icon(Icons.favorite_outline,
+                                          color: AppColor.greyBorderColor, size: 20)
+                                          : Icon(Icons.favorite,
+                                          color: Colors.red, size: 20),
+                                      const SizedBox(width: 4),
+                                      Text(
+                                        widget.data.like,
+                                        style:
+                                        TextStyle(color: AppColor.greyBorderColor),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(width: 30),
+                            Row(
+                              children: [
+                                Icon(Icons.comment,
+                                    color: AppColor.greyBorderColor, size: 20),
+                                const SizedBox(width: 2),
+                                Text(widget.data.comment,
+                                    style: TextStyle(
+                                        color: AppColor.greyBorderColor))
+                              ],
+                            ),
+                            const SizedBox(width: 30),
+                            Row(
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      widget.data.starReact = !widget.data.starReact;
+                                      print('togle');
+                                    });
+                                  },
+                                  child: !widget.data.starReact ? Icon(Icons.star_border,
+                                      color: AppColor.greyBorderColor, size: 20)
+                                      : Icon(Icons.star,
+                                      color: AppColor.goldenColor, size: 20),
+                                ),
+                                const SizedBox(width: 4),
+                                Text(widget.data.star,
+                                    style: TextStyle(
+                                        color: AppColor.greyBorderColor))
+                              ],
+                            ),
+                            // SizedBox(width: 16),
+                            const Spacer(),
+                            Icon(Icons.share,
+                                color: AppColor.greyBorderColor, size: 20),
+                          ],
+                        ),
                       )
                     ],
                   ),
@@ -593,10 +620,10 @@ class _CCP_9State extends State<CCP_9> {
                               children: [
                                 Row(
                                   children: [
-                                    Icon(Icons.favorite,
+                                    Icon(Icons.favorite_outline,
                                         color: AppColor.greyBorderColor,
                                         size: 20),
-                                    const SizedBox(width: 2),
+                                    const SizedBox(width: 4),
                                     Text(
                                       _list[index].like,
                                       style: TextStyle(
@@ -604,13 +631,13 @@ class _CCP_9State extends State<CCP_9> {
                                     )
                                   ],
                                 ),
-                                const SizedBox(width: 26),
+                                const SizedBox(width: 30),
                                 Row(
                                   children: [
                                     Icon(Icons.comment,
                                         color: AppColor.greyBorderColor,
                                         size: 20),
-                                    const SizedBox(width: 2),
+                                    const SizedBox(width: 4),
                                     Text(_list[index].comment,
                                         style: TextStyle(
                                             color: AppColor.greyBorderColor))

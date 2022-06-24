@@ -29,6 +29,14 @@ class _SAP_7State extends State<SAP_7> with SingleTickerProviderStateMixin {
     GlobalKey<NavigatorState>(),
   ];
 
+  late final TabController tabController;
+
+  @override
+  void initState() {
+    tabController = TabController(length: 5, vsync: this);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -55,51 +63,84 @@ class _SAP_7State extends State<SAP_7> with SingleTickerProviderStateMixin {
               .of(context)
               .size
               .width,
-          color: Colors.white,
-          child: BottomNavigationBar(
-            backgroundColor: Colors.black,
-            selectedItemColor: AppColor.goldenColor,
-            unselectedItemColor: AppColor.greyBorderColor,
-            type: BottomNavigationBarType.fixed,
-            // backgroundColor: Colors.black,
-            // selectedItemColor: Colors.white,
-            // selectedLabelStyle: TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0),
-            // unselectedItemColor: AppColor.greyBorderColor,
-            // //   selectedLabelStyle: TextStyle(color: AppColors.purpleColor, fontWeight: FontWeight.w500),
-            // unselectedLabelStyle: TextStyle(fontSize: 15.0),
-            // type: BottomNavigationBarType.fixed,
-            // backgroundColor: AppColors.bgColor,
-            elevation: 0,
-            // selectedIconTheme: IconThemeData(opacity: 0.0, size: 0),
-            // unselectedIconTheme: IconThemeData(opacity: 0.0, size: 0),
-            // onTap: onTabTapped,
+          alignment: Alignment.center,
+          padding: EdgeInsets.all(0.0),
+          // padding: EdgeInsets.only(right: 6.0, left: 0.0),
+          color: Colors.black,
+          child: TabBar(
+            labelStyle: TextStyle(fontFamily: 'Helvetica', fontSize: 13.0, fontWeight: FontWeight.w100),
+            unselectedLabelStyle: TextStyle(fontFamily: 'Helvetica', fontSize: 13.0),
+            isScrollable: true,
+            padding: EdgeInsets.zero,
+            controller: tabController,
+            // labelPadding: EdgeInsets.only(right: 6.0, left: 6),
+            unselectedLabelColor: AppColor.greyBorderColor,
+            indicatorColor: Colors.white,
+            indicatorSize: TabBarIndicatorSize.label,
+            indicatorPadding: EdgeInsets.only(bottom: 18),
+            labelColor: Colors.white,
             onTap: (index) {
               setState(() {
                 _navSelectedIndex = index;
-                print('nav item index $index');
               });
             },
-            currentIndex: _navSelectedIndex,
-            items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: ''),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.work),
-                  //  icon: SvgPicture.asset('assets/bottom_nav_office.svg'),
-                  label: ''),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.add_circle_outline, size: 38),
-                  //  icon: SvgPicture.asset('assets/bottom_nav_add.svg'),
-                  label: ''),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.email),
-                  //  icon: SvgPicture.asset('assets/bottom_nav_mail.svg'),
-                  label: ''),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.search),
-                  // icon: SvgPicture.asset('assets/bottom_nav_search.svg'),
-                  label: '')
+            tabs: const [
+              Tab(text: 'Home',),
+              Tab(text: 'Recruiting'),
+              Tab(text: 'Create'),
+              Tab(text: 'Messages'),
+              Tab(text: 'Search'),
             ],
           ),
+          // BottomNavigationBar(
+          //   backgroundColor: Colors.black,
+          //   selectedItemColor: Colors.white,
+          //   selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0),
+          //   //   selectedLabelStyle: TextStyle(color: AppColors.purpleColor, fontWeight: FontWeight.w500),
+          //   unselectedLabelStyle: const TextStyle(fontSize: 15.0),
+          //   unselectedItemColor: AppColor.greyBorderColor,
+          //   type: BottomNavigationBarType.fixed,
+          //   selectedIconTheme: const IconThemeData(opacity: 0.0, size: 0),
+          //   unselectedIconTheme: const IconThemeData(opacity: 0.0, size: 0),
+          //   // backgroundColor: Colors.black,
+          //   // selectedItemColor: Colors.white,
+          //   // selectedLabelStyle: TextStyle(fontWeight: FontWeight.w500, fontSize: 15.0),
+          //   // unselectedItemColor: AppColor.greyBorderColor,
+          //   // //   selectedLabelStyle: TextStyle(color: AppColors.purpleColor, fontWeight: FontWeight.w500),
+          //   // unselectedLabelStyle: TextStyle(fontSize: 15.0),
+          //   // type: BottomNavigationBarType.fixed,
+          //   // backgroundColor: AppColors.bgColor,
+          //   elevation: 0,
+          //   // selectedIconTheme: IconThemeData(opacity: 0.0, size: 0),
+          //   // unselectedIconTheme: IconThemeData(opacity: 0.0, size: 0),
+          //   // onTap: onTabTapped,
+          //   onTap: (index) {
+          //     setState(() {
+          //       _navSelectedIndex = index;
+          //       print('nav item index $index');
+          //     });
+          //   },
+          //   currentIndex: _navSelectedIndex,
+          //   items: const [
+          //     BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Home'),
+          //     BottomNavigationBarItem(
+          //         icon: Icon(Icons.work),
+          //         //  icon: SvgPicture.asset('assets/bottom_nav_office.svg'),
+          //         label: 'Recruiting'),
+          //     BottomNavigationBarItem(
+          //         icon: Icon(Icons.add_circle_outline),
+          //         //  icon: SvgPicture.asset('assets/bottom_nav_add.svg'),
+          //         label: 'Create'),
+          //     BottomNavigationBarItem(
+          //         icon: Icon(Icons.email),
+          //         //  icon: SvgPicture.asset('assets/bottom_nav_mail.svg'),
+          //         label: 'Messages'),
+          //     BottomNavigationBarItem(
+          //         icon: Icon(Icons.search),
+          //         // icon: SvgPicture.asset('assets/bottom_nav_search.svg'),
+          //         label: 'Search')
+          //   ],
+          // ),
         ),
       ),
     );
@@ -141,11 +182,11 @@ class CustomOverlay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Align(
-          alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 36.0),
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+          body: Align(
+            alignment: Alignment.bottomCenter,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.end,
@@ -184,7 +225,7 @@ class CustomOverlay extends StatelessWidget {
               ],
             ),
           ),
-        ),
+      ),
     );
   }
 }

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/school_coach_profile/screens/bookmarks.dart';
+import 'package:recruiter_flutter/school_coach_profile/screens/profile.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp26_1.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp31_1.dart';
+import 'package:recruiter_flutter/school_coach_profile/screens/scp_43.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
-Widget drawerWidget(BuildContext context) {
+Widget scpDrawer(BuildContext context) {
   return SizedBox(
     width: MediaQuery.of(context).size.width * 0.70,
     // color: Colors.purple,
@@ -19,7 +20,7 @@ Widget drawerWidget(BuildContext context) {
                 _drawerHeader(context),
                 ListTile(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => const SCP26_1()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => const Profile()));
                  //   Navigator.pushReplacementNamed(context, Routes.profile);
                   },
                   leading: Image.asset('assets/small_profile.png'),
@@ -41,7 +42,7 @@ Widget drawerWidget(BuildContext context) {
                 ),
                 ListTile(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => const Bookmarks()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => SCP43()));
                  //   Navigator.pushReplacementNamed(context, Routes.bookmarks);
                   },
                   leading: Image.asset('assets/bookmarks.png'),
