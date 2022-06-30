@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:recruiter_flutter/college_transfer_profile/controller/ctp_event_controller.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_35_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_38_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_event_detail.dart';
@@ -10,6 +11,8 @@ import 'package:recruiter_flutter/controller/new_event.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
+
+import 'ctp_44_1.dart';
 
 class CTP34_1 extends StatefulWidget {
 
@@ -27,13 +30,40 @@ class _CTP34_1State extends State<CTP34_1> {
   void initState() {
     super.initState();
 
-    Get.put(EventController());
+    Get.put(CTPEventController());
   }
+
+  bool _notification = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ctpAppBar('Events', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('Events', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP_44_1()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       drawer: customDrawer(context),
       body: SingleChildScrollView(
         child: Column(
@@ -124,7 +154,7 @@ class _CTP34_1State extends State<CTP34_1> {
                  //  mainAxisAlignment: MainAxisAlignment.center,
                  // crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  GetBuilder<EventController>(
+                  GetBuilder<CTPEventController>(
                     builder: (_event) {
                       if(_event.eventLists.isNotEmpty) {
                         return ListView.builder(
@@ -135,7 +165,8 @@ class _CTP34_1State extends State<CTP34_1> {
                             itemBuilder: (BuildContext context, index) {
                               return InkWell(
                                 onTap: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (_) => CTPEventDetail(data: _event.eventLists[index])));
+                                  Navigator.push(context, MaterialPageRoute(builder: (_) =>
+                                      CTPEventDetail(data: _event.eventLists[index])));
                                 },
                                 child: Container(
                                   height: MediaQuery.of(context).size.height * 0.31,

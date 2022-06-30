@@ -6,6 +6,8 @@ import 'package:recruiter_flutter/school_coach_profile/screens/scp34_1.dart';
 import 'package:recruiter_flutter/school_coach_profile/widget/scp_app_bar.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
+import 'scp42_1.dart';
+
 class SCPEventDetail extends StatefulWidget {
   final EventsModel data;
 
@@ -22,10 +24,37 @@ class _SCPEventDetailState extends State<SCPEventDetail> {
   bool mayBe = false;
   bool notGoing = false;
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: scpAppBar('Events', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('Event', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SCP42_1()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(16.0),

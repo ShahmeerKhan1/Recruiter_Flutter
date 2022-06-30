@@ -4,14 +4,17 @@ import 'package:get/get.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
 import 'package:recruiter_flutter/controller/new_event.dart';
+import 'package:recruiter_flutter/school_athlete_profile/controller/sap_event_controller.dart';
 import 'package:recruiter_flutter/school_athlete_profile/screens/sap_38.dart';
 import 'package:recruiter_flutter/school_athlete_profile/screens/sap_event_detail.dart';
 import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_app_bar.dart';
+import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_drawer.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
 import 'sap_35.dart';
+import 'sap_44.dart';
 
 class SAP_34 extends StatefulWidget {
 
@@ -24,19 +27,45 @@ class SAP_34 extends StatefulWidget {
 class _SAP_34State extends State<SAP_34> {
 
   TextEditingController search = TextEditingController();
+  bool _notification = false;
 
   @override
   void initState() {
     super.initState();
 
-    Get.put(EventController());
+    Get.put(SAPEventController());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: sapAppBar('Events', Icons.notifications, context),
-      drawer: customDrawer(context),
+      appBar: AppBar(
+        title: Text('Events', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_44()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          )
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
+      drawer: sapDrawer(context),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -126,7 +155,7 @@ class _SAP_34State extends State<SAP_34> {
                  //  mainAxisAlignment: MainAxisAlignment.center,
                  // crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  GetBuilder<EventController>(
+                  GetBuilder<SAPEventController>(
                     builder: (_event) {
                       if(_event.eventLists.isNotEmpty) {
                         return ListView.builder(
@@ -137,7 +166,8 @@ class _SAP_34State extends State<SAP_34> {
                             itemBuilder: (BuildContext context, index) {
                               return InkWell(
                                 onTap: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (_) => SAPEventDetail(data: _event.eventLists[index])));
+                                  Navigator.push(context, MaterialPageRoute(builder: (_) =>
+                                      SAPEventDetail(data: _event.eventLists[index])));
                                 },
                                 child: Container(
                                   height: MediaQuery.of(context).size.height * 0.31,

@@ -5,23 +5,24 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_34_1.dart';
-import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/controller/ccp_event_controller.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_31.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_42.dart';
 import 'package:recruiter_flutter/controller/new_event.dart';
 import 'package:recruiter_flutter/model/events_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
-class NewEvent extends StatefulWidget {
+class CCP_New_Event extends StatefulWidget {
 
-  const NewEvent({Key? key}) : super(key: key);
+  const CCP_New_Event({Key? key}) : super(key: key);
 
   @override
-  _NewEventState createState() => _NewEventState();
+  _CCP_New_EventState createState() => _CCP_New_EventState();
 }
 
-class _NewEventState extends State<NewEvent> {
+class _CCP_New_EventState extends State<CCP_New_Event> {
 
   TextEditingController title = TextEditingController(text: ' ');
   TextEditingController description = TextEditingController(text: ' ');
@@ -93,6 +94,8 @@ class _NewEventState extends State<NewEvent> {
     print(dateFormat.format(tempDate));
   }
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
 
@@ -100,7 +103,32 @@ class _NewEventState extends State<NewEvent> {
     double _width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: ctpAppBar('New Event', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('New Event', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_42()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -402,22 +430,22 @@ class _NewEventState extends State<NewEvent> {
                             readOnly: true,
                             style: const TextStyle(color: Colors.white),
                             onTap: () async {
-                                final TimeOfDay? timePicked = await showTimePicker(
-                                  context: context,
-                                  initialTime: TimeOfDay.now(),
-                                );
-                                if (timePicked != null) {
-                                  setState(() {
-                                    _selectedTime = timePicked;
-                                  });
-                                }
-                                // Conversion logic starts here
-                                DateTime tempDate = DateFormat("hh:mm").parse(
-                                    _selectedTime!.hour.toString() +
-                                        ":" + _selectedTime!.minute.toString());
-                                var dateFormat = DateFormat("h:mm a"); // you can change the format here
-                                to.text = dateFormat.format(tempDate);
-                                print(dateFormat.format(tempDate));
+                              final TimeOfDay? timePicked = await showTimePicker(
+                                context: context,
+                                initialTime: TimeOfDay.now(),
+                              );
+                              if (timePicked != null) {
+                                setState(() {
+                                  _selectedTime = timePicked;
+                                });
+                              }
+                              // Conversion logic starts here
+                              DateTime tempDate = DateFormat("hh:mm").parse(
+                                  _selectedTime!.hour.toString() +
+                                      ":" + _selectedTime!.minute.toString());
+                              var dateFormat = DateFormat("h:mm a"); // you can change the format here
+                              to.text = dateFormat.format(tempDate);
+                              print(dateFormat.format(tempDate));
 
                             },
                             decoration: InputDecoration(
@@ -593,75 +621,75 @@ class _NewEventState extends State<NewEvent> {
                   )
                 ],
               ),
-                  const SizedBox(height: 12),
-                  Row(
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            const Padding(
-                              padding: EdgeInsets.only(left: 6.0),
-                              child: Text(
-                                'Fees',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 16),
-                              ),
-                            ),
-                            const SizedBox(height: 6),
-                            TextField(
-                                controller: fees,
-                                style: const TextStyle(color: Colors.white),
-                                keyboardType: TextInputType.number,
-                                // textAlign: TextAlign.center,
-                                // inputFormatters: [
-                                //   DateInputFormatter(),
-                                // ],
-                                // onSaved: (val) {
-                                //   setState(() {
-                                //     model.desc = val!;
-                                //   });
-                                // },
-                                // onChanged: (val) {
-                                //   //  isTextFieldEmpty();
-                                // },
-                                decoration: InputDecoration(
-                                  filled: true,
-                                  fillColor: const Color(0xFF111111),
-                                  contentPadding: const EdgeInsets.only(
-                                      left: 16.0,
-                                      right: 16,
-                                      top: 0,
-                                      bottom: 0),
-                                  // contentPadding: EdgeInsets.only(left: 16),
-                                  floatingLabelBehavior:
-                                  FloatingLabelBehavior.never,
-                                  // prefixIcon: Icon(Icons.lock),
-                                  // labelText: "MM/DD/YYYY",
-                                  //  labelText: "Reply To Post...",
-                                  labelStyle: const TextStyle(
-                                      color: Color(0xFFBABABA),
-                                      fontSize: 12),
-                                  enabledBorder: myinputborder(),
-                                  focusedBorder: myfocusborder(),
-                                )),
-                          ],
+              const SizedBox(height: 12),
+              Row(
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(left: 6.0),
+                          child: Text(
+                            'Fees',
+                            style: TextStyle(
+                                color: Colors.white, fontSize: 16),
+                          ),
                         ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: const [
-
-                          ],
-                        ),
-                      ),
-                    ],
+                        const SizedBox(height: 6),
+                        TextField(
+                            controller: fees,
+                            style: const TextStyle(color: Colors.white),
+                            keyboardType: TextInputType.number,
+                            // textAlign: TextAlign.center,
+                            // inputFormatters: [
+                            //   DateInputFormatter(),
+                            // ],
+                            // onSaved: (val) {
+                            //   setState(() {
+                            //     model.desc = val!;
+                            //   });
+                            // },
+                            // onChanged: (val) {
+                            //   //  isTextFieldEmpty();
+                            // },
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: const Color(0xFF111111),
+                              contentPadding: const EdgeInsets.only(
+                                  left: 16.0,
+                                  right: 16,
+                                  top: 0,
+                                  bottom: 0),
+                              // contentPadding: EdgeInsets.only(left: 16),
+                              floatingLabelBehavior:
+                              FloatingLabelBehavior.never,
+                              // prefixIcon: Icon(Icons.lock),
+                              // labelText: "MM/DD/YYYY",
+                              //  labelText: "Reply To Post...",
+                              labelStyle: const TextStyle(
+                                  color: Color(0xFFBABABA),
+                                  fontSize: 12),
+                              enabledBorder: myinputborder(),
+                              focusedBorder: myfocusborder(),
+                            )),
+                      ],
+                    ),
                   ),
+                  Expanded(
+                    flex: 1,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: const [
+
+                      ],
+                    ),
+                  ),
+                ],
+              ),
               const SizedBox(height: 26),
               Row(
                 children: [
@@ -675,7 +703,7 @@ class _NewEventState extends State<NewEvent> {
                         },
                         child: Container(
                           height: 44,
-                         // width: _width,
+                          // width: _width,
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                               borderRadius: const BorderRadius.all(
@@ -694,61 +722,61 @@ class _NewEventState extends State<NewEvent> {
                   Expanded(
                     flex: 1,
                     child: InkWell(
-                      onTap: () {
-                        if (title.text == "") {
-                          print('please enter text');
-                        } else {
-                          //  _onSubmit();
-                          //  setState(() {
-                          // //   _addNewGame = !_addNewGame;
-                          //
-                          //  });
-                         // add();
-                          print('navigate new list');
-                          Get.put(EventController()).eventLists.add(
-                            EventsModel(
-                                imgFile: imageFile,
-                                date: date.text,
-                                from: from.text,
-                                to: to.text,
-                                match: title.text,
-                                location: address.text,
-                                desc: description.text,
-                                officeNo: office.text,
-                                city: city.text,
-                                state: state.text,
-                                code: code.text,
-                                rate: fees.text == " " ? fees.text = "Free" : "${"\$"}${fees.text}" ,
-                                share: 'Share'
-                            ),
-                          );
-                           Navigator.push(context, MaterialPageRoute(builder: (_) => const CTP34_1()));
-                        }
-                      },
-                      child: Container(
-                        height: 44,
-                        // width: _width,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(
-                                Radius.circular(10)),
-                            border: Border.all(
-                                color: const Color(0xFFFFEE00),
-                                width: 1.5)),
-                        child: const Text('Create',
-                            style: TextStyle(
-                                color: Color(0xFFFFEE00),
-                                fontWeight: FontWeight.w500,
-                                fontSize: 14.0)),
-                      )
+                        onTap: () {
+                          if (title.text == "") {
+                            print('please enter text');
+                          } else {
+                            //  _onSubmit();
+                            //  setState(() {
+                            // //   _addNewGame = !_addNewGame;
+                            //
+                            //  });
+                            // add();
+                            print('navigate new list');
+                            Get.put(CCPEventController()).eventLists.add(
+                              EventsModel(
+                                  imgFile: imageFile,
+                                  date: date.text,
+                                  from: from.text,
+                                  to: to.text,
+                                  match: title.text,
+                                  location: address.text,
+                                  desc: description.text,
+                                  officeNo: office.text,
+                                  city: city.text,
+                                  state: state.text,
+                                  code: code.text,
+                                  rate: fees.text == " " ? fees.text = "Free" : "${"\$"}${fees.text}" ,
+                                  share: 'Share'
+                              ),
+                            );
+                            Navigator.push(context, MaterialPageRoute(builder: (_) => const CCP_31()));
+                          }
+                        },
+                        child: Container(
+                          height: 44,
+                          // width: _width,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.all(
+                                  Radius.circular(10)),
+                              border: Border.all(
+                                  color: const Color(0xFFFFEE00),
+                                  width: 1.5)),
+                          child: const Text('Create',
+                              style: TextStyle(
+                                  color: Color(0xFFFFEE00),
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 14.0)),
+                        )
                     ),
                   )
                 ],
               ),
             ],
           ),
-    ),
         ),
-      );
+      ),
+    );
   }
 }

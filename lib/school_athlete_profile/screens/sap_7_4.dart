@@ -15,6 +15,8 @@ import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 import 'package:video_player/video_player.dart';
 
+import 'sap_44.dart';
+
 class SAP7_4 extends StatefulWidget {
   const SAP7_4({Key? key}) : super(key: key);
 
@@ -78,8 +80,29 @@ class _SAP7_4State extends State<SAP7_4> {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
 
+   bool _notification = false;
+
     return Scaffold(
-      appBar: sapAppBar('New Highlights', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('New Highlights', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_44()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          )
+        ],
+      ),
       //  resizeToAvoidBottomInset: false,
       floatingActionButton: _VideoController == null
           ? null
@@ -302,6 +325,8 @@ class _SAP7_4State extends State<SAP7_4> {
                                       time: '1m',
                                       title: title.text,
                                       desc: description.text,
+                                      starReact: false,
+                                      heartReact: false,
                                       like: '1.1k',
                                       comment: '2.2k',
                                       star: '2.2k',
@@ -309,7 +334,9 @@ class _SAP7_4State extends State<SAP7_4> {
                                       VideoController: _VideoController,
                                       initializeVideoPlayerFuture:
                                           _initializeVideoPlayerFuture));
-                              Get.off(const SAP_7());
+                            //  Get.off(const SAP_7());
+                              Get.off(() => CustomOverlay());
+                              Get.off(() => SAP_7());
                             } else {
                               Get.snackbar(
                                   'Note',

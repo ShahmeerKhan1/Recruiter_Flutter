@@ -40,33 +40,30 @@ class _SCP41_1State extends State<SCP41_1> with SingleTickerProviderStateMixin {
     });
   }
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text('', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 16.0),
+            padding: const EdgeInsets.only(right: 10.0),
             child: InkWell(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (_) => SCP42_1()));
-              },
-                child: const Icon(Icons.notifications)),
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SCP42_1()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
           ),
         ],
-        // bottom: TabBar(
-        //   labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-        //   labelColor: Colors.white,
-        //   unselectedLabelStyle: TextStyle(color: AppColor.greyBorderColor),
-        //   indicatorColor: Colors.white,
-        //   onTap: (index) {
-        //     print('Tab $index is tapped');
-        //     // Should not used it as it only called when tab options are clicked,
-        //     // not when user swapped
-        //   },
-        //   controller: _controller,
-        //   tabs: list,
-        // )
       ),
       drawer: scpDrawer(context),
       body: SingleChildScrollView(

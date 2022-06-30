@@ -424,7 +424,7 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
                     physics: const NeverScrollableScrollPhysics(),
                     children: [
                       CCP_Posts_Tab(),
-                      const CCP_Highlights_Tab(),
+                      CCP_Highlights_Tab(),
                       const TopSchools(),
                       const Offers(),
                       //  CustomHighlightWidget(), // custom hightlight widget

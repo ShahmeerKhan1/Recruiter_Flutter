@@ -5,6 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/model/post_tab_model.dart';
 import 'package:recruiter_flutter/model/reply_post_model.dart';
+import 'package:recruiter_flutter/school_coach_profile/screens/scp42_1.dart';
 import 'package:recruiter_flutter/school_coach_profile/widget/scp_app_bar.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
@@ -171,12 +172,38 @@ class _SCP9_1State extends State<SCP9_1> {
 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
+  bool _notification = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      appBar: scpAppBar('Post', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('Post', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SCP42_1()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),

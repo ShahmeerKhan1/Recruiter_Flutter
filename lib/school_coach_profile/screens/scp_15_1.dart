@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/model/messages_model.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp_17_1.dart';
+import 'package:recruiter_flutter/school_coach_profile/screens/scp_20_1.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/school_coach_profile/widget/scp_drawer.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
@@ -298,10 +299,12 @@ class _InboxState extends State<Inbox> {
                 return InkWell(
                   onTap: () {
                     print('click');
-                 //   if(_list.any((element) => element.isSelected)){
-                      setState(() {
-                        _list[index].isSelected = !_list[index].isSelected;
-                      });
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => SCP_20_1(data: _list[index].name)));
+
+                    //   if(_list.any((element) => element.isSelected)){
+                    //   setState(() {
+                    //     _list[index].isSelected = !_list[index].isSelected;
+                    //   });
                  //   }
                   },
                   // onLongPress: () {

@@ -3,6 +3,8 @@ import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.d
 import 'package:recruiter_flutter/school_athlete_profile/screens/sap_34.dart';
 import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_app_bar.dart';
 
+import 'sap_44.dart';
+
 class SAP_33 extends StatefulWidget {
   const SAP_33({Key? key}) : super(key: key);
 
@@ -29,13 +31,40 @@ class _SAP_33State extends State<SAP_33> {
   bool tactical3 = false;
   bool sprinter3 = false;
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: sapAppBar('Evaluate', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('Evaluate', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_44()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          )
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),

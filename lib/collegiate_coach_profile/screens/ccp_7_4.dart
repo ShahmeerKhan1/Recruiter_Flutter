@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/controller/new_highlight_ccp.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_42.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_7.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/controller/new_highlight_controller.dart';
@@ -110,8 +111,35 @@ class _CCP_7_4State extends State<CCP_7_4> {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
 
+    bool _notification = false;
+
     return Scaffold(
-      appBar: ccpAppBar('New Highlights', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('Video', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_42()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       //  resizeToAvoidBottomInset: false,
       floatingActionButton: _VideoController == null
           ? null
@@ -349,6 +377,8 @@ class _CCP_7_4State extends State<CCP_7_4> {
                                       time: '1m',
                                       title: title.text,
                                       desc: description.text,
+                                      starReact: false,
+                                      heartReact: false,
                                       like: '1.1k',
                                       comment: '2.2k',
                                       star: '2.2k',
@@ -356,7 +386,9 @@ class _CCP_7_4State extends State<CCP_7_4> {
                                       VideoController: _VideoController,
                                       initializeVideoPlayerFuture:
                                       _initializeVideoPlayerFuture));
-                              Get.off(const CCP_7());
+                              Get.off(() => CustomOverlay());
+                              Get.off(() => CCP_7());
+                            //  Get.off(const CCP_7());
                             } else {
                               Get.snackbar(
                                   'Note',

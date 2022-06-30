@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_42.dart';
 import 'package:recruiter_flutter/model/chat_message_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
@@ -86,21 +87,29 @@ class _CCP_19State extends State<CCP_19> {
 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        iconTheme: const IconThemeData(color: Colors.white),
-        title: const Text('New Message',
-            style: TextStyle(color: Colors.white)),
+        title: Text('New Message', style: TextStyle(color: Colors.white)),
         centerTitle: true,
-        actions: const [
+        actions: [
           Padding(
-              padding: EdgeInsets.only(right: 12.0),
-              child: Icon(Icons.notifications, color: Colors.white)
-
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_42()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
           ),
         ],
         bottom: PreferredSize(
@@ -261,9 +270,9 @@ class _CCP_19State extends State<CCP_19> {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Icon(Icons.attach_file,
-                                      color: AppColor.greyBorderColor),
-                                  const SizedBox(width: 6),
+                                  // Icon(Icons.attach_file,
+                                  //     color: AppColor.greyBorderColor),
+                                  // const SizedBox(width: 6),
                                   InkWell(
                                       onTap: () {
                                         if (search.text == "") {

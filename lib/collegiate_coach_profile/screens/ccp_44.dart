@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_42.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_drawer.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
@@ -16,10 +17,37 @@ class _CCP_44State extends State<CCP_44> {
   TextEditingController search = TextEditingController();
   TextEditingController filter = TextEditingController();
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ccpAppBar('Transfer Portal', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('Transfer Portal', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_42()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       drawer: ccp_drawer(context),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

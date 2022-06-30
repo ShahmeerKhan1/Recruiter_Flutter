@@ -8,6 +8,8 @@ import 'package:recruiter_flutter/model/nli_model.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
+import 'ccp_42.dart';
+
 class CCP_39 extends StatefulWidget {
 
   const CCP_39({Key? key}) : super(key: key);
@@ -34,15 +36,42 @@ class _CCP_39State extends State<CCP_39> {
 
   final _schoolFormKey = GlobalKey<FormState>();
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ccpAppBar('New NLI Request', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('New NLI Request', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_42()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.height,
         margin: const EdgeInsets.all(16.0),
-        padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 10.0, bottom: 0.0),
+        padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 10.0, bottom: 16.0),
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(16.0)),
           color: Color(0xFF111111),
@@ -257,7 +286,7 @@ class _CCP_39State extends State<CCP_39> {
                               sentBy: selectedAthlete!=null?selectedAthlete!:' '
                             )
                         );
-                        Navigator.push(context, MaterialPageRoute(builder: (_) => const CCP_38()));
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_38()));
                         //  }
                       },
                       child: Container(

@@ -1,6 +1,7 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
+import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_highlights_tab.dart';
 import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_post_tab.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_highlight_widget.dart';
@@ -57,17 +58,19 @@ class _SAP_22State extends State<SAP_22> with SingleTickerProviderStateMixin {
   String? selectSchool = 'Ohio State Buckeye';
   String? selectSport = 'Football';
   String? selectPosition = 'Running Back';
-  String? selectYear = '2 Years';
+  String? selectYear = '2020';
 
   final List<String> schoolList = ['Bufford High School', 'Ohio State Buckeye', 'Hardward University'];
   final List<String> sportList = ['Baseball', 'Football', 'Basketball', 'Volleyball'];
   final List<String> positionList = ['Head Coach', 'Running Back', 'Instructor'];
-  final List<String> yearlList = ['4 Years', '1 Years', '2 Years'];
+  final List<String> yearlList = ['2021', '2022', '2023'];
 
   final _selectSchoolFormKey = GlobalKey<FormState>();
   final _selectSportFormKey = GlobalKey<FormState>();
   final _selectPositionFormKey = GlobalKey<FormState>();
   final _selectYearFormKey = GlobalKey<FormState>();
+
+  bool _notification = false;
 
   @override
   Widget build(BuildContext context) {
@@ -79,15 +82,20 @@ class _SAP_22State extends State<SAP_22> with SingleTickerProviderStateMixin {
         iconTheme: const IconThemeData(color: Colors.white),
         title: const Text('Profile', style: TextStyle(color: Colors.white)),
         actions: [
-          InkWell(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_44()));
-            },
-            child: Padding(
-              padding: EdgeInsets.only(right: 16.0),
-              child: Icon(Icons.notifications, color: Colors.white),
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_44()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
             ),
-          ),
+          )
         ],
         bottom: PreferredSize(
             child: Container(
@@ -103,11 +111,11 @@ class _SAP_22State extends State<SAP_22> with SingleTickerProviderStateMixin {
             // The containers in the background
             Column(
               children: <Widget>[
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * .25,
-                  //   color: Colors.blue,
+                Container(
+                  height: MediaQuery.of(context).size.height * .24,
+                    // color: Colors.blue,
                   child: Padding(
-                    padding: const EdgeInsets.only(bottom: 26.0),
+                    padding: EdgeInsets.only(bottom: 26.0),
                     child: Image.asset(
                       'assets/profile_cover.png',
                     ),
@@ -115,7 +123,7 @@ class _SAP_22State extends State<SAP_22> with SingleTickerProviderStateMixin {
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height * .75,
-                  //   color: Colors.pink,
+                   //  color: Colors.pink,
                 )
               ],
             ),
@@ -131,9 +139,9 @@ class _SAP_22State extends State<SAP_22> with SingleTickerProviderStateMixin {
                       right: 20.0,
                       left: 20.0),
                   child: Container(
-                    height: 100.0,
+                    height: MediaQuery.of(context).size.height * 0.12,
                     alignment: Alignment.topLeft,
-                    //    color: Colors.green,
+                   // color: Colors.green,
                     width: MediaQuery.of(context).size.width,
                     child: Expanded(
                       flex: 1,
@@ -142,7 +150,7 @@ class _SAP_22State extends State<SAP_22> with SingleTickerProviderStateMixin {
                         //  mainAxisSize: MainAxisSize.min,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left: 4.0),
+                            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.02),
                             child: Image.asset('assets/drawer_img.png'),
                           ),
                           //SizedBox(height: 20),
@@ -328,38 +336,44 @@ class _SAP_22State extends State<SAP_22> with SingleTickerProviderStateMixin {
                                       });
                                     },
                                     child: editProfile
-                                        ? Container(
-                                            height: 30,
-                                            width: 78,
-                                            alignment: Alignment.center,
-                                            decoration: BoxDecoration(
-                                                borderRadius: const BorderRadius.all(
-                                                    Radius.circular(10)),
-                                                border: Border.all(
-                                                    color: const Color(0xFF1F6DE2),
-                                                    width: 1.5)),
-                                            child: const Text('Save',
-                                                style: TextStyle(
-                                                    color: Color(0xFF1F6DE2),
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 13.0)),
-                                          )
-                                        : Container(
-                                            height: 30,
-                                            width: 78,
-                                            alignment: Alignment.center,
-                                            decoration: BoxDecoration(
-                                                borderRadius: const BorderRadius.all(
-                                                    Radius.circular(10)),
-                                                border: Border.all(
-                                                    color: const Color(0xFF686868),
-                                                    width: 1.5)),
-                                            child: const Text('Edit Profile',
-                                                style: TextStyle(
-                                                    color: Color(0xFF686868),
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 13.0)),
-                                          ),
+                                        ? Padding(
+                                          padding: const EdgeInsets.only(right: 6.0),
+                                          child: Container(
+                                              height: 30,
+                                              width: 78,
+                                              alignment: Alignment.center,
+                                              decoration: BoxDecoration(
+                                                  borderRadius: const BorderRadius.all(
+                                                      Radius.circular(10)),
+                                                  border: Border.all(
+                                                      color: const Color(0xFF1F6DE2),
+                                                      width: 1.5)),
+                                              child: const Text('Save',
+                                                  style: TextStyle(
+                                                      color: Color(0xFF1F6DE2),
+                                                      fontWeight: FontWeight.w500,
+                                                      fontSize: 13.0)),
+                                            ),
+                                        )
+                                        : Padding(
+                                          padding: const EdgeInsets.only(right: 6.0),
+                                          child: Container(
+                                              height: 30,
+                                              width: 78,
+                                              alignment: Alignment.center,
+                                              decoration: BoxDecoration(
+                                                  borderRadius: const BorderRadius.all(
+                                                      Radius.circular(10)),
+                                                  border: Border.all(
+                                                      color: const Color(0xFF686868),
+                                                      width: 1.5)),
+                                              child: const Text('Edit Profile',
+                                                  style: TextStyle(
+                                                      color: Color(0xFF686868),
+                                                      fontWeight: FontWeight.w500,
+                                                      fontSize: 13.0)),
+                                            ),
+                                        ),
                                   )
                                 ],
                               ),
@@ -373,7 +387,7 @@ class _SAP_22State extends State<SAP_22> with SingleTickerProviderStateMixin {
                 Container(
                   height: MediaQuery.of(context).size.height * 0.20,
                   padding: const EdgeInsets.only(left: 12, right: 12.0, top: 16.0),
-                  margin: const EdgeInsets.only(left: 18.0, right: 16.0),
+                  margin: const EdgeInsets.only(left: 22.0, right: 22.0),
                   decoration: const BoxDecoration(
                     color: Color(0xFF111111),
                     borderRadius: BorderRadius.all(Radius.circular(16)),
@@ -407,7 +421,7 @@ class _SAP_22State extends State<SAP_22> with SingleTickerProviderStateMixin {
                               ),
                               SizedBox(height: 10),
                               Text(
-                                'Elegibility:',
+                                'Grad Year:',
                                 style: TextStyle(
                                     color: Color(0xFF686868),
                                     fontWeight: FontWeight.w500),
@@ -745,8 +759,8 @@ class _SAP_22State extends State<SAP_22> with SingleTickerProviderStateMixin {
                     controller: _controller,
                     physics: const NeverScrollableScrollPhysics(),
                     children: [
-                      sapPostTab(), // custom Post Widget
-                      const CustomHighlightWidget(),
+                      SAPPostTab(), // custom Post class
+                      const SAP_Highlights_Tab(),
                       const TopSchools(),
                       const Offers(),
                       //  CustomHighlightWidget(), // custom hightlight widget

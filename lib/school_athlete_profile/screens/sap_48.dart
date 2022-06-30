@@ -7,6 +7,8 @@ import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_drawer.dart
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
+import 'sap_44.dart';
+
 class SAP_48 extends StatefulWidget {
   const SAP_48({Key? key}) : super(key: key);
 
@@ -18,10 +20,37 @@ class _SAP_48State extends State<SAP_48> {
   TextEditingController search = TextEditingController();
   TextEditingController filter = TextEditingController();
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: sapAppBar('Transfer Portal', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('Transfer Portal', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_44()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          )
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       drawer: sapDrawer(context),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

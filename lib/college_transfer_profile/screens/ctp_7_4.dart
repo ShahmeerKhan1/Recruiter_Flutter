@@ -14,6 +14,8 @@ import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 import 'package:video_player/video_player.dart';
 
+import 'ctp_44_1.dart';
+
 class CTP7_4 extends StatefulWidget {
   const CTP7_4({Key? key}) : super(key: key);
 
@@ -105,13 +107,40 @@ class _CTP7_4State extends State<CTP7_4> {
 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: ctpAppBar('New Highlights', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('New Highlights', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP_44_1()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       //  resizeToAvoidBottomInset: false,
       floatingActionButton: _VideoController == null
           ? null
@@ -352,11 +381,15 @@ class _CTP7_4State extends State<CTP7_4> {
                                       like: '1.1k',
                                       comment: '2.2k',
                                       star: '2.2k',
+                                      starReact: false,
+                                      heartReact: false,
                                       video: videoFile,
                                       VideoController: _VideoController,
                                       initializeVideoPlayerFuture:
                                           _initializeVideoPlayerFuture));
-                              Get.off(const CTP_7());
+                            //  Get.off(const CTP_7());
+                              Get.off(() => CustomOverlay());
+                              Get.off(() => CTP_7());
                             } else {
                               Get.snackbar(
                                   'Note',

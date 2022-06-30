@@ -4,6 +4,8 @@ import 'package:recruiter_flutter/model/offers_model.dart';
 import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_app_bar.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
+import 'sap_44.dart';
+
 class SAP_Offer_Detail extends StatefulWidget {
   OffersModel data;
 
@@ -18,10 +20,37 @@ class _SAP_Offer_DetailState extends State<SAP_Offer_Detail> {
   bool commit = false;
   bool reject = false;
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: sapAppBar('Offer Details', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('Offer Details', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_44()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          )
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.height,

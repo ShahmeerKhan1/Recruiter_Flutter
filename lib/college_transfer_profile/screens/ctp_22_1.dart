@@ -3,11 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_26_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_31.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
+import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_highlights_tab.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_posts_tab.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_highlight_widget.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
+
+import 'ctp_44_1.dart';
 
 class CTP22_1 extends StatefulWidget {
   const CTP22_1({Key? key}) : super(key: key);
@@ -67,19 +70,28 @@ class _CTP22_1State extends State<CTP22_1> with SingleTickerProviderStateMixin {
   final _selectPositionFormKey = GlobalKey<FormState>();
   final _selectYearFormKey = GlobalKey<FormState>();
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        title: Text('Post', style: TextStyle(color: Colors.white)),
         centerTitle: true,
-        elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.white),
-        title: const Text('Profile', style: TextStyle(color: Colors.white)),
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.only(right: 16.0),
-            child: Icon(Icons.notifications, color: Colors.white),
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP_44_1()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
           ),
         ],
         bottom: PreferredSize(
@@ -97,7 +109,7 @@ class _CTP22_1State extends State<CTP22_1> with SingleTickerProviderStateMixin {
             Column(
               children: <Widget>[
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * .25,
+                  height: MediaQuery.of(context).size.height * .24,
                   //   color: Colors.blue,
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 26.0),
@@ -135,7 +147,7 @@ class _CTP22_1State extends State<CTP22_1> with SingleTickerProviderStateMixin {
                         //  mainAxisSize: MainAxisSize.min,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left: 4.0),
+                            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.02),
                             child: Image.asset('assets/drawer_img.png'),
                           ),
                           //SizedBox(height: 20),
@@ -321,38 +333,44 @@ class _CTP22_1State extends State<CTP22_1> with SingleTickerProviderStateMixin {
                                       });
                                     },
                                     child: editProfile
-                                        ? Container(
-                                            height: 30,
-                                            width: 78,
-                                            alignment: Alignment.center,
-                                            decoration: BoxDecoration(
-                                                borderRadius: const BorderRadius.all(
-                                                    Radius.circular(10)),
-                                                border: Border.all(
-                                                    color: const Color(0xFF1F6DE2),
-                                                    width: 1.5)),
-                                            child: const Text('Save',
-                                                style: TextStyle(
-                                                    color: Color(0xFF1F6DE2),
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 13.0)),
-                                          )
-                                        : Container(
-                                            height: 30,
-                                            width: 78,
-                                            alignment: Alignment.center,
-                                            decoration: BoxDecoration(
-                                                borderRadius: const BorderRadius.all(
-                                                    Radius.circular(10)),
-                                                border: Border.all(
-                                                    color: const Color(0xFF686868),
-                                                    width: 1.5)),
-                                            child: const Text('Edit Profile',
-                                                style: TextStyle(
-                                                    color: Color(0xFF686868),
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 13.0)),
-                                          ),
+                                        ? Padding(
+                                          padding: const EdgeInsets.only(right: 6.0),
+                                          child: Container(
+                                              height: 30,
+                                              width: 78,
+                                              alignment: Alignment.center,
+                                              decoration: BoxDecoration(
+                                                  borderRadius: const BorderRadius.all(
+                                                      Radius.circular(10)),
+                                                  border: Border.all(
+                                                      color: const Color(0xFF1F6DE2),
+                                                      width: 1.5)),
+                                              child: const Text('Save',
+                                                  style: TextStyle(
+                                                      color: Color(0xFF1F6DE2),
+                                                      fontWeight: FontWeight.w500,
+                                                      fontSize: 13.0)),
+                                            ),
+                                        )
+                                        : Padding(
+                                          padding: const EdgeInsets.only(right: 6.0),
+                                          child: Container(
+                                              height: 30,
+                                              width: 78,
+                                              alignment: Alignment.center,
+                                              decoration: BoxDecoration(
+                                                  borderRadius: const BorderRadius.all(
+                                                      Radius.circular(10)),
+                                                  border: Border.all(
+                                                      color: const Color(0xFF686868),
+                                                      width: 1.5)),
+                                              child: const Text('Edit Profile',
+                                                  style: TextStyle(
+                                                      color: Color(0xFF686868),
+                                                      fontWeight: FontWeight.w500,
+                                                      fontSize: 13.0)),
+                                            ),
+                                        ),
                                   )
                                 ],
                               ),
@@ -366,7 +384,7 @@ class _CTP22_1State extends State<CTP22_1> with SingleTickerProviderStateMixin {
                 Container(
                   height: MediaQuery.of(context).size.height * 0.20,
                   padding: const EdgeInsets.only(left: 12, right: 12.0, top: 16.0),
-                  margin: const EdgeInsets.only(left: 18.0, right: 16.0),
+                  margin: const EdgeInsets.only(left: 22.0, right: 22.0),
                   decoration: const BoxDecoration(
                     color: Color(0xFF111111),
                     borderRadius: BorderRadius.all(Radius.circular(16)),
@@ -739,8 +757,8 @@ class _CTP22_1State extends State<CTP22_1> with SingleTickerProviderStateMixin {
                     controller: _controller,
                     physics: const NeverScrollableScrollPhysics(),
                     children: [
-                      ctpPostsTab(), // custom Post Widget
-                      const CustomHighlightWidget(),
+                      CTPPostTab(), // custom Post Widget
+                      const CTP_Highlights_Tab(),
                       const TopSchools(),
                       const Offers(),
                       //  CustomHighlightWidget(), // custom hightlight widget

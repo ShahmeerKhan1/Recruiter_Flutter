@@ -5,6 +5,8 @@ import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_dr
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
+import 'ctp_44_1.dart';
+
 class CTP48_1 extends StatefulWidget {
   const CTP48_1({Key? key}) : super(key: key);
 
@@ -16,10 +18,37 @@ class _CTP48_1State extends State<CTP48_1> {
   TextEditingController search = TextEditingController();
   TextEditingController filter = TextEditingController();
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ctpAppBar('Transfer Portal', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('Transfer Portal', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP_44_1()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       drawer: customDrawer(context),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

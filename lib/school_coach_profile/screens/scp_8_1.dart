@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/controller/new_highlight_controller.dart';
 import 'package:recruiter_flutter/school_coach_profile/controller/new_highlight_scp.dart';
+import 'package:recruiter_flutter/school_coach_profile/screens/scp_12_1.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/comment_widget.dart';
 import 'package:recruiter_flutter/widgets/video_controller.dart';
@@ -95,15 +96,16 @@ class _SCP8_1State extends State<SCP8_1> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (_) => HighlightDetail(
-                                  videoPlayerController: _cont.highlightList[index].VideoController)));
+                              builder: (_) => SCP_12_1(
+                                  videoPlayerController: _cont.highlightList[index].VideoController,
+                                  data: _cont.highlightList[index])));
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 16.0),
                       child: Container(
                         height: MediaQuery.of(context).size.height * 0.45,
                         width: MediaQuery.of(context).size.width,
-                        padding: const EdgeInsets.all(10.0),
+                        padding: EdgeInsets.only(left: 10, right: 10, top: 10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12.0),
                           color: const Color(0xFF111111),
@@ -115,9 +117,9 @@ class _SCP8_1State extends State<SCP8_1> {
                                 CircleAvatar(
                                   backgroundImage:
                                   AssetImage(_cont.highlightList[index].profileImg),
-                                  radius: 28,
+                                  radius: 24,
                                 ),
-                                const SizedBox(width: 6),
+                                const SizedBox(width: 10),
                                 Expanded(
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -233,47 +235,69 @@ class _SCP8_1State extends State<SCP8_1> {
                               ),
                             ),
                             const SizedBox(height: 16),
-                            Row(
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(Icons.favorite,
-                                        color: AppColor.greyBorderColor, size: 20),
-                                    const SizedBox(width: 2),
-                                    Text(
-                                      '1.1k',
-                                      style:
-                                      TextStyle(color: AppColor.greyBorderColor),
-                                    )
-                                  ],
-                                ),
-                                const SizedBox(width: 26),
-                                Row(
-                                  children: [
-                                    Icon(Icons.comment,
-                                        color: AppColor.greyBorderColor, size: 20),
-                                    const SizedBox(width: 2),
-                                    Text('1.1k',
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 8.0, left: 2.0),
+                              child: Row(
+                                children: [
+                                  Row(
+                                    children: [
+                                      InkWell(
+                                        onTap: () {
+                                          setState(() {
+                                            _cont.highlightList[index].heartReact = !_cont.highlightList[index].heartReact;
+                                          });
+                                          print('heart toggle');
+                                        },
+                                        child: !_cont.highlightList[index].heartReact ? Icon(Icons.favorite_outline,
+                                            color: AppColor.greyBorderColor, size: 20)
+                                            : Icon(Icons.favorite,
+                                            color: Colors.red, size: 20),
+                                      ),
+                                      const SizedBox(width: 4),
+                                      Text(
+                                        _cont.highlightList[index].like,
                                         style: TextStyle(
-                                            color: AppColor.greyBorderColor))
-                                  ],
-                                ),
-                                const SizedBox(width: 26),
-                                Row(
-                                  children: [
-                                    Icon(Icons.star,
-                                        color: AppColor.greyBorderColor, size: 20),
-                                    const SizedBox(width: 2),
-                                    Text('1.1k',
-                                        style: TextStyle(
-                                            color: AppColor.greyBorderColor))
-                                  ],
-                                ),
-                                // SizedBox(width: 16),
-                                const Spacer(),
-                                Icon(Icons.share,
-                                    color: AppColor.greyBorderColor, size: 20),
-                              ],
+                                            color: AppColor.greyBorderColor),
+                                      )
+                                    ],
+                                  ),
+                                  const SizedBox(width: 30),
+                                  Row(
+                                    children: [
+                                      Icon(Icons.mode_comment_outlined,
+                                          color: AppColor.greyBorderColor, size: 20),
+                                      const SizedBox(width: 4),
+                                      Text( _cont.highlightList[index].comment,
+                                          style:
+                                          TextStyle(color: AppColor.greyBorderColor))
+                                    ],
+                                  ),
+                                  const SizedBox(width: 30),
+                                  Row(
+                                    children: [
+                                      InkWell(
+                                        onTap: () {
+                                          setState(() {
+                                            _cont.highlightList[index].starReact = ! _cont.highlightList[index].starReact;
+                                          });
+                                        },
+                                        child: ! _cont.highlightList[index].starReact ? Icon(Icons.star_border,
+                                            color: AppColor.greyBorderColor, size: 20)
+                                            : Icon(Icons.star,
+                                            color: AppColor.goldenColor, size: 20),
+                                      ),
+                                      const SizedBox(width: 4),
+                                      Text( _cont.highlightList[index].star,
+                                          style:
+                                          TextStyle(color: AppColor.greyBorderColor))
+                                    ],
+                                  ),
+                                  // SizedBox(width: 16),
+                                  const Spacer(),
+                                  Icon(Icons.share,
+                                      color: AppColor.greyBorderColor, size: 20),
+                                ],
+                              ),
                             )
                           ],
                         ),

@@ -5,27 +5,27 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_34_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/controller/new_event.dart';
 import 'package:recruiter_flutter/model/events_model.dart';
-import 'package:recruiter_flutter/school_athlete_profile/controller/sap_event_controller.dart';
-import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_app_bar.dart';
+import 'package:recruiter_flutter/school_coach_profile/controller/scp_event_controller.dart';
+import 'package:recruiter_flutter/school_coach_profile/screens/scp31_1.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
-import 'sap_34.dart';
-import 'sap_44.dart';
+import 'scp42_1.dart';
 
-class SAP_35 extends StatefulWidget {
+class SCP_New_Event extends StatefulWidget {
 
-  const SAP_35({Key? key}) : super(key: key);
+  const SCP_New_Event({Key? key}) : super(key: key);
 
   @override
-  _SAP_35State createState() => _SAP_35State();
+  _SCP_New_EventState createState() => _SCP_New_EventState();
 }
 
-class _SAP_35State extends State<SAP_35> {
+class _SCP_New_EventState extends State<SCP_New_Event> {
 
   TextEditingController title = TextEditingController(text: ' ');
   TextEditingController description = TextEditingController(text: ' ');
@@ -107,7 +107,7 @@ class _SAP_35State extends State<SAP_35> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('New Event', style: TextStyle(color: Colors.white)),
+        title: Text('New Evenet', style: TextStyle(color: Colors.white)),
         centerTitle: true,
         actions: [
           Padding(
@@ -118,12 +118,12 @@ class _SAP_35State extends State<SAP_35> {
                     _notification = true;
                   });
                   print('noti');
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_44()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SCP42_1()));
                 },
                 child: _notification ?  Icon(Icons.notifications, color: Colors.white)
                     : Icon(Icons.notifications_none)
             ),
-          )
+          ),
         ],
         bottom: PreferredSize(
             child: Container(
@@ -736,7 +736,7 @@ class _SAP_35State extends State<SAP_35> {
                           //  });
                          // add();
                           print('navigate new list');
-                          Get.put(SAPEventController()).eventLists.add(
+                          Get.put(SCPEventController()).eventLists.add(
                             EventsModel(
                                 imgFile: imageFile,
                                 date: date.text,
@@ -753,7 +753,7 @@ class _SAP_35State extends State<SAP_35> {
                                 share: 'Share'
                             ),
                           );
-                           Navigator.push(context, MaterialPageRoute(builder: (_) => const SAP_34()));
+                           Navigator.push(context, MaterialPageRoute(builder: (_) => const SCP31_1()));
                         }
                       },
                       child: Container(

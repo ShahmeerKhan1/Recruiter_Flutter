@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_36.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_42.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/controller/new_offer.dart';
 import 'package:recruiter_flutter/model/offer_sent_model.dart';
@@ -59,10 +60,37 @@ class _CCP36_2State extends State<CCP36_2> {
     super.initState();
   }
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ccpAppBar('New Offer', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('New Offer', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_42()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

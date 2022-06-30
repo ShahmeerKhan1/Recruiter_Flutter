@@ -4,16 +4,51 @@ import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_app_bar.dar
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
-class SAP_45 extends StatelessWidget {
+import 'sap_44.dart';
+
+class SAP_45 extends StatefulWidget {
   SAP_45({Key? key}) : super(key: key);
 
+  @override
+  State<SAP_45> createState() => _SAP_45State();
+}
+
+class _SAP_45State extends State<SAP_45> {
   TextEditingController search = TextEditingController();
+
   TextEditingController filter = TextEditingController();
+
+  bool _notification = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: sapAppBar('Bookmarks', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('Bookmarks', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_44()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          )
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(

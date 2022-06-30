@@ -1,13 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 
-class CTP47_1 extends StatelessWidget {
-  const CTP47_1({Key? key}) : super(key: key);
+import 'ctp_44_1.dart';
+
+class CTP47_1 extends StatefulWidget {
+  CTP47_1({Key? key}) : super(key: key);
+
+  @override
+  State<CTP47_1> createState() => _CTP47_1State();
+}
+
+class _CTP47_1State extends State<CTP47_1> {
+  bool _notification = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ctpAppBar('NLI Signing', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('NLI Signing', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP_44_1()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,

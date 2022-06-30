@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:month_picker_dialog/month_picker_dialog.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_42.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/model/calendar_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -75,10 +76,37 @@ class _CCP_35State extends State<CCP_35> {
         color: const Color(0xFF239B36)),
   ];
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ccpAppBar('Calendar', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('Calendar', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_42()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       body: Column(
         children: [
           InkWell(

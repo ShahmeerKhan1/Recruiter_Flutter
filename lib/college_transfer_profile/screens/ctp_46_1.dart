@@ -6,9 +6,16 @@ import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
-class CTP46_1 extends StatelessWidget {
+import 'ctp_44_1.dart';
+
+class CTP46_1 extends StatefulWidget {
   CTP46_1({Key? key}) : super(key: key);
 
+  @override
+  State<CTP46_1> createState() => _CTP46_1State();
+}
+
+class _CTP46_1State extends State<CTP46_1> {
   TextEditingController search = TextEditingController();
 
   final List<NLIModel> _list = [
@@ -38,10 +45,37 @@ class CTP46_1 extends StatelessWidget {
     ),
   ];
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ctpAppBar('NLI Signing', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('NLI Signing', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP_44_1()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -73,7 +107,7 @@ class CTP46_1 extends StatelessWidget {
                   itemBuilder: (BuildContext context, index) {
                     return InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (_) => const CTP47_1()));
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => CTP47_1()));
                       },
                       child: Container(
                         height: MediaQuery.of(context).size.height * 0.12,

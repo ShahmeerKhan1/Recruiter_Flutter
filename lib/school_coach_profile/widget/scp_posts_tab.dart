@@ -43,7 +43,7 @@ class _SCPPostTabState extends State<SCPPostTab> {
                         child: Container(
                           height: _const.postLists[index].img != null ?
                           MediaQuery.of(context).size.height * 0.46 :
-                          MediaQuery.of(context).size.height * 0.145,
+                          MediaQuery.of(context).size.height * 0.14,
                           width: MediaQuery
                               .of(context)
                               .size

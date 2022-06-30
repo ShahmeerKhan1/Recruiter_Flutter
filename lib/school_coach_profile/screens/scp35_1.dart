@@ -7,6 +7,8 @@ import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
+import 'scp42_1.dart';
+
 class SCP35_1 extends StatefulWidget {
   final DateTime initialDate = DateTime.now();
 
@@ -76,10 +78,37 @@ class _SCP35_1State extends State<SCP35_1> {
         color: const Color(0xFF239B36)),
   ];
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: scpAppBar('Calendar', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('Calendar', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SCP42_1()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       body: Column(
         children: [
           InkWell(

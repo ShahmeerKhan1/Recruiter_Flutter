@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
 import 'package:recruiter_flutter/school_athlete_profile/screens/sap_30.dart';
 import 'package:recruiter_flutter/school_athlete_profile/screens/sap_31.dart';
+import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_drawer.dart';
+import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_highlights_tab.dart';
 import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_post_tab.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_highlight_widget.dart';
+
+import 'sap_44.dart';
 
 class SAP_28 extends StatefulWidget {
   const SAP_28({Key? key}) : super(key: key);
@@ -54,25 +58,29 @@ class _SAP_28State extends State<SAP_28> with SingleTickerProviderStateMixin {
   String? selectPosition = 'Running Back';
   String? selectYear = '2020';
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        title: Text('Profile', style: TextStyle(color: Colors.white)),
         centerTitle: true,
-        elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.white),
-        title: const Text('Profile', style: TextStyle(color: Colors.white)),
         actions: [
-          InkWell(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => const SAP_30()));
-            },
-            child: const Padding(
-              padding: EdgeInsets.only(right: 16.0),
-              child: Icon(Icons.info_outline, color: Colors.white),
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_44()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
             ),
-          ),
+          )
         ],
         bottom: PreferredSize(
             child: Container(
@@ -81,7 +89,7 @@ class _SAP_28State extends State<SAP_28> with SingleTickerProviderStateMixin {
             ),
             preferredSize: const Size.fromHeight(4.0)),
       ),
-      drawer: customDrawer(context),
+      drawer: sapDrawer(context),
       body: SingleChildScrollView(
         child: Stack(
           children: <Widget>[
@@ -365,8 +373,8 @@ class _SAP_28State extends State<SAP_28> with SingleTickerProviderStateMixin {
                     controller: _controller,
                     physics: const NeverScrollableScrollPhysics(),
                     children: [
-                      sapPostTab(), // custom Post Widget
-                      const CustomHighlightWidget(),
+                      SAPPostTab(), // custom Post Widget
+                      const SAP_Highlights_Tab(),
                       const TopSchools(),
                       const Offers(),
                       //  CustomHighlightWidget(), // custom hightlight widget

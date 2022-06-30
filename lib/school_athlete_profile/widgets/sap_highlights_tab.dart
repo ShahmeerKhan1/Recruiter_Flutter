@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:recruiter_flutter/controller/new_highlight_controller.dart';
 import 'package:recruiter_flutter/school_athlete_profile/controller/new_highlight_sap.dart';
+import 'package:recruiter_flutter/school_athlete_profile/screens/sap_12.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/comment_widget.dart';
 import 'package:recruiter_flutter/widgets/video_controller.dart';
@@ -51,19 +52,25 @@ class _SAP_Highlights_TabState extends State<SAP_Highlights_Tab> {
                 itemCount: _cont.highlightList.length,
                 itemBuilder: (BuildContext context, index) {
                   return InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
+                    onTap: () async {
+                      await Navigator.of(context, rootNavigator: true).
+                      push(
                           MaterialPageRoute(
-                              builder: (_) => HighlightDetail(
-                                  videoPlayerController: _cont.highlightList[index].VideoController)));
+                              builder: (_) => SAP_12(
+                                  videoPlayerController: _cont.highlightList[index].VideoController,
+                                data: _cont.highlightList[index])
+                          )
+                      );
+                      setState(() {
+
+                      });
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 16.0),
                       child: Container(
-                        height: MediaQuery.of(context).size.height * 0.45,
+                        height: MediaQuery.of(context).size.height * 0.44,
                         width: MediaQuery.of(context).size.width,
-                        padding: const EdgeInsets.all(10.0),
+                        padding: EdgeInsets.only(left: 10, right: 10, top: 10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12.0),
                           color: const Color(0xFF111111),
@@ -75,9 +82,9 @@ class _SAP_Highlights_TabState extends State<SAP_Highlights_Tab> {
                                 CircleAvatar(
                                   backgroundImage:
                                   AssetImage(_cont.highlightList[index].profileImg),
-                                  radius: 28,
+                                  radius: 24,
                                 ),
-                                const SizedBox(width: 6),
+                                const SizedBox(width: 10),
                                 Expanded(
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -120,7 +127,7 @@ class _SAP_Highlights_TabState extends State<SAP_Highlights_Tab> {
                                 )
                               ],
                             ),
-                            const SizedBox(height: 16),
+                            const SizedBox(height: 10),
                             Expanded(
                               child: SizedBox(
                                 width: MediaQuery.of(context).size.width,
@@ -193,47 +200,69 @@ class _SAP_Highlights_TabState extends State<SAP_Highlights_Tab> {
                               ),
                             ),
                             const SizedBox(height: 16),
-                            Row(
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(Icons.favorite,
-                                        color: AppColor.greyBorderColor, size: 20),
-                                    const SizedBox(width: 2),
-                                    Text(
-                                      '1.1k',
-                                      style:
-                                      TextStyle(color: AppColor.greyBorderColor),
-                                    )
-                                  ],
-                                ),
-                                const SizedBox(width: 26),
-                                Row(
-                                  children: [
-                                    Icon(Icons.comment,
-                                        color: AppColor.greyBorderColor, size: 20),
-                                    const SizedBox(width: 2),
-                                    Text('1.1k',
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 8.0, left: 2.0),
+                              child: Row(
+                                children: [
+                                  Row(
+                                    children: [
+                                      InkWell(
+                                        onTap: () {
+                                          setState(() {
+                                            _cont.highlightList[index].heartReact = !_cont.highlightList[index].heartReact;
+                                          });
+                                          print('heart toggle');
+                                        },
+                                        child: !_cont.highlightList[index].heartReact ? Icon(Icons.favorite_outline,
+                                            color: AppColor.greyBorderColor, size: 20)
+                                            : Icon(Icons.favorite,
+                                            color: Colors.red, size: 20),
+                                      ),
+                                      const SizedBox(width: 4),
+                                      Text(
+                                        _cont.highlightList[index].like,
                                         style: TextStyle(
-                                            color: AppColor.greyBorderColor))
-                                  ],
-                                ),
-                                const SizedBox(width: 26),
-                                Row(
-                                  children: [
-                                    Icon(Icons.star,
-                                        color: AppColor.greyBorderColor, size: 20),
-                                    const SizedBox(width: 2),
-                                    Text('1.1k',
-                                        style: TextStyle(
-                                            color: AppColor.greyBorderColor))
-                                  ],
-                                ),
-                                // SizedBox(width: 16),
-                                const Spacer(),
-                                Icon(Icons.share,
-                                    color: AppColor.greyBorderColor, size: 20),
-                              ],
+                                            color: AppColor.greyBorderColor),
+                                      )
+                                    ],
+                                  ),
+                                  const SizedBox(width: 30),
+                                  Row(
+                                    children: [
+                                      Icon(Icons.mode_comment_outlined,
+                                          color: AppColor.greyBorderColor, size: 20),
+                                      const SizedBox(width: 4),
+                                      Text( _cont.highlightList[index].comment,
+                                          style:
+                                          TextStyle(color: AppColor.greyBorderColor))
+                                    ],
+                                  ),
+                                  const SizedBox(width: 30),
+                                  Row(
+                                    children: [
+                                      InkWell(
+                                        onTap: () {
+                                          setState(() {
+                                            _cont.highlightList[index].starReact = ! _cont.highlightList[index].starReact;
+                                          });
+                                        },
+                                        child: ! _cont.highlightList[index].starReact ? Icon(Icons.star_border,
+                                            color: AppColor.greyBorderColor, size: 20)
+                                            : Icon(Icons.star,
+                                            color: AppColor.goldenColor, size: 20),
+                                      ),
+                                      const SizedBox(width: 4),
+                                      Text( _cont.highlightList[index].star,
+                                          style:
+                                          TextStyle(color: AppColor.greyBorderColor))
+                                    ],
+                                  ),
+                                  // SizedBox(width: 16),
+                                  const Spacer(),
+                                  Icon(Icons.share,
+                                      color: AppColor.greyBorderColor, size: 20),
+                                ],
+                              ),
                             )
                           ],
                         ),

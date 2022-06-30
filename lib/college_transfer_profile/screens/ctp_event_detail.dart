@@ -4,6 +4,8 @@ import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.d
 import 'package:recruiter_flutter/model/events_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
+import 'ctp_44_1.dart';
+
 class CTPEventDetail extends StatefulWidget {
   final EventsModel data;
 
@@ -20,10 +22,37 @@ class _CTPEventDetailState extends State<CTPEventDetail> {
   bool mayBe = false;
   bool notGoing = false;
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ctpAppBar('Events', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('Events', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP_44_1()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(16.0),

@@ -6,6 +6,7 @@ import 'package:recruiter_flutter/widgets/athlete_stats_class.dart';
 
 import '../../widgets/athlete_post_class.dart';
 import 'scp30_1.dart';
+import 'scp42_1.dart';
 
 class SCP29 extends StatefulWidget {
   const SCP29({Key? key}) : super(key: key);
@@ -41,13 +42,40 @@ class _SCP29State extends State<SCP29> with SingleTickerProviderStateMixin {
     });
   }
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: scpAppBar('Athelete Profile', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('Athelete Profile', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SCP42_1()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       backgroundColor: Colors.black,
       body: NestedScrollView(
         scrollDirection: Axis.vertical,

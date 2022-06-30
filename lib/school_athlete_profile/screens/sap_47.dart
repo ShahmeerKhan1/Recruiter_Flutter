@@ -2,13 +2,48 @@ import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_app_bar.dart';
 
-class SAP_47 extends StatelessWidget {
+import 'sap_44.dart';
+
+class SAP_47 extends StatefulWidget {
   const SAP_47({Key? key}) : super(key: key);
+
+  @override
+  State<SAP_47> createState() => _SAP_47State();
+}
+
+class _SAP_47State extends State<SAP_47> {
+
+  bool _notification = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: sapAppBar('NLI Signing', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('NLI Signing', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_44()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          )
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,

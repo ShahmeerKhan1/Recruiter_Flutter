@@ -2,6 +2,7 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_23.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_24.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_42.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_post_tab.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_drawer.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -60,20 +61,29 @@ class _CCP_22State extends State<CCP_22> with SingleTickerProviderStateMixin {
   final _selectSportFormKey = GlobalKey<FormState>();
   final _selectPositionFormKey = GlobalKey<FormState>();
   final _selectYearFormKey = GlobalKey<FormState>();
+  
+  bool _notification = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        title: Text('Profile', style: TextStyle(color: Colors.white)),
         centerTitle: true,
-        elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.white),
-        title: const Text('Profile', style: TextStyle(color: Colors.white)),
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.only(right: 16.0),
-            child: Icon(Icons.notifications, color: Colors.white),
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_42()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
           ),
         ],
         bottom: PreferredSize(
@@ -91,7 +101,7 @@ class _CCP_22State extends State<CCP_22> with SingleTickerProviderStateMixin {
             Column(
               children: <Widget>[
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * .25,
+                  height: MediaQuery.of(context).size.height * .24,
                    //  color: Colors.blue,
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 26.0),
@@ -100,7 +110,7 @@ class _CCP_22State extends State<CCP_22> with SingleTickerProviderStateMixin {
                     ),
                   ),
                 ),
-                Padding(padding: const EdgeInsets.only(left: 20.0),
+                Padding(padding: const EdgeInsets.only(left: 26.0),
                   child: Container(
                     height: 30,
                     alignment: Alignment.topLeft,
@@ -110,7 +120,8 @@ class _CCP_22State extends State<CCP_22> with SingleTickerProviderStateMixin {
                       height: 22,
                       width: 60,
                       alignment: Alignment.center,
-                      child: const Text('Coach', style: TextStyle(color: Color(0xFFE0B216), fontWeight: FontWeight.w500)),
+                      child: const Text('Coach',
+                          style: TextStyle(color: Color(0xFFE0B216), fontWeight: FontWeight.w500)),
                       decoration: BoxDecoration(
                         borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                         border: Border.all(
@@ -145,7 +156,7 @@ class _CCP_22State extends State<CCP_22> with SingleTickerProviderStateMixin {
                         //  mainAxisSize: MainAxisSize.min,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left: 4.0),
+                            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.02),
                             child: Image.asset('assets/drawer_img.png'),
                           ),
                           //SizedBox(height: 20),
@@ -331,38 +342,44 @@ class _CCP_22State extends State<CCP_22> with SingleTickerProviderStateMixin {
                                       });
                                     },
                                     child: editProfile
-                                        ? Container(
+                                        ? Padding(
+                                          padding: const EdgeInsets.only(right: 6.0),
+                                          child: Container(
                                       height: 30,
                                       width: 78,
                                       alignment: Alignment.center,
                                       decoration: BoxDecoration(
-                                          borderRadius: const BorderRadius.all(
-                                              Radius.circular(10)),
-                                          border: Border.all(
-                                              color: const Color(0xFF1F6DE2),
-                                              width: 1.5)),
+                                            borderRadius: const BorderRadius.all(
+                                                Radius.circular(10)),
+                                            border: Border.all(
+                                                color: const Color(0xFF1F6DE2),
+                                                width: 1.5)),
                                       child: const Text('Save',
-                                          style: TextStyle(
-                                              color: Color(0xFF1F6DE2),
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 13.0)),
-                                    )
-                                        : Container(
+                                            style: TextStyle(
+                                                color: Color(0xFF1F6DE2),
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 13.0)),
+                                    ),
+                                        )
+                                        : Padding(
+                                          padding: const EdgeInsets.only(right: 6.0),
+                                          child: Container(
                                       height: 30,
                                       width: 78,
                                       alignment: Alignment.center,
                                       decoration: BoxDecoration(
-                                          borderRadius: const BorderRadius.all(
-                                              Radius.circular(10)),
-                                          border: Border.all(
-                                              color: const Color(0xFF686868),
-                                              width: 1.5)),
+                                            borderRadius: const BorderRadius.all(
+                                                Radius.circular(10)),
+                                            border: Border.all(
+                                                color: const Color(0xFF686868),
+                                                width: 1.5)),
                                       child: const Text('Edit Profile',
-                                          style: TextStyle(
-                                              color: Color(0xFF686868),
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 13.0)),
+                                            style: TextStyle(
+                                                color: Color(0xFF686868),
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 13.0)),
                                     ),
+                                        ),
                                   )
                                 ],
                               ),
@@ -376,7 +393,7 @@ class _CCP_22State extends State<CCP_22> with SingleTickerProviderStateMixin {
                 Container(
                   height: MediaQuery.of(context).size.height * 0.20,
                   padding: const EdgeInsets.only(left: 12, right: 12.0, top: 16.0),
-                  margin: const EdgeInsets.only(left: 18.0, right: 16.0),
+                  margin: const EdgeInsets.only(left: 22.0, right: 22.0),
                   decoration: const BoxDecoration(
                     color: Color(0xFF111111),
                     borderRadius: BorderRadius.all(Radius.circular(16)),
@@ -748,7 +765,7 @@ class _CCP_22State extends State<CCP_22> with SingleTickerProviderStateMixin {
                     controller: _controller,
                     physics: const NeverScrollableScrollPhysics(),
                     children: [
-                      CCP_Posts_Tab(), // custom Post Widget
+                      CCPPostTab(), // custom Post Widget
                       const Scouting(),
                       //  CustomHighlightWidget(), // custom hightlight widget
                       // Container(

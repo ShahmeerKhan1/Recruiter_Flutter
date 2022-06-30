@@ -1,23 +1,22 @@
+import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/model/chat_message_model.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/SCP21_1.dart';
 import 'package:recruiter_flutter/util/colors.dart';
-import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
-import 'scp42_1.dart';
-
-class SCP18_1 extends StatefulWidget {
+class SCP_20_1 extends StatefulWidget {
 
   String data;
 
-  SCP18_1({Key? key, required this.data}) : super(key: key);
+  SCP_20_1({Key? key, required this.data}) : super(key: key);
 
   @override
-  _SCP18_1State createState() => _SCP18_1State();
+  _SCP_20_1State createState() => _SCP_20_1State();
 }
 
-class _SCP18_1State extends State<SCP18_1> {
+class _SCP_20_1State extends State<SCP_20_1> {
+
   TextEditingController search = TextEditingController();
   bool isButtonEnabled = false;
   final _formKey = GlobalKey<FormState>();
@@ -61,15 +60,15 @@ class _SCP18_1State extends State<SCP18_1> {
         messageContent: "Is there any thing wrong?", messageType: "sender"),
     ChatMessageModel(
         messageContent:
-            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod",
+        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod",
         messageType: "receiver"),
     ChatMessageModel(
         messageContent:
-            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
         messageType: "sender"),
     ChatMessageModel(
         messageContent:
-            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod",
+        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod",
         messageType: "receiver"),
   ];
 
@@ -89,29 +88,24 @@ class _SCP18_1State extends State<SCP18_1> {
 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  bool _notification = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: Text('New Message', style: TextStyle(color: Colors.white)),
+        backgroundColor: Colors.black,
+        iconTheme: const IconThemeData(color: Colors.white),
+        title: Text(widget.data,
+            style: const TextStyle(color: Colors.white)),
         centerTitle: true,
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 10.0),
+            padding: const EdgeInsets.only(right: 12.0),
             child: InkWell(
                 onTap: () {
-                  setState(() {
-                    _notification = true;
-                  });
-                  print('noti');
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => SCP42_1()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const SCP21_1()));
                 },
-                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
-                    : Icon(Icons.notifications_none)
-            ),
+                child: const Icon(Icons.info_outline, color: Colors.white)),
           ),
         ],
         bottom: PreferredSize(
@@ -126,34 +120,6 @@ class _SCP18_1State extends State<SCP18_1> {
         children: <Widget>[
           Column(
             children: [
-              !_msgSended
-                  ? SizedBox(
-                      height: 46,
-                      width: double.infinity,
-                      //   color: Colors.blue,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            const Text(
-                              'To: ',
-                              style: TextStyle(
-                                  color: Color(0xFF686868), fontSize: 16.0),
-                            ),
-                            Text(
-                              widget.data,
-                              style: const TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 16.0),
-                            ),
-                          ],
-                        ),
-                      ),
-                    )
-                  : Container(),
-              const Divider(height: 0, color: Color(0xFF474747), thickness: 2),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 58.0),
@@ -167,63 +133,63 @@ class _SCP18_1State extends State<SCP18_1> {
                       return Container(
                         padding: messages[index].messageType == "receiver"
                             ? const EdgeInsets.only(
-                                left: 16, right: 42, top: 10, bottom: 10)
+                            left: 16, right: 42, top: 10, bottom: 10)
                             : const EdgeInsets.only(
-                                left: 90, right: 16, top: 10, bottom: 10),
+                            left: 90, right: 16, top: 10, bottom: 10),
                         child: Align(
                           alignment: (messages[index].messageType == "receiver"
                               ? Alignment.topLeft
                               : Alignment.topRight),
                           child: messages[index].messageType == "receiver"
                               ? Row(
-                                  children: [
-                                    const CircleAvatar(
-                                        backgroundImage:
-                                            AssetImage('assets/drawer_img.png'),
-                                        radius: 18),
-                                    const SizedBox(width: 10),
-                                    Expanded(
-                                      child: Container(
-                                        padding: const EdgeInsets.all(16),
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(12),
-                                          color: (messages[index].messageType ==
-                                                  "receiver"
-                                              ? Colors.grey[800]
-                                              : Colors.grey[600]),
-                                        ),
-                                        child: Text(
-                                            messages[index].messageContent,
-                                            style: const TextStyle(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.w500)),
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              : Row(
-                                  children: [
-                                    Expanded(
-                                      child: Container(
-                                        padding: const EdgeInsets.all(16),
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(12),
-                                          color: (messages[index].messageType ==
-                                                  "receiver"
-                                              ? Colors.grey[800]
-                                              : Colors.grey[600]),
-                                        ),
-                                        child: Text(
-                                            messages[index].messageContent,
-                                            style: const TextStyle(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.w500)),
-                                      ),
-                                    ),
-                                  ],
+                            children: [
+                              const CircleAvatar(
+                                  backgroundImage:
+                                  AssetImage('assets/drawer_img.png'),
+                                  radius: 18),
+                              const SizedBox(width: 10),
+                              Expanded(
+                                child: Container(
+                                  padding: const EdgeInsets.all(16),
+                                  decoration: BoxDecoration(
+                                    borderRadius:
+                                    BorderRadius.circular(12),
+                                    color: (messages[index].messageType ==
+                                        "receiver"
+                                        ? Colors.grey[800]
+                                        : Colors.grey[600]),
+                                  ),
+                                  child: Text(
+                                      messages[index].messageContent,
+                                      style: const TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w500)),
                                 ),
+                              ),
+                            ],
+                          )
+                              : Row(
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  padding: const EdgeInsets.all(16),
+                                  decoration: BoxDecoration(
+                                    borderRadius:
+                                    BorderRadius.circular(12),
+                                    color: (messages[index].messageType ==
+                                        "receiver"
+                                        ? Colors.grey[800]
+                                        : Colors.grey[600]),
+                                  ),
+                                  child: Text(
+                                      messages[index].messageContent,
+                                      style: const TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w500)),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     },
@@ -236,7 +202,7 @@ class _SCP18_1State extends State<SCP18_1> {
             alignment: Alignment.bottomLeft,
             child: Container(
               padding:
-                  const EdgeInsets.only(left: 10, bottom: 10, top: 10, right: 10),
+              const EdgeInsets.only(left: 10, bottom: 10, top: 10, right: 10),
               // height: 60,
               // width: double.infinity,
               // color: Colors.white,
@@ -267,7 +233,7 @@ class _SCP18_1State extends State<SCP18_1> {
                             floatingLabelBehavior: FloatingLabelBehavior.never,
                             labelText: "Start Typing....",
                             labelStyle:
-                                const TextStyle(color: Colors.white, fontSize: 14.0),
+                            const TextStyle(color: Colors.white, fontSize: 14.0),
                             suffixIcon: Padding(
                               padding: const EdgeInsets.only(right: 16.0),
                               child: Row(
@@ -283,8 +249,8 @@ class _SCP18_1State extends State<SCP18_1> {
                                           print('please enter text');
                                           _scaffoldKey.currentState!
                                               .showSnackBar(const SnackBar(
-                                                  content: Text(
-                                                      'Please enter message...')));
+                                              content: Text(
+                                                  'Please enter message...')));
                                         } else {
                                           _onSubmit();
                                           setState(() {
@@ -352,29 +318,6 @@ class _SCP18_1State extends State<SCP18_1> {
           ),
         ],
       ),
-      // SafeArea(
-      //   bottom: false,
-      //   child: Padding(
-      //     padding: const EdgeInsets.only(bottom: 8.0),
-      //     child: Chat(
-      //       messages: _messages,
-      //       onAttachmentPressed: _handleAtachmentPressed,
-      //       onMessageTap: _handleMessageTap,
-      //       onPreviewDataFetched: _handlePreviewDataFetched,
-      //       onSendPressed: _handleSendPressed,
-      //       user: _user,
-      //       showUserAvatars: true,
-      //       customBottomWidget: Container(
-      //         height: 50,
-      //         width: double.infinity,
-      //         color: Colors.blue,
-      //         child: Container(
-      //           _h
-      //         ),
-      //       ),
-      //     ),
-      //   ),
-      // ),
     );
   }
 }

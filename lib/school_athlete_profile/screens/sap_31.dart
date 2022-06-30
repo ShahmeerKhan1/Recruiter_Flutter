@@ -10,6 +10,7 @@ import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 import '../../widgets/athlete_post_class.dart';
 import '../../widgets/athlete_stats_class.dart';
 import 'sap_33.dart';
+import 'sap_44.dart';
 
 class SAP_31 extends StatefulWidget {
   const SAP_31({Key? key}) : super(key: key);
@@ -57,13 +58,40 @@ class _SAP_31State extends State<SAP_31> with SingleTickerProviderStateMixin {
   final _selectSchoolFormKey = GlobalKey<FormState>();
   final _selectPositionFormKey = GlobalKey<FormState>();
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: sapAppBar('Athelete Profile', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('Athelete Profile', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_44()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          )
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       backgroundColor: Colors.black,
       body: NestedScrollView(
         scrollDirection: Axis.vertical,

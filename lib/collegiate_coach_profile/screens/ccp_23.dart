@@ -2,16 +2,50 @@ import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
-class CCP_23 extends StatelessWidget {
+import 'ccp_42.dart';
+
+class CCP_23 extends StatefulWidget {
 
   String school;
 
   CCP_23({Key? key, required this.school}) : super(key: key);
 
   @override
+  State<CCP_23> createState() => _CCP_23State();
+}
+
+class _CCP_23State extends State<CCP_23> {
+  bool _notification = false;
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ccpAppBar('Coaching', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('Coaching', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_42()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -28,7 +62,7 @@ class CCP_23 extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       const Text('Martin Mangram', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500)),
-                      Text(school, style: const TextStyle(color: Color(0xFF686868), fontWeight: FontWeight.w500)),
+                      Text(widget.school, style: const TextStyle(color: Color(0xFF686868), fontWeight: FontWeight.w500)),
                       const SizedBox(height: 6),
                       Container(
                           height: 22,

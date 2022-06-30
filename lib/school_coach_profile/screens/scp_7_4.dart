@@ -4,11 +4,11 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/controller/new_highlight_controller.dart';
 import 'package:recruiter_flutter/model/highlight_tab_model.dart';
 import 'package:recruiter_flutter/school_coach_profile/controller/new_highlight_scp.dart';
+import 'package:recruiter_flutter/school_coach_profile/screens/scp42_1.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp_7.dart';
 import 'package:recruiter_flutter/school_coach_profile/widget/scp_app_bar.dart';
 import 'package:recruiter_flutter/util/colors.dart';
@@ -107,13 +107,40 @@ class _SCP7_4State extends State<SCP7_4> {
 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: scpAppBar('New Highlights', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('Video', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SCP42_1()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       //  resizeToAvoidBottomInset: false,
       floatingActionButton: _VideoController == null
           ? null
@@ -354,11 +381,15 @@ class _SCP7_4State extends State<SCP7_4> {
                                       like: '1.1k',
                                       comment: '2.2k',
                                       star: '2.2k',
+                                      starReact: false,
+                                      heartReact: false,
                                       video: videoFile,
                                       VideoController: _VideoController,
                                       initializeVideoPlayerFuture:
                                           _initializeVideoPlayerFuture));
-                              Get.off(const SCP7());
+                             // Get.off(const SCP7());
+                              Get.off(() => CustomOverlay());
+                              Get.off(() => SCP7());
                             } else {
                               Get.snackbar(
                                   'Note',

@@ -88,27 +88,30 @@ class _SAP_19State extends State<SAP_19> {
 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        iconTheme: const IconThemeData(color: Colors.white),
-        title: const Text('New Message',
-            style: TextStyle(color: Colors.white)),
+        title: Text('New Message', style: TextStyle(color: Colors.white)),
         centerTitle: true,
-        actions:  [
-          InkWell(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_44()));
-            },
-            child: Padding(
-              padding: EdgeInsets.only(right: 12.0),
-              child: Icon(Icons.notifications, color: Colors.white)
-
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_44()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
             ),
-          ),
+          )
         ],
         bottom: PreferredSize(
             child: Container(
@@ -268,9 +271,9 @@ class _SAP_19State extends State<SAP_19> {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Icon(Icons.attach_file,
-                                      color: AppColor.greyBorderColor),
-                                  const SizedBox(width: 6),
+                                  // Icon(Icons.attach_file,
+                                  //     color: AppColor.greyBorderColor),
+                                  // const SizedBox(width: 6),
                                   InkWell(
                                       onTap: () {
                                         if (search.text == "") {

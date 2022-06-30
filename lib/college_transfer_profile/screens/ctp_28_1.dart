@@ -89,7 +89,7 @@ class _CTP28_1State extends State<CTP28_1> with SingleTickerProviderStateMixin {
             Column(
               children: <Widget>[
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * .25,
+                  height: MediaQuery.of(context).size.height * .24,
                   //   color: Colors.blue,
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 26.0),
@@ -127,7 +127,7 @@ class _CTP28_1State extends State<CTP28_1> with SingleTickerProviderStateMixin {
                         //  mainAxisSize: MainAxisSize.min,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left: 4.0),
+                            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.02),
                             child: Image.asset('assets/drawer_img.png'),
                           ),
                           //SizedBox(height: 20),
@@ -208,36 +208,42 @@ class _CTP28_1State extends State<CTP28_1> with SingleTickerProviderStateMixin {
                                       });
                                     },
                                     child: editProfile
-                                        ? Container(
+                                        ? Padding(
+                                          padding: const EdgeInsets.only(right: 6.0),
+                                          child: Container(
                                       height: 30,
                                       width: 82,
                                       alignment: Alignment.center,
                                       decoration: const BoxDecoration(
-                                        color: Color(0xFFBABABA),
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10))),
+                                          color: Color(0xFFBABABA),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(10))),
                                       child: const Text('Following',
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 13.0)),
-                                    )
-                                        : Container(
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 13.0)),
+                                    ),
+                                        )
+                                        : Padding(
+                                          padding: const EdgeInsets.only(right: 6.0),
+                                          child: Container(
                                       height: 30,
                                       width: 78,
                                       alignment: Alignment.center,
                                       decoration: BoxDecoration(
-                                          borderRadius: const BorderRadius.all(
-                                              Radius.circular(10)),
-                                          border: Border.all(
-                                              color: const Color(0xFF686868),
-                                              width: 1.5)),
+                                            borderRadius: const BorderRadius.all(
+                                                Radius.circular(10)),
+                                            border: Border.all(
+                                                color: const Color(0xFF686868),
+                                                width: 1.5)),
                                       child: const Text('Follow',
-                                          style: TextStyle(
-                                              color: Color(0xFF686868),
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 13.0)),
+                                            style: TextStyle(
+                                                color: Color(0xFF686868),
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 13.0)),
                                     ),
+                                        ),
                                   )
                                 ],
                               ),
@@ -251,7 +257,7 @@ class _CTP28_1State extends State<CTP28_1> with SingleTickerProviderStateMixin {
                 Container(
                   height: MediaQuery.of(context).size.height * 0.20,
                   padding: const EdgeInsets.only(left: 12, right: 12.0, top: 16.0),
-                  margin: const EdgeInsets.only(left: 18.0, right: 16.0),
+                  margin: const EdgeInsets.only(left: 22.0, right: 22.0),
                   decoration: const BoxDecoration(
                     color: Color(0xFF111111),
                     borderRadius: BorderRadius.all(Radius.circular(16)),

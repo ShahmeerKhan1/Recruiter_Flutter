@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_39.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_42.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/controller/nli_controller.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
-class CCP_38 extends StatelessWidget {
-  const CCP_38({Key? key}) : super(key: key);
+class CCP_38 extends StatefulWidget {
+  CCP_38({Key? key}) : super(key: key);
+
+  @override
+  State<CCP_38> createState() => _CCP_38State();
+}
+
+class _CCP_38State extends State<CCP_38> {
+  bool _notification = false;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +27,32 @@ class CCP_38 extends StatelessWidget {
     TextEditingController _search = TextEditingController();
 
     return Scaffold(
-      appBar: ccpAppBar('NLI Signing', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('NLI Signing', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_42()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [

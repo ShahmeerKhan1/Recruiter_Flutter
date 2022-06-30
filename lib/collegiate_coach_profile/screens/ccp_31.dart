@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_35_1.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/controller/ccp_event_controller.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_35.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_42.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_event_detail.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_new_event.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_drawer.dart';
 import 'package:recruiter_flutter/controller/new_event.dart';
@@ -22,17 +25,44 @@ class _CCP_31State extends State<CCP_31> {
 
   TextEditingController search = TextEditingController();
 
+  bool _notification = false;
+
   @override
   void initState() {
     super.initState();
 
-    Get.put(EventController());
+    Get.put(CCPEventController());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ccpAppBar('Events', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('Events', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_42()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       drawer: ccp_drawer(context),
       body: SingleChildScrollView(
         child: Column(
@@ -68,7 +98,7 @@ class _CCP_31State extends State<CCP_31> {
                   const SizedBox(width: 6),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => const CTP35_1()));
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => const CCP_New_Event()));
                     },
                     child: Container(
                       width: 85,
@@ -123,7 +153,7 @@ class _CCP_31State extends State<CCP_31> {
                 //  mainAxisAlignment: MainAxisAlignment.center,
                 // crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  GetBuilder<EventController>(
+                  GetBuilder<CCPEventController>(
                     builder: (_event) {
                       if(_event.eventLists.isNotEmpty) {
                         return ListView.builder(
@@ -134,7 +164,8 @@ class _CCP_31State extends State<CCP_31> {
                             itemBuilder: (BuildContext context, index) {
                               return InkWell(
                                 onTap: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (_) => CCPEventDetail(data: _event.eventLists[index])));
+                                  Navigator.push(context, MaterialPageRoute(builder: (_) =>
+                                      CCPEventDetail(data: _event.eventLists[index])));
                                 },
                                 child: Container(
                                   height: MediaQuery.of(context).size.height * 0.31,

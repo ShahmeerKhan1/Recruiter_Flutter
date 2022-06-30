@@ -66,7 +66,7 @@ Widget customDrawer(BuildContext context) {       // CTP Drawer
                 ),
                 ListTile(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => const CTP48_1()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => CTP48_1()));
                     //   Navigator.pushReplacementNamed(context, Routes.bookmarks);
                   },
                   leading: Image.asset('assets/transfer.png'),

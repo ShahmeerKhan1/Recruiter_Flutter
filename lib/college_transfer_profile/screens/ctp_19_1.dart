@@ -4,6 +4,8 @@ import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
+import 'ctp_44_1.dart';
+
 class CTP19_1 extends StatefulWidget {
 
   String data;
@@ -86,21 +88,29 @@ class _CTP19_1State extends State<CTP19_1> {
 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        iconTheme: const IconThemeData(color: Colors.white),
-        title: const Text('New Message',
-            style: TextStyle(color: Colors.white)),
+        title: Text('New Message', style: TextStyle(color: Colors.white)),
         centerTitle: true,
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.only(right: 12.0),
-            child: Icon(Icons.notifications, color: Colors.white)
-
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP_44_1()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
           ),
         ],
         bottom: PreferredSize(

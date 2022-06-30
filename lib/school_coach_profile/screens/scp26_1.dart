@@ -5,6 +5,8 @@ import 'package:recruiter_flutter/school_coach_profile/widget/scp_posts_tab.dart
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_highlight_widget.dart';
 
+import 'scp42_1.dart';
+
 class SCP26_1 extends StatefulWidget {
   const SCP26_1({Key? key}) : super(key: key);
 
@@ -48,19 +50,28 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
     });
   }
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        title: Text('Profile', style: TextStyle(color: Colors.white)),
         centerTitle: true,
-        elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.white),
-        title: const Text('Profile', style: TextStyle(color: Colors.white)),
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.only(right: 16.0),
-            child: Icon(Icons.notifications, color: Colors.white),
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SCP42_1()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
           ),
         ],
         bottom: PreferredSize(

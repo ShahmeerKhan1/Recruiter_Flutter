@@ -5,6 +5,7 @@ import 'package:recruiter_flutter/school_athlete_profile/widgets/sap_app_bar.dar
 import 'package:recruiter_flutter/util/colors.dart';
 
 import 'sap_37.dart';
+import 'sap_44.dart';
 
 class SAPEventDetail extends StatefulWidget {
   final EventsModel data;
@@ -22,10 +23,37 @@ class _SAPEventDetailState extends State<SAPEventDetail> {
   bool mayBe = false;
   bool notGoing = false;
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: sapAppBar('Events', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('Events', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_44()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          )
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(16.0),

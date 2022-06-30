@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_34_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 
+import 'ctp_44_1.dart';
+
 class CTP33_1 extends StatefulWidget {
   const CTP33_1({Key? key}) : super(key: key);
 
@@ -28,13 +30,40 @@ class _CTP33_1State extends State<CTP33_1> {
   bool tactical3 = false;
   bool sprinter3 = false;
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: ctpAppBar('Evaluate', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('Evaluate', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP_44_1()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),

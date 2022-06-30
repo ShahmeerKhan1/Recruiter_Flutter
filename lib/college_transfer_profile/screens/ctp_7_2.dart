@@ -5,8 +5,10 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:recruiter_flutter/college_transfer_profile/controller/new_post_ctp.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_44_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_7_1.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/persistant_bottom_nav.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/controller/new_post_controller.dart';
 import 'package:recruiter_flutter/model/post_tab_model.dart';
@@ -91,13 +93,40 @@ class _CTP7_2State extends State<CTP7_2> {
   bool _isVisible = false;
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
+  bool _notification = false;
+
   @override
   Widget build(BuildContext context) {
 
     final PostControllerCTP controllerCTP = Get.put(PostControllerCTP());
 
     return Scaffold(
-      appBar: ctpAppBar('New Post', Icons.notifications, context),
+      appBar: AppBar(
+        title: Text('New Post', style: TextStyle(color: Colors.white)),
+        centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP_44_1()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
+            ),
+          ),
+        ],
+        bottom: PreferredSize(
+            child: Container(
+              color: const Color(0xFF474747),
+              height: 4.0,
+            ),
+            preferredSize: const Size.fromHeight(4.0)),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -177,8 +206,9 @@ class _CTP7_2State extends State<CTP7_2> {
                                 //  Get.to(()=>CTP_7());
                                // Get.close(2);
                                Get.off(() => CustomOverlay());
-                               Get.off(() => CTP_7());
+                             //  Get.off(() => PersistantBottomNav());
                                // Get.off(() => CTP_7_1());
+                                Get.off(() => CTP_7());
                                 //  Get.offAll(() => CTP_7());
                               //  });
                               //  PostControllerCTP().update();

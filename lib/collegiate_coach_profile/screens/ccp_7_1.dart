@@ -162,7 +162,7 @@ class _CCP_7_1State extends State<CCP_7_1> with SingleTickerProviderStateMixin {
             physics: const NeverScrollableScrollPhysics(),
             children: [
               CCPPostTab(),
-              const CCP_Highlights_Tab(),
+              CCP_Highlights_Tab(),
             ],
           ),
         ),
