@@ -10,6 +10,7 @@ import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_42.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_app_bar.dart';
 import 'package:recruiter_flutter/controller/new_offer.dart';
 import 'package:recruiter_flutter/model/offer_sent_model.dart';
+import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
@@ -424,6 +425,7 @@ class _CCP36_2State extends State<CCP36_2> {
                           child: InkWell(
                               onTap: () {
                                 print('navigate new offer');
+                                if(imageFile != null) {
 
                                 Get.put(OfferController()).offerList.add(
                                     OfferSentModel(
@@ -436,7 +438,11 @@ class _CCP36_2State extends State<CCP36_2> {
                                 );
                                 Navigator.push(context, MaterialPageRoute(builder: (_) => const CCP36_1()));
                                 //  }
-                              },
+                              } else {
+                                  Get.snackbar("Note", "Please upload an Image",snackPosition: SnackPosition.BOTTOM,
+                                      backgroundColor: AppColor.goldenColor,colorText: Colors.white);
+                                }
+    },
                               child: Container(
                                 height: 44,
                                 // width: _width,

@@ -6,8 +6,12 @@ import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_posts_tab
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_highlight_widget.dart';
 
+import 'ctp_21_1.dart';
+import 'ctp_44_1.dart';
+
 class CTP28_1 extends StatefulWidget {
-  const CTP28_1({Key? key}) : super(key: key);
+
+  CTP28_1({Key? key}) : super(key: key);
 
   @override
   _CTP28_1State createState() => _CTP28_1State();
@@ -54,6 +58,11 @@ class _CTP28_1State extends State<CTP28_1> with SingleTickerProviderStateMixin {
   String? selectPosition = 'Running Back';
   String? selectYear = '2020';
 
+  bool _notification = false;
+
+  String name = 'John Doe';
+  String at = '@jdoe';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,13 +73,18 @@ class _CTP28_1State extends State<CTP28_1> with SingleTickerProviderStateMixin {
         iconTheme: const IconThemeData(color: Colors.white),
         title: const Text('Profile', style: TextStyle(color: Colors.white)),
         actions: [
-          InkWell(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => const CTP30_1()));
-            },
-            child: const Padding(
-              padding: EdgeInsets.only(right: 16.0),
-              child: Icon(Icons.info_outline, color: Colors.white),
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP_44_1()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
             ),
           ),
         ],
@@ -112,7 +126,7 @@ class _CTP28_1State extends State<CTP28_1> with SingleTickerProviderStateMixin {
                 Container(
                   alignment: Alignment.topCenter,
                   padding: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * 0.16,
+                      top: MediaQuery.of(context).size.height * 0.15,
                       right: 20.0,
                       left: 20.0),
                   child: Container(
@@ -126,16 +140,22 @@ class _CTP28_1State extends State<CTP28_1> with SingleTickerProviderStateMixin {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         //  mainAxisSize: MainAxisSize.min,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.02),
-                            child: Image.asset('assets/drawer_img.png'),
+                          InkWell(
+                            onTap: () {
+                              print('onPressed');
+                              Navigator.push(context, MaterialPageRoute(builder: (_) => CTP21_1(name: name, at: '@jdoe')));
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.02),
+                              child: Image.asset('assets/drawer_img.png'),
+                            ),
                           ),
                           //SizedBox(height: 20),
                           Expanded(
                             flex: 3,
                             child: Padding(
                               padding:
-                              const EdgeInsets.only(left: 8.0, top: 12),
+                              EdgeInsets.only(left: 8.0, top: MediaQuery.of(context).size.height * 0.022),
                               child: Row(
                                 //   crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
@@ -146,8 +166,8 @@ class _CTP28_1State extends State<CTP28_1> with SingleTickerProviderStateMixin {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Row(
-                                        children: const [
-                                          Text('John Doe',
+                                        children: [
+                                          Text(name,
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 16.0,

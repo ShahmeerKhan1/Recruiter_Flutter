@@ -102,7 +102,7 @@ class _SAP_20State extends State<SAP_20> {
             padding: const EdgeInsets.only(right: 12.0),
             child: InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => const SAP_21()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_21()));
                 },
                 child: const Icon(Icons.info_outline, color: Colors.white)),
           ),

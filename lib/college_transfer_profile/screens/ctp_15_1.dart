@@ -27,7 +27,7 @@ class _CTP15_1State extends State<CTP15_1> with SingleTickerProviderStateMixin {
   List<Widget> list = [
     const Tab(text: 'Inbox'),
     const Tab(
-      text: 'Favourites',
+      text: 'Favorites',
     ),
   ];
 

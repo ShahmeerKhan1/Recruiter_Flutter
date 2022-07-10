@@ -102,7 +102,7 @@ class _CTP20_1State extends State<CTP20_1> {
             padding: const EdgeInsets.only(right: 12.0),
             child: InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => const CTP21_1()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP21_1()));
                 },
                 child: const Icon(Icons.info_outline, color: Colors.white)),
           ),

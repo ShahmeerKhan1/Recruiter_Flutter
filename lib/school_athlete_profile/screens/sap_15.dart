@@ -26,7 +26,7 @@ class _SAP_15State extends State<SAP_15> with SingleTickerProviderStateMixin {
   List<Widget> list = [
     const Tab(text: 'Inbox'),
     const Tab(
-      text: 'Favourites',
+      text: 'Favorites',
     ),
   ];
 

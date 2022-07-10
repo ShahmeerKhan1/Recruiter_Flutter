@@ -9,7 +9,7 @@ import 'package:pattern_formatter/pattern_formatter.dart';
 import 'package:recruiter_flutter/controller/controller.dart';
 import 'package:recruiter_flutter/controller/game_controller.dart';
 import 'package:recruiter_flutter/model/game_model.dart';
-import 'package:recruiter_flutter/school_coach_profile/screens/profile.dart';
+import 'package:recruiter_flutter/school_coach_profile/screens/scp_22_1.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 

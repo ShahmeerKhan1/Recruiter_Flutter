@@ -151,17 +151,17 @@ class _SAP_9State extends State<SAP_9> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 16.0),
                 child: Container(
-                  height: widget.data.img != null ?
-                  MediaQuery.of(context).size.height * 0.46 :
-                  MediaQuery.of(context).size.height * 0.14,
-                  width: MediaQuery
-                      .of(context)
-                      .size
-                      .width,
                   padding: EdgeInsets.only(left: 10, right: 10, top: 10),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12.0),
-                    color: const Color(0xFF111111),
+                      borderRadius: BorderRadius.circular(12.0),
+                      color: const Color(0xFF111111)),
+                  constraints: BoxConstraints(
+                    minWidth: MediaQuery.of(context).size.width,
+                    maxWidth: MediaQuery.of(context).size.width,
+                    minHeight: widget.data.img != null ?
+                    MediaQuery.of(context).size.height * 0.46 : 30.0,
+                    maxHeight: widget.data.img != null ?
+                    MediaQuery.of(context).size.height * 0.46 : 100.0,
                   ),
                   child: Column(
                     children: [
@@ -510,13 +510,15 @@ class _SAP_9State extends State<SAP_9> {
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 10.0),
                       child: Container(
-                        height: MediaQuery.of(context).size.height * 0.14,
-                        width: MediaQuery.of(context).size.width,
-                        padding: const EdgeInsets.all(10.0),
+                        padding: EdgeInsets.only(left: 10, right: 10, top: 10),
                         decoration: BoxDecoration(
-                          //  color: Colors.blue,
-                          borderRadius: BorderRadius.circular(12.0),
-                          color: const Color(0xFF111111),
+                            borderRadius: BorderRadius.circular(12.0),
+                            color: const Color(0xFF111111)),
+                        constraints: BoxConstraints(
+                          minWidth: MediaQuery.of(context).size.width,
+                          maxWidth: MediaQuery.of(context).size.width,
+                          minHeight: 30.0,
+                          maxHeight: 100.0,
                         ),
                         child: Column(
                           children: [
@@ -527,7 +529,7 @@ class _SAP_9State extends State<SAP_9> {
                                   AssetImage(_list[index].profileImg),
                                   radius: 18,
                                 ),
-                                const SizedBox(width: 6),
+                                const SizedBox(width: 10),
                                 Column(
                                   crossAxisAlignment:
                                   CrossAxisAlignment.start,
@@ -571,46 +573,50 @@ class _SAP_9State extends State<SAP_9> {
                                     Text(
                                       _list[index].desc,
                                       style: const TextStyle(
-                                          color: Colors.white, fontSize: 12),
+                                          color: Colors.white, fontSize: 13),
                                     ),
                                   ],
                                 )
                               ],
                             ),
-                            const SizedBox(height: 16),
-                            Row(
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(Icons.favorite_outline,
-                                        color: AppColor.greyBorderColor,
-                                        size: 20),
-                                    const SizedBox(width: 4),
-                                    Text(
-                                      _list[index].like,
-                                      style: TextStyle(
-                                          color: AppColor.greyBorderColor),
-                                    )
-                                  ],
-                                ),
-                                const SizedBox(width: 30),
-                                Row(
-                                  children: [
-                                    Icon(Icons.comment,
-                                        color: AppColor.greyBorderColor,
-                                        size: 20),
-                                    const SizedBox(width: 4),
-                                    Text(_list[index].comment,
+                           Spacer(),
+                           // const SizedBox(height: 16),
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 8.0, left: 2),
+                              child: Row(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Icon(Icons.favorite_outline,
+                                          color: AppColor.greyBorderColor,
+                                          size: 20),
+                                      const SizedBox(width: 4),
+                                      Text(
+                                        _list[index].like,
                                         style: TextStyle(
-                                            color: AppColor.greyBorderColor))
-                                  ],
-                                ),
-                                const Spacer(),
-                                Text(_list[index].reply,
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        color: AppColor.greyBorderColor))
-                              ],
+                                            color: AppColor.greyBorderColor),
+                                      )
+                                    ],
+                                  ),
+                                  const SizedBox(width: 30),
+                                  Row(
+                                    children: [
+                                      Icon(Icons.comment,
+                                          color: AppColor.greyBorderColor,
+                                          size: 20),
+                                      const SizedBox(width: 4),
+                                      Text(_list[index].comment,
+                                          style: TextStyle(
+                                              color: AppColor.greyBorderColor))
+                                    ],
+                                  ),
+                                  const Spacer(),
+                                  Text(_list[index].reply,
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color: AppColor.greyBorderColor))
+                                ],
+                              ),
                             )
                           ],
                         ),

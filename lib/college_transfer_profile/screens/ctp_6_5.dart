@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_6_6.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
+import 'ctp_7.dart';
+
 class CTP6_5 extends StatelessWidget {
   const CTP6_5({Key? key}) : super(key: key);
 
@@ -283,7 +285,7 @@ class CTP6_5 extends StatelessWidget {
                       fontSize: 16.0),
                 ),
                 onPressed: () {
-                  //  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP6_1()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => CTP_7()));
                 },
                 style: ElevatedButton.styleFrom(
                   primary: const Color(0xFF2A2A2A),

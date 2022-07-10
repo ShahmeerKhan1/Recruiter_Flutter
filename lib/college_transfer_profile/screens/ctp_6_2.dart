@@ -228,7 +228,7 @@ class _CTP6_2State extends State<CTP6_2> {
                     const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 4.0),
                       child: Text(
-                        'Choose Your High School',
+                        'Choose Your University',
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w500,

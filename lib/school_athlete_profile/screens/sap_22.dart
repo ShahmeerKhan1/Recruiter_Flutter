@@ -8,6 +8,7 @@ import 'package:recruiter_flutter/widgets/custom_highlight_widget.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
+import 'sap_21.dart';
 import 'sap_26.dart';
 import 'sap_31.dart';
 import 'sap_44.dart';
@@ -72,6 +73,8 @@ class _SAP_22State extends State<SAP_22> with SingleTickerProviderStateMixin {
 
   bool _notification = false;
 
+  String name = 'Martin Mangram';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -135,7 +138,7 @@ class _SAP_22State extends State<SAP_22> with SingleTickerProviderStateMixin {
                 Container(
                   alignment: Alignment.topCenter,
                   padding: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * 0.16,
+                      top: MediaQuery.of(context).size.height * 0.15,
                       right: 20.0,
                       left: 20.0),
                   child: Container(
@@ -149,16 +152,22 @@ class _SAP_22State extends State<SAP_22> with SingleTickerProviderStateMixin {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         //  mainAxisSize: MainAxisSize.min,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.02),
-                            child: Image.asset('assets/drawer_img.png'),
+                          InkWell(
+                            onTap : () {
+                              print('onPressed');
+                              Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_21(name: name, at: '@mgram')));
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.02),
+                              child: Image.asset('assets/drawer_img.png'),
+                            ),
                           ),
                           //SizedBox(height: 20),
                           Expanded(
                             flex: 3,
                             child: Padding(
                               padding:
-                                  const EdgeInsets.only(left: 8.0, top: 12),
+                              EdgeInsets.only(left: 8.0, top: MediaQuery.of(context).size.height * 0.022),
                               child: Row(
                                 //   crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
@@ -170,7 +179,7 @@ class _SAP_22State extends State<SAP_22> with SingleTickerProviderStateMixin {
                                     children: [
                                       Row(
                                         children: [
-                                          const Text('Martin Mangram',
+                                          Text(name,
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 16.0,

@@ -1,6 +1,7 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_26_1.dart';
+import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_28_1.dart';
 import 'package:recruiter_flutter/college_transfer_profile/screens/ctp_31.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_custom_drawer.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_highlights_tab.dart';
@@ -10,6 +11,7 @@ import 'package:recruiter_flutter/widgets/custom_highlight_widget.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 
+import 'ctp_21_1.dart';
 import 'ctp_44_1.dart';
 
 class CTP22_1 extends StatefulWidget {
@@ -72,6 +74,9 @@ class _CTP22_1State extends State<CTP22_1> with SingleTickerProviderStateMixin {
 
   bool _notification = false;
 
+  String name = 'Martin Mangram';
+  String at = '@mgram';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -132,7 +137,7 @@ class _CTP22_1State extends State<CTP22_1> with SingleTickerProviderStateMixin {
                 Container(
                   alignment: Alignment.topCenter,
                   padding: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * 0.16,
+                      top: MediaQuery.of(context).size.height * 0.15,
                       right: 20.0,
                       left: 20.0),
                   child: Container(
@@ -146,16 +151,25 @@ class _CTP22_1State extends State<CTP22_1> with SingleTickerProviderStateMixin {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         //  mainAxisSize: MainAxisSize.min,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.02),
-                            child: Image.asset('assets/drawer_img.png'),
+                          InkWell(
+                            onTap: () {
+                              print('onPressed');
+                              Navigator.push(context, MaterialPageRoute(builder: (_) => CTP21_1(name: name, at: '@mgram')));
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                  left: MediaQuery.of(context).size.width * 0.02),
+                              child: Image.asset('assets/drawer_img.png'),
+                            ),
                           ),
                           //SizedBox(height: 20),
                           Expanded(
                             flex: 3,
                             child: Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 8.0, top: 12),
+                              padding: EdgeInsets.only(
+                                  left: 8.0,
+                                  top: MediaQuery.of(context).size.height * 0.022
+                              ),
                               child: Row(
                                 //   crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
@@ -167,7 +181,7 @@ class _CTP22_1State extends State<CTP22_1> with SingleTickerProviderStateMixin {
                                     children: [
                                       Row(
                                         children: [
-                                          const Text('Martin Mangram',
+                                          Text(name,
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 16.0,

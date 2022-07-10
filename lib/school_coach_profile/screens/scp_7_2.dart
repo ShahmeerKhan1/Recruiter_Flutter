@@ -125,7 +125,7 @@ class _SCP7_2State extends State<SCP7_2> {
                 maxLines: null,
                 // maxLines: 3,
                 // minLines: 1,
-                 maxLength: 125,
+                 maxLength: 100,
                 inputFormatters: [
                   FilteringTextInputFormatter.deny(new RegExp(r"\n"))
                 ],

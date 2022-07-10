@@ -4,6 +4,7 @@ import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
 import 'success_screen.dart';
+import 'welcome_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
@@ -216,7 +217,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           fontSize: 16.0),
                     ),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => const SuccessScreen()));
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => const WelcomeScreen()));
                     },
                     style: ElevatedButton.styleFrom(
                       primary: AppColor.goldenColor,

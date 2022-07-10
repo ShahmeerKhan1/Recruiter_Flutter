@@ -5,6 +5,7 @@ import 'package:recruiter_flutter/school_coach_profile/widget/scp_posts_tab.dart
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/custom_highlight_widget.dart';
 
+import 'SCP21_1.dart';
 import 'scp42_1.dart';
 
 class SCP26_1 extends StatefulWidget {
@@ -33,6 +34,7 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
   ];
 
   bool isFollow = true;
+  String name = 'Martin Mangram';
 
   @override
   void initState() {
@@ -89,7 +91,7 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
             Column(
               children: <Widget>[
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * .25,
+                  height: MediaQuery.of(context).size.height * .24,
                   //   color: Colors.blue,
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 26.0),
@@ -110,7 +112,7 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
                 Container(
                   alignment: Alignment.topCenter,
                   padding: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * 0.16,
+                      top: MediaQuery.of(context).size.height * 0.15,
                       right: 20.0,
                       left: 20.0),
                   child: Container(
@@ -124,15 +126,21 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         //  mainAxisSize: MainAxisSize.min,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 4.0),
-                            child: Image.asset('assets/drawer_img.png'),
+                          InkWell(
+                            onTap: () {
+                              print('onPressed');
+                              Navigator.push(context, MaterialPageRoute(builder: (_) => SCP21_1(name: name, at: '@mgram')));
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.02),
+                              child: Image.asset('assets/drawer_img.png'),
+                            ),
                           ),
                           //SizedBox(height: 20),
                           Expanded(
                             flex: 3,
                             child: Padding(
-                              padding: const EdgeInsets.only(left: 8.0, top: 8),
+                              padding: EdgeInsets.only(left: 8.0, top: MediaQuery.of(context).size.height * 0.022),
                               child: Row(
                                 //   crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
@@ -141,7 +149,7 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      const Text('Martin Mangram',
+                                      Text(name,
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 16.0,
@@ -230,20 +238,20 @@ class _SCP26_1State extends State<SCP26_1> with SingleTickerProviderStateMixin {
                                                       fontWeight: FontWeight.w500)),
                                             )
                                         ),
-                                        const SizedBox(height: 4),
-                                        Container(
-                                          height: 30,
-                                          width: 36,
-                                          alignment: Alignment.center,
-                                          decoration: BoxDecoration(
-                                              borderRadius: const BorderRadius.all(Radius.circular(6.0)),
-                                              border: Border.all(
-                                                  color: AppColor.textGreyColor,
-                                                  width: 2
-                                              )
-                                          ),
-                                          child: const Icon(Icons.work_outline, color: Color(0xFFE0B216)),
-                                        )
+                                        // const SizedBox(height: 4),
+                                        // Container(
+                                        //   height: 30,
+                                        //   width: 36,
+                                        //   alignment: Alignment.center,
+                                        //   decoration: BoxDecoration(
+                                        //       borderRadius: const BorderRadius.all(Radius.circular(6.0)),
+                                        //       border: Border.all(
+                                        //           color: AppColor.textGreyColor,
+                                        //           width: 2
+                                        //       )
+                                        //   ),
+                                        //   child: const Icon(Icons.work_outline, color: Color(0xFFE0B216)),
+                                        // )
                                       ],
                                     ),
                                   )

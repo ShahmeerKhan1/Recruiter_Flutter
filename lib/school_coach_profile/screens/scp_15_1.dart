@@ -24,7 +24,7 @@ class _SCP15_1State extends State<SCP15_1> with SingleTickerProviderStateMixin {
   List<Widget> list = [
     const Tab(text: 'Inbox'),
     const Tab(
-      text: 'Favourites',
+      text: 'Favorites',
     ),
   ];
 

@@ -112,7 +112,7 @@ class _SAP7_2State extends State<SAP7_2> {
                 ],
                 // maxLines: 3,
                 // minLines: 1,
-                maxLength: 125,
+                maxLength: 100,
                 textCapitalization: TextCapitalization.sentences,
                 // onSaved: (val) {
                 //   setState(() {

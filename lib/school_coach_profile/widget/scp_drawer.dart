@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recruiter_flutter/school_coach_profile/screens/profile.dart';
+import 'package:recruiter_flutter/school_coach_profile/screens/scp_22_1.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp26_1.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp31_1.dart';
 import 'package:recruiter_flutter/school_coach_profile/screens/scp_43.dart';

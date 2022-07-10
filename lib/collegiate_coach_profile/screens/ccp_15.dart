@@ -25,7 +25,7 @@ class _CCP_15State extends State<CCP_15> with SingleTickerProviderStateMixin {
   List<Widget> list = [
     const Tab(text: 'Inbox'),
     const Tab(
-      text: 'Favourites',
+      text: 'Favorites',
     ),
   ];
 

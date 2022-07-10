@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/school_athlete_profile/screens/sap_6_5.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
+import 'sap_7.dart';
+
 class SAP6_4 extends StatelessWidget {
   const SAP6_4({Key? key}) : super(key: key);
 
@@ -63,7 +65,7 @@ class SAP6_4 extends StatelessWidget {
                       fontSize: 16.0),
                 ),
                 onPressed: () {
-                  //  Navigator.push(context, MaterialPageRoute(builder: (_) => CTP6_1()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => SAP_7()));
                 },
                 style: ElevatedButton.styleFrom(
                   primary: const Color(0xFF2A2A2A),

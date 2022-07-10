@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/college_transfer_profile/widgets/ctp_app_bar.dart';
 import 'package:recruiter_flutter/model/offers_model.dart';
 import 'package:recruiter_flutter/util/colors.dart';
+import 'package:recruiter_flutter/widgets/commit_reject_widget.dart';
 
 class CTP_Offer_Detail extends StatefulWidget {
   OffersModel data;
@@ -16,6 +17,12 @@ class _CTP_Offer_DetailState extends State<CTP_Offer_Detail> {
 
   bool commit = false;
   bool reject = false;
+
+  String? _groupValue;
+
+  ValueChanged<String?> _valueChangedHandler() {
+    return (value) => setState(() => _groupValue = value!);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -141,54 +148,71 @@ class _CTP_Offer_DetailState extends State<CTP_Offer_Detail> {
                 const Spacer(),
                 Column(
                   children: [
-                    InkWell(
-                      onTap: () {
-                        print('commit');
-                        setState(() {
-                          commit = !commit;
-                        });
-                      },
-                      child: Container(
-                        height: 26,
-                        width: 82,
-                        //  margin: EdgeInsets.only(right: 2.0, bottom: 6.0),
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: commit ? const Color(0xFF239B36) : const Color(0xFF111111),
-                            borderRadius: const BorderRadius.all(Radius.circular(6)),
-                            border: Border.all(color: !commit ? AppColor.textGreyColor : const Color(0xFF111111))),
-                        child: !commit ? Text(
-                          widget.data.commit,
-                          style: TextStyle(
-                              color: AppColor.textGreyColor,
-                              fontWeight: FontWeight.w500),
-                        ) : const Text('Committed', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),),
-                      ),
+                    CommitRejectWidget<String>(
+                      value: 'A',
+                      text1: 'Commit',
+                      text2: 'Committed',
+                      color: Color(0xFF239B36),
+                      groupValue: _groupValue,
+                      onChanged: _valueChangedHandler(),
                     ),
-                    const SizedBox(height: 6),
-                    InkWell(
-                      onTap: () {
-                        setState(() {
-                          reject = !reject;
-                        });
-                      },
-                      child: Container(
-                        height: 26,
-                        width: 82,
-                        //  margin: EdgeInsets.only(right: 2.0, bottom: 6.0),
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: reject ? const Color(0xFF8C0900) : const Color(0xFF111111),
-                            borderRadius: const BorderRadius.all(Radius.circular(6)),
-                            border: Border.all(color: !reject ? AppColor.textGreyColor : const Color(0xFF111111))),
-                        child: !reject ? Text(
-                          'Reject',
-                          style: TextStyle(
-                              color: AppColor.textGreyColor,
-                              fontWeight: FontWeight.w500),
-                        ) : const Text('Rejected', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),),
-                      ),
-                    ),
+                    SizedBox(height: 6),
+                    CommitRejectWidget<String>(
+                        value: 'B',
+                        text1: 'Reject',
+                        text2: 'Rejected',
+                        color: Color(0xFF8C0900),
+                        groupValue: _groupValue,
+                        onChanged: _valueChangedHandler()
+                    )
+                    // InkWell(
+                    //   onTap: () {
+                    //     print('commit');
+                    //     setState(() {
+                    //       commit = !commit;
+                    //     });
+                    //   },
+                    //   child: Container(
+                    //     height: 26,
+                    //     width: 82,
+                    //     //  margin: EdgeInsets.only(right: 2.0, bottom: 6.0),
+                    //     alignment: Alignment.center,
+                    //     decoration: BoxDecoration(
+                    //       color: commit ? const Color(0xFF239B36) : const Color(0xFF111111),
+                    //         borderRadius: const BorderRadius.all(Radius.circular(6)),
+                    //         border: Border.all(color: !commit ? AppColor.textGreyColor : const Color(0xFF111111))),
+                    //     child: !commit ? Text(
+                    //       widget.data.commit,
+                    //       style: TextStyle(
+                    //           color: AppColor.textGreyColor,
+                    //           fontWeight: FontWeight.w500),
+                    //     ) : const Text('Committed', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),),
+                    //   ),
+                    // ),
+                    // const SizedBox(height: 6),
+                    // InkWell(
+                    //   onTap: () {
+                    //     setState(() {
+                    //       reject = !reject;
+                    //     });
+                    //   },
+                    //   child: Container(
+                    //     height: 26,
+                    //     width: 82,
+                    //     //  margin: EdgeInsets.only(right: 2.0, bottom: 6.0),
+                    //     alignment: Alignment.center,
+                    //     decoration: BoxDecoration(
+                    //       color: reject ? const Color(0xFF8C0900) : const Color(0xFF111111),
+                    //         borderRadius: const BorderRadius.all(Radius.circular(6)),
+                    //         border: Border.all(color: !reject ? AppColor.textGreyColor : const Color(0xFF111111))),
+                    //     child: !reject ? Text(
+                    //       'Reject',
+                    //       style: TextStyle(
+                    //           color: AppColor.textGreyColor,
+                    //           fontWeight: FontWeight.w500),
+                    //     ) : const Text('Rejected', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),),
+                    //   ),
+                    // ),
                   ],
                 )
               ],

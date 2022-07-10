@@ -103,7 +103,7 @@ class _SCP_20_1State extends State<SCP_20_1> {
             padding: const EdgeInsets.only(right: 12.0),
             child: InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => const SCP21_1()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => SCP21_1()));
                 },
                 child: const Icon(Icons.info_outline, color: Colors.white)),
           ),

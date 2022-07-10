@@ -1,5 +1,6 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_21.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_23.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_24.dart';
 import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_42.dart';
@@ -64,6 +65,8 @@ class _CCP_22State extends State<CCP_22> with SingleTickerProviderStateMixin {
   
   bool _notification = false;
 
+  String name = 'Martin Mangram';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,7 +124,7 @@ class _CCP_22State extends State<CCP_22> with SingleTickerProviderStateMixin {
                       width: 60,
                       alignment: Alignment.center,
                       child: const Text('Coach',
-                          style: TextStyle(color: Color(0xFFE0B216), fontWeight: FontWeight.w500)),
+                          style: TextStyle(color: Color(0xFFE0B216), fontSize: 12.0, fontWeight: FontWeight.w500)),
                       decoration: BoxDecoration(
                         borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                         border: Border.all(
@@ -141,7 +144,7 @@ class _CCP_22State extends State<CCP_22> with SingleTickerProviderStateMixin {
                 Container(
                   alignment: Alignment.topCenter,
                   padding: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * 0.16,
+                      top: MediaQuery.of(context).size.height * 0.15,
                       right: 20.0,
                       left: 20.0),
                   child: Container(
@@ -155,16 +158,22 @@ class _CCP_22State extends State<CCP_22> with SingleTickerProviderStateMixin {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         //  mainAxisSize: MainAxisSize.min,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.02),
-                            child: Image.asset('assets/drawer_img.png'),
+                          InkWell(
+                            onTap: () {
+                              print('onPressed');
+                              Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_21(name: name, at: '@mgram')));
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.02),
+                              child: Image.asset('assets/drawer_img.png'),
+                            ),
                           ),
                           //SizedBox(height: 20),
                           Expanded(
                             flex: 3,
                             child: Padding(
                               padding:
-                              const EdgeInsets.only(left: 8.0, top: 12),
+                              EdgeInsets.only(left: 8.0, top: MediaQuery.of(context).size.height * 0.022),
                               child: Row(
                                 //   crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
@@ -176,7 +185,7 @@ class _CCP_22State extends State<CCP_22> with SingleTickerProviderStateMixin {
                                     children: [
                                       Row(
                                         children: [
-                                          const Text('Martin Mangram',
+                                          Text(name,
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 16.0,

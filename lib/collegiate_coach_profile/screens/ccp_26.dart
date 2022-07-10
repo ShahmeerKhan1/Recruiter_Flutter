@@ -6,6 +6,9 @@ import 'package:recruiter_flutter/collegiate_coach_profile/screens/ccp_post_tab.
 import 'package:recruiter_flutter/collegiate_coach_profile/widget/ccp_drawer.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
+import 'ccp_21.dart';
+import 'ccp_42.dart';
+
 class CCP_26 extends StatefulWidget {
   const CCP_26({Key? key}) : super(key: key);
 
@@ -54,6 +57,10 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
   String? selectPosition = 'Running Back';
   String? selectYear = '2020';
 
+  bool _notification = false;
+
+  String name = 'Martin Mangram';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,13 +71,18 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
         iconTheme: const IconThemeData(color: Colors.white),
         title: const Text('Profile', style: TextStyle(color: Colors.white)),
         actions: [
-          InkWell(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => const CCP_28()));
-            },
-            child: const Padding(
-              padding: EdgeInsets.only(right: 16.0),
-              child: Icon(Icons.info_outline, color: Colors.white),
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _notification = true;
+                  });
+                  print('noti');
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_42()));
+                },
+                child: _notification ?  Icon(Icons.notifications, color: Colors.white)
+                    : Icon(Icons.notifications_none)
             ),
           ),
         ],
@@ -89,7 +101,7 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
             Column(
               children: <Widget>[
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * .25,
+                  height: MediaQuery.of(context).size.height * .24,
                   //   color: Colors.blue,
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 26.0),
@@ -112,7 +124,7 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
                 Container(
                   alignment: Alignment.topCenter,
                   padding: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * 0.16,
+                      top: MediaQuery.of(context).size.height * 0.15,
                       right: 20.0,
                       left: 20.0),
                   child: Container(
@@ -126,16 +138,22 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         //  mainAxisSize: MainAxisSize.min,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 4.0),
-                            child: Image.asset('assets/drawer_img.png'),
+                          InkWell(
+                            onTap: () {
+                              print('onPressed');
+                              Navigator.push(context, MaterialPageRoute(builder: (_) => CCP_21(name: name, at: '@mgram')));
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.02),
+                              child: Image.asset('assets/drawer_img.png'),
+                            ),
                           ),
                           //SizedBox(height: 20),
                           Expanded(
                             flex: 3,
                             child: Padding(
                               padding:
-                              const EdgeInsets.only(left: 8.0, top: 12),
+                              EdgeInsets.only(left: 8.0, top: MediaQuery.of(context).size.height * 0.022),
                               child: Row(
                                // crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
@@ -146,8 +164,8 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Row(
-                                        children: const [
-                                          Text('Martin Mangram',
+                                        children: [
+                                          Text(name,
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 16.0,
@@ -214,86 +232,92 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
                                             });
                                           },
                                           child: editProfile
-                                              ? Container(
+                                              ? Padding(
+                                                padding: const EdgeInsets.only(right: 4.0),
+                                                child: Container(
                                             height: 30,
                                             width: 82,
                                             alignment: Alignment.center,
                                             decoration: const BoxDecoration(
-                                                color: Color(0xFFBABABA),
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(10))),
+                                                  color: Color(0xFFBABABA),
+                                                  borderRadius: BorderRadius.all(
+                                                      Radius.circular(10))),
                                             child: const Text('Following',
-                                                style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 13.0)),
-                                          )
-                                              : Container(
+                                                  style: TextStyle(
+                                                      color: Colors.black,
+                                                      fontWeight: FontWeight.w500,
+                                                      fontSize: 13.0)),
+                                          ),
+                                              )
+                                              : Padding(
+                                                padding: const EdgeInsets.only(right: 4.0),
+                                                child: Container(
                                             height: 30,
                                             width: 78,
                                             alignment: Alignment.center,
                                             decoration: BoxDecoration(
-                                                borderRadius: const BorderRadius.all(
-                                                    Radius.circular(10)),
-                                                border: Border.all(
-                                                    color: const Color(0xFF686868),
-                                                    width: 1.5)),
+                                                  borderRadius: const BorderRadius.all(
+                                                      Radius.circular(10)),
+                                                  border: Border.all(
+                                                      color: const Color(0xFF686868),
+                                                      width: 1.5)),
                                             child: const Text('Follow',
-                                                style: TextStyle(
-                                                    color: Color(0xFF686868),
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 13.0)),
+                                                  style: TextStyle(
+                                                      color: Color(0xFF686868),
+                                                      fontWeight: FontWeight.w500,
+                                                      fontSize: 13.0)),
                                           ),
+                                              ),
                                         ),
-                                        const SizedBox(height: 6),
-                                        Container(
-                                          height: 30,
-                                          width: 38,
-                                          decoration: BoxDecoration(
-                                              borderRadius: const BorderRadius.all(
-                                                  Radius.circular(8)),
-                                              border: Border.all(
-                                                  color: const Color(0xFF686868),
-                                                  width: 1.5)),
-                                          child: PopupMenuButton(
-                                              color: AppColor.greyBorderColor,
-                                              offset: const Offset(0, 24),
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius: BorderRadius.circular(8),
-                                              ),
-                                              padding: const EdgeInsets.all(0.0),
-                                              icon: Image.asset(
-                                                'assets/bag.png'
-                                              ),
-                                              itemBuilder: (context) {
-                                                return [
-                                                  PopupMenuItem(
-                                                    child: const Text('Send Offer',
-                                                        style: TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.w500)),
-                                                  //  height: 16,
-                                                    onTap: () {
-                                                      print('contTap');
-                                                      setState(() {
-                                                        // widget.list.removeAt(widget.index);
-                                                        // widget.callback();
-                                                      });
-                                                    },
-                                                  ),
-                                                  PopupMenuItem(
-                                                    child: const Text('Add Prospect',
-                                                        style: TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.w500)),
-                                                  //  height: 16,
-                                                    onTap: () {
-                                                      print('contTap');
-                                                      setState(() {
-                                                        // widget.list.removeAt(widget.index);
-                                                        // widget.callback();
-                                                      });
-                                                    },
-                                                  )
-                                                ];
-                                              }),
-                                        )
+                                        // const SizedBox(height: 6),
+                                        // Container(
+                                        //   height: 30,
+                                        //   width: 38,
+                                        //   decoration: BoxDecoration(
+                                        //       borderRadius: const BorderRadius.all(
+                                        //           Radius.circular(8)),
+                                        //       border: Border.all(
+                                        //           color: const Color(0xFF686868),
+                                        //           width: 1.5)),
+                                        //   child: PopupMenuButton(
+                                        //       color: AppColor.greyBorderColor,
+                                        //       offset: const Offset(0, 24),
+                                        //       shape: RoundedRectangleBorder(
+                                        //         borderRadius: BorderRadius.circular(8),
+                                        //       ),
+                                        //       padding: const EdgeInsets.all(0.0),
+                                        //       icon: Image.asset(
+                                        //         'assets/bag.png'
+                                        //       ),
+                                        //       itemBuilder: (context) {
+                                        //         return [
+                                        //           PopupMenuItem(
+                                        //             child: const Text('Send Offer',
+                                        //                 style: TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.w500)),
+                                        //           //  height: 16,
+                                        //             onTap: () {
+                                        //               print('contTap');
+                                        //               setState(() {
+                                        //                 // widget.list.removeAt(widget.index);
+                                        //                 // widget.callback();
+                                        //               });
+                                        //             },
+                                        //           ),
+                                        //           PopupMenuItem(
+                                        //             child: const Text('Add Prospect',
+                                        //                 style: TextStyle(color: Colors.black, fontSize: 12, fontWeight: FontWeight.w500)),
+                                        //           //  height: 16,
+                                        //             onTap: () {
+                                        //               print('contTap');
+                                        //               setState(() {
+                                        //                 // widget.list.removeAt(widget.index);
+                                        //                 // widget.callback();
+                                        //               });
+                                        //             },
+                                        //           )
+                                        //         ];
+                                        //       }),
+                                        // )
                                       ],
                                     ),
                                   )
@@ -309,7 +333,7 @@ class _CCP_26State extends State<CCP_26> with SingleTickerProviderStateMixin {
                 Container(
                   height: MediaQuery.of(context).size.height * 0.20,
                   padding: const EdgeInsets.only(left: 12, right: 12.0, top: 16.0),
-                  margin: const EdgeInsets.only(left: 18.0, right: 16.0),
+                  margin: const EdgeInsets.only(left: 22.0, right: 22.0),
                   decoration: const BoxDecoration(
                     color: Color(0xFF111111),
                     borderRadius: BorderRadius.all(Radius.circular(16)),

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 
 class SAP_21 extends StatefulWidget {
-  const SAP_21({Key? key}) : super(key: key);
+  String? name, at;
+
+  SAP_21({Key? key, this.name, this.at}) : super(key: key);
 
   @override
   _SAP_21State createState() => _SAP_21State();
@@ -20,7 +22,7 @@ class _SAP_21State extends State<SAP_21> {
       AppBar(
         backgroundColor: Colors.black,
         iconTheme: const IconThemeData(color: Colors.white),
-        title: const Text('John Doe', style: TextStyle(color: Colors.white)),
+        title: Text(widget.name!, style: TextStyle(color: Colors.white)),
         centerTitle: true,
         actions: [
           InkWell(
@@ -50,21 +52,21 @@ class _SAP_21State extends State<SAP_21> {
             //  color: Colors.blue,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 CircleAvatar(
                   backgroundImage: AssetImage('assets/drawer_img.png'),
                   radius: 40.0,
                 ),
                 SizedBox(height: 16),
                 Text(
-                  'John Doe',
+                  widget.name!,
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 16.0,
                       fontWeight: FontWeight.w500),
                 ),
                 SizedBox(height: 2),
-                Text('@jdoe', style: TextStyle(color: Color(0xFF686868), fontSize: 14.0),)
+                Text(widget.at!, style: TextStyle(color: Color(0xFF686868), fontSize: 14.0),)
               ],
             ),
           ),

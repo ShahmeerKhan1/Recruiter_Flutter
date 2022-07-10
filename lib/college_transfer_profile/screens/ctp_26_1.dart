@@ -251,7 +251,7 @@ class _FollowersState extends State<Followers> {
                   return InkWell(
                     onTap: () {
                       print('navigate');
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => const CTP28_1()));
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => CTP28_1()));
                     },
                     child: Container(
                       height: MediaQuery.of(context).size.height * 0.11,

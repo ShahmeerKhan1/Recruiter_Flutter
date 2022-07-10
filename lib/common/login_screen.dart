@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recruiter_flutter/common/success_screen.dart';
+import 'package:recruiter_flutter/common/welcome_screen.dart';
 import 'package:recruiter_flutter/util/colors.dart';
 import 'package:recruiter_flutter/widgets/textfield_focused_border.dart';
 import 'package:recruiter_flutter/widgets/textfield_input_border.dart';
@@ -112,7 +113,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           fontSize: 16.0),
                     ),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (_) => const SuccessScreen()));
+                      Navigator.push(context, MaterialPageRoute(builder: (_) => const WelcomeScreen()));
                     },
                     style: ElevatedButton.styleFrom(
                       primary: AppColor.goldenColor,
