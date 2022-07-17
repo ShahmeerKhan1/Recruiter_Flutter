@@ -145,253 +145,250 @@ class _CTP22_1State extends State<CTP22_1> with SingleTickerProviderStateMixin {
                     alignment: Alignment.topLeft,
                     //    color: Colors.green,
                     width: MediaQuery.of(context).size.width,
-                    child: Expanded(
-                      flex: 1,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        //  mainAxisSize: MainAxisSize.min,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              print('onPressed');
-                              Navigator.push(context, MaterialPageRoute(builder: (_) => CTP21_1(name: name, at: '@mgram')));
-                            },
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                  left: MediaQuery.of(context).size.width * 0.02),
-                              child: Image.asset('assets/drawer_img.png'),
-                            ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      //  mainAxisSize: MainAxisSize.min,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            print('onPressed');
+                            Navigator.push(context, MaterialPageRoute(builder: (_) => CTP21_1(name: name, at: '@mgram')));
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                left: MediaQuery.of(context).size.width * 0.02),
+                            child: Image.asset('assets/drawer_img.png'),
                           ),
-                          //SizedBox(height: 20),
-                          Expanded(
-                            flex: 3,
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                  left: 8.0,
-                                  top: MediaQuery.of(context).size.height * 0.022
-                              ),
-                              child: Row(
-                                //   crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Column(
-                                    // mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Text(name,
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16.0,
-                                                  fontWeight: FontWeight.w500)),
-                                          const SizedBox(width: 10),
-                                          editProfile
-                                              ? Image.asset('assets/edit.png')
-                                              : Container()
-                                          //  Icon(Icons.edit, color: Colors.white, size: 18)
-                                        ],
-                                      ),
-                                      const SizedBox(height: 2),
-                                      editProfile
-                                          ? Container(
-                                              height: 30,
-                                              width: 150,
-                                              alignment: Alignment.center,
-                                              child: Form(
-                                                key: _selectSchoolFormKey,
-                                                child: DropdownButtonFormField2(
-                                                  buttonPadding:
-                                                      const EdgeInsets.all(0.0),
-                                                  //  alignment: Alignment.center,
-                                                  //  buttonWidth: 50,
-                                                  decoration: InputDecoration(
-                                                    contentPadding: const EdgeInsets.only(left: 10.0),
-                                                    isDense: true,
-                                                    filled: true,
-                                                    fillColor:
-                                                        const Color(0xFF111111),
-                                                    floatingLabelBehavior:
-                                                        FloatingLabelBehavior
-                                                            .never,
-                                                    labelStyle: const TextStyle(
-                                                        color:
-                                                            Color(0xFFBABABA)),
-                                                    enabledBorder:
-                                                        myinputborder(),
-                                                    focusedBorder:
-                                                        myfocusborder(),
-                                                  ),
-                                                  hint: const Text(
-                                                    'Select School',
-                                                    style: TextStyle(
-                                                        fontSize: 12,
-                                                        color:
-                                                            Color(0xFFBABABA)),
-                                                  ),
-                                                  icon: const Icon(
-                                                    Icons.arrow_drop_down,
-                                                    color: Colors.grey,
-                                                  ),
-                                                  iconSize: 30,
-                                                  buttonHeight: 80,
-                                                  dropdownDecoration:
-                                                      BoxDecoration(
-                                                    color: const Color(0xFF111111),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10),
-                                                  ),
-                                                  items: schoolList
-                                                      .map((item) =>
-                                                          DropdownMenuItem<
-                                                              String>(
-                                                            value: item,
-                                                            child: Text(
-                                                              item,
-                                                              style: const TextStyle(
-                                                                  fontSize: 12,
-                                                                  color: Colors.white),
-                                                            ),
-                                                          ))
-                                                      .toList(),
-                                                  validator: (value) {
-                                                    if (value == null) {
-                                                      return 'Select School';
-                                                    }
-                                                    return null;
-                                                  },
-                                                  onChanged: (value) {
-                                                    setState(() {
-                                                      selectSchool =
-                                                          value.toString();
-                                                      print(
-                                                          'home onchange $selectSchool');
-                                                    });
-                                                    //Do something when changing the item if you want.
-                                                  },
-                                                  onSaved: (value) {
-                                                    setState(() {
-                                                      selectSchool =
-                                                          value.toString();
-                                                      print(
-                                                          'home val $selectSchool');
-                                                    });
-                                                  },
+                        ),
+                        //SizedBox(height: 20),
+                        Expanded(
+                          flex: 3,
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                left: 8.0,
+                                top: MediaQuery.of(context).size.height * 0.022
+                            ),
+                            child: Row(
+                              //   crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Column(
+                                  // mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(name,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 16.0,
+                                                fontWeight: FontWeight.w500)),
+                                        const SizedBox(width: 10),
+                                        editProfile
+                                            ? Image.asset('assets/edit.png')
+                                            : Container()
+                                        //  Icon(Icons.edit, color: Colors.white, size: 18)
+                                      ],
+                                    ),
+                                    const SizedBox(height: 2),
+                                    editProfile
+                                        ? Container(
+                                            height: 30,
+                                            width: 150,
+                                            alignment: Alignment.center,
+                                            child: Form(
+                                              key: _selectSchoolFormKey,
+                                              child: DropdownButtonFormField2(
+                                                buttonPadding:
+                                                    const EdgeInsets.all(0.0),
+                                                //  alignment: Alignment.center,
+                                                //  buttonWidth: 50,
+                                                decoration: InputDecoration(
+                                                  contentPadding: const EdgeInsets.only(left: 10.0),
+                                                  isDense: true,
+                                                  filled: true,
+                                                  fillColor:
+                                                      const Color(0xFF111111),
+                                                  floatingLabelBehavior:
+                                                      FloatingLabelBehavior
+                                                          .never,
+                                                  labelStyle: const TextStyle(
+                                                      color:
+                                                          Color(0xFFBABABA)),
+                                                  enabledBorder:
+                                                      myinputborder(),
+                                                  focusedBorder:
+                                                      myfocusborder(),
+                                                ),
+                                                hint: const Text(
+                                                  'Select School',
+                                                  style: TextStyle(
+                                                      fontSize: 12,
+                                                      color:
+                                                          Color(0xFFBABABA)),
+                                                ),
+                                                icon: const Icon(
+                                                  Icons.arrow_drop_down,
+                                                  color: Colors.grey,
+                                                ),
+                                                iconSize: 30,
+                                                buttonHeight: 80,
+                                                dropdownDecoration:
+                                                    BoxDecoration(
+                                                  color: const Color(0xFF111111),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10),
+                                                ),
+                                                items: schoolList
+                                                    .map((item) =>
+                                                        DropdownMenuItem<
+                                                            String>(
+                                                          value: item,
+                                                          child: Text(
+                                                            item,
+                                                            style: const TextStyle(
+                                                                fontSize: 12,
+                                                                color: Colors.white),
+                                                          ),
+                                                        ))
+                                                    .toList(),
+                                                validator: (value) {
+                                                  if (value == null) {
+                                                    return 'Select School';
+                                                  }
+                                                  return null;
+                                                },
+                                                onChanged: (value) {
+                                                  setState(() {
+                                                    selectSchool =
+                                                        value.toString();
+                                                    print(
+                                                        'home onchange $selectSchool');
+                                                  });
+                                                  //Do something when changing the item if you want.
+                                                },
+                                                onSaved: (value) {
+                                                  setState(() {
+                                                    selectSchool =
+                                                        value.toString();
+                                                    print(
+                                                        'home val $selectSchool');
+                                                  });
+                                                },
+                                              ),
+                                            ),
+                                          )
+                                        : Text(selectSchool.toString(),
+                                            style: const TextStyle(
+                                                color: Color(0xFF686868), fontWeight: FontWeight.w500)),
+                                    const SizedBox(height: 6),
+                                    !editProfile
+                                        ? Row(
+                                            children: [
+                                              InkWell(
+                                                onTap: () {
+                                                  Navigator.push(context, MaterialPageRoute(builder: (_) => const CTP26_1()));
+                                                },
+                                                child: Row(
+                                                  children: const [
+                                                    Text('800',
+                                                        style: TextStyle(
+                                                            fontSize: 16.0,
+                                                            color:
+                                                                Colors.white)),
+                                                    SizedBox(width: 4),
+                                                    Text(
+                                                      'Followers',
+                                                      style: TextStyle(
+                                                          color:
+                                                              Color(0xFF686868),
+                                                          fontSize: 12.0),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
-                                            )
-                                          : Text(selectSchool.toString(),
-                                              style: const TextStyle(
-                                                  color: Color(0xFF686868), fontWeight: FontWeight.w500)),
-                                      const SizedBox(height: 6),
-                                      !editProfile
-                                          ? Row(
-                                              children: [
-                                                InkWell(
-                                                  onTap: () {
-                                                    Navigator.push(context, MaterialPageRoute(builder: (_) => const CTP26_1()));
-                                                  },
-                                                  child: Row(
-                                                    children: const [
-                                                      Text('800',
-                                                          style: TextStyle(
-                                                              fontSize: 16.0,
-                                                              color:
-                                                                  Colors.white)),
-                                                      SizedBox(width: 4),
-                                                      Text(
-                                                        'Followers',
+                                              const SizedBox(width: 16),
+                                              InkWell(
+                                                onTap: () {
+                                                  Navigator.push(context, MaterialPageRoute(builder: (_) => const CTP26_1()));
+                                                },
+                                                child: Row(
+                                                  children: const [
+                                                    Text('600',
                                                         style: TextStyle(
+                                                            fontSize: 16.0,
                                                             color:
-                                                                Color(0xFF686868),
-                                                            fontSize: 12.0),
-                                                      ),
-                                                    ],
-                                                  ),
+                                                                Colors.white)),
+                                                    SizedBox(width: 4),
+                                                    Text('Following',
+                                                        style: TextStyle(
+                                                            color: Color(
+                                                                0xFF686868),
+                                                            fontSize: 12.0)),
+                                                  ],
                                                 ),
-                                                const SizedBox(width: 16),
-                                                InkWell(
-                                                  onTap: () {
-                                                    Navigator.push(context, MaterialPageRoute(builder: (_) => const CTP26_1()));
-                                                  },
-                                                  child: Row(
-                                                    children: const [
-                                                      Text('600',
-                                                          style: TextStyle(
-                                                              fontSize: 16.0,
-                                                              color:
-                                                                  Colors.white)),
-                                                      SizedBox(width: 4),
-                                                      Text('Following',
-                                                          style: TextStyle(
-                                                              color: Color(
-                                                                  0xFF686868),
-                                                              fontSize: 12.0)),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            )
-                                          : Container()
-                                    ],
-                                  ),
-                                  const Spacer(),
-                                  InkWell(
-                                    onTap: () {
-                                      print('edit');
-                                      setState(() {
-                                        editProfile = !editProfile;
+                                              ),
+                                            ],
+                                          )
+                                        : Container()
+                                  ],
+                                ),
+                                const Spacer(),
+                                InkWell(
+                                  onTap: () {
+                                    print('edit');
+                                    setState(() {
+                                      editProfile = !editProfile;
 
-                                      });
-                                    },
-                                    child: editProfile
-                                        ? Padding(
-                                          padding: const EdgeInsets.only(right: 6.0),
-                                          child: Container(
-                                              height: 30,
-                                              width: 78,
-                                              alignment: Alignment.center,
-                                              decoration: BoxDecoration(
-                                                  borderRadius: const BorderRadius.all(
-                                                      Radius.circular(10)),
-                                                  border: Border.all(
-                                                      color: const Color(0xFF1F6DE2),
-                                                      width: 1.5)),
-                                              child: const Text('Save',
-                                                  style: TextStyle(
-                                                      color: Color(0xFF1F6DE2),
-                                                      fontWeight: FontWeight.w500,
-                                                      fontSize: 13.0)),
-                                            ),
-                                        )
-                                        : Padding(
-                                          padding: const EdgeInsets.only(right: 6.0),
-                                          child: Container(
-                                              height: 30,
-                                              width: 78,
-                                              alignment: Alignment.center,
-                                              decoration: BoxDecoration(
-                                                  borderRadius: const BorderRadius.all(
-                                                      Radius.circular(10)),
-                                                  border: Border.all(
-                                                      color: const Color(0xFF686868),
-                                                      width: 1.5)),
-                                              child: const Text('Edit Profile',
-                                                  style: TextStyle(
-                                                      color: Color(0xFF686868),
-                                                      fontWeight: FontWeight.w500,
-                                                      fontSize: 13.0)),
-                                            ),
-                                        ),
-                                  )
-                                ],
-                              ),
+                                    });
+                                  },
+                                  child: editProfile
+                                      ? Padding(
+                                        padding: const EdgeInsets.only(right: 6.0),
+                                        child: Container(
+                                            height: 30,
+                                            width: 78,
+                                            alignment: Alignment.center,
+                                            decoration: BoxDecoration(
+                                                borderRadius: const BorderRadius.all(
+                                                    Radius.circular(10)),
+                                                border: Border.all(
+                                                    color: const Color(0xFF1F6DE2),
+                                                    width: 1.5)),
+                                            child: const Text('Save',
+                                                style: TextStyle(
+                                                    color: Color(0xFF1F6DE2),
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 13.0)),
+                                          ),
+                                      )
+                                      : Padding(
+                                        padding: const EdgeInsets.only(right: 6.0),
+                                        child: Container(
+                                            height: 30,
+                                            width: 78,
+                                            alignment: Alignment.center,
+                                            decoration: BoxDecoration(
+                                                borderRadius: const BorderRadius.all(
+                                                    Radius.circular(10)),
+                                                border: Border.all(
+                                                    color: const Color(0xFF686868),
+                                                    width: 1.5)),
+                                            child: const Text('Edit Profile',
+                                                style: TextStyle(
+                                                    color: Color(0xFF686868),
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 13.0)),
+                                          ),
+                                      ),
+                                )
+                              ],
                             ),
-                          )
-                        ],
-                      ),
+                          ),
+                        )
+                      ],
                     ),
                   ),
                 ),
